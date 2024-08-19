@@ -11,11 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
                     <h3 class="book-title">${livro.title}</h3>
                 `;
-                bookItem.onclick = () => showDetails(livro.id);
+                bookItem.onclick = () => {
+                    showDetails(livro.id);
+                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+                };
                 bookList.appendChild(bookItem);
             });
         })
         .catch(error => console.error('Erro ao carregar livros:', error));
+
+    // Captura o evento de voltar do navegador/celular
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.page === 'details') {
+            showDetails(event.state.bookId);
+        } else {
+            hideDetails(); // Volta para a lista de livros
+        }
+    });
 });
 
 function showDetails(bookId) {
@@ -50,6 +62,7 @@ function showDetails(bookId) {
 function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
+    history.pushState({page: 'list'}, 'Book List', '?'); // Atualiza o histórico ao voltar para a lista
 }
 
 function filterBooks() {
