@@ -29,6 +29,26 @@
             "synopsis": "Depois de férias aborrecidas na casa dos tios trouxas, está na hora de Harry Potter voltar a estudar. Coisas acontecem, no entanto, para dificultar o regresso de Harry. Persistente e astuto, o herói não se deixa intimidar pelos obstáculos e, com a ajuda dos fiéis amigos Weasley, começa o ano letivo na Escola de Magia e Bruxaria de Hogwarts. As novidades não são poucas. Novos colegas, novos professores, muitas e boas descobertas e um grande e perigosos desafio. Alguém ou alguma coisa ameaça a segurança e a tranquilidade dos membros de Hogwarts.",
             "pdf": "https://aventurasolimpians.wordpress.com/wp-content/uploads/2013/10/j-k-rowling-2-harry-potter-e-a-cc3a2mara-secreta-revisado.pdf",
             "genre": "Fantasia"
+        },
+        {
+            "id": "livro4",
+            "title": "It: A Coisa",
+            "image": "https://i.imgur.com/6MYclZo.png",
+            "author": "Stephen King",
+            "year": "1986",
+            "synopsis": "Durante as férias de 1958, em uma pacata cidadezinha chamada Derry, um grupo de sete amigos começa a ver coisas estranhas. Um deles conta que viu um palhaço, outro, uma múmia. Finalmente, acabam descobrindo que estavam todos vendo a mesma coisa: um ser sobrenatural e maligno que pode assumir várias formas. Assim, Bill, Beverly, Eddie, Ben, Richie, Mike e Stan enfrentam a Coisa pela primeira vez./n/Quase trinta anos depois, o grupo volta a se encontrar. Mike, o único que permaneceu em Derry, dá o sinal ― uma nova onda de terror tomou a pequena cidade. É preciso unir forças novamente. Só eles têm a chave do enigma. Só eles sabem o que se esconde nas entranhas de Derry. Só eles podem vencer a Coisa.",
+            "pdf": "https://kbook.com.br/wp-content/uploads/2016/08/It_-A-coisa-Stephen-King.pdf",
+            "genre": "Terror"
+        },
+        {
+            "id": "livro5",
+            "title": "Harry Potter e o Prisioneiro de Azkaban",
+            "image": "https://i.imgur.com/SbPIEzc.png",
+            "author": "J.K. Rowling",
+            "year": "1999",
+            "synopsis": "As aulas estão de volta à Hogwarts e Harry Potter não vê a hora de embarcar no expresso a vapor que o levará de volta à escola de bruxaria. Mais uma vez suas férias na rua dos Alfeneiros foi triste e solitária. Com muita ação, humor e magia, 'Harry Potter e o prisioneiro de Azkaban' traz de volta o gigante atrapalhado Rúbeo Hagrid, o sábio diretor Alvo Dumbledore, a exigente professora de transformação Minerva MacGonagall e o novo mestre Lupin, que guarda grandes surpresas para Harry.",
+            "pdf": "https://aventurasolimpians.wordpress.com/wp-content/uploads/2013/10/j-k-rowling-3-harry-potter-e-o-prisioneiro-de-azkaban.pdf",
+            "genre": "Fantasia"
         }
     ]
 }
