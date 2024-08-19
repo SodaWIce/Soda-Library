@@ -171,6 +171,10 @@ header {
 
     .book-full {
         max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
+        
+    .book-details {
+        font-size: 1.2em;   
+        }
     }
 
     .download-link, .back-button {
