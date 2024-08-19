@@ -3,21 +3,21 @@
         {
             "id": "livro1",
             "title": "O Morro dos Ventos Uivantes",
-            "image": "https://i.imgur.com/QLJS91k.png",
+            "image": "https://i.imgur.com/Sf4SbxB.png",
             "author": "Emily Brontë",
             "year": "1847",
             "synopsis": "Único romance da escritora inglesa Emily Brontë, O morro dos ventos uivantes retrata uma trágica história de amor e obsessão em que os personagens principais são a obstinada e geniosa Catherine Earnshaw e seu irmão adotivo, Heathcliff. Grosseiro, humilhado e rejeitado, ele guarda apenas rancor no coração, mas tem com Catherine um relacionamento marcado por amor e ódio.",
-            "pdf": "#",
+            "pdf": "https://drive.google.com/uc?export=download&id=1lwqJOfsEk7QDkeSl967BD1mPwFlDEIBn",
             "genre": "Romance"
         },
         {
             "id": "livro2",
-            "title": "Livro 2",
-            "image": "https://via.placeholder.com/300",
-            "author": "Autor 2",
-            "year": "2023",
-            "synopsis": "Sinopse do Livro 2.",
-            "pdf": "#",
+            "title": "Harry Potter e A Pedra Filosofal",
+            "image": "https://i.imgur.com/5JPOxZh.png",
+            "author": "J.K. Rowling",
+            "year": "1997",
+            "synopsis": "Harry Potter é um garoto cujos pais, feiticeiros, foram assassinados por um poderosíssimo bruxo quando ele ainda era um bebê. Ele foi levado, então, para a casa dos tios que nada tinham a ver com o sobrenatural. Pelo contrário. Até os 10 anos, Harry foi uma espécie de gata borralheira: maltratado pelos tios, herdava roupas velhas do primo gorducho, tinha óculos remendados e era tratado como um estorvo. No dia de seu aniversário de 11 anos, entretanto, ele parece deslizar por um buraco sem fundo, como o de Alice no país das maravilhas, que o conduz a um mundo mágico. Descobre sua verdadeira história e seu destino: ser um aprendiz de feiticeiro até o dia em que terá que enfrentar a pior força do mal, o homem que assassinou seus pais. O menino de olhos verde, magricela e desengonçado, tão habituado à rejeição, descobre, também, que é um herói no universo dos magos. Potter fica sabendo que é a única pessoa a ter sobrevivido a um ataque do tal bruxo do mal e essa é a causa da marca em forma de raio que ele carrega na testa. Ele não é um garoto qualquer, ele sequer é um feiticeiro qualquer ele é Harry Potter, símbolo de poder, resistência e um líder natural entre os sobrenaturais. A fábula, recheada de fantasmas, paredes que falam, caldeirões, sapos, unicórnios, dragões e gigantes, não é, entretanto, apenas um passatempo..",
+            "pdf": "https://aventurasolimpians.wordpress.com/wp-content/uploads/2013/10/j-k-rowling-1-harry-potter-e-a-pedra-filosofal.pdf",
             "genre": "Mistério"
         },
         {
@@ -37,6 +37,16 @@
             "author": "Autor 4",
             "year": "2021",
             "synopsis": "Sinopse do Livro 4.",
+            "pdf": "#",
+            "genre": "Fantasia"
+        },
+        {
+            "id": "livro5",
+            "title": "Livro 5",
+            "image": "https://via.placeholder.com/300",
+            "author": "Autor 5",
+            "year": "2021",
+            "synopsis": "Sinopse do Livro 5.",
             "pdf": "#",
             "genre": "Fantasia"
         }
