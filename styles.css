@@ -215,7 +215,7 @@ header {
 /* Garantia de pelo menos 2 colunas em dispositivos menores */
 @media (max-width: 1024px) {
     .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Garante pelo menos 2 colunas */
+        grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); /* Garante pelo menos 2 colunas */
         gap: 1em; /* Espaço entre os itens da lista */
     }
 }
