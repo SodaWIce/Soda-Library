@@ -170,7 +170,7 @@ header {
     }
 
     .book-full {
-        max-width: 40%; /* Reduz o tamanho das imagens do *book full* no PC */
+        max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
     }
 
     .download-link, .back-button {
