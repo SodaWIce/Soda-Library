@@ -200,7 +200,7 @@ header {
 
     .book-details {
         font-size: 1.5em;
-        margin: 0 20px; /* Adiciona margens laterais */
+        margin: 0 20px 20px 20px; /* Adiciona margens laterais e inferior */
         max-width: 1200px; /* Define a largura máxima para centralizar o conteúdo */
         margin-left: auto;
         margin-right: auto; /* Centraliza o conteúdo horizontalmente */
@@ -215,7 +215,7 @@ header {
 /* Garantia de pelo menos 2 colunas em dispositivos menores */
 @media (max-width: 1024px) {
     .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Garante pelo menos 2 colunas */
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); /* Garante pelo menos 2 colunas */
         gap: 1em; /* Espaço entre os itens da lista */
     }
 }
