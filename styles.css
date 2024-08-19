@@ -10,6 +10,7 @@ body {
 }
 
 header {
+    font-family: 'Lato', sans-serif;
     background-color: #111111; /* Fundo preto para o cabeçalho */
     color: #ffffff; /* Cor do texto no cabeçalho */
     padding: 1em;
