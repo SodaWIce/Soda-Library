@@ -22,32 +22,12 @@
         },
         {
             "id": "livro3",
-            "title": "Livro 3",
-            "image": "https://via.placeholder.com/300",
-            "author": "Autor 3",
-            "year": "2022",
-            "synopsis": "Sinopse do Livro 3.",
-            "pdf": "#",
-            "genre": "Ficção"
-        },
-        {
-            "id": "livro4",
-            "title": "Livro 4",
-            "image": "https://via.placeholder.com/300",
-            "author": "Autor 4",
-            "year": "2021",
-            "synopsis": "Sinopse do Livro 4.",
-            "pdf": "#",
-            "genre": "Mistério"
-        },
-        {
-            "id": "livro5",
-            "title": "Livro 5",
-            "image": "https://via.placeholder.com/300",
-            "author": "Autor 5",
-            "year": "2021",
-            "synopsis": "Sinopse do Livro 5.",
-            "pdf": "#",
+            "title": "Harry Potter e a Câmara Secreta",
+            "image": "https://i.imgur.com/4rmLBhL.png",
+            "author": "J.K Rowling",
+            "year": "1998",
+            "synopsis": "Depois de férias aborrecidas na casa dos tios trouxas, está na hora de Harry Potter voltar a estudar. Coisas acontecem, no entanto, para dificultar o regresso de Harry. Persistente e astuto, o herói não se deixa intimidar pelos obstáculos e, com a ajuda dos fiéis amigos Weasley, começa o ano letivo na Escola de Magia e Bruxaria de Hogwarts. As novidades não são poucas. Novos colegas, novos professores, muitas e boas descobertas e um grande e perigosos desafio. Alguém ou alguma coisa ameaça a segurança e a tranquilidade dos membros de Hogwarts.",
+            "pdf": "https://aventurasolimpians.wordpress.com/wp-content/uploads/2013/10/j-k-rowling-2-harry-potter-e-a-cc3a2mara-secreta-revisado.pdf",
             "genre": "Fantasia"
         }
     ]
