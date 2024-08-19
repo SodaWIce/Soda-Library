@@ -171,16 +171,16 @@ header {
 
     .book-full {
         max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
-        
-    .book-details {
-        font-size: 1.2em;   
-        }
     }
 
     .download-link, .back-button {
         width: 200px; /* Ajusta a largura dos botões no PC */
         padding: 1em; /* Aumenta o padding dos botões para uma tela maior */
         font-size: 1.2em; /* Aumenta o tamanho do texto dos botões */
+        
+    .book-details {
+        font-size: 1.2em;   
+        }
     }
 
     .search-bar input[type="text"], .search-bar select {

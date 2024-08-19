@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data.books.forEach(livro => {
                 const bookItem = document.createElement('div');
                 bookItem.classList.add('book-item');
-                bookItem.setAttribute('data-genre', livro.genre);
+                bookItem.setAttribute('data-genre', livro.genre.toLowerCase()); // Convertendo gênero para minúsculas
                 bookItem.innerHTML = `
                     <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
                     <h3 class="book-title">${livro.title}</h3>
@@ -72,7 +72,20 @@ function filterBooks() {
 
     Array.from(books).forEach(book => {
         const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        const genre = book.getAttribute('data-genre').toLowerCase();
-        book.style.display = (title.includes(input) || input === '') && (genre.includes(genreFilter) || genreFilter === '') ? '' : 'none';
+        const genre = book.getAttribute('data-genre'); // O gênero já está em minúsculas
+
+        // Verifica o filtro de gênero
+        let showBook = true;
+        if (genreFilter && genreFilter !== 'todos os gêneros' && genre !== genreFilter) {
+            showBook = false;
+        }
+
+        // Verifica o filtro de título
+        if (input && !title.includes(input)) {
+            showBook = false;
+        }
+
+        // Atualiza a visibilidade do livro com base nas condições acima
+        book.style.display = showBook ? '' : 'none';
     });
 }
