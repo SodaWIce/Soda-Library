@@ -217,5 +217,18 @@ header {
     .book-list {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Garante pelo menos 2 colunas */
         gap: 1em; /* Espaço entre os itens da lista */
+        
+        /* Ajustes específicos para iPad em landscape (1024px) */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .book-details {
+        font-size: 1.1em; /* Reduz o tamanho do texto para caber melhor na tela */
+        margin: 0 10px 20px 10px; /* Ajusta as margens laterais */
+        max-width: 900px; /* Ajusta a largura máxima */
+    }
+
+    .download-link, .back-button {
+        width: 150px; /* Reduz a largura dos botões */
+        padding: 0.8em; /* Mantém o padding dos botões */
+        font-size: 1em; /* Ajusta o tamanho do texto dos botões */
     }
 }
