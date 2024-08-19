@@ -177,10 +177,14 @@ header {
         width: 200px; /* Ajusta a largura dos botões no PC */
         padding: 1em; /* Aumenta o padding dos botões para uma tela maior */
         font-size: 1.2em; /* Aumenta o tamanho do texto dos botões */
-        
+    }
+
     .book-details {
-        font-size: 1.2em;   
-        }
+        font-size: 1.5em;
+        margin: 0 20px; /* Adiciona margens laterais */
+        max-width: 1200px; /* Define a largura máxima para centralizar o conteúdo */
+        margin-left: auto;
+        margin-right: auto; /* Centraliza o conteúdo horizontalmente */
     }
 
     .search-bar input[type="text"], .search-bar select {
