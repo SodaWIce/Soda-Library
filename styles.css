@@ -152,3 +152,35 @@ header {
 .back-button:focus {
     border-color: #0047AB; /* Cor da borda quando o botão está em foco */
 }
+
+/* Personalizações para visualização no PC */
+@media (min-width: 1024px) {
+    .search-bar {
+        max-width: 800px; /* Aumenta a largura das barras de pesquisa no PC */
+    }
+
+    .book-list {
+        grid-template-columns: repeat(4, 1fr); /* Exibe 4 colunas no PC */
+        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
+    }
+
+    .book-item {
+        font-size: 1.2em; /* Aumenta o tamanho do texto dos itens */
+        padding: 1em; /* Ajusta o padding dos itens para melhor visualização */
+    }
+
+    .book-full {
+        max-width: 40%; /* Reduz o tamanho das imagens do *book full* no PC */
+    }
+
+    .download-link, .back-button {
+        width: 200px; /* Ajusta a largura dos botões no PC */
+        padding: 1em; /* Aumenta o padding dos botões para uma tela maior */
+        font-size: 1.2em; /* Aumenta o tamanho do texto dos botões */
+    }
+
+    .search-bar input[type="text"], .search-bar select {
+        font-size: 1.2em; /* Aumenta o tamanho do texto na barra de pesquisa e filtro */
+        padding: 1em; /* Aumenta o padding dos campos */
+    }
+}
