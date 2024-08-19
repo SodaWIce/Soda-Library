@@ -1,0 +1,44 @@
+{
+    "books": [
+        {
+            "id": "livro1",
+            "title": "O Morro dos Ventos Uivantes",
+            "image": "https://i.imgur.com/QLJS91k.png",
+            "author": "Emily Brontë",
+            "year": "1847",
+            "synopsis": "Único romance da escritora inglesa Emily Brontë, O morro dos ventos uivantes retrata uma trágica história de amor e obsessão em que os personagens principais são a obstinada e geniosa Catherine Earnshaw e seu irmão adotivo, Heathcliff. Grosseiro, humilhado e rejeitado, ele guarda apenas rancor no coração, mas tem com Catherine um relacionamento marcado por amor e ódio.",
+            "pdf": "#",
+            "genre": "Romance"
+        },
+        {
+            "id": "livro2",
+            "title": "Livro 2",
+            "image": "https://via.placeholder.com/300",
+            "author": "Autor 2",
+            "year": "2023",
+            "synopsis": "Sinopse do Livro 2.",
+            "pdf": "#",
+            "genre": "Mistério"
+        },
+        {
+            "id": "livro3",
+            "title": "Livro 3",
+            "image": "https://via.placeholder.com/300",
+            "author": "Autor 3",
+            "year": "2022",
+            "synopsis": "Sinopse do Livro 3.",
+            "pdf": "#",
+            "genre": "Ficção"
+        },
+        {
+            "id": "livro4",
+            "title": "Livro 4",
+            "image": "https://via.placeholder.com/300",
+            "author": "Autor 4",
+            "year": "2021",
+            "synopsis": "Sinopse do Livro 4.",
+            "pdf": "#",
+            "genre": "Fantasia"
+        }
+    ]
+}

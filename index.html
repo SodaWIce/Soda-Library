@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Virtual</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Biblioteca Virtual</h1>
+    </header>
+    <div id="mainContent">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
+            <select id="genreFilter" onchange="filterBooks()">
+                <option value="">Todos os Gêneros</option>
+                <option value="Ficção">Ficção</option>
+                <option value="Mistério">Mistério</option>
+                <option value="Romance">Romance</option>
+                <option value="Fantasia">Fantasia</option>
+                <option value="Ciência">Ciência</option>
+            </select>
+        </div>
+        <div class="book-list" id="bookList">
+            <!-- Os itens de livros serão adicionados aqui pelo JavaScript -->
+        </div>
+    </div>
+
+    <div id="details" class="book-details" style="display: none;">
+        <button class="back-button" onclick="hideDetails()">Voltar</button>
+        <div id="detailsContent">
+            <!-- Os detalhes do livro serão preenchidos aqui pelo JavaScript -->
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
