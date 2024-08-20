@@ -192,6 +192,14 @@ header {
 .report-button:focus {
     border-color: #0047AB; /* Cor da borda quando o botão está em foco */
 }
+
+.report-button:disabled {
+    background-color: #333333; /* Cor de fundo cinza escuro */
+    color: #ffffff; /* Cor do texto branco */
+    border: none; /* Remove a borda */
+    cursor: not-allowed; /* Indicador de que o botão não está clicável */
+    pointer-events: none; /* Desativa a interação */
+}
     
     /* Personalizações para visualização no PC */
 @media (min-width: 1024px) {

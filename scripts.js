@@ -104,7 +104,11 @@ document.getElementById('reportButton').addEventListener('click', function() {
         mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
     })
     .then(response => {
-        console.log('Dados enviados com sucesso.');
+        console.log('Dados enviados com sucesso..');
+        // Desativa o botão após o envio e muda o texto
+        const reportButton = document.getElementById('reportButton');
+        reportButton.disabled = true;
+        reportButton.textContent = "Avisado!";
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
