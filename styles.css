@@ -182,8 +182,17 @@ header {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
         gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
     }
-    .book-title {
-        font-size: 5emm
+    
+    .book-item {
+    background: #111111; /* Fundo escuro para os itens da lista */
+    border: 0px solid #333333; /* Borda escura para combinar com o fundo */
+    border-radius: 30px;
+    padding: 1em;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff; /* Cor do texto dos itens */
+    outline: none; /* Remove a borda padrão de foco */
+    transition: color 0.3s; /* Adiciona uma transição suave na cor do texto */
     }
     
     .book-full {
