@@ -102,10 +102,17 @@ document.getElementById('reportButton').addEventListener('click', function() {
     // Envia os dados para o Google Formulário
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
     })
     .then(response => {
-        console.log('Dados enviados com sucesso.');
+        if (response.ok) {
+            console.log('Dados enviados com sucesso.');
+        } else {
+            console.error('Erro na resposta:', response.statusText);
+        }
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
