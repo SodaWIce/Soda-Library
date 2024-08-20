@@ -182,6 +182,9 @@ header {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
         gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
     }
+    .book-title {
+        font-size: 5emm
+    }
     
     .book-full {
         max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
