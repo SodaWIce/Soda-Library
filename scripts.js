@@ -84,8 +84,8 @@ function hideDetails() {
 }
 
 document.getElementById('reportButton').addEventListener('click', function() {
-    // Obtém o título do livro
-    const bookTitle = document.querySelector('.book-title').textContent;
+    // Obtém o título do livro dentro da seção de detalhes
+    const bookTitle = document.querySelector('#details .book-title').textContent;
 
     // Cria um objeto FormData para enviar os dados
     const formData = new URLSearchParams();
