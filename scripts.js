@@ -84,21 +84,26 @@ function hideDetails() {
 }
 
 document.getElementById('reportButton').addEventListener('click', function() {
+    // Obtém a URL da imagem e o título do livro
     const bookImage = document.querySelector('.book-full').src;
     const bookTitle = document.querySelector('.book-title').textContent;
 
+    // Cria um objeto FormData para enviar os dados
     const formData = new URLSearchParams();
-    formData.append('entry.1901348521', bookTitle); // ID do campo do título
-    formData.append('entry.378438726', bookImage); // ID do campo da imagem
+    formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
+    formData.append('entry.378438726', bookImage); // Substitua com o ID do campo da imagem
 
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/viewform', { // Substitua pelo URL do Google Formulário
+    // Envia os dados para o Google Formulário
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
         method: 'POST',
         body: formData,
-        mode: 'no-cors'
-    }).then(() => {
+        mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
+    })
+    .then(response => {
         console.log('Dados enviados com sucesso.');
-    }).catch(error => {
-        console.error('Erro:', error);
+    })
+    .catch(error => {
+        console.error('Erro ao enviar dados:', error);
     });
 });
 
