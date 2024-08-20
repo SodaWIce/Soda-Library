@@ -80,14 +80,13 @@ header {
     font-size: 1em; /* Define o tamanho da fonte do texto dos itens */
 }
 
-/* Remove a borda de foco azul em dispositivos móveis */
-@media (pointer: coarse) { 
-    .book-item:focus {
-        outline: none;
-    }
+/* Remove a borda de foco azul */
+.book-item:focus {
+    outline: none;
 }
 
-.book-item:focus .book-title {
+.book-item:hover,
+.book-item:focus {
     color: #0047AB; /* Cor do título quando o item está em foco */
 }
 
@@ -96,11 +95,6 @@ header {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
-}
-
-.book-title {
-    margin: 0.5em 0;
-    font-size: 1em; /* Define o tamanho da fonte do título */
 }
 
 /* Restante do código CSS */
