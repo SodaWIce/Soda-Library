@@ -49,6 +49,46 @@
             "synopsis": "As aulas estão de volta à Hogwarts e Harry Potter não vê a hora de embarcar no expresso a vapor que o levará de volta à escola de bruxaria. Mais uma vez suas férias na rua dos Alfeneiros foi triste e solitária. Com muita ação, humor e magia, 'Harry Potter e o prisioneiro de Azkaban' traz de volta o gigante atrapalhado Rúbeo Hagrid, o sábio diretor Alvo Dumbledore, a exigente professora de transformação Minerva MacGonagall e o novo mestre Lupin, que guarda grandes surpresas para Harry.",
             "pdf": "https://aventurasolimpians.wordpress.com/wp-content/uploads/2013/10/j-k-rowling-3-harry-potter-e-o-prisioneiro-de-azkaban.pdf",
             "genre": "Fantasia"
+        },
+        {
+            "id": "livro6",
+            "title": "Harry Potter e o Cálice de Fogo",
+            "image": "https://i.imgur.com/oeZhmgm.png",
+            "author": "J.K. Rowling",
+            "year": "2000",
+            "synopsis": "Nesta aventura, o feiticeiro cresceu e está com 14 anos. O início do ano letivo de Harry Potter reserva muitas emoções, mágicas, e acontecimentos inesperados, além de um novo torneio em que os alunos de Hogwarts terão de demonstrar todas as habilidade mágicas e nãomágicas que vêm adquirindo ao longo de suas vidas. Harry é escolhido pelo Cálice de Fogo para competir como um dos campeões de Hogwarts, tendo ao lado seus fiéis amigos. Muitos desafios, feitiços, poções e confusões estão reservados para Harry. Além disso, ele terá que lidar ainda com os problemas comuns da adolescência amor, amizade, aceitação e rejeição.",
+            "pdf": "https://www.escolahenriquemedina.org/bibdigital/view/1508/Harry%20Potter%20e%20o%20Calice%20de%20Fogo%20-%20J.K.%20Rowling.pdf",
+            "genre": "Fantasia"
+        },
+        {
+            "id": "livro7",
+            "title": "Harry Potter e a Ordem da Fênix",
+            "image": "https://i.imgur.com/tRtkf4j.png",
+            "author": "J.K. Rowling",
+            "year": "2003",
+            "synopsis": "Harry não é mais um garoto. Aos 15 anos, continua sofrendo a rejeição dos Dursdley, sua estranha família no mundo dos 'trouxas'. Também continua contando com Rony Weasley e Hermione Granger, seus melhores amigos em Hogwarts, para levar adiante suas investigações e aventuras. Mas o bruxinho começa a sentir e descobrir coisas novas, como o primeiro amor e a sexualidade. Nos volumes anteriores, J. K. Rowling mostrou como Harry foi transformado em celebridade no mundo da magia por ter derrotado, ainda bebê, Voldemort, o todopoderoso bruxo das trevas que assassinou seus pais. Neste quinto livro da saga, o protagonista, numa crise típica da adolescência, tem ataques de mau humor com a perseguição da imprensa, que o segue por todos os lugares e chega a inventar declarações que nunca deu. Harry vai enfrentar as investidas de Voldemort sem a proteção de Dumbledore, já que o diretor de Hogwarts é afastado da escola. E vai ser sem a ajuda de seu protetor que o jovem herói enfrentará descobertas sobre a personalidade controversa de seu pai, Tiago Potter, e a morte de alguém muito próximo.",
+            "pdf": "https://www.escolahenriquemedina.org/bibdigital/download/1579/Harry%20Potter%20e%20a%20Ordem%20da%20Fenix%20-%20J.K.%20Rowling.pdf",
+            "genre": "Fantasia"
+        },
+        {
+            "id": "livro8",
+            "title": "Harry Potter e o Enigma do Príncipe",
+            "image": "https://i.imgur.com/gt22sQv.png",
+            "author": "J.K. Rowling",
+            "year": "2005",
+            "synopsis": "Harry Potter e o enigma do príncipe' dá continuidade à saga do jovem bruxo Harry Potter a partir do ponto em que o livro anterior parou o momento em que fica provado que o poder de Voldemort e dos Comensais da Morte, seus seguidores, cresce mais a cada dia, em meio à batalha entre o bem e o mal. A onda de terror provocada pelo Lorde das Trevas estaria afetando, até mesmo, o mundo dos trouxas (nãobruxos), e sendo agravada pela ação dos dementadores, criaturas mágicas aterrorizantes que 'sugam' a esperança e a felicidade das pessoas. Harry, que acabou de completar 16 anos, parte rumo ao sexto ano na Escola de Magia e Bruxaria de Hogwarts, animado e ao mesmo tempo apreensivo com a perspectiva de ter aulas particulares com o professor Dumbledore, o diretor da escola e o bruxo mais respeitado em toda comunidade mágica. Harry, longe de ser aquele menino magricela que vivia no quarto debaixo da escada na casa dos tios trouxas, é um dos principais nomes entre aqueles que lutam contra Voldemort, e se vê cada vez mais isolado à medida que os rumores de que ele é O Eleito o único capaz de derrotar o Lorde das Trevas, se espalham pelo mundo dos bruxos. Dois atentados contra a vida de estudantes, a certeza de Harry quanto ao envolvimento de Draco Malfoy com os Comensais da Morte e o comportamento de Snape, suspeito como sempre, adicionam ainda mais tensão ao já inquietante período. Apesar de tudo isso, Harry e os amigos são adolescentes típicos dividem tarefas escolares e dormitórios bagunçados, correm das aulas para os treinos de quadribol, e namoram.",
+            "pdf": "https://www.escolahenriquemedina.org/bibdigital/download/1509/Harry%20Potter%20e%20o%20Enigma%20do%20Prin%20-%20J.K.%20Rowling.pdf",
+            "genre": "Fantasia"
+        },
+        {
+            "id": "livro9",
+            "title": "Harry Potter e as Relíquias da Morte",
+            "image": "https://i.imgur.com/DCbyPkW.png",
+            "author": "J.K. Rowling",
+            "year": "2007",
+            "synopsis": "Harry Potter e as relíquias da morte', de J.K. Rowling, é o sétimo e último livro da série. Voldemorte está cada vez mais forte e Harry Potter precisa encontrar e aniquilar as Horcruxes para enfraquecer o lorde e poder enfrentálo. Nessa busca desenfreada, contando apenas com os amigos Rony e Hermione, Harry descobre as Relíquias da Morte, que serão úteis na batalha do bem contra o mal.",
+            "pdf": "https://drive.google.com/uc?export=download&id=1m_bTz1Zir_Zf878naYU-z8frYiwIboTJ",
+            "genre": "Fantasia"
         }
     ]
 }
