@@ -77,6 +77,7 @@ header {
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
     transition: color 0.3s; /* Adiciona uma transição suave na cor do texto */
+    font-size: 1em; /* Define o tamanho da fonte do texto dos itens */
 }
 
 /* Remove a borda de foco azul em dispositivos móveis */
@@ -99,6 +100,7 @@ header {
 
 .book-title {
     margin: 0.5em 0;
+    font-size: 1em; /* Define o tamanho da fonte do título */
 }
 
 /* Restante do código CSS */
@@ -184,15 +186,7 @@ header {
     }
     
     .book-item {
-    background: #111111; /* Fundo escuro para os itens da lista */
-    border: 0px solid #333333; /* Borda escura para combinar com o fundo */
-    border-radius: 30px;
-    padding: 1em;
-    text-align: center;
-    cursor: pointer;
-    color: #ffffff; /* Cor do texto dos itens */
-    outline: none; /* Remove a borda padrão de foco */
-    transition: color 0.3s; /* Adiciona uma transição suave na cor do texto */
+        font-size: 1em; /* Mantém o tamanho do texto dos itens consistente */
     }
     
     .book-full {
@@ -219,23 +213,25 @@ header {
     }
 }
 
-/* Garantia de pelo menos 2 colunas em dispositivos menores */
+/* Garantia de que o layout continua responsivo para telas menores */
 @media (max-width: 1024px) {
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Garante pelo menos 2 colunas */
-        gap: 1em; /* Espaço entre os itens da lista */
-        
-        /* Ajustes específicos para iPad em landscape (1024px) */
-@media (max-width: 1024px) and (orientation: landscape) {
     .book-details {
-        font-size: 1.1em; /* Reduz o tamanho do texto para caber melhor na tela */
-        margin: 0 10px 20px 10px; /* Ajusta as margens laterais */
-        max-width: 900px; /* Ajusta a largura máxima */
+        font-size: 1em; /* Ajusta o tamanho da fonte dos detalhes do livro em telas menores */
+        margin: 1em; /* Define margens menores para telas menores */
     }
-
+    
+    .book-full {
+        max-width: 40%; /* Ajusta a largura da imagem do livro para 100% em telas menores */
+    }
+    
     .download-link, .back-button {
-        width: 150px; /* Reduz a largura dos botões */
-        padding: 0.8em; /* Mantém o padding dos botões */
-        font-size: 1em; /* Ajusta o tamanho do texto dos botões */
+        width: auto; /* Ajusta a largura dos botões para se adaptarem ao conteúdo em telas menores */
+        padding: 0.8em; /* Ajusta o padding dos botões */
+        font-size: 1em; /* Define um tamanho de fonte mais apropriado para telas menores */
     }
+}
+
+/* Ajusta o tamanho do texto dos itens de livro */
+.book-item {
+    font-size: 1em; /* Tamanho de fonte consistente para os itens da lista */
 }
