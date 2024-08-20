@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showDetails(bookId) {
+    window.scrollTo(0, 0);
+    
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
@@ -80,6 +82,25 @@ function hideDetails() {
     document.getElementById('details').style.display = 'none';
     history.pushState({page: 'list'}, 'Book List', '?');
 }
+
+document.getElementById('reportButton').addEventListener('click', function() {
+    const bookImage = document.querySelector('.book-full').src;
+    const bookTitle = document.querySelector('.book-title').textContent;
+
+    const formData = new URLSearchParams();
+    formData.append('entry.1901348521', bookTitle); // ID do campo do título
+    formData.append('entry.378438726', bookImage); // ID do campo da imagem
+
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/viewform', { // Substitua pelo URL do Google Formulário
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+    }).then(() => {
+        console.log('Dados enviados com sucesso.');
+    }).catch(error => {
+        console.error('Erro:', error);
+    });
+});
 
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();

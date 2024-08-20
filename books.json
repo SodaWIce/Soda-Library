@@ -1,6 +1,16 @@
 {
     "books": [
         {
+            "id": "livro10",
+            "title": "Misery",
+            "image": "https://i.imgur.com/oywiKTV.jpeg",
+            "author": "Stephen King",
+            "year": "1987",
+            "synopsis": "Paul Sheldon é um escritor famoso, reconhecido por uma série de best-sellers protagonizados pela mesma personagem: Misery Chastain. Annie Wilkes é uma enfermeira aposentada, leitora voraz e obcecada pela história de Misery. Quando Paul sofre um acidente de carro em uma nevasca, ele é resgatado justamente por Annie, e esse encontro entre fã e autor é o ponto de partida de uma das tramas mais aterrorizantes de Stephen King./n/Insatisfeita com o final do último livro da série, a fã isola o autor debilitado em um quarto em sua casa. Com torturas, ameaças e uma vigilância persistente, ela faz de tudo para obrigá-lo a reescrever a narrativa com o final que ela considera apropriado. Considerada uma das vilãs mais assustadoras e complexas do universo King e interpretada por Kathy Bates no filme que se tornou um clássico, Annie Wilkes é a figura que faz de Misery um livro essencial.",
+            "pdf": "https://kbook.com.br/wp-content/uploads/2016/08/Misery_-louca-obsessao-Stephen-King.pdf",
+            "genre": "Terror"
+        },
+        {
             "id": "livro1",
             "title": "O Morro dos Ventos Uivantes",
             "image": "https://i.imgur.com/XKCL3Vx.jpeg",
