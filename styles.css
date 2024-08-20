@@ -75,7 +75,6 @@ header {
     border-radius: 30px;
     padding: 1em;
     text-align: center;
-    cursor: pointer;
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
     transition: color 0.3s; /* Adiciona uma transição suave na cor do texto */
