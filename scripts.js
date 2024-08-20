@@ -84,8 +84,14 @@ function hideDetails() {
 }
 
 document.getElementById('reportButton').addEventListener('click', function() {
-    // Obtém o título do livro dentro da seção de detalhes
-    const bookTitle = document.querySelector('#details .book-title').textContent;
+    // Obtém o conteúdo do `detailsContent`
+    const detailsContent = document.getElementById('detailsContent').textContent;
+
+    // Procura a linha que contém o título usando "Título:"
+    const titleMatch = detailsContent.match(/Título:\s*(.+)/);
+
+    // Se encontrar o título, captura o texto correspondente
+    const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
 
     // Cria um objeto FormData para enviar os dados
     const formData = new URLSearchParams();
