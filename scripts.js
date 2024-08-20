@@ -85,7 +85,7 @@ function hideDetails() {
 
 document.getElementById('reportButton').addEventListener('click', function() {
     // Obtém o título do livro da seção de detalhes
-    const bookTitleElement = document.querySelector('.book-details .book-title');
+    const bookTitleElement = document.querySelector('#details .book-title');
     if (!bookTitleElement) {
         console.error('Elemento de título não encontrado.');
         return;
