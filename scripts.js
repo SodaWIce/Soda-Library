@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="book-title">${livro.title}</h3>
                 `;
 
-                // Define onde o clique deve ocorrer com base no dispositivo
                 if (isMobile) {
                     bookItem.onclick = () => {
                         showDetails(livro.id);
@@ -22,10 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                 } else {
                     const bookTitle = bookItem.querySelector('.book-title');
-                    bookTitle.onclick = () => {
+                    const bookThumbnail = bookItem.querySelector('.book-thumbnail');
+                    
+                    const handleClick = () => {
                         showDetails(livro.id);
                         history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
                     };
+
+                    bookTitle.onclick = handleClick;
+                    bookThumbnail.onclick = handleClick;
                 }
 
                 bookList.appendChild(bookItem);
