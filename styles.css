@@ -53,6 +53,7 @@ header {
     min-width: 120px; /* Define uma largura mínima para a barra de filtro */
 }
 
+.search-bar input[type="text"]:hover, .search-bar select:hover,
 .search-bar input[type="text"]:focus, .search-bar select:focus {
     border-color: #0047AB; /* Muda a cor da borda quando o elemento está em foco */
     outline: none; /* Remove a borda de foco padrão */
