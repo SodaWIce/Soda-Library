@@ -182,11 +182,7 @@ header {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
         gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
     }
-
-    .book-item {
-        padding: 1em; /* Ajusta o padding dos itens para melhor visualização */
-    }
-
+    
     .book-full {
         max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
     }
