@@ -89,6 +89,7 @@ header {
 
 .book-item:hover,
 .book-item:focus {
+    cursor: default;
     color: #0047AB; /* Cor do título quando o item está em foco */
 }
 
