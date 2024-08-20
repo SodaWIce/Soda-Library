@@ -212,26 +212,3 @@ header {
         padding: 1em; /* Aumenta o padding dos campos */
     }
 }
-
-/* Garantia de que o layout continua responsivo para telas menores */
-@media (max-width: 1024px) {
-    .book-details {
-        font-size: 1em; /* Ajusta o tamanho da fonte dos detalhes do livro em telas menores */
-        margin: 1em; /* Define margens menores para telas menores */
-    }
-    
-    .book-full {
-        max-width: 40%; /* Ajusta a largura da imagem do livro para 100% em telas menores */
-    }
-    
-    .download-link, .back-button {
-        width: auto; /* Ajusta a largura dos botões para se adaptarem ao conteúdo em telas menores */
-        padding: 0.8em; /* Ajusta o padding dos botões */
-        font-size: 1em; /* Define um tamanho de fonte mais apropriado para telas menores */
-    }
-}
-
-/* Ajusta o tamanho do texto dos itens de livro */
-.book-item {
-    font-size: 1em; /* Tamanho de fonte consistente para os itens da lista */
-}
