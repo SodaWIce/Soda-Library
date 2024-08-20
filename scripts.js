@@ -84,16 +84,8 @@ function hideDetails() {
 }
 
 document.getElementById('reportButton').addEventListener('click', function() {
-    // Obtém o título do livro da seção de detalhes
-    const bookTitleElement = document.querySelector('#details .book-title');
-    if (!bookTitleElement) {
-        console.error('Elemento de título não encontrado.');
-        return;
-    }
-    const bookTitle = bookTitleElement.textContent.trim();
-
-    // Verifica se o título foi obtido corretamente
-    console.log("Título do livro:", bookTitle);
+    // Obtém o título do livro
+    const bookTitle = document.querySelector('.book-title').textContent;
 
     // Cria um objeto FormData para enviar os dados
     const formData = new URLSearchParams();
@@ -103,16 +95,10 @@ document.getElementById('reportButton').addEventListener('click', function() {
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
         method: 'POST',
         body: formData,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
     })
     .then(response => {
-        if (response.ok) {
-            console.log('Dados enviados com sucesso.');
-        } else {
-            console.error('Erro na resposta:', response.statusText);
-        }
+        console.log('Dados enviados com sucesso.');
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
