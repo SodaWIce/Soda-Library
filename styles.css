@@ -69,6 +69,7 @@ header {
 }
 
 .book-item {
+    cursor: default;
     background: #111111; /* Fundo escuro para os itens da lista */
     border: 0px solid #333333; /* Borda escura para combinar com o fundo */
     border-radius: 30px;
@@ -91,7 +92,12 @@ header {
     color: #0047AB; /* Cor do título quando o item está em foco */
 }
 
+.book-title {
+    cursor: pointer;
+}
+
 .book-thumbnail {
+    cursor: pointer;
     width: 100px; /* Ajusta a largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
