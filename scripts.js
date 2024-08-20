@@ -84,14 +84,12 @@ function hideDetails() {
 }
 
 document.getElementById('reportButton').addEventListener('click', function() {
-    // Obtém a URL da imagem e o título do livro
-    const bookImage = document.querySelector('.book-full').src;
-    const bookTitle = document.querySelector('.book-title').textContent;
+    // Obtém o título do livro da seção de detalhes
+    const bookTitle = document.querySelector('#details .book-title').textContent;
 
     // Cria um objeto FormData para enviar os dados
     const formData = new URLSearchParams();
     formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
-    formData.append('entry.378438726', bookImage); // Substitua com o ID do campo da imagem
 
     // Envia os dados para o Google Formulário
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
