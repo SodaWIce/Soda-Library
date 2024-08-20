@@ -3,29 +3,41 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             const bookList = document.getElementById('bookList');
+            const isMobile = window.innerWidth < 768; // Detecta se é um dispositivo móvel
+
             data.books.forEach(livro => {
                 const bookItem = document.createElement('div');
                 bookItem.classList.add('book-item');
-                bookItem.setAttribute('data-genre', livro.genre.toLowerCase()); // Convertendo gênero para minúsculas
+                bookItem.setAttribute('data-genre', livro.genre.toLowerCase());
                 bookItem.innerHTML = `
                     <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
                     <h3 class="book-title">${livro.title}</h3>
                 `;
-                bookItem.onclick = () => {
-                    showDetails(livro.id);
-                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                };
+
+                // Define onde o clique deve ocorrer com base no dispositivo
+                if (isMobile) {
+                    bookItem.onclick = () => {
+                        showDetails(livro.id);
+                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+                    };
+                } else {
+                    const bookTitle = bookItem.querySelector('.book-title');
+                    bookTitle.onclick = () => {
+                        showDetails(livro.id);
+                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+                    };
+                }
+
                 bookList.appendChild(bookItem);
             });
         })
         .catch(error => console.error('Erro ao carregar livros:', error));
 
-    // Captura o evento de voltar do navegador/celular
     window.addEventListener('popstate', function(event) {
         if (event.state && event.state.page === 'details') {
             showDetails(event.state.bookId);
         } else {
-            hideDetails(); // Volta para a lista de livros
+            hideDetails();
         }
     });
 });
@@ -62,7 +74,7 @@ function showDetails(bookId) {
 function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
-    history.pushState({page: 'list'}, 'Book List', '?'); // Atualiza o histórico ao voltar para a lista
+    history.pushState({page: 'list'}, 'Book List', '?');
 }
 
 function filterBooks() {
@@ -72,20 +84,17 @@ function filterBooks() {
 
     Array.from(books).forEach(book => {
         const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        const genre = book.getAttribute('data-genre'); // O gênero já está em minúsculas
+        const genre = book.getAttribute('data-genre');
 
-        // Verifica o filtro de gênero
         let showBook = true;
         if (genreFilter && genreFilter !== 'todos os gêneros' && genre !== genreFilter) {
             showBook = false;
         }
 
-        // Verifica o filtro de título
         if (input && !title.includes(input)) {
             showBook = false;
         }
 
-        // Atualiza a visibilidade do livro com base nas condições acima
         book.style.display = showBook ? '' : 'none';
     });
 }
