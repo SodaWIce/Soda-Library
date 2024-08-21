@@ -214,6 +214,15 @@ header {
     }
 }    
 
+    /* Personalização para tablet portrait */
+@media (min-width: 1024px) and (orientation: portrait) {
+    .grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
+        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
+}
+    .book-item {
+        font-size: 0.6em;
+    }
+
     /* Personalizações para visualização no PC */
 @media (min-width: 1024px) {
     .search-bar {
