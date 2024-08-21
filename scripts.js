@@ -125,6 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+    const reportButton = document.getElementById('reportButton'); // ou document.querySelector('.report-button')
+    const backButton = document.getElementById('backButton'); // ou document.querySelector('.back-button')
+    const originalButtonText = reportButton.textContent;
+
     // Evento para resetar o botão quando o backButton é clicado
     backButton.addEventListener('click', function() {
         console.log('Back button clicked');
@@ -133,8 +138,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para resetar o botão reportButton
     function resetReportButton() {
-        reportButton.disabled = false;
-        reportButton.textContent = originalButtonText;
+        if (reportButton) {
+            reportButton.disabled = false;
+            reportButton.textContent = originalButtonText;
+        }
     }
 
     // Evento para lidar com navegação por histórico
