@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 bookItem.setAttribute('data-genre', livro.genre.toLowerCase());
                 bookItem.innerHTML = `
                     <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
-                    <h3 class="book-title">${livro.title}</h3>
+                    <h3 class="book-title"$translate="no">${livro.title}</h3>
                 `;
 
                 if (isMobile) {

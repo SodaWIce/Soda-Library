@@ -214,13 +214,6 @@ header {
     }
 }    
 
-  /* Personalização para tablet em modo landscape */
-@media (min-width: 1024px) and (orientation: landscape) {
-    .book-item {
-        font-size: 0.6em;
-    }
-}
-
     /* Personalização para tablet em modo retrato */
 @media (min-width: 1024px) and (orientation: portrait) {
     .grid-template-columns {
@@ -239,7 +232,7 @@ header {
 }
 
     .book-item {
-        font-size: 0.7em;
+        font-size: 0.65em;
     }
 
     .book-list {
