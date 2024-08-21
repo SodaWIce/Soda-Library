@@ -62,7 +62,7 @@ header {
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
-    row-gap: 1em;
+    row-gap: 0.8em;
     column-gap: 0.25em;
     padding: 1em;
     max-width: 1200px;
@@ -205,7 +205,7 @@ header {
     /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
-        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
+        font-size: 0.4em; /* Diminui o tamanho do texto quando em landscape */
     }
     
     .book-list {
