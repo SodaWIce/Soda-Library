@@ -128,9 +128,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Evento para resetar o botão quando o backButton é clicado
     backButton.addEventListener('click', function() {
         console.log('Back button clicked');
+        resetReportButton();
+    });
+
+    // Função para resetar o botão reportButton
+    function resetReportButton() {
         reportButton.disabled = false;
         reportButton.textContent = originalButtonText;
+    }
+
+    // Evento para lidar com navegação por histórico
+    window.addEventListener('popstate', function(event) {
+        if (!event.state || event.state.page === 'list') {
+            resetReportButton();
+        }
     });
+
+    // Reseta o botão se a página carregar na lista
+    if (window.location.search === '') {
+        resetReportButton();
+    }
 });
 
 function filterBooks() {
