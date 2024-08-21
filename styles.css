@@ -220,7 +220,7 @@ header {
         gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
 }
     .book-item {
-        font-size: 0.6em;
+        font-size: 0.7em;
     }
 
     /* Personalizações para visualização no PC */
