@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             reportButton.textContent = "Avisado!";
         } else {
             reportButton.disabled = false;
-            reportButton.textContent = "Reportar";
+            reportButton.textContent = "Link quebrado?";
         }
     }
 
