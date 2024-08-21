@@ -79,7 +79,7 @@ header {
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
     transition: color 0.2s; /* Adiciona uma transição suave na cor do texto */
-    font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
+    font-size: 0.7em; /* Define o tamanho da fonte do texto dos itens */
 }
 
 /* Remove a borda de foco azul */
@@ -205,7 +205,7 @@ header {
     /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
-        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
+        font-size: 0.4em; /* Diminui o tamanho do texto quando em landscape */
     }
     
     .book-list {
@@ -221,7 +221,7 @@ header {
 }
 
     .book-item {
-        font-size: 0.6em;
+        font-size: 0.7em;
     }
 
     .book-list {
