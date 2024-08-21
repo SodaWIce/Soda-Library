@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
             hideDetails();
         }
     });
+
+    // Chame a função para ajustar o tamanho da fonte do <select> ao carregar a página
+    resizeSelectToFit('genreFilter');
+    window.addEventListener('resize', () => resizeSelectToFit('genreFilter'));
+    document.getElementById('genreFilter').addEventListener('change', () => resizeSelectToFit('genreFilter'));
 });
 
 function showDetails(bookId) {
@@ -148,4 +153,37 @@ function filterBooks() {
 
         book.style.display = showBook ? '' : 'none';
     });
+}
+
+function resizeSelectToFit(selectId) {
+    const select = document.getElementById(selectId);
+    const options = Array.from(select.options);
+    
+    // Cria um elemento temporário para calcular a largura do texto
+    const tempSpan = document.createElement('span');
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.position = 'absolute';
+    tempSpan.style.whiteSpace = 'nowrap';
+    document.body.appendChild(tempSpan);
+
+    let maxWidth = 0;
+    options.forEach(option => {
+        tempSpan.textContent = option.textContent;
+        const width = tempSpan.offsetWidth;
+        if (width > maxWidth) {
+            maxWidth = width;
+        }
+    });
+
+    document.body.removeChild(tempSpan);
+
+    // Ajusta o tamanho da fonte para caber no seletor
+    const minFontSize = 10; // Defina o tamanho mínimo da fonte
+    let fontSize = parseFloat(window.getComputedStyle(select).fontSize);
+    select.style.fontSize = fontSize + 'px';
+    
+    while (select.scrollWidth > select.clientWidth && fontSize > minFontSize) {
+        fontSize -= 1;
+        select.style.fontSize = fontSize + 'px';
+    }
 }
