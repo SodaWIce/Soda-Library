@@ -83,45 +83,49 @@ function hideDetails() {
     history.pushState({page: 'list'}, 'Book List', '?');
 }
 
-const reportButton = document.getElementById('reportButton');
-const originalButtonText = reportButton.textContent;
+document.addEventListener('DOMContentLoaded', function() {
+    const reportButton = document.getElementById('reportButton');
+    const backButton = document.getElementById('backButton');
+    const originalButtonText = reportButton.textContent;
 
-// Evento para enviar dados quando o reportButton é clicado
-reportButton.addEventListener('click', function() {
-    // Obtém o conteúdo do `detailsContent`
-    const detailsContent = document.getElementById('detailsContent').textContent;
+    // Evento para enviar dados quando o reportButton é clicado
+    reportButton.addEventListener('click', function() {
+        // Obtém o conteúdo do `detailsContent`
+        const detailsContent = document.getElementById('detailsContent').textContent;
 
-    // Procura a linha que contém o título usando "Título:"
-    const titleMatch = detailsContent.match(/Título:\s*(.+)/);
+        // Procura a linha que contém o título usando "Título:"
+        const titleMatch = detailsContent.match(/Título:\s*(.+)/);
 
-    // Se encontrar o título, captura o texto correspondente
-    const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
+        // Se encontrar o título, captura o texto correspondente
+        const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
 
-    // Cria um objeto FormData para enviar os dados
-    const formData = new URLSearchParams();
-    formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
+        // Cria um objeto FormData para enviar os dados
+        const formData = new URLSearchParams();
+        formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
 
-    // Envia os dados para o Google Formulário
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
-    })
-    .then(response => {
-        console.log('Dados enviados com sucesso.');
-        // Desativa o botão após o envio e muda o texto
-        reportButton.disabled = true;
-        reportButton.textContent = "Avisado!";
-    })
-    .catch(error => {
-        console.error('Erro ao enviar dados:', error);
+        // Envia os dados para o Google Formulário
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
+        })
+        .then(response => {
+            console.log('Dados enviados com sucesso.');
+            // Desativa o botão após o envio e muda o texto
+            reportButton.disabled = true;
+            reportButton.textContent = "Avisado!";
+        })
+        .catch(error => {
+            console.error('Erro ao enviar dados:', error);
+        });
     });
-});
 
-// Evento para resetar o botão quando o backButton é clicado
-document.getElementById('backButton').addEventListener('click', function() {
-    reportButton.disabled = false;
-    reportButton.textContent = originalButtonText;
+    // Evento para resetar o botão quando o backButton é clicado
+    backButton.addEventListener('click', function() {
+        console.log('Back button clicked');
+        reportButton.disabled = false;
+        reportButton.textContent = originalButtonText;
+    });
 });
 
 function filterBooks() {
