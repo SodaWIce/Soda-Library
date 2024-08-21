@@ -61,48 +61,79 @@ header {
 
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
-    row-gap: 1em;
-    column-gap: 0.25em;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Mínimo de 3 colunas, ajusta conforme o espaço disponível */
+    row-gap: 1.5em; /* Aumenta o espaço entre as linhas para uma organização mais espaçosa */
+    column-gap: 1em; /* Espaço maior entre as colunas para melhor separação dos itens */
     padding: 1em;
-    max-width: 1200px;
+    max-width: 1400px; /* Aumenta o limite de largura para melhor distribuição em telas grandes */
     margin: auto;
 }
 
 .book-item {
-    cursor: default;
-    background: #111111; /* Fundo escuro para os itens da lista */
-    /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
+    background: #111111;
     border-radius: 10px;
-    padding: 1em;
+    padding: 1.5em; /* Espaçamento interno maior para melhor aparência dos itens */
     text-align: center;
-    color: #ffffff; /* Cor do texto dos itens */
-    outline: none; /* Remove a borda padrão de foco */
-    transition: color 0.2s; /* Adiciona uma transição suave na cor do texto */
-    font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
+    color: #ffffff;
+    transition: color 0.2s;
+    font-size: 0.9em; /* Tamanho de fonte ajustado para melhor legibilidade */
 }
 
-/* Remove a borda de foco azul */
 .book-item:focus {
     outline: none;
 }
 
 .book-item:hover,
 .book-item:focus {
-    cursor: default;
-    color: #0047AB; /* Cor do título quando o item está em foco */
+    color: #0047AB;
 }
 
 .book-title {
     cursor: pointer;
+    font-size: 1em; /* Tamanho de fonte para o título */
+    margin-top: 0.5em; /* Espaçamento entre a imagem e o título */
 }
 
 .book-thumbnail {
     cursor: pointer;
-    width: 80px; /* Ajusta a largura da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 auto; /* Centraliza a imagem */
+    width: 100px; /* Aumenta a largura da imagem */
+    height: auto;
+    margin: 0 auto;
     border-radius: 8px;
+}
+
+/* Configurações específicas para tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste para telas de tablet */
+        max-width: 1000px;
+    }
+
+    .book-item {
+        padding: 1.2em; /* Espaçamento um pouco menor em tablets */
+        font-size: 0.8em; /* Tamanho de fonte ajustado para tablets */
+    }
+
+    .book-thumbnail {
+        width: 90px; /* Imagem um pouco menor em tablets */
+    }
+}
+
+/* Configurações específicas para PC */
+@media screen and (min-width: 1025px) {
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Maior espaçamento e ajuste para PC */
+        max-width: 1400px;
+    }
+
+    .book-item {
+        padding: 2em; /* Espaçamento maior em PCs */
+        font-size: 1em; /* Fonte um pouco maior para melhor legibilidade */
+    }
+
+    .book-thumbnail {
+        width: 120px; /* Imagem maior em PCs */
+    }
 }
 
 /* Restante do código CSS */
@@ -200,44 +231,5 @@ header {
     border: none; /* Remove a borda */
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
     pointer-events: none; /* Desativa a interação */
-}
-
-    /* Estilos específicos para landscape */
-@media only screen and (orientation: landscape) {
-    .book-item {
-        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
-    }
-    
-    .book-list {
-        row-gap: 1em;
-        colunn-gap: 0.5em;
-    }
-}    
-
-    /* Personalizações para visualização no PC */
-@media (min-width: 1024px) {
-    .search-bar {
-        padding: 0 1em; /* Garante padding lateral adequado */
-}
-
-    .book-item {
-        font-size: 0.6em;
-    }
-
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
-        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
-}
-    
-    .book-full {
-        max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
-}
-
-    .book-details {
-        font-size: 1.3em;
-        margin: 0 20px 20px 20px; /* Adiciona margens laterais e inferior */
-        max-width: 1000px; /* Define a largura máxima para centralizar o conteúdo */
-        margin-left: auto;
-        margin-right: auto; /* Centraliza o conteúdo horizontalmente */
     }
 }
