@@ -63,7 +63,7 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
     row-gap: 1em;
-    column-gap: 0.5em;
+    column-gap: 0.25em;
     padding: 1em;
     max-width: 1200px;
     margin: auto;
@@ -207,7 +207,12 @@ header {
     .book-item {
         font-size: 0.6em; /* Diminui o tamanho do texto quando em landscape */
     }
-}
+    
+    .book-list {
+        row-gap: 1em;
+        colunn-gap: 0.5em;
+    }
+}    
 
     /* Personalizações para visualização no PC */
 @media (min-width: 1024px) {
