@@ -1,4 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const reportButton = document.getElementById('reportButton');
+    const backButton = document.getElementById('backButton');
+    const originalButtonText = reportButton.textContent;
+    
+    // Função para resetar o botão reportButton
+    function resetReportButton() {
+        if (reportButton) {
+            reportButton.disabled = false;
+            reportButton.textContent = originalButtonText;
+        }
+    }
+
+    // Evento para enviar dados quando o reportButton é clicado
+    reportButton.addEventListener('click', () => {
+        // Obtém o conteúdo do `detailsContent`
+        const detailsContent = document.getElementById('detailsContent').textContent;
+
+        // Procura a linha que contém o título usando "Título:"
+        const titleMatch = detailsContent.match(/Título:\s*(.+)/);
+        const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
+
+        // Cria um objeto FormData para enviar os dados
+        const formData = new URLSearchParams();
+        formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
+
+        // Envia os dados para o Google Formulário
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
+        })
+        .then(() => {
+            console.log('Dados enviados com sucesso.');
+            // Desativa o botão após o envio e muda o texto
+            reportButton.disabled = true;
+            reportButton.textContent = "Avisado!";
+        })
+        .catch(error => {
+            console.error('Erro ao enviar dados:', error);
+        });
+    });
+
+    // Evento para resetar o botão quando o backButton é clicado
+    backButton.addEventListener('click', () => {
+        console.log('Back button clicked');
+        resetReportButton();
+    });
+
+    // Evento para lidar com navegação por histórico
+    window.addEventListener('popstate', (event) => {
+        if (!event.state || event.state.page === 'list') {
+            resetReportButton();
+        }
+    });
+
+    // Reseta o botão se a página carregar na lista
+    if (window.location.search === '' || window.location.search === '?') {
+        resetReportButton();
+    }
+
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
@@ -11,23 +71,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 bookItem.setAttribute('data-genre', livro.genre.toLowerCase());
                 bookItem.innerHTML = `
                     <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
-                    <h3 class="book-title"translate="no">${livro.title}</h3>
+                    <h3 class="book-title" translate="no">${livro.title}</h3>
                 `;
 
+                const handleClick = () => {
+                    showDetails(livro.id);
+                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+                };
+
                 if (isMobile) {
-                    bookItem.onclick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
+                    bookItem.onclick = handleClick;
                 } else {
                     const bookTitle = bookItem.querySelector('.book-title');
                     const bookThumbnail = bookItem.querySelector('.book-thumbnail');
-                    
-                    const handleClick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
-
                     bookTitle.onclick = handleClick;
                     bookThumbnail.onclick = handleClick;
                 }
@@ -37,15 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Erro ao carregar livros:', error));
 
-    window.addEventListener('popstate', function(event) {
-        if (event.state && event.state.page === 'details') {
-            showDetails(event.state.bookId);
-        } else {
-            hideDetails();
-        }
-    });
-
-    // Chame a função para ajustar o tamanho da fonte do <select> ao carregar a página
+    // Ajusta o tamanho da fonte do <select> ao carregar a página
     resizeSelectToFit('genreFilter');
     window.addEventListener('resize', () => resizeSelectToFit('genreFilter'));
     document.getElementById('genreFilter').addEventListener('change', () => resizeSelectToFit('genreFilter'));
@@ -87,70 +135,6 @@ function hideDetails() {
     document.getElementById('details').style.display = 'none';
     history.pushState({page: 'list'}, 'Book List', '?');
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const reportButton = document.getElementById('reportButton');
-    const backButton = document.getElementById('backButton');
-    const originalButtonText = reportButton.textContent;
-
-    // Evento para enviar dados quando o reportButton é clicado
-    reportButton.addEventListener('click', function() {
-        // Obtém o conteúdo do `detailsContent`
-        const detailsContent = document.getElementById('detailsContent').textContent;
-
-        // Procura a linha que contém o título usando "Título:"
-        const titleMatch = detailsContent.match(/Título:\s*(.+)/);
-
-        // Se encontrar o título, captura o texto correspondente
-        const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
-
-        // Cria um objeto FormData para enviar os dados
-        const formData = new URLSearchParams();
-        formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
-
-        // Envia os dados para o Google Formulário
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
-        })
-        .then(response => {
-            console.log('Dados enviados com sucesso.');
-            // Desativa o botão após o envio e muda o texto
-            reportButton.disabled = true;
-            reportButton.textContent = "Avisado!";
-        })
-        .catch(error => {
-            console.error('Erro ao enviar dados:', error);
-        });
-    });
-
-    // Evento para resetar o botão quando o backButton é clicado
-    backButton.addEventListener('click', function() {
-        console.log('Back button clicked');
-        resetReportButton();
-    });
-
-    // Função para resetar o botão reportButton
-    function resetReportButton() {
-        if (reportButton) {
-            reportButton.disabled = false;
-            reportButton.textContent = originalButtonText;
-        }
-    }
-
-    // Evento para lidar com navegação por histórico
-    window.addEventListener('popstate', function(event) {
-        if (!event.state || event.state.page === 'list') {
-            resetReportButton();
-        }
-    });
-
-    // Reseta o botão se a página carregar na lista
-    if (window.location.search === '') {
-        resetReportButton();
-    }
-});
 
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
