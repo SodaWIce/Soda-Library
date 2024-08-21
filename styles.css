@@ -62,7 +62,8 @@ header {
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
-    gap: 1em;
+    row-gap: 1em;
+    column-gap: 0.5em;
     padding: 1em;
     max-width: 1200px;
     margin: auto;
