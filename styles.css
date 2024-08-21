@@ -61,89 +61,48 @@ header {
 
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste mínimo para acomodar mais colunas */
-    row-gap: 0.5em; /* Reduzido para diminuir a distância entre as linhas */
-    column-gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
+    row-gap: 1em;
+    column-gap: 0.25em;
     padding: 1em;
     max-width: 1200px;
     margin: auto;
 }
 
 .book-item {
-    background: #111111;
+    cursor: default;
+    background: #111111; /* Fundo escuro para os itens da lista */
+    /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
     border-radius: 10px;
-    padding: 1.5em;
+    padding: 1em;
     text-align: center;
-    color: #ffffff;
-    transition: color 0.2s;
-    font-size: 0.9em;
+    color: #ffffff; /* Cor do texto dos itens */
+    outline: none; /* Remove a borda padrão de foco */
+    transition: color 0.2s; /* Adiciona uma transição suave na cor do texto */
+    font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
 }
 
+/* Remove a borda de foco azul */
 .book-item:focus {
     outline: none;
 }
 
 .book-item:hover,
 .book-item:focus {
-    color: #0047AB;
+    cursor: default;
+    color: #0047AB; /* Cor do título quando o item está em foco */
 }
 
 .book-title {
     cursor: pointer;
-    font-size: 1em; /* Aumentado para celulares */
-    margin-top: 0.5em;
 }
 
 .book-thumbnail {
     cursor: pointer;
-    width: 120px; /* Ajustado para caber em 3 colunas */
-    height: auto;
-    margin: 0 auto;
+    width: 80px; /* Ajusta a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
-}
-
-/* Configurações específicas para celulares */
-@media screen and (max-width: 480px) {
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    }
-
-    .book-title {
-        font-size: 1.1em; /* Tamanho maior em telas pequenas */
-    }
-}
-
-/* Configurações para tablets e modo landscape em celulares */
-@media screen and (min-width: 481px) and (max-width: 1024px), screen and (orientation: landscape) {
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        max-width: 1000px;
-    }
-
-    .book-title {
-        font-size: 1em; /* Tamanho aumentado em tablets e landscape */
-    }
-}
-
-/* Configurações específicas para PC */
-@media screen and (min-width: 1025px) {
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        max-width: 1400px;
-    }
-
-    .book-item {
-        padding: 2em;
-        font-size: 1em;
-    }
-
-    .book-thumbnail {
-        width: 140px; /* Ajustado para PCs */
-    }
-
-    .book-title {
-        font-size: 0.9em; /* Tamanho menor no PC também */
-    }
 }
 
 /* Restante do código CSS */
@@ -241,5 +200,44 @@ header {
     border: none; /* Remove a borda */
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
     pointer-events: none; /* Desativa a interação */
+}
+
+    /* Estilos específicos para landscape */
+@media only screen and (orientation: landscape) {
+    .book-item {
+        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
+    }
+    
+    .book-list {
+        row-gap: 1em;
+        colunn-gap: 0.5em;
+    }
+}    
+
+    /* Personalizações para visualização no PC */
+@media (min-width: 1024px) {
+    .search-bar {
+        padding: 0 1em; /* Garante padding lateral adequado */
+}
+
+    .book-item {
+        font-size: 0.6em;
+    }
+
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
+        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
+}
+    
+    .book-full {
+        max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
+}
+
+    .book-details {
+        font-size: 1.3em;
+        margin: 0 20px 20px 20px; /* Adiciona margens laterais e inferior */
+        max-width: 1000px; /* Define a largura máxima para centralizar o conteúdo */
+        margin-left: auto;
+        margin-right: auto; /* Centraliza o conteúdo horizontalmente */
     }
 }
