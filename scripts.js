@@ -83,6 +83,9 @@ function hideDetails() {
     history.pushState({page: 'list'}, 'Book List', '?');
 }
 
+const reportButton = document.getElementById('reportButton');
+const originalButtonText = reportButton.textContent;
+
 document.getElementById('reportButton').addEventListener('click', function() {
     // Obtém o conteúdo do `detailsContent`
     const detailsContent = document.getElementById('detailsContent').textContent;
@@ -113,6 +116,9 @@ document.getElementById('reportButton').addEventListener('click', function() {
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
     });
+    document.getElementById('backButton').addEventListener('click', function() {
+    reportButton.disabled = false;
+    reportButton.textContent = originalButtonText;
 });
 
 function filterBooks() {
