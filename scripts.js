@@ -45,12 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Chame a função para ajustar o tamanho da fonte do <select> ao carregar a página
-    resizeSelectToFit('genreFilter');
-    window.addEventListener('resize', () => resizeSelectToFit('genreFilter'));
-    document.getElementById('genreFilter').addEventListener('change', () => resizeSelectToFit('genreFilter'));
-});
-
 function showDetails(bookId) {
     window.scrollTo(0, 0);
     
@@ -88,11 +82,6 @@ function hideDetails() {
     history.pushState({page: 'list'}, 'Book List', '?');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const reportButton = document.getElementById('reportButton');
-    const backButton = document.getElementById('backButton');
-    const originalButtonText = reportButton.textContent;
-
     // Evento para enviar dados quando o reportButton é clicado
     reportButton.addEventListener('click', function() {
         // Obtém o conteúdo do `detailsContent`
@@ -125,33 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Evento para resetar o botão quando o backButton é clicado
-    backButton.addEventListener('click', function() {
-        console.log('Back button clicked');
-        resetReportButton();
-    });
-
-    // Função para resetar o botão reportButton
-    function resetReportButton() {
-        if (reportButton) {
-            reportButton.disabled = false;
-            reportButton.textContent = originalButtonText;
-        }
-    }
-
-    // Evento para lidar com navegação por histórico
-    window.addEventListener('popstate', function(event) {
-        if (!event.state || event.state.page === 'list') {
-            resetReportButton();
-        }
-    });
-
-    // Reseta o botão se a página carregar na lista
-    if (window.location.search === '') {
-        resetReportButton();
-    }
-});
-
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
@@ -177,32 +139,5 @@ function filterBooks() {
 function resizeSelectToFit(selectId) {
     const select = document.getElementById(selectId);
     const options = Array.from(select.options);
-    
-    // Cria um elemento temporário para calcular a largura do texto
-    const tempSpan = document.createElement('span');
-    tempSpan.style.visibility = 'hidden';
-    tempSpan.style.position = 'absolute';
-    tempSpan.style.whiteSpace = 'nowrap';
-    document.body.appendChild(tempSpan);
-
-    let maxWidth = 0;
-    options.forEach(option => {
-        tempSpan.textContent = option.textContent;
-        const width = tempSpan.offsetWidth;
-        if (width > maxWidth) {
-            maxWidth = width;
-        }
-    });
-
-    document.body.removeChild(tempSpan);
-
-    // Ajusta o tamanho da fonte para caber no seletor
-    const minFontSize = 10; // Defina o tamanho mínimo da fonte
-    let fontSize = parseFloat(window.getComputedStyle(select).fontSize);
-    select.style.fontSize = fontSize + 'px';
-    
-    while (select.scrollWidth > select.clientWidth && fontSize > minFontSize) {
-        fontSize -= 1;
-        select.style.fontSize = fontSize + 'px';
     }
 }
