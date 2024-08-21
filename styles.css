@@ -202,7 +202,7 @@ header {
     pointer-events: none; /* Desativa a interação */
 }
 
-    /* Estilos específicos para landscape */
+    /* Estilos específicos para celular landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
         font-size: 0.45em; /* Diminui o tamanho do texto quando em landscape */
@@ -213,6 +213,13 @@ header {
         column-gap: 0.5em;
     }
 }    
+
+  /* Personalização para tablet em modo landscape */
+@media (min-width: 1024px) and (orientation: landscape) {
+    .book-item {
+        font-size: 0.6em;
+    }
+}
 
     /* Personalização para tablet em modo retrato */
 @media (min-width: 1024px) and (orientation: portrait) {
