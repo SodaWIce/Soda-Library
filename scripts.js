@@ -86,7 +86,8 @@ function hideDetails() {
 const reportButton = document.getElementById('reportButton');
 const originalButtonText = reportButton.textContent;
 
-document.getElementById('reportButton').addEventListener('click', function() {
+// Evento para enviar dados quando o reportButton é clicado
+reportButton.addEventListener('click', function() {
     // Obtém o conteúdo do `detailsContent`
     const detailsContent = document.getElementById('detailsContent').textContent;
 
@@ -107,16 +108,18 @@ document.getElementById('reportButton').addEventListener('click', function() {
         mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
     })
     .then(response => {
-        console.log('Dados enviados com sucesso..');
+        console.log('Dados enviados com sucesso.');
         // Desativa o botão após o envio e muda o texto
-        const reportButton = document.getElementById('reportButton');
         reportButton.disabled = true;
         reportButton.textContent = "Avisado!";
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
     });
-    document.getElementById('backButton').addEventListener('click', function() {
+});
+
+// Evento para resetar o botão quando o backButton é clicado
+document.getElementById('backButton').addEventListener('click', function() {
     reportButton.disabled = false;
     reportButton.textContent = originalButtonText;
 });
