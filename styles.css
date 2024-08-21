@@ -61,22 +61,22 @@ header {
 
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Mínimo de 3 colunas, ajusta conforme o espaço disponível */
-    row-gap: 1.5em; /* Aumenta o espaço entre as linhas para uma organização mais espaçosa */
-    column-gap: 1em; /* Espaço maior entre as colunas para melhor separação dos itens */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste mínimo para acomodar mais colunas */
+    row-gap: 1em; /* Reduzido para diminuir a distância entre as linhas */
+    column-gap: 1em;
     padding: 1em;
-    max-width: 1400px; /* Aumenta o limite de largura para melhor distribuição em telas grandes */
+    max-width: 1200px;
     margin: auto;
 }
 
 .book-item {
     background: #111111;
     border-radius: 10px;
-    padding: 1.5em; /* Espaçamento interno maior para melhor aparência dos itens */
+    padding: 1.5em;
     text-align: center;
     color: #ffffff;
     transition: color 0.2s;
-    font-size: 0.9em; /* Tamanho de fonte ajustado para melhor legibilidade */
+    font-size: 0.9em;
 }
 
 .book-item:focus {
@@ -90,49 +90,59 @@ header {
 
 .book-title {
     cursor: pointer;
-    font-size: 1em; /* Tamanho de fonte para o título */
-    margin-top: 0.5em; /* Espaçamento entre a imagem e o título */
+    font-size: 0.9em; /* Reduzido para todos os dispositivos */
+    margin-top: 0.5em;
 }
 
 .book-thumbnail {
     cursor: pointer;
-    width: 100px; /* Aumenta a largura da imagem */
+    width: 100px;
     height: auto;
     margin: 0 auto;
     border-radius: 8px;
 }
 
-/* Configurações específicas para tablet */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+/* Configurações específicas para celulares */
+@media screen and (max-width: 480px) {
     .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste para telas de tablet */
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .book-title {
+        font-size: 0.8em; /* Tamanho menor em telas pequenas */
+    }
+}
+
+/* Configurações para tablets e modo landscape em celulares */
+@media screen and (min-width: 481px) and (max-width: 1024px), screen and (orientation: landscape) {
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         max-width: 1000px;
     }
 
-    .book-item {
-        padding: 1.2em; /* Espaçamento um pouco menor em tablets */
-        font-size: 0.8em; /* Tamanho de fonte ajustado para tablets */
-    }
-
-    .book-thumbnail {
-        width: 90px; /* Imagem um pouco menor em tablets */
+    .book-title {
+        font-size: 0.8em; /* Título menor em tablets e landscape */
     }
 }
 
 /* Configurações específicas para PC */
 @media screen and (min-width: 1025px) {
     .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Maior espaçamento e ajuste para PC */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         max-width: 1400px;
     }
 
     .book-item {
-        padding: 2em; /* Espaçamento maior em PCs */
-        font-size: 1em; /* Fonte um pouco maior para melhor legibilidade */
+        padding: 2em;
+        font-size: 1em;
     }
 
     .book-thumbnail {
-        width: 120px; /* Imagem maior em PCs */
+        width: 120px;
+    }
+
+    .book-title {
+        font-size: 0.8em; /* Título menor no PC também */
     }
 }
 
