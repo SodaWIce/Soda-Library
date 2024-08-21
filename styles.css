@@ -205,7 +205,7 @@ header {
     /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
-        font-size: 0.4em; /* Diminui o tamanho do texto quando em landscape */
+        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
     }
     
     .book-list {
@@ -221,7 +221,7 @@ header {
 }
 
     .book-item {
-        font-size: 0.7em;
+        font-size: 0.6em;
     }
 
     .book-list {
