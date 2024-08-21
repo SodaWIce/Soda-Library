@@ -61,7 +61,7 @@ header {
 
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
     gap: 1em;
     padding: 1em;
     max-width: 1200px;
@@ -78,7 +78,7 @@ header {
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
     transition: color 0.3s; /* Adiciona uma transição suave na cor do texto */
-    font-size: 1em; /* Define o tamanho da fonte do texto dos itens */
+    font-size: 0.7em; /* Define o tamanho da fonte do texto dos itens */
 }
 
 /* Remove a borda de foco azul */
