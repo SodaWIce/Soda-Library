@@ -71,14 +71,14 @@ header {
 .book-item {
     cursor: default;
     background: #111111; /* Fundo escuro para os itens da lista */
-    border: 0px solid #333333; /* Borda escura para combinar com o fundo */
-    border-radius: 30px;
+    /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
+    border-radius: 20px;
     padding: 1em;
     text-align: center;
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
-    transition: color 0.3s; /* Adiciona uma transição suave na cor do texto */
-    font-size: 0.7em; /* Define o tamanho da fonte do texto dos itens */
+    transition: color 0.2s; /* Adiciona uma transição suave na cor do texto */
+    font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
 }
 
 /* Remove a borda de foco azul */
@@ -98,7 +98,7 @@ header {
 
 .book-thumbnail {
     cursor: pointer;
-    width: 100px; /* Ajusta a largura da imagem */
+    width: 70px; /* Ajusta a largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
