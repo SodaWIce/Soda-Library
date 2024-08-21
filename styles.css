@@ -205,12 +205,12 @@ header {
     /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
-        font-size: 0.4em; /* Diminui o tamanho do texto quando em landscape */
+        font-size: 0.45em; /* Diminui o tamanho do texto quando em landscape */
     }
     
     .book-list {
         row-gap: 1em;
-        colunn-gap: 0.5em;
+        column-gap: 0.5em;
     }
 }    
 
