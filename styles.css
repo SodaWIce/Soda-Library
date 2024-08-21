@@ -72,7 +72,7 @@ header {
     cursor: default;
     background: #111111; /* Fundo escuro para os itens da lista */
     /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
-    border-radius: 100px;
+    border-radius: 10px;
     padding: 1em;
     text-align: center;
     color: #ffffff; /* Cor do texto dos itens */
@@ -98,7 +98,7 @@ header {
 
 .book-thumbnail {
     cursor: pointer;
-    width: 70px; /* Ajusta a largura da imagem */
+    width: 80px; /* Ajusta a largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
