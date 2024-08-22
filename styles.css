@@ -1,0 +1,243 @@
+/* Importa a fonte Roboto do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif; /* Atualiza a fonte para Roboto */
+    margin: 0;
+    padding: 0;
+    background: #111111; /* Fundo preto */
+    color: #ffffff; /* Cor do texto para contraste com o fundo escuro */
+}
+
+header {
+    font-family: 'Lato', sans-serif;
+    background-color: #111111; /* Fundo preto para o cabeçalho */
+    color: #ffffff; /* Cor do texto no cabeçalho */
+    padding: 1em;
+    text-align: center;
+}
+
+.search-bar {
+    margin: 1em auto;
+    text-align: center;
+    max-width: 800px; /* Aumenta a largura máxima da barra de pesquisa e filtro */
+    padding: 0 1em; /* Adiciona padding lateral */
+    display: flex; /* Usando flexbox para alinhar a barra de pesquisa e a barra de filtro */
+    justify-content: center; /* Centraliza horizontalmente os itens dentro da barra de pesquisa */
+    gap: 0.5em; /* Espaço entre a barra de pesquisa e a barra de filtro */
+}
+
+.search-bar input[type="text"] {
+    padding: 0.8em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid #666666; /* Borda clara para a barra de pesquisa */
+    border-radius: 100px;
+    background-color: #ffffff; /* Fundo dos campos de entrada */
+    color: #000000; /* Cor do texto dentro dos campos */
+    flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
+    max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
+}
+
+.search-bar select {
+    padding: 0.8em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid #666666; /* Borda clara para a barra de filtro */
+    border-radius: 100px;
+    background-color: #ffffff; /* Fundo dos campos de entrada */
+    color: #000000; /* Cor do texto dentro dos campos */
+    white-space: nowrap; /* Garante que o conteúdo da barra de filtro não seja quebrado */
+    min-width: 120px; /* Define uma largura mínima para a barra de filtro */
+}
+
+.search-bar input[type="text"]:hover, .search-bar select:hover,
+.search-bar input[type="text"]:focus, .search-bar select:focus {
+    border-color: #0047AB; /* Muda a cor da borda quando o elemento está em foco */
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
+    row-gap: 1em;
+    column-gap: 0.25em;
+    padding: 1em;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.book-item {
+    cursor: default;
+    background: #111111; /* Fundo escuro para os itens da lista */
+    /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
+    border-radius: 10px;
+    padding: 1em;
+    text-align: center;
+    color: #ffffff; /* Cor do texto dos itens */
+    outline: none; /* Remove a borda padrão de foco */
+    transition: color 0.2s; /* Adiciona uma transição suave na cor do texto */
+    font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
+}
+
+/* Remove a borda de foco azul */
+.book-item:focus {
+    outline: none;
+}
+
+.book-item:hover,
+.book-item:focus {
+    cursor: default;
+    color: #0047AB; /* Cor do título quando o item está em foco */
+}
+
+.book-title {
+    cursor: pointer;
+}
+
+.book-thumbnail {
+    cursor: pointer;
+    width: 80px; /* Ajusta a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
+    border-radius: 8px;
+}
+
+/* Restante do código CSS */
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente os itens */
+    margin: 2em;
+    background: #111111; /* Fundo escuro para os detalhes do livro */
+    border: none;
+    border-radius: 0px;
+    color: #ffffff; /* Cor do texto para contraste */
+    padding: 0;
+    position: relative; /* Adicione isto para posicionamento relativo */
+}
+
+.book-header {
+    display: flex;
+    flex-direction: column; /* Adiciona essa linha para empilhar verticalmente */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    width: 100%;
+    margin-bottom: 1em; /* Espaço entre a imagem e o link */
+}
+
+.book-full {
+    max-width: 40%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1em; /* Espaço abaixo da imagem do livro */
+}
+
+.download-link {
+    display: inline-block; /* Faz o link se comportar como um botão */
+    background-color: #0047AB; /* Fundo escuro para o botão */
+    color: #ffffff; /* Cor do texto do botão */
+    padding: 0.8em;
+    border: 2px solid #0074D9; /* Borda padrão do botão */
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Remove o sublinhado do link */
+    margin-bottom: 1em; /* Espaço abaixo do botão */
+    outline: none; /* Remove a borda de foco padrão do navegador */
+}
+
+.download-link:hover,
+.download-link:focus {
+    background-color: #1e1e1e; /* Cor de fundo ao passar o mouse ou focar */
+    color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
+    border-color: #0047AB; /* Cor da borda ao passar o mouse ou focar */
+}
+
+.back-button {
+    background-color: #ffffff; /* Fundo branco para o botão */
+    color: #1e1e1e; /* Cor do texto do botão */
+    padding: 0.8em;
+    border: 2px solid #666666; /* Borda clara para o botão */
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    top: -1.2em; /* Distância do topo da área de detalhes */
+    left: 0em; /* Distância da borda esquerda da área de detalhes */
+    margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
+    outline: none; /* Remove a borda de foco padrão do navegador */
+}
+
+.back-button:focus {
+    border-color: #0047AB; /* Cor da borda quando o botão está em foco */
+}
+
+.report-button {
+    background-color: #ffffff; /* Fundo branco para o botão */
+    color: #1e1e1e; /* Cor do texto do botão */
+    padding: 0.8em;
+    border: 2px solid #666666; /* Borda clara para o botão */
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    top: -1.2em; /* Distância do topo da área de detalhes */
+    right: 0; /* Distância da borda direita da área de detalhes */
+    margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
+    outline: none; /* Remove a borda de foco padrão do navegador */
+}
+
+.report-button:focus {
+    border-color: #0047AB; /* Cor da borda quando o botão está em foco */
+}
+
+.report-button:disabled {
+    background-color: #333333; /* Cor de fundo cinza escuro */
+    color: #ffffff; /* Cor do texto branco */
+    border: none; /* Remove a borda */
+    cursor: not-allowed; /* Indicador de que o botão não está clicável */
+    pointer-events: none; /* Desativa a interação */
+}
+
+    /* Estilos específicos para landscape */
+@media only screen and (orientation: landscape) {
+    .book-item {
+        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
+    }
+    
+    .book-list {
+        row-gap: 1em;
+        colunn-gap: 0.5em;
+    }
+}    
+
+    /* Personalizações para visualização no PC */
+@media (min-width: 1024px) {
+    .search-bar {
+        padding: 0 1em; /* Garante padding lateral adequado */
+}
+
+    .book-item {
+        font-size: 0.6em;
+    }
+
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
+        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
+}
+    
+    .book-full {
+        max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
+}
+
+    .book-details {
+        font-size: 1.3em;
+        margin: 0 20px 20px 20px; /* Adiciona margens laterais e inferior */
+        max-width: 1000px; /* Define a largura máxima para centralizar o conteúdo */
+        margin-left: auto;
+        margin-right: auto; /* Centraliza o conteúdo horizontalmente */
+    }
+}
