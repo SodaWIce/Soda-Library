@@ -124,10 +124,10 @@ function resetReportButton() {
     reportButton.textContent = "Link quebrado?";
 }
 
-// Verifica se o caminho da URL é /Soda-Library/
-if (window.location.pathname === '/Soda-Library/') {
+// Adiciona um evento de popstate para detectar mudanças de página
+window.addEventListener('popstate', function() {
     resetReportButton();
-}
+});
 
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
