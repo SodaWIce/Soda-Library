@@ -135,9 +135,3 @@ function filterBooks() {
         book.style.display = showBook ? '' : 'none';
     });
 }
-
-function resizeSelectToFit(selectId) {
-    const select = document.getElementById(selectId);
-    const options = Array.from(select.options);
-    }
-}
