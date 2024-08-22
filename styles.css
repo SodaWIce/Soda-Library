@@ -154,7 +154,7 @@ header {
 .download-link:focus {
     background-color: #1e1e1e; /* Cor de fundo ao passar o mouse ou focar */
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
-    border-color: #0047AB; /* Cor da borda ao passar o mouse ou focar */
+    border-color: #B22222; /* Cor da borda ao passar o mouse ou focar */
 }
 
 .back-button {
