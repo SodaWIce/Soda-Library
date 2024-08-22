@@ -242,3 +242,32 @@ header {
         margin-right: auto; /* Centraliza o conteúdo horizontalmente */
     }
 }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto; /* Espaçamento superior e inferior */
+    gap: 1em; /* Espaçamento entre os botões */
+}
+
+.pagination-button {
+    background-color: #ffffff; /* Fundo branco para o botão */
+    color: #1e1e1e; /* Cor do texto */
+    padding: 0.8em;
+    border: 2px solid #666666; /* Borda clara */
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    outline: none; /* Remove a borda de foco padrão */
+    transition: transform 0.1s ease-in-out; /* Adiciona a transição para o efeito de empurrar */
+}
+
+.pagination-button:hover,
+.pagination-button:focus {
+    border-color: #0047AB; /* Muda a cor da borda ao passar o mouse ou focar */
+}
+
+.pagination-button:active {
+    transform: scale(0.95); /* Aplica o efeito de empurrar quando o botão é clicado */
+}
