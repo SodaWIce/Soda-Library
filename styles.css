@@ -62,7 +62,7 @@ header {
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
-    row-gap: 0.6em;
+    row-gap: 1em;
     column-gap: 0.25em;
     padding: 1em;
     max-width: 1200px;
@@ -79,7 +79,7 @@ header {
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
     transition: color 0.2s; /* Adiciona uma transição suave na cor do texto */
-    font-size: 0.7em; /* Define o tamanho da fonte do texto dos itens */
+    font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
 }
 
 /* Remove a borda de foco azul */
@@ -199,17 +199,18 @@ header {
     color: #ffffff; /* Cor do texto branco */
     border: none; /* Remove a borda */
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
+    pointer-events: none; /* Desativa a interação */
 }
 
-    /* Estilos específicos para celular landscape */
+    /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
-        font-size: 0.45em; /* Diminui o tamanho do texto quando em landscape */
+        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
     }
     
     .book-list {
         row-gap: 1em;
-        column-gap: 0.5em;
+        colunn-gap: 0.5em;
     }
 }    
 
@@ -220,7 +221,7 @@ header {
 }
 
     .book-item {
-        font-size: 0.65em;
+        font-size: 0.6em;
     }
 
     .book-list {
