@@ -124,8 +124,8 @@ function resetReportButton() {
     reportButton.textContent = "Link quebrado?";
 }
 
-// Verifica se o caminho da URL é /Soda-Library/?
-if (window.location.pathname === '/Soda-Library/?') {
+// Verifica se o caminho da URL é /Soda-Library/
+if (window.location.pathname === '/Soda-Library/') {
     resetReportButton();
 }
 
