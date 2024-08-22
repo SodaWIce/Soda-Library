@@ -115,6 +115,7 @@ reportButton.addEventListener('click', function() {
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
+    });
 });
 
 // Função para reverter o botão após o fechamento dos detalhes do livro
