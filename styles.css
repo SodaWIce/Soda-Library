@@ -270,4 +270,5 @@ header {
 
 .pagination-button:active {
     transform: scale(0.95); /* Aplica o efeito de empurrar quando o botão é clicado */
+    }
 }
