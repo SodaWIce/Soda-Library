@@ -49,6 +49,7 @@ header {
     border-radius: 100px;
     background-color: #ffffff; /* Fundo dos campos de entrada */
     color: #000000; /* Cor do texto dentro dos campos */
+    text-align: center;
     white-space: nowrap; /* Garante que o conteúdo da barra de filtro não seja quebrado */
     min-width: 120px; /* Define uma largura mínima para a barra de filtro */
 }
