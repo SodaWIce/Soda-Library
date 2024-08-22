@@ -60,6 +60,9 @@ function showDetails(bookId) {
     
                 mainContent.style.display = 'none';
                 details.style.display = 'block';
+                
+                details.style.backgroundImage = `url(${book.image})`;
+                
                 detailsContent.innerHTML = `
                     <div class="book-header">
                         <img src="${book.image}" alt="${book.title}" class="book-full">
