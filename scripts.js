@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const bookList = document.getElementById('bookList');
             const isMobile = window.innerWidth < 768; // Detecta se é um dispositivo móvel
+            const reportButton = document.getElementById('reportButton');
 
             data.books.forEach(livro => {
                 const bookItem = document.createElement('div');
