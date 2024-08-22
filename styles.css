@@ -213,17 +213,6 @@ header {
     }
 }    
 
-    /* Personalização para tablet em modo retrato */
-@media (min-width: 1024px) and (orientation: portrait) {
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Exibe colunas automaticamente, no mínimo 200px */
-        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
-}
-    .book-item {
-        font-size: 0.5em;
-    }
-}
-
     /* Personalizações para visualização no PC */
 @media (min-width: 1024px) {
     .search-bar {
