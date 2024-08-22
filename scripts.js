@@ -124,9 +124,8 @@ function resetReportButton() {
     reportButton.textContent = "Link quebrado?";
 }
 
-// Adicione um evento ou uma chamada de função para fechar os detalhes do livro
-// Exemplo de chamada da função quando o botão de fechar é clicado
-document.getElementById('hideDetails').addEventListener('click', function() {
+// Adiciona o evento de clique no botão de voltar
+document.getElementById('backButton').addEventListener('click', function() {
     resetReportButton();
 });
 
