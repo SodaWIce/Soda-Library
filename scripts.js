@@ -124,10 +124,12 @@ function resetReportButton() {
     reportButton.textContent = "Link quebrado?";
 }
 
-// Adiciona o evento de clique no botão de voltar
-document.getElementById('backButton').addEventListener('click', function() {
+// Verifica a URL atual e chama resetReportButton se a URL for / ou vazia
+const currentURL = window.location.pathname;
+
+if (currentURL === '/' || currentURL === '') {
     resetReportButton();
-});
+}
 
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
