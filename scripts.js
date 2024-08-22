@@ -124,10 +124,8 @@ function resetReportButton() {
     reportButton.textContent = "Link quebrado?";
 }
 
-// Verifica a URL atual e chama resetReportButton se a URL for / ou vazia
-const currentURL = window.location.pathname;
-
-if (currentURL === '/' || currentURL === '') {
+// Verifica se o caminho da URL é /Soda-Library/?
+if (window.location.pathname === '/Soda-Library/?') {
     resetReportButton();
 }
 
