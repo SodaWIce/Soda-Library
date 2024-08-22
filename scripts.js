@@ -83,7 +83,11 @@ function hideDetails() {
     history.pushState({page: 'list'}, 'Book List', '?');
 }
 
-document.getElementById('reportButton').addEventListener('click', function() {
+// Obtém o botão de reporte
+const reportButton = document.getElementById('reportButton');
+
+// Adiciona o evento de clique no botão de reporte
+reportButton.addEventListener('click', function() {
     // Obtém o conteúdo do `detailsContent`
     const detailsContent = document.getElementById('detailsContent').textContent;
 
@@ -106,13 +110,24 @@ document.getElementById('reportButton').addEventListener('click', function() {
     .then(response => {
         console.log('Dados enviados com sucesso..');
         // Desativa o botão após o envio e muda o texto
-        const reportButton = document.getElementById('reportButton');
         reportButton.disabled = true;
         reportButton.textContent = "Avisado!";
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
     });
+});
+
+// Função para reverter o botão após o fechamento dos detalhes do livro
+function resetReportButton() {
+    reportButton.disabled = false;
+    reportButton.textContent = "Link quebrado?";
+}
+
+// Adicione um evento ou uma chamada de função para fechar os detalhes do livro
+// Exemplo de chamada da função quando o botão de fechar é clicado
+document.getElementById('hideDetails').addEventListener('click', function() {
+    resetReportButton();
 });
 
 function filterBooks() {
