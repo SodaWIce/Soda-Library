@@ -1,6 +1,26 @@
 {
     "books": [
         {
+            "id": "livro21",
+            "title": "Cujo",
+            "image": "https://i.imgur.com/cvBGH0h.png",
+            "author": "Stephen King",
+            "year": "1981",
+            "synopsis": "Frank Dodd está morto e a cidade de Castle Rock pode ficar em paz novamente. O serial-killer que aterrorizou o local por anos agora é apenas uma lenda urbana, usada para assustar criancinhas. Exceto para Tad Trenton, para quem Dodd é tudo, menos uma lenda ― ele está convencido de que o espírito do assassino o observa da porta entreaberta do closet, todas as noites./n/Enquanto isso, nos limites da cidade, Cujo, um são-bernardo de noventa quilos que pertence à família Camber, se distrai perseguindo um coelho e acaba sendo mordido por um morcego raivoso. Agora, Cujo não será mais ele mesmo. Será violento, brutal e implacável. Será, sem dúvida, uma realidade pior do que qualquer pesadelo de Tad Trenton.",
+            "pdf": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://kbook.com.br/wp-content/uploads/2016/08/Cao-Raivoso-Stephen-King.pdf&ved=2ahUKEwjIjJf6sYqIAxV6pZUCHTM9KV4QFnoECCUQAQ&usg=AOvVaw3qddA93O87KmmGltx03CG2",
+            "genre": "Terror"
+        },
+        {
+            "id": "livro20",
+            "title": "Mr. Mercedes",
+            "image": "https://i.imgur.com/RqJaK9A.png",
+            "author": "Stephen King",
+            "year": "2014",
+            "synopsis": "Ainda é madrugada e, em uma falida cidade do Meio-Oeste dos Estados Unidos, centenas de pessoas fazem fila em uma feira de empregos, desesperadas para conseguir trabalho. De repente, um único carro surge, avançando para a multidão. O motorista do Mercedes acelera, recua, acelera novamente e não descansa até atropelar o máximo de pessoas que consegue, deixando oito mortos e vários feridos. Ele escapa impune./n/Meses depois, ao receber uma carta de alguém que se autodenomina o Assassino do Mercedes, o ex-detetive Bill Hodges desperta de sua aposentadoria deprimida e resolve encontrar o culpado por conta própria. E assim segue a narrativa policial brilhante de Mr. Mercedes , em que Stephen King pega na mão do leitor e o conduz tanto pelo psicológico angustiado do detetive quanto pela mente obsessiva e traumatizada do assassino.",
+            "pdf": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://kbook.com.br/wp-content/uploads/2016/08/Sr.-Mercedes-Stephen-King.pdf&ved=2ahUKEwjJvoGosoqIAxUerZUCHYIxBYMQFnoECB8QAQ&usg=AOvVaw3z6giHBVXjF3z5srF1ss7T",
+            "genre": "Mistério"
+        },
+        {
             "id": "livro19",
             "title": "O Hobbit",
             "image": "https://i.imgur.com/pg0APx4.png",
