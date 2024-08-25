@@ -1,6 +1,66 @@
 {
     "books": [
         {
+            “id”: “livro28”,
+            “title”: “Todas As Suas Imperfeições”,
+           “image”:https://imgur.com/CeMLHIk,
+            “author”: “Colleen Hoover”,
+            “year”: “2018”,
+            “synopsis”: “Todas as suas imperfeições narra a história de Quinn e Graham. Eles se conhecem no pior dia de suas vidas; ela chega mais cedo de uma viagem para surpreender o noivo, ele testemunha a traição da namorada. E é assim que ambos acabam no corredor de um prédio, trocando confidências, biscoitos da sorte e palavras de conforto./n/Fim da dança... se o destino não tivesse outros planos para os dois. Meses mais tarde, os acordes tocam para o casal mais uma vez e eles se reencontram. Graham está convencido de que são almas gêmeas. Quinn jamais se sentiu dessa forma antes. A intensidade do sentimento os assusta, mas eles mergulham de cabeça mesmo assim./n/O casamento é tudo o que sonhavam, a parceria perfeita. Mesmo nos momentos difíceis, sabem que podem contar com o outro. Nenhum deles desiste do amor que sentem. Até que a primeira nota dissonante abala a sinfonia do casal. Até que Quinn parece estar disposta a trocar tudo o que é pela única coisa que não consegue ser: mãe./n/A luta do casal por um filho arrisca os alicerces da relação. Quinn não pode engravidar. Graham não é um candidato para adoção por conta de um erro do passado. O impasse os deixa parados no salão, no silêncio. A orquestra está em suspenso. Os dois parecem surdos para a música do amor.”,
+            “pdf”:https://drive.google.com/file/d/14aDSPnDBCwLyO93MtrKV3uaGLlMBmFfm/view?usp=drivesdk,
+            “genre”: “Romance”
+        },
+        {
+            “id”: “livro27”,
+            “title”: “O Nome do Vento”,
+            “image”:https://imgur.com/xDj5F3Y,
+            “author”: “Patrick Rothfuss”,
+            “year”: “2007”,
+            “synopsis”: “Da infância numa trupe de artistas itinerantes, passando pelos anos vividos numa cidade hostil e pelo esforço para ingressar na escola de magia, O nome do vento acompanha a trajetória de Kote e as duas forças que movem sua vida: o desejo de aprender o mistério por trás da arte de nomear as coisas e a necessidade de reunir informações sobre o Chandriano – os lendários demônios que assassinaram sua família no passado./n/Quando esses seres do mal reaparecem na cidade, um cronista suspeita de que o misterioso Kote seja o personagem principal de diversas histórias que rondam a região e decide aproximar-se dele para descobrir a verdade./n/Pouco a pouco, a história de Kote vai sendo revelada, assim como sua multifacetada personalidade – notório mago, esmerado ladrão, amante viril, herói salvador, músico magistral, assassino infame./n/Nessa provocante narrativa, o leitor é transportado para um mundo fantástico, repleto de mitos e seres fabulosos, heróis e vilões, ladrões e trovadores, amor e ódio, paixão e vingança.”,
+            “pdf”:https://drive.google.com/file/d/14uKEc6XKkPPgYV8V6BHmHmFq6G6oJ4VB/view?usp=drivesdk,
+            “genre”: “Fantasia”
+        },
+        {
+            “id”: “livro26”,
+            “title”: “O Temor do Sábio”,
+            “image”:https://imgur.com/fgv8rFh,
+            “author”: “Patrick Rothfuss”,
+            “year”: “2011”,
+            “synopsis”: “Quando é aconselhado a abandonar seus estudos na Universidade por um período, por causa de sua rivalidade com um membro da nobreza local, Kvothe é obrigado a tentar a vida em outras paragens./n/Em busca de um patrocinador para sua música, viaja mais de mil quilômetros até Vintas. Lá, é rapidamente envolvido na política da corte. Enquanto tenta cair nas graças de um nobre poderoso, Kvothe usa sua habilidade de arcanista para impedir que ele seja envenenado e lidera um grupo de mercenários pela floresta, a fim de combater um bando de ladrões perigosos./n/Ao longo do caminho, tem um encontro fantástico com Feluriana, uma criatura encantada à qual nenhum homem jamais pôde resistir ou sobreviver – até agora. Kvothe também conhece um guerreiro ademriano que o leva a sua terra, um lugar de costumes muito diferentes, onde vai aprender a lutar como poucos./n/Enquanto persiste em sua busca de respostas sobre o Chandriano, o grupo de criaturas demoníacas responsável pela morte de seus pais, Kvothe percebe como a vida pode ser difícil quando um homem se torna uma lenda de seu próprio tempo.”,
+            “pdf”:https://drive.google.com/file/d/15C88B7Suxf3jOQkHb2t_bDjWyx1bWDOT/view?usp=drivesdk,
+            “genre”: “Fantasia”
+        },
+        {
+            “id”: “livro25”,
+            “title”: “A Música do Silêncio”,
+            “image”:https://imgur.com/8GPFavf,
+            “author”: “Patrick Rothfuss”,
+            “year”: “2014”,
+            “synopsis”: “Debaixo da Universidade, bem lá no fundo, há um lugar escuro. Poucas pessoas sabem de sua existência, uma rede descontínua de antigas passagens e cômodos abandonados. Ali, bem no meio desse local esquecido, situado no coração dos Subterrâneos, vive uma jovem./n/Seu nome é Auri, e ela é cheia de mistérios./n/A música do silêncio é um recorte breve e agridoce de sua vida, uma pequena aventura só dela. Ao mesmo tempo alegre e inquietante, esta história nos oferece a oportunidade de enxergar o mundo pelos olhos de Auri. E nos dá a chance de conhecer algumas coisas que só ela sabe.../n/Nesse livro, Patrick Rothfuss nos leva ao mundo de uma das personagens mais enigmáticas da série A Crônica do Matador do Rei. Repleto de segredos e mistérios, A música do silêncio é uma narrativa sobre uma jovem ferida em um mundo devastado.”,
+            “pdf”:https://drive.google.com/file/d/14ugpwWLI0kC-ENJDOXbQ4ZROsDqqHPuz/view?usp=drivesdk,
+            “genre”: “Fantasia”
+        },
+        {
+            “id”: “livro24”,
+            “title”: “Com Sangue”,
+            “image”:https://imgur.com/4OwkJSr,
+            “author”: “Stephen King”,
+            “year”: “2020”,
+            “synopsis”: “Brilhante em narrativas curtas, King já escreveu alguns contos que viraram sucesso em todo o mundo, como as histórias que inspiraram os filmes Conta comigo e Um sonho de liberdade . Neste livro, assim como em Quatro estações e Escuridão total sem estrelas , ele cria uma coleção única e emocionante, demonstrando mais uma vez por que é considerado um dos maiores contadores de histórias de todos os tempos./n/Este é um livro sobre amor, amizade, talento e justiça… em suas formas mais deturpadas. Em Com sangue , Stephen King reúne quatro contos com protagonistas inteligentes e complexos, que têm sua vida comum transformada por algum elemento inexplicável.”,
+            “pdf”:https://drive.google.com/file/d/14vd4tn7tYpoH_N5Rh-0t5fHm7BVbKWc3/view?usp=drivesdk,
+            “genre”: “Terror”
+        },
+        {
+            “id”: “livro23”,
+            “title”: “Doutor Sono”,
+            “image”:https://imgur.com/0gPK7Ta,
+            “author”: “Stephen King”,
+            “year”: “2013”,
+            “synopsis”: “Assombrado pelos habitantes do Overlook Hotel, onde passou um ano terrível de sua infância, Dan ficou à deriva por décadas, desesperado para se livrar do legado de alcoolismo e violência do pai. Finalmente, ele se instala em uma cidade de New Hampshire, onde encontra abrigo em uma comunidade do Alcoólicos Anônimos que o apoia e um emprego em uma casa de repouso, onde seu poder remanescente da iluminação fornece o conforto final para aqueles que estão morrendo. Ajudado por um gato que prevê a morte dos pacientes, ele se torna o “Doutor Sono”./n/Então Dan conhece Abra Stone, uma menina com um dom espetacular, a iluminação mais forte que já se viu. Ela desperta os demônios de seu passado e Dan se vê envolvido em uma batalha pela alma e sobrevivência dela. Uma guerra épica entre o bem e o mal, uma sangrenta e gloriosa história que vai emocionar os milhões de fãs de O Iluminado e satisfazer os leitores de King.”,
+            “pdf”:https://drive.google.com/file/d/158eUPHoU6LmZ0q-YuuLPoPq3he51F76R/view?usp=drivesdk,
+            “genre”: “Terror”
+        },
+        {
             "id": "livro22",
             "title": "Em Busca de Sentido",
             "image": "https://i.imgur.com/tYAFQYI.png",
