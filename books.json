@@ -1,12 +1,22 @@
 {
     "books": [
          {
+    "id": "livro28",
+    "title": "O Fim da Eternidade",
+    "image": "https://imgur.com/qYhhtEc.png",
+    "author": "Isaac Asimov",
+    "year": "1955",
+    "synopsis": "De forma leve e bem-humorada, Asimov realiza questionamentos ainda bastante contemporâneos, como o comodismo do ser humano, sua evolução perante as outras espécies e a busca incessante do controle sobre a vida dos outros. A obra também propõe reflexões sobre o nosso comportamento diante das necessidades pessoais e as situações que envolvem um bem maior./n/No romance, o leitor é apresentado a Andrew Harlan, um Eterno, membro de uma organização que monitora e controla o Tempo. Um técnico que lida diariamente com o destino de bilhões de pessoas no mundo inteiro: sua função é iniciar Mudanças de Realidade, ou seja, alterar o curso da História. Condicionado por um treinamento rigoroso e por uma rígida autodisciplina, Harlan aprendeu a deixar as emoções de lado na hora de fazer seu trabalho. Tudo vai bem até o dia em que ele conhece a atraente Noÿs Lambent, uma mulher que faz com que ele passe a rever seus conceitos em nome de algo tão antigo quanto o próprio tempo: o amor. Agora ele terá de arriscar tudo – não apenas seu emprego, mas sua vida a de Noÿs e até mesmo o curso da História./n/Tido como um dos melhores trabalhos de Asimov, este clássico nos mostra mais uma vez por que o Bom Doutor é considerado o grande mestre da ficção científica moderna.",
+    "pdf": "https://drive.google.com/file/d/1xjlDrouyvL9e8VxOA5Ro3SqkLMcOJLCJ/view?usp=drivesdk",
+    "genre": "Ficção"
+         },
+         {
     "id": "livro27",
     "title": "Ensaio Sobre A Cegueira",
     "image": "https://imgur.com/HoUKFi6.png",
     "author": "José Saramago",
     "year": "1995",
-    "synopsis": "Um motorista parado no sinal se descobre subitamente cego. É o primeiro caso de uma \"treva branca\" que logo se espalha incontrolavelmente. Resguardados em quarentena, os cegos se perceberão reduzidos à essência humana, numa verdadeira viagem às trevas.\nO Ensaio sobre a cegueira é a fantasia de um autor que nos faz lembrar \"a responsabilidade de ter olhos quando os outros os perderam\". José Saramago nos dá, aqui, uma imagem aterradora e comovente de tempos sombrios, à beira de um novo milênio, impondo-se à companhia dos maiores visionários modernos, como Franz Kafka e Elias Canetti. Cada leitor viverá uma experiência imaginativa única. Num ponto onde se cruzam literatura e sabedoria, José Saramago nos obriga a parar, fechar os olhos e ver. Recuperar a lucidez, resgatar o afeto: essas são as tarefas do escritor e de cada leitor, diante da pressão dos tempos e do que se perdeu: \"uma coisa que não tem nome, essa coisa é o que somos\".",
+    "synopsis": "Um motorista parado no sinal se descobre subitamente cego. É o primeiro caso de uma ""treva branca"" que logo se espalha incontrolavelmente. Resguardados em quarentena, os cegos se perceberão reduzidos à essência humana, numa verdadeira viagem às trevas./n/O Ensaio sobre a cegueira é a fantasia de um autor que nos faz lembrar ""a responsabilidade de ter olhos quando os outros os perderam"". José Saramago nos dá, aqui, uma imagem aterradora e comovente de tempos sombrios, à beira de um novo milênio, impondo-se à companhia dos maiores visionários modernos, como Franz Kafka e Elias Canetti.Cada leitor viverá uma experiência imaginativa única. Num ponto onde se cruzam literatura e sabedoria, José Saramago nos obriga a parar, fechar os olhos e ver. Recuperar a lucidez, resgatar o afeto: essas são as tarefas do escritor e de cada leitor, diante da pressão dos tempos e do que se perdeu: ""uma coisa que não tem nome, essa coisa é o que somos"".",
     "pdf": "https://drive.google.com/file/d/178y0lJzGZse-aEpOwGvOZq1DLFZ2tZ0q/view?usp=drivesdk",
     "genre": "Ficção"
         },
