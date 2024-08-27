@@ -45,7 +45,7 @@ header {
 
 .search-bar .search-icon {
     position: absolute;
-    right: 170px;
+    right: 168px;
     top: 50%;
     transform: translateY(-50%);
     width: 20px;
