@@ -18,6 +18,7 @@ header {
 }
 
 .search-bar {
+    position: relative;
     margin: 1em auto;
     text-align: center;
     max-width: 800px; /* Aumenta a largura máxima da barra de pesquisa e filtro */
@@ -25,6 +26,16 @@ header {
     display: flex; /* Usando flexbox para alinhar a barra de pesquisa e a barra de filtro */
     justify-content: center; /* Centraliza horizontalmente os itens dentro da barra de pesquisa */
     gap: 0.5em; /* Espaço entre a barra de pesquisa e a barra de filtro */
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    right: 168px; /* Ajuste conforme necessário para alinhar com o campo de entrada */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Igual ao tamanho dos ícones dos botões */
+    height: 20px; /* Igual ao tamanho dos ícones dos botões */
+    pointer-events: none; /* Para garantir que o ícone não interfira na interação com o campo de entrada */
 }
 
 .search-bar input[type="text"] {
