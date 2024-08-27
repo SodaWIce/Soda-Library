@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://sodawice.github.io/Soda-Library/sitemap.xml
