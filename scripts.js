@@ -114,12 +114,28 @@ reportButton.addEventListener('click', function() {
         console.log('Dados enviados com sucesso..');
         // Desativa o botão após o envio e muda o texto
         reportButton.disabled = true;
-        reportButton.textContent = "Avisado!";
-    })
-    .catch(error => {
-        console.error('Erro ao enviar dados:', error);
+                reportButton.textContent = "Avisado!";
+
+                // Altera os ícones
+                reportButton.querySelector('.active-icon').style.display = 'none'; // Esconde o ícone ativo
+                reportButton.querySelector('.disabled-icon').style.display = 'inline-block'; // Mostra o ícone desativado
+            })
+            .catch(error => {
+                console.error('Erro ao enviar dados:', error);
+            });
     });
 });
+
+// Função para reverter o botão após o fechamento dos detalhes do livro
+function resetReportButton() {
+    const reportButton = document.getElementById('reportButton');
+    reportButton.disabled = false;
+    reportButton.textContent = "Link quebrado?";
+
+    // Reverte os ícones para o estado inicial
+    reportButton.querySelector('.active-icon').style.display = 'inline-block'; // Mostra o ícone ativo
+    reportButton.querySelector('.disabled-icon').style.display = 'none'; // Esconde o ícone desativado
+}
 
 // Função para reverter o botão após o fechamento dos detalhes do livro
 function resetReportButton() {
