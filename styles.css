@@ -40,6 +40,14 @@ header {
     max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
 }
 
+.search-icon {
+    position: absolute;
+    right: 10px; /* Ajuste conforme necessário */
+    width: 20px; /* Ajuste conforme necessário */
+    height: auto;
+    pointer-events: none; /* Para garantir que o ícone não interfira com a interação do campo de entrada */
+}
+
 .search-bar select {
     padding: 0.8em;
     appearance: none;

@@ -14,18 +14,19 @@
     </header>
     <div id="mainContent">
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
-            <select id="genreFilter" onchange="filterBooks()">
-                <option value="">Todos</option>
-                <option value="Ficção">Ficção</option>
-                <option value="Mistério">Mistério</option>
-                <option value="Romance">Romance</option>
-                <option value="Fantasia">Fantasia</option>
-                <option value="Terror">Terror</option>
-                <option value="Romance Gótico">Romance Gótico</option>
-                <option value="Autoajuda">Autoajuda</option>
-            </select>
-        </div>
+    <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
+    <img src="https://imgur.com/90y8bbS.png" alt="Ícone de Pesquisa" class="search-icon">
+    <select id="genreFilter" onchange="filterBooks()">
+        <option value="">Todos</option>
+        <option value="Ficção">Ficção</option>
+        <option value="Mistério">Mistério</option>
+        <option value="Romance">Romance</option>
+        <option value="Fantasia">Fantasia</option>
+        <option value="Terror">Terror</option>
+        <option value="Romance Gótico">Romance Gótico</option>
+        <option value="Autoajuda">Autoajuda</option>
+    </select>
+</div>
         <div class="book-list" id="bookList">
             <!-- Os itens de livros serão adicionados aqui pelo JavaScript -->
         </div>
