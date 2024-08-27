@@ -219,6 +219,10 @@ header {
     margin-right: 8px; /* Espaço entre a imagem e o texto */
 }
 
+.report-icon {
+    display: none; /* Esconde todos os ícones por padrão */
+}    
+
 .report-button:not(:disabled) .active-icon {
     display: inline-block; /* Mostra o ícone ativo no estado normal */
 }
