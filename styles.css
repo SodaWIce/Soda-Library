@@ -219,16 +219,20 @@ header {
     margin-right: 8px; /* Espaço entre a imagem e o texto */
 }
 
-.report-icon {
-    display: none; /* Esconde todos os ícones por padrão */
-}    
+.report-button .active-icon {
+    display: inline-block; /* Mostra o ícone ativo por padrão */
+}
 
-.report-button:not(:disabled) .active-icon {
-    display: inline-block; /* Mostra o ícone ativo no estado normal */
+.report-button .disabled-icon {
+    display: none; /* Esconde o ícone desativado por padrão */
+}
+
+.report-button:disabled .active-icon {
+    display: none; /* Esconde o ícone ativo quando o botão está desabilitado */
 }
 
 .report-button:disabled .disabled-icon {
-    display: inline-block; /* Mostra o ícone desativado no estado desativado */
+    display: inline-block; /* Mostra o ícone desativado quando o botão está desabilitado */
 }
 
 .report-button:disabled {
@@ -236,7 +240,6 @@ header {
     color: #ffffff; /* Cor do texto branco */
     border: none; /* Remove a borda */
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
-    pointer-events: none; /* Desativa a interação */
 }
 
     /* Estilos específicos para landscape */
