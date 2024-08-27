@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /
-Allow: /index.html
 
 Sitemap: https://sodawice.github.io/Soda-Library/sitemap.xml
