@@ -148,7 +148,7 @@ header {
     text-decoration: none; /* Remove o sublinhado do link */
     margin-bottom: 1em; /* Espaço abaixo do botão */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: background 0.5s ease, transform 0.3s ease; /* Transição suave do gradiente e tamanho */
+    transition: background 0.8s ease, transform 0.3s ease; /* Transição suave do gradiente e tamanho */
 }
 
 .download-link:hover,
