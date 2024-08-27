@@ -125,6 +125,11 @@ reportButton.addEventListener('click', function() {
 function resetReportButton() {
     reportButton.disabled = false;
     reportButton.textContent = "Link quebrado?";
+    
+    // Força uma re-renderização
+    reportButton.style.display = 'none';
+    reportButton.offsetHeight; // força um reflow
+    reportButton.style.display = '';
 }
 
 // Adiciona um evento de popstate para detectar mudanças de página
