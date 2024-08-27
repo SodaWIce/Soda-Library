@@ -86,9 +86,8 @@ function hideDetails() {
     history.pushState({page: 'list'}, 'Book List', '?');
 }
 
-// Obtém o botão de reporte e o botão de voltar
+// Obtém o botão de reporte
 const reportButton = document.getElementById('reportButton');
-const backButton = document.querySelector('.back-button');
 
 // Adiciona o evento de clique no botão de reporte
 reportButton.addEventListener('click', function() {
@@ -112,37 +111,18 @@ reportButton.addEventListener('click', function() {
         mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
     })
     .then(response => {
-        console.log('Dados enviados com sucesso..');
-        // Altera o texto do botão após o envio
+        console.log('Dados enviados com sucesso.');
+        // Muda o texto do botão para "Avisado!"
         reportButton.textContent = "Avisado!";
-
-        // Altera os ícones
-        reportButton.querySelector('.active-icon').style.display = 'none'; // Esconde o ícone ativo
-        reportButton.querySelector('.disabled-icon').style.display = 'inline-block'; // Mostra o ícone desativado
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
     });
 });
 
-// Adiciona o evento de clique no botão de voltar
-backButton.addEventListener('click', function() {
-    // Reverte o texto do botão de reporte
+// Função para reverter o texto do botão após clicar no botão "Voltar"
+document.querySelector('.back-button').addEventListener('click', function() {
     reportButton.textContent = "Link quebrado?";
-
-    // Reverte os ícones para o estado inicial
-    reportButton.querySelector('.active-icon').style.display = 'inline-block'; // Mostra o ícone ativo
-    reportButton.querySelector('.disabled-icon').style.display = 'none'; // Esconde o ícone desativado
-});
-
-// Remove a função de reset do botão, pois não é mais necessária
-function resetReportButton() {
-    // Aqui, você pode querer adicionar uma lógica se precisar reverter o texto do botão
-}
-
-// Adiciona um evento de popstate para detectar mudanças de página
-window.addEventListener('popstate', function() {
-    // Remova a chamada para resetReportButton, pois o botão não será mais resetado
 });
 
 function filterBooks() {
