@@ -219,6 +219,18 @@ header {
     margin-right: 8px; /* Espaço entre a imagem e o texto */
 }
 
+.report-icon {
+    display: none; /* Esconde todos os ícones por padrão */
+}
+
+.report-button:not(:disabled) .active-icon {
+    display: inline-block; /* Mostra o ícone ativo no estado normal */
+}
+
+.report-button:disabled .disabled-icon {
+    display: inline-block; /* Mostra o ícone desativado no estado desativado */
+}
+
 .report-button:disabled {
     background-color: #333333; /* Cor de fundo cinza escuro */
     color: #ffffff; /* Cor do texto branco */
