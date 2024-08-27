@@ -79,7 +79,7 @@ header {
     text-align: center;
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
-    transition: color 0.2s; /* Adiciona uma transição suave na cor do texto */
+    transition: color 0.2s; transform 0.3s ease; /* Adiciona uma transição suave na cor do texto */
     font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
 }
 
@@ -92,16 +92,11 @@ header {
 .book-item:focus {
     cursor: default;
     color: #B22222; /* Cor do título quando o item está em foco */
+    transform: scale(1.05);
 }
 
 .book-title {
     cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.book-title:hover,
-.book-title:focus {
-    transform: scale(1.05);
 }
 
 .book-thumbnail {
@@ -110,12 +105,6 @@ header {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.book-thumbnail:hover,
-.book-thumbnail:focus {
-    transform: scale(1.05);
 }
 
 /* Restante do código CSS */
