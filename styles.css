@@ -18,6 +18,7 @@ header {
 }
 
 .search-bar {
+    position: relative; /* Permite o posicionamento absoluto do ícone dentro da barra de pesquisa */
     margin: 1em auto;
     text-align: center;
     max-width: 800px; /* Aumenta a largura máxima da barra de pesquisa e filtro */
@@ -40,12 +41,14 @@ header {
     max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
 }
 
-.search-icon {
+.search-bar .search-icon {
     position: absolute;
-    right: 10px; /* Ajuste conforme necessário */
-    width: 20px; /* Ajuste conforme necessário */
-    height: auto;
-    pointer-events: none; /* Para garantir que o ícone não interfira com a interação do campo de entrada */
+    right: 10px; /* Ajuste conforme necessário para alinhar com o campo de entrada */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Igual ao tamanho dos ícones dos botões */
+    height: 20px; /* Igual ao tamanho dos ícones dos botões */
+    pointer-events: none; /* Para garantir que o ícone não interfira na interação com o campo de entrada */
 }
 
 .search-bar select {
