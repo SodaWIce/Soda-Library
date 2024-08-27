@@ -96,6 +96,12 @@ header {
 
 .book-title {
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.book-title:hover,
+.book-title:focus {
+    transform: scale(1.05);
 }
 
 .book-thumbnail {
@@ -104,6 +110,12 @@ header {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.book-thumbnail:hover,
+.book-thumbnail:focus {
+    transform: scale(1.05);
 }
 
 /* Restante do código CSS */
