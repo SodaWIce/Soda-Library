@@ -18,36 +18,39 @@ header {
 }
 
 .search-bar {
-    position: relative; /* Permite o posicionamento absoluto do ícone dentro da barra de pesquisa */
+    position: relative;
     margin: 1em auto;
     text-align: center;
-    max-width: 800px; /* Aumenta a largura máxima da barra de pesquisa e filtro */
-    padding: 0 1em; /* Adiciona padding lateral */
-    display: flex; /* Usando flexbox para alinhar a barra de pesquisa e a barra de filtro */
-    justify-content: center; /* Centraliza horizontalmente os itens dentro da barra de pesquisa */
-    gap: 0.5em; /* Espaço entre a barra de pesquisa e a barra de filtro */
+    max-width: 800px;
+    padding: 0 1em;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    /* Remover o 'align-items: center;' */
 }
 
 .search-bar input[type="text"] {
-    padding-right: 40px; /* Deixa espaço suficiente para o ícone dentro da barra de pesquisa */
+    padding-right: 40px;
     padding: 0.8em;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: 2px solid #ffffff; /* Borda clara para a barra de pesquisa */
+    border: 2px solid #ffffff;
     border-radius: 100px;
-    background-color: #111111; /* Fundo dos campos de entrada */
-    color: #ffffff; /* Cor do texto dentro dos campos */
-    flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
-    max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
+    background-color: #111111;
+    color: #ffffff;
+    flex-grow: 1;
+    max-width: 100%;
 }
 
 .search-bar .search-icon {
-    width: 20px; /* Tamanho do ícone */
-    height: 20px; /* Tamanho do ícone */
     position: absolute;
-    right: 20px; /* Espaço dentro do campo de entrada para o ícone */
-    pointer-events: none; /* Garante que o ícone não interfira com a interação do campo de entrada */
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
 }
 
 .search-bar select {
