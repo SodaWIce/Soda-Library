@@ -114,6 +114,7 @@ reportButton.addEventListener('click', function() {
         console.log('Dados enviados com sucesso.');
         // Muda o texto do botão para "Avisado!"
         reportButton.textContent = "Avisado!";
+        reportButton.classList.add('disabled');
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
@@ -123,6 +124,7 @@ reportButton.addEventListener('click', function() {
 // Função para reverter o texto do botão após clicar no botão "Voltar"
 document.querySelector('.back-button').addEventListener('click', function() {
     reportButton.textContent = "Link quebrado?";
+    reportButton.classList.remove('disabled');
 });
 
 function filterBooks() {
