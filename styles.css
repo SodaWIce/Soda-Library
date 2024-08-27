@@ -79,7 +79,7 @@ header {
     text-align: center;
     color: #ffffff; /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
-    transition: color 0.2s; transform 2s ease; /* Adiciona uma transição suave na cor do texto */
+    transition: color 0.2s, transform 0.5s ease; /* Adiciona uma transição suave na cor do texto */
     font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
 }
 
