@@ -43,13 +43,11 @@ header {
 }
 
 .search-bar .search-icon {
+    width: 20px; /* Tamanho do ícone */
+    height: 20px; /* Tamanho do ícone */
     position: absolute;
-    right: 10px; /* Ajuste conforme necessário para alinhar com o campo de entrada */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px; /* Igual ao tamanho dos ícones dos botões */
-    height: 20px; /* Igual ao tamanho dos ícones dos botões */
-    pointer-events: none; /* Para garantir que o ícone não interfira na interação com o campo de entrada */
+    right: 20px; /* Espaço dentro do campo de entrada para o ícone */
+    pointer-events: none; /* Garante que o ícone não interfira com a interação do campo de entrada */
 }
 
 .search-bar select {
