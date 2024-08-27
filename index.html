@@ -14,19 +14,18 @@
     </header>
     <div id="mainContent">
         <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
-    <img src="https://imgur.com/90y8bbS.png" class="search-icon">
-    <select id="genreFilter" onchange="filterBooks()">
-        <option value="">Todos</option>
-        <option value="Ficção">Ficção</option>
-        <option value="Mistério">Mistério</option>
-        <option value="Romance">Romance</option>
-        <option value="Fantasia">Fantasia</option>
-        <option value="Terror">Terror</option>
-        <option value="Romance Gótico">Romance Gótico</option>
-        <option value="Autoajuda">Autoajuda</option>
-    </select>
-</div>
+            <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
+            <select id="genreFilter" onchange="filterBooks()">
+                <option value="">Todos</option>
+                <option value="Ficção">Ficção</option>
+                <option value="Mistério">Mistério</option>
+                <option value="Romance">Romance</option>
+                <option value="Fantasia">Fantasia</option>
+                <option value="Terror">Terror</option>
+                <option value="Romance Gótico">Romance Gótico</option>
+                <option value="Autoajuda">Autoajuda</option>
+            </select>
+        </div>
         <div class="book-list" id="bookList">
             <!-- Os itens de livros serão adicionados aqui pelo JavaScript -->
         </div>
@@ -34,8 +33,7 @@
 
  <div id="details" class="book-details" style="display: none;">
     <button class="report-button" id="reportButton">
-    <img src="https://imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon active-icon">
-    <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone Desativado" class="report-icon disabled-icon">
+    <img src="https://imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon">
     Link quebrado?
 </button>
     <button class="back-button" onclick="hideDetails()">
