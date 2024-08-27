@@ -18,6 +18,7 @@ header {
 }
 
 .search-bar {
+    position: relative;
     margin: 1em auto;
     text-align: center;
     max-width: 800px;
@@ -25,27 +26,26 @@ header {
     display: flex;
     justify-content: center;
     gap: 0.5em;
-    /* Removido o 'align-items: center;' */
+    /* Remover o 'align-items: center;' */
 }
 
-.search-container {
-    position: relative; /* Permite o uso de posicionamento absoluto para o ícone */
-    flex-grow: 1; /* Permite que o contêiner ocupe o máximo de espaço disponível */
-}
-
-.search-container input[type="text"] {
-    width: 100%; /* Ocupa todo o espaço do contêiner */
-    padding-right: 40px; /* Espaço suficiente para o ícone dentro da barra de pesquisa */
+.search-bar input[type="text"] {
+    padding-right: 40px;
     padding: 0.8em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     border: 2px solid #ffffff;
     border-radius: 100px;
     background-color: #111111;
     color: #ffffff;
+    flex-grow: 1;
+    max-width: 100%;
 }
 
-.search-container .search-icon {
+.search-bar .search-icon {
     position: absolute;
-    right: 10px;
+    right: 30px;
     top: 50%;
     transform: translateY(-50%);
     width: 20px;
