@@ -126,10 +126,16 @@ function resetReportButton() {
     reportButton.disabled = false;
     reportButton.textContent = "Link quebrado?";
     
-    // Força uma re-renderização
-    reportButton.style.display = 'none';
-    reportButton.offsetHeight; // força um reflow
-    reportButton.style.display = '';
+    // Recria o ícone e adiciona ao botão
+    const iconImg = document.createElement('img');
+    iconImg.src = "https://imgur.com/r5O2N0j.png";
+    iconImg.alt = "Ícone";
+    iconImg.style.width = "20px";
+    iconImg.style.height = "20px";
+    iconImg.style.verticalAlign = "middle";
+    iconImg.style.marginRight = "8px";
+    
+    reportButton.insertBefore(iconImg, reportButton.firstChild);
 }
 
 // Adiciona um evento de popstate para detectar mudanças de página
