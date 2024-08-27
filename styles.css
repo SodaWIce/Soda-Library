@@ -29,6 +29,7 @@ header {
 }
 
 .search-bar input[type="text"] {
+    padding-right: 40px; /* Deixa espaço suficiente para o ícone dentro da barra de pesquisa */
     padding: 0.8em;
     appearance: none;
     -webkit-appearance: none;
