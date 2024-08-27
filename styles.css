@@ -35,7 +35,7 @@ header {
     border: 2px solid #ffffff; /* Borda clara para a barra de pesquisa */
     border-radius: 100px;
     background-color: #111111; /* Fundo dos campos de entrada */
-    color: #000000; /* Cor do texto dentro dos campos */
+    color: #ffffff; /* Cor do texto dentro dos campos */
     flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
     max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
 }
@@ -45,10 +45,10 @@ header {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: 2px solid #666666; /* Borda clara para a barra de filtro */
+    border: 2px solid #ffffff; /* Borda clara para a barra de filtro */
     border-radius: 100px;
-    background-color: #ffffff; /* Fundo dos campos de entrada */
-    color: #000000; /* Cor do texto dentro dos campos */
+    background-color: #111111; /* Fundo dos campos de entrada */
+    color: #ffffff; /* Cor do texto dentro dos campos */
     text-align: center;
     white-space: nowrap; /* Garante que o conteúdo da barra de filtro não seja quebrado */
     min-width: 120px; /* Define uma largura mínima para a barra de filtro */
@@ -161,10 +161,10 @@ header {
 }
 
 .back-button {
-    background-color: #ffffff; /* Fundo branco para o botão */
-    color: #1e1e1e; /* Cor do texto do botão */
+    background-color: #111111; /* Fundo preto para o botão */
+    color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #666666; /* Borda clara para o botão */
+    border: 2px solid #ffffff; /* Borda clara para o botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
@@ -180,10 +180,10 @@ header {
 }
 
 .report-button {
-    background-color: #ffffff; /* Fundo branco para o botão */
-    color: #1e1e1e; /* Cor do texto do botão */
+    background-color: #111111; /* Fundo preto para o botão */
+    color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #666666; /* Borda clara para o botão */
+    border: 2px solid #ffffff; /* Borda clara para o botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
