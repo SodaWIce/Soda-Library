@@ -198,6 +198,14 @@ header {
     border-color: #B22222; /* Cor da borda quando o botão está em foco */
 }
 
+.back-button img,
+.report-button img {
+    width: 20px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: 20px; /* Ajuste o tamanho da imagem conforme necessário */
+    vertical-align: middle; /* Alinha a imagem verticalmente com o texto */
+    margin-right: 0.5em; /* Espaço entre a imagem e o texto */
+}
+
 .report-button:disabled {
     background-color: #333333; /* Cor de fundo cinza escuro */
     color: #ffffff; /* Cor do texto branco */
