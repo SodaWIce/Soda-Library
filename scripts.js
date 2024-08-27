@@ -111,20 +111,25 @@ reportButton.addEventListener('click', function() {
         mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
     })
     .then(response => {
-        console.log('Dados enviados com sucesso.');
-        // Muda o texto do botão para "Avisado!"
+        console.log('Dados enviados com sucesso..');
+        // Desativa o botão após o envio e muda o texto
+        reportButton.disabled = true;
         reportButton.textContent = "Avisado!";
-        reportButton.classList.add('disabled');
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
     });
 });
 
-// Função para reverter o texto do botão após clicar no botão "Voltar"
-document.querySelector('.back-button').addEventListener('click', function() {
+// Função para reverter o botão após o fechamento dos detalhes do livro
+function resetReportButton() {
+    reportButton.disabled = false;
     reportButton.textContent = "Link quebrado?";
-    reportButton.classList.remove('disabled');
+}
+
+// Adiciona um evento de popstate para detectar mudanças de página
+window.addEventListener('popstate', function() {
+    resetReportButton();
 });
 
 function filterBooks() {
