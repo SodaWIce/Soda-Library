@@ -242,6 +242,10 @@ header {
         row-gap: 1em;
         column-gap: 0.5em;
     }
+    
+    .book-full {
+        max-width: 20%;
+    }
 }    
 
     /* Personalizações para visualização no PC */
