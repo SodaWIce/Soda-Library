@@ -27,23 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
 
             // Define eventos de clique
-            if (window.innerWidth < 768) {
-                bookItem.onclick = () => {
-                    showDetails(livro.id);
-                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                };
-            } else {
-                const bookTitle = bookItem.querySelector('.book-title');
-                const bookThumbnail = bookItem.querySelector('.book-thumbnail');
-                
-                const handleClick = () => {
-                    showDetails(livro.id);
-                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                };
-
-                bookTitle.onclick = handleClick;
-                bookThumbnail.onclick = handleClick;
-            }
+            bookItem.onclick = () => {
+                showDetails(livro.id);
+                history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+            };
 
             bookList.appendChild(bookItem);
         });
