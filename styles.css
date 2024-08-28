@@ -155,7 +155,7 @@ header {
     background-position: left bottom;
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #8B0000; /* Borda padrão do botão */
+    border: 2px solid #B22222; /* Borda padrão do botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
