@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showDetails(bookId) {
     window.scrollTo(0, 0);
-
+    
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
@@ -62,42 +62,24 @@ function showDetails(bookId) {
                 const mainContent = document.getElementById('mainContent');
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
-
+    
                 mainContent.style.display = 'none';
                 details.style.display = 'block';
                 detailsContent.innerHTML = `
-                    <div class="book-header">
-                        <img src="${book.image}" alt="${book.title}" class="book-full">
-                        <a class="download-link" href="${book.pdf}" target="_blank">
-                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                            Baixar PDF
-                        </a>
-                    </div>
-                    <div class="book-info">
-                        <p><strong>Título:</strong> ${book.title}</p>
-                        <p><strong>Autor:</strong> ${book.author}</p>
-                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                    </div>
-                    <!-- Adicione o contêiner para os comentários do Giscus -->
-                    <div id="comments-container">
-                        <script src="https://giscus.app/client.js"
-                                data-repo="SodaWIce/Soda-Library"
-                                data-repo-id="R_kgDOMleTGg"
-                                data-category-id="DIC_kwDOMleTGs4CiAr6"
-                                data-mapping="url"
-                                data-strict="0"
-                                data-reactions-enabled="1"
-                                data-emit-metadata="0"
-                                data-input-position="top"
-                                data-theme="dark"
-                                data-lang="pt"
-                                data-loading="lazy"
-                                crossorigin="anonymous"
-                                async>
-                        </script>
-                    </div>
-                `;
+    <div class="book-header">
+        <img src="${book.image}" alt="${book.title}" class="book-full">
+        <a class="download-link" href="${book.pdf}" target="_blank">
+            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+            Baixar PDF
+        </a>
+    </div>
+    <div class="book-info">
+        <p><strong>Título:</strong> ${book.title}</p>
+        <p><strong>Autor:</strong> ${book.author}</p>
+        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+    </div>
+`;
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
