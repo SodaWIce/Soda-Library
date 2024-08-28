@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
             hideDetails();
         }
     });
+    
+    // Adicione o evento dragstart para desabilitar o arrastar e soltar
+    document.addEventListener('dragstart', function(event) {
+        event.preventDefault();
+    });
 });
 
 function showDetails(bookId) {
