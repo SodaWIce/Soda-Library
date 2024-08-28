@@ -151,6 +151,9 @@ header {
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
     background: linear-gradient(to right, #8B0000, #B22222); /* Gradiente de #8B0000 para #B22222 */
+    background-size: 200% 100%;
+    background-position: left bottom;
+    transition: background-position 1s ease;
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border: 2px solid #DC143C; /* Borda padrão do botão */
@@ -160,12 +163,13 @@ header {
     text-decoration: none; /* Remove o sublinhado do link */
     margin-bottom: 0.5em; /* Espaço abaixo do botão */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: background 0.5s linear, transform 0.3s ease; /* Transição suave do gradiente e tamanho */
+    transition: transform 0.3s ease; /* Transição suave do gradiente e tamanho */
 }
 
 .download-link:hover,
 .download-link:focus {
     background: linear-gradient(to right, #B22222, #8B0000); /* Gradiente invertido no hover/focus */
+    background-position: right bottom;
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     border-color: #B22222; /* Cor da borda ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
