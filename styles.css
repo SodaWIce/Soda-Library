@@ -14,7 +14,7 @@ header {
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Alinha o conteúdo verticalmente, se necessário */
     background-color: #111111; /* Cor de fundo do cabeçalho */
-    height: 80px; /* Ajuste conforme necessário */
+    height: 100px; /* Ajuste conforme necessário */
     padding: 0 1em; /* Ajusta o padding horizontal, se necessário */
 }
 
