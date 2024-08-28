@@ -1,41 +1,79 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const bookList = document.getElementById('bookList');
+    const loading = document.getElementById('loading');
+    
+    let currentIndex = 0;
+    const itemsPerPage = 10; // Número de livros a exibir por vez
+    let books = [];
+    let isLoading = false;
+
+    // Função para carregar livros
+    function loadBooks() {
+        if (isLoading || currentIndex >= books.length) return;
+        isLoading = true;
+        loading.style.display = 'block';
+
+        // Carrega um bloco de livros
+        const endIndex = Math.min(currentIndex + itemsPerPage, books.length);
+        const booksToLoad = books.slice(currentIndex, endIndex);
+
+        booksToLoad.forEach(livro => {
+            const bookItem = document.createElement('div');
+            bookItem.classList.add('book-item');
+            bookItem.setAttribute('data-genre', livro.genre.toLowerCase());
+            bookItem.innerHTML = `
+                <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
+                <h3 class="book-title">${livro.title}</h3>
+            `;
+
+            // Define eventos de clique
+            if (window.innerWidth < 768) {
+                bookItem.onclick = () => {
+                    showDetails(livro.id);
+                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+                };
+            } else {
+                const bookTitle = bookItem.querySelector('.book-title');
+                const bookThumbnail = bookItem.querySelector('.book-thumbnail');
+                
+                const handleClick = () => {
+                    showDetails(livro.id);
+                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+                };
+
+                bookTitle.onclick = handleClick;
+                bookThumbnail.onclick = handleClick;
+            }
+
+            bookList.appendChild(bookItem);
+        });
+
+        currentIndex = endIndex;
+        isLoading = false;
+        loading.style.display = 'none';
+    }
+
+    // Carrega o JSON de livros
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
-            const bookList = document.getElementById('bookList');
-            const isMobile = window.innerWidth < 768; // Detecta se é um dispositivo móvel
-
-            data.books.forEach(livro => {
-                const bookItem = document.createElement('div');
-                bookItem.classList.add('book-item');
-                bookItem.setAttribute('data-genre', livro.genre.toLowerCase());
-                bookItem.innerHTML = `
-                    <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
-                    <h3 class="book-title">${livro.title}</h3>
-                `;
-
-                if (isMobile) {
-                    bookItem.onclick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
-                } else {
-                    const bookTitle = bookItem.querySelector('.book-title');
-                    const bookThumbnail = bookItem.querySelector('.book-thumbnail');
-                    
-                    const handleClick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
-
-                    bookTitle.onclick = handleClick;
-                    bookThumbnail.onclick = handleClick;
-                }
-
-                bookList.appendChild(bookItem);
-            });
+            books = data.books;
+            loadBooks(); // Carrega os livros iniciais
         })
-        .catch(error => console.error('Erro ao carregar livros:', error));
+        .catch(error => {
+            console.error('Erro ao carregar livros:', error);
+        });
+
+    // Configura o IntersectionObserver para carregar mais livros
+    const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !isLoading) {
+            loadBooks();
+        }
+    }, {
+        rootMargin: '100px' // Carregar antes de chegar no final
+    });
+
+    observer.observe(loading);
 
     window.addEventListener('popstate', function(event) {
         if (event.state && event.state.page === 'details') {
@@ -141,11 +179,6 @@ function resetReportButton() {
     
     reportButton.insertBefore(iconImg, reportButton.firstChild);
 }
-
-// Adiciona um evento de popstate para detectar mudanças de página
-window.addEventListener('popstate', function() {
-    resetReportButton();
-});
 
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
