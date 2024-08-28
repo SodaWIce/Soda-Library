@@ -1,18 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Verifica se há um código de autorização na URL e armazena temporariamente
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-    if (code) {
-        localStorage.setItem('oauth_code', code);
-        // Redireciona para remover o código da URL
-        window.history.replaceState({}, document.title, window.location.pathname);
-    }
-
-    const storedCode = localStorage.getItem('oauth_code');
-    if (storedCode) {
-        exchangeCodeForToken(storedCode);
-    }
-
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
@@ -65,21 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function exchangeCodeForToken(code) {
-    fetch('https://your-backend-endpoint/exchange-code', {
-        method: 'POST',
-        body: JSON.stringify({ code }),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const token = data.access_token;
-        localStorage.setItem('access_token', token);
-        // Agora você pode usar o token para autenticar solicitações
-    })
-    .catch(error => console.error('Erro ao trocar o código:', error));
-}
-
 function showDetails(bookId) {
     window.scrollTo(0, 0);
     
@@ -95,20 +66,20 @@ function showDetails(bookId) {
                 mainContent.style.display = 'none';
                 details.style.display = 'block';
                 detailsContent.innerHTML = `
-                    <div class="book-header">
-                        <img src="${book.image}" alt="${book.title}" class="book-full">
-                        <a class="download-link" href="${book.pdf}" target="_blank">
-                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                            Baixar PDF
-                        </a>
-                    </div>
-                    <div class="book-info">
-                        <p><strong>Título:</strong> ${book.title}</p>
-                        <p><strong>Autor:</strong> ${book.author}</p>
-                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                    </div>
-                `;
+    <div class="book-header">
+        <img src="${book.image}" alt="${book.title}" class="book-full">
+        <a class="download-link" href="${book.pdf}" target="_blank">
+            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+            Baixar PDF
+        </a>
+    </div>
+    <div class="book-info">
+        <p><strong>Título:</strong> ${book.title}</p>
+        <p><strong>Autor:</strong> ${book.author}</p>
+        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+    </div>
+`;
 
                 // Remover o script existente do Giscus, se houver
                 const existingGiscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
