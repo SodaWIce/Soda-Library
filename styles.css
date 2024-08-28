@@ -188,10 +188,13 @@ header {
     left: 0em; /* Distância da borda esquerda da área de detalhes */
     margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
     outline: none; /* Remove a borda de foco padrão do navegador */
+    transition: transform 0.3s ease;
 }
 
-.back-button:focus {
+.back-button:focus,
+.back-button:hover {
     border-color: #B22222; /* Cor da borda quando o botão está em foco */
+    transform: scale(1.05);
 }
 
 .report-button {
@@ -207,10 +210,13 @@ header {
     right: 0; /* Distância da borda direita da área de detalhes */
     margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
     outline: none; /* Remove a borda de foco padrão do navegador */
+    transition: transform 0.3s ease;
 }
 
-.report-button:focus {
+.report-button:focus,
+.report-button:hover {
     border-color: #B22222; /* Cor da borda quando o botão está em foco */
+    transform: scale(1.05);
 }
 
 .back-button img,
