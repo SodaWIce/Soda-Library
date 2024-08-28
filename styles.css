@@ -14,7 +14,7 @@ header {
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Alinha o conteúdo verticalmente, se necessário */
     background-color: #111111; /* Cor de fundo do cabeçalho */
-    height: 100px; /* Ajuste conforme necessário */
+    height: 90px; /* Ajuste conforme necessário */
     padding: 0 1em; /* Ajusta o padding horizontal, se necessário */
 }
 
@@ -23,7 +23,7 @@ header h1 {
     align-items: center; /* Alinha o ícone e o texto verticalmente */
     font-family: 'Lato', sans-serif;
     color: #ffffff; /* Cor do texto */
-    margin: 0; /* Remove margens padrão, se necessário */
+    margin: 10px 0 0 0; /* Margens do titulo */
 }
 
 header .icon {
