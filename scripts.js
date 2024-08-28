@@ -115,7 +115,10 @@ reportButton.addEventListener('click', function() {
         console.log('Dados enviados com sucesso..');
         // Desativa o botão após o envio e muda o texto
         reportButton.disabled = true;
-        reportButton.textContent = "Avisado!";
+        reportButton.innerHTML = `
+            <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+            Avisado!
+        `;
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
