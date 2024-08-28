@@ -10,7 +10,12 @@ body {
 }
 
 header {
+    display: flex; /* Usa flexbox no cabeçalho */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente, se necessário */
     background-color: #111111; /* Cor de fundo do cabeçalho */
+    height: 60px; /* Ajuste conforme necessário */
+    padding: 0 1em; /* Ajusta o padding horizontal, se necessário */
 }
 
 header h1 {
@@ -19,13 +24,11 @@ header h1 {
     font-family: 'Lato', sans-serif;
     color: #ffffff; /* Cor do texto */
     margin: 0; /* Remove margens padrão, se necessário */
-    padding: 1em;
-    text-align: center;
 }
 
 header .icon {
-    width: 24px; /* Ajuste o tamanho do ícone conforme necessário */
-    height: 24px; /* Ajuste o tamanho do ícone conforme necessário */
+    width: 30px; /* Ajuste o tamanho do ícone conforme necessário */
+    height: 30px; /* Ajuste o tamanho do ícone conforme necessário */
     margin-right: 8px; /* Espaço entre o ícone e o texto */
     vertical-align: middle; /* Alinha o ícone com o texto se necessário */
 }
