@@ -160,7 +160,7 @@ header {
     text-decoration: none; /* Remove o sublinhado do link */
     margin-bottom: 0.5em; /* Espaço abaixo do botão */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: background 1s ease, transform 0.3s ease; /* Transição suave do gradiente e tamanho */
+    transition: background 2s linear, transform 0.3s ease; /* Transição suave do gradiente e tamanho */
 }
 
 .download-link:hover,
