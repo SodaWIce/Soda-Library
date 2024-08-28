@@ -81,6 +81,12 @@ function showDetails(bookId) {
     </div>
 `;
 
+                // Remover o script existente do Giscus, se houver
+                const existingGiscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
+                if (existingGiscusScript) {
+                    existingGiscusScript.remove();
+                }
+
                 // Adicionar o script do Giscus dinamicamente
                 const giscusScript = document.createElement('script');
                 giscusScript.src = "https://giscus.app/client.js";
