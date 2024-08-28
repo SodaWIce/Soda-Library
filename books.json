@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro32",
+    "title": "O Estreito Caminho Entre Desejos",
+    "image": "https://imgur.com/ZzkU6OK.png",
+    "author": "Patrick Rothfuss",
+    "year": "2024",
+    "synopsis": "Bast é um Encantado, vindo do reino das fadas, e uma de suas maiores habilidades é fazer acordos. Vê-lo negociar é como observar um artista em ação./n/Embora não se importe com as leis dos homens, ele é obrigado a seguir leis mais antigas e profundas e acaba caindo numa armadilha. Apesar de sua inteligência e cautela, Bast se vê forçado a escolher entre dois caminhos: trair a confiança de seu mestre ou ajudar um inimigo detestável./n/Neste livro, vamos acompanhar o mais charmoso dos Encantados ao longo de um único dia enquanto ele faz tramoias pela pequena cidade de Nalgures, fugindo com destreza dos problemas, seguindo seu coração mesmo quando isso vai contra o bom senso./n/Afinal, de que adianta cautela se ela o mantém longe do perigo e da emoção?",
+    "pdf": "https://drive.google.com/file/d/1AOCq9nfZvbWOKnxTHPQbleMye4d3dPgn/view?usp=drivesdk",
+    "genre": "Fantasia"
+         },
+         {
     "id": "livro31",
     "title": "Escuridão Total Sem Estrelas",
     "image": "https://imgur.com/CzNbg9y.png",
