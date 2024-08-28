@@ -232,95 +232,42 @@ header {
     pointer-events: none; /* Desativa a interação */
 }
 
-/* Estilos para PCs (largura mínima de 1024px) */
+/* Estilos específicos para landscape */
+@media only screen and (orientation: landscape) {
+    .book-item {
+        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
+    }
+    
+    .book-list {
+        row-gap: 1em;
+        column-gap: 0.5em;
+    }
+}    
+
+    /* Personalizações para visualização no PC */
 @media (min-width: 1024px) {
-    /* Ajustes para a barra de pesquisa */
     .search-bar {
-        max-width: 1000px; /* Aumenta a largura máxima da barra de pesquisa no PC */
-        padding: 0 2em; /* Aumenta o padding lateral */
-    }
-
-    /* Ajustes para itens do livro */
-    .book-item {
-        font-size: 0.7em; /* Ajusta o tamanho da fonte no PC */
-    }
-
-    /* Ajustes para a lista de livros */
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Maior tamanho mínimo para os itens */
-        column-gap: 1em; /* Aumenta o espaçamento entre colunas */
-        row-gap: 1.5em; /* Aumenta o espaçamento entre linhas */
-    }
-
-    /* Ajustes para a imagem do livro */
-    .book-full {
-        max-width: 25%; /* Ajusta o tamanho máximo da imagem do livro no PC */
-    }
-
-    /* Ajustes para os detalhes do livro */
-    .book-details {
-        max-width: 1200px; /* Define uma largura máxima maior para os detalhes no PC */
-        padding: 2em; /* Adiciona padding */
-    }
-
-/* Estilos para dispositivos móveis em modo landscape */
-@media only screen and (orientation: landscape) and (max-width: 1024px) {
-    /* Ajustes para a barra de pesquisa */
-    .search-bar {
-        padding: 0 1em; /* Mantém padding lateral adequado em landscape */
-        max-width: 90%; /* Limita a largura da barra de pesquisa para evitar que ultrapasse a tela */
-    }
-
-    /* Ajustes para itens do livro */
-    .book-item {
-        font-size: 0.5em; /* Diminui o tamanho da fonte para dispositivos móveis em landscape */
-    }
-
-    /* Ajustes para a lista de livros */
-    .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Mantém o layout flexível com um tamanho mínimo menor */
-        column-gap: 0.5em; /* Reduz o espaçamento entre colunas */
-        row-gap: 1em; /* Mantém o espaçamento entre linhas */
-    }
-
-    /* Ajustes para a imagem do livro */
-    .book-full {
-        max-width: 25%; /* Ajusta o tamanho máximo da imagem do livro em landscape */
-    }
-
-    /* Ajustes para os detalhes do livro */
-    .book-details {
-        padding: 1em; /* Reduz o padding para caber melhor em dispositivos móveis */
-    }
+        padding: 0 1em; /* Garante padding lateral adequado */
 }
 
-/* Estilos para tablets em modo portrait */
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    /* Ajustes para a barra de pesquisa */
-    .search-bar {
-        max-width: 90%; /* Limita a largura da barra de pesquisa em tablets portrait */
-        padding: 0 1.5em; /* Ajusta padding lateral */
-    }
-
-    /* Ajustes para itens do livro */
     .book-item {
-        font-size: 0.6em; /* Ajusta o tamanho da fonte para tablets em portrait */
+        font-size: 0.6em;
     }
 
-    /* Ajustes para a lista de livros */
     .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Define um tamanho mínimo adequado para os itens */
-        column-gap: 0.75em; /* Ajusta o espaçamento entre colunas */
-        row-gap: 1.25em; /* Ajusta o espaçamento entre linhas */
-    }
-
-    /* Ajustes para a imagem do livro */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
+        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
+}
+    
     .book-full {
-        max-width: 30%; /* Ajusta o tamanho máximo da imagem do livro em tablets portrait */
-    }
+        max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
+}
 
-    /* Ajustes para os detalhes do livro */
     .book-details {
-        padding: 1.5em; /* Ajusta o padding */
+        font-size: 1.3em;
+        margin: 0 20px 20px 20px; /* Adiciona margens laterais e inferior */
+        max-width: 1000px; /* Define a largura máxima para centralizar o conteúdo */
+        margin-left: auto;
+        margin-right: auto; /* Centraliza o conteúdo horizontalmente */
     }
 }
