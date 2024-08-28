@@ -57,13 +57,16 @@ header {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: 2px solid #ffffff; /* Borda clara para a barra de filtro */
+    border: 2px solid #ffffff;
     border-radius: 100px;
-    background-color: #111111; /* Fundo dos campos de entrada */
-    color: #ffffff; /* Cor do texto dentro dos campos */
-    text-align: center;
-    white-space: nowrap; /* Garante que o conteúdo da barra de filtro não seja quebrado */
-    min-width: 120px; /* Define uma largura mínima para a barra de filtro */
+    background-color: #111111;
+    color: #ffffff;
+    text-align-last: center; /* Centraliza o texto da opção selecionada */
+    white-space: nowrap;
+    min-width: 120px;
+    display: flex; /* Utiliza flexbox para alinhar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
 }
 
 .search-bar input[type="text"]:hover, .search-bar select:hover,
