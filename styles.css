@@ -285,7 +285,7 @@ header {
 
     /* Ajustes para a imagem do livro */
     .book-full {
-        max-width: 35%; /* Ajusta o tamanho máximo da imagem do livro em landscape */
+        max-width: 25%; /* Ajusta o tamanho máximo da imagem do livro em landscape */
     }
 
     /* Ajustes para os detalhes do livro */
