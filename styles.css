@@ -144,7 +144,7 @@ header {
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* Escurece a imagem com um filtro preto semi-transparente */
     filter: blur(10px); /* Ajuste o valor do desfoque conforme necessário */
-    z-index: -1; /* Garante que o pseudo-elemento fique atrás do conteúdo */
+    z-index: 1; /* Garante que o pseudo-elemento fique atrás do conteúdo */
 }
 
 .book-header {
