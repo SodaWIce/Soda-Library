@@ -80,6 +80,25 @@ function showDetails(bookId) {
         <p><strong>Sinopse:</strong> ${book.synopsis}</p>
     </div>
 `;
+
+                // Adicionar o script do Giscus dinamicamente
+                const giscusScript = document.createElement('script');
+                giscusScript.src = "https://giscus.app/client.js";
+                giscusScript.dataset.repo = "SodaWIce/Soda-Library";
+                giscusScript.dataset.repoId = "R_kgDOMleTGg";
+                giscusScript.dataset.categoryId = "DIC_kwDOMleTGs4CiAr6";
+                giscusScript.dataset.mapping = "pathname";
+                giscusScript.dataset.strict = "0";
+                giscusScript.dataset.reactionsEnabled = "1";
+                giscusScript.dataset.emitMetadata = "0";
+                giscusScript.dataset.inputPosition = "top";
+                giscusScript.dataset.theme = "dark";
+                giscusScript.dataset.lang = "pt";
+                giscusScript.dataset.loading = "lazy";
+                giscusScript.crossOrigin = "anonymous";
+                giscusScript.async = true;
+
+                document.getElementById('details').appendChild(giscusScript);
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
