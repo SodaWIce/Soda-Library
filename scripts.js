@@ -57,9 +57,16 @@ function showDetails(bookId) {
                 const mainContent = document.getElementById('mainContent');
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
+                const bookDetails = document.querySelector('.book-details'); // Selecione o elemento onde deseja definir o fundo
     
                 mainContent.style.display = 'none';
                 details.style.display = 'block';
+                
+                // Atualiza o fundo da .book-details
+                if (bookDetails) {
+                    bookDetails.style.backgroundImage = `url('${book.image}')`;
+                }
+                
                 detailsContent.innerHTML = `
     <div class="book-header">
         <img src="${book.image}" alt="${book.title}" class="book-full">
