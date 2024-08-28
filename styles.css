@@ -153,7 +153,7 @@ header {
     background: linear-gradient(to right, #8B0000, #B22222); /* Gradiente de #8B0000 para #B22222 */
     background-size: 200% 100%;
     background-position: left bottom;
-    transition: background-position 1s ease;
+    transition: background-position 2s linear;
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border: 2px solid #DC143C; /* Borda padrão do botão */
