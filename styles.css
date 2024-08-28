@@ -262,7 +262,6 @@ header {
         max-width: 1200px; /* Define uma largura máxima maior para os detalhes no PC */
         padding: 2em; /* Adiciona padding */
     }
-}
 
 /* Estilos para dispositivos móveis em modo landscape */
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
