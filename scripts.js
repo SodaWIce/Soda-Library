@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     const bookTitle = bookItem.querySelector('.book-title');
                     const bookThumbnail = bookItem.querySelector('.book-thumbnail');
-                    
+
                     const handleClick = () => {
                         showDetails(livro.id);
                         history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
@@ -34,6 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 bookList.appendChild(bookItem);
             });
+
+            // Verifica a URL inicial para carregar o livro correto, se necessário
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = urlParams.get('book');
+            if (bookId) {
+                showDetails(bookId);
+                history.replaceState({page: 'details', bookId: bookId}, '', `?book=${bookId}`);
+            }
         })
         .catch(error => console.error('Erro ao carregar livros:', error));
 
@@ -44,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hideDetails();
         }
     });
-    
+
     // Adicione o evento dragstart para desabilitar o arrastar e soltar
     document.addEventListener('dragstart', function(event) {
         event.preventDefault();
