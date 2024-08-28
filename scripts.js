@@ -84,6 +84,7 @@ function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
     history.pushState({page: 'list'}, 'Book List', '?');
+    resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
 // Obtém o botão de reporte
