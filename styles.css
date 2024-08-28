@@ -121,6 +121,7 @@ header {
 /* Restante do código CSS */
 
 .book-details {
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
@@ -130,7 +131,6 @@ header {
     border-radius: 0px;
     color: #ffffff; /* Cor do texto para contraste */
     padding: 0;
-    position: relative; /* Adicione isto para posicionamento relativo */
 }
 
 .book-header {
