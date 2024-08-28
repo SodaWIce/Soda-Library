@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro31",
+    "title": "Escuridão Total Sem Estrelas",
+    "image": "https://imgur.com/CzNbg9y.png",
+    "author": "Stephen King",
+    "year": "2010",
+    "synopsis": "Apesar de ter se tornado conhecido por seus romances, Stephen King também pode ser considerado um contista de sucesso, fazendo jus à fama de mestre do terror mesmo em poucas páginas. Em Escuridão total sem estrelas , King entrega quatro histórias curtas e aterrorizantes sobre o modo como lidamos com o mundo e como o mundo lida conosco./n/O livro começa com o conto que inspirou o filme da Netflix, 1922 , em que um agricultor convida seu filho para fazer parte de um plano terrível, visando garantir a posse das terras da família. Em seguida, no conto Gigante do volante , uma mulher estuprada por um estranho e deixada à beira da morte elabora uma vingança que a faz encarar um lado desconhecido de si mesma. Depois, em Extensão justa , um homem com câncer terminal faz um pacto com um estranho vendedor e tem que decidir até onde vale a pena ir para salvar a própria vida. Por fim, em Um bom casamento , uma mulher encontra uma caixa na garagem que pode dizer mais sobre seu marido do que os vinte anos que eles passaram juntos.",
+    "pdf": "https://drive.google.com/file/d/19qhyPCtoNiw-WubKtZgDeV962lkpgTqv/view?usp=drivesdk",
+    "genre": "Terror"
+         },
+         {
     "id": "livro30",
     "title": "O Fim da Eternidade",
     "image": "https://imgur.com/qYhhtEc.png",
