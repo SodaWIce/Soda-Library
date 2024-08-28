@@ -145,7 +145,7 @@ header {
     max-width: 40%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 1em; /* Espaço abaixo da imagem do livro */
+    margin-bottom: 1.5em; /* Espaço abaixo da imagem do livro */
 }
 
 .download-link {
