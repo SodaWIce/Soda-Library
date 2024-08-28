@@ -145,7 +145,7 @@ header {
     max-width: 40%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 1.5em; /* Espaço abaixo da imagem do livro */
+    margin-bottom: 1em; /* Espaço abaixo da imagem do livro */
 }
 
 .download-link {
@@ -158,7 +158,7 @@ header {
     cursor: pointer;
     text-align: center;
     text-decoration: none; /* Remove o sublinhado do link */
-    margin-bottom: 1em; /* Espaço abaixo do botão */
+    margin-bottom: 0.5em; /* Espaço abaixo do botão */
     outline: none; /* Remove a borda de foco padrão do navegador */
     transition: background 1s ease, transform 0.3s ease; /* Transição suave do gradiente e tamanho */
 }
