@@ -60,33 +60,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderGiscus(bookId) {
-    // Remove o Giscus existente, se houver
+    // Seleciona o script existente do Giscus
+    const giscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
+
+    // Atualiza o atributo data-term com o novo ID do livro
+    giscusScript.setAttribute('data-term', `Livro-${bookId}`);
+
+    // Remove o iframe do Giscus para forçar o recarregamento com os novos atributos
     const giscusContainer = document.getElementById('giscus-container');
-    giscusContainer.innerHTML = ''; // Limpa o contêiner
+    giscusContainer.innerHTML = '';
 
-    // Cria um novo elemento <script> para o Giscus
-    const giscusScript = document.createElement('script');
-    giscusScript.src = "https://giscus.app/client.js";
-    giscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
-    giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
-    giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
-
-    // Use "specific" para o mapeamento de discussões e adicione um identificador exclusivo
-    giscusScript.setAttribute('data-mapping', 'specific');
-    giscusScript.setAttribute('data-term', `Livro-${bookId}`); // Usando o ID do livro como identificador exclusivo
-
-    giscusScript.setAttribute('data-strict', '0');
-    giscusScript.setAttribute('data-reactions-enabled', '1');
-    giscusScript.setAttribute('data-emit-metadata', '0');
-    giscusScript.setAttribute('data-input-position', 'top');
-    giscusScript.setAttribute('data-theme', 'dark');
-    giscusScript.setAttribute('data-lang', 'pt');
-    giscusScript.setAttribute('data-loading', 'lazy');
-    giscusScript.crossOrigin = "anonymous";
-    giscusScript.async = true;
-
-    // Adiciona o novo script do Giscus ao contêiner
-    giscusContainer.appendChild(giscusScript);
+    // Cria um clone do script para forçar o recarregamento
+    const newScript = giscusScript.cloneNode(true);
+    giscusScript.parentNode.replaceChild(newScript, giscusScript);
 }
 
 function showDetails(bookId) {
