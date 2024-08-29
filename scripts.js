@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showDetails(bookId) {
     window.scrollTo(0, 0);
-    
+
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
@@ -70,24 +70,37 @@ function showDetails(bookId) {
                 const mainContent = document.getElementById('mainContent');
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
-    
+
                 mainContent.style.display = 'none';
                 details.style.display = 'block';
                 detailsContent.innerHTML = `
-    <div class="book-header">
-        <img src="${book.image}" alt="${book.title}" class="book-full">
-        <a class="download-link" href="${book.pdf}" target="_blank">
-            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-            Baixar PDF
-        </a>
-    </div>
-    <div class="book-info">
-        <p><strong>Título:</strong> ${book.title}</p>
-        <p><strong>Autor:</strong> ${book.author}</p>
-        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-    </div>
-`;
+                    <div class="book-header">
+                        <img src="${book.image}" alt="${book.title}" class="book-full">
+                        <a class="download-link" href="${book.pdf}" target="_blank">
+                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                            Baixar PDF
+                        </a>
+                    </div>
+                    <div class="book-info">
+                        <p><strong>Título:</strong> ${book.title}</p>
+                        <p><strong>Autor:</strong> ${book.author}</p>
+                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+                    </div>
+                `;
+
+                // Atualiza a URL para refletir o livro atual
+                const newUrl = `?book=${bookId}`;
+                history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+
+                // Atualiza o conteúdo dos comentários do Giscus
+                const giscus = document.querySelector('.giscus');
+                if (giscus) {
+                    giscus.setAttribute('data-url', newUrl);
+                    if (window.Giscus) {
+                        window.Giscus.render();
+                    }
+                }
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
