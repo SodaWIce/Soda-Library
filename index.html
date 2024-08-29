@@ -11,47 +11,64 @@
 </head>
 <body>
     <header>
-    <h1>
-        <img src="https://imgur.com/7ZaM26T.png" alt="Ícone" class="icon">
-        <span translate="no">Soda Library (Beta)</span>
-    </h1>
-</header>
+        <h1>
+            <img src="https://imgur.com/7ZaM26T.png" alt="Ícone" class="icon">
+            <span translate="no">Soda Library (Beta)</span>
+        </h1>
+    </header>
     <div id="mainContent">
         <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
-    <img src="https://imgur.com/90y8bbS.png" alt="Ícone de Pesquisa" class="search-icon">
-    <select id="genreFilter" onchange="filterBooks()">
-        <option value="">Todos</option>
-        <option value="Ficção">Ficção</option>
-        <option value="Mistério">Mistério</option>
-        <option value="Romance">Romance</option>
-        <option value="Fantasia">Fantasia</option>
-        <option value="Terror">Terror</option>
-        <option value="Romance Gótico">Romance Gótico</option>
-        <option value="Autoajuda">Autoajuda</option>
-    </select>
-</div>
+            <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
+            <img src="https://imgur.com/90y8bbS.png" alt="Ícone de Pesquisa" class="search-icon">
+            <select id="genreFilter" onchange="filterBooks()">
+                <option value="">Todos</option>
+                <option value="Ficção">Ficção</option>
+                <option value="Mistério">Mistério</option>
+                <option value="Romance">Romance</option>
+                <option value="Fantasia">Fantasia</option>
+                <option value="Terror">Terror</option>
+                <option value="Romance Gótico">Romance Gótico</option>
+                <option value="Autoajuda">Autoajuda</option>
+            </select>
+        </div>
         <div class="book-list" id="bookList">
             <!-- Os itens de livros serão adicionados aqui pelo JavaScript -->
         </div>
     </div>
 
- <div id="details" class="book-details" style="display: none;">
-    <button class="report-button" id="reportButton">
-        <img src="https://imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon">
-        Link quebrado?
-    </button>
-    <button class="back-button" onclick="hideDetails()">
-        <img src="https://imgur.com/GlZn3zw.png" alt="Ícone" class="back-icon">
-        Voltar
-    </button>
-    <div id="detailsContent">
-        <!-- Outros detalhes do livro, incluindo o título dinâmico -->
-    </div>
+    <div id="details" class="book-details" style="display: none;">
+        <button class="report-button" id="reportButton">
+            <img src="https://imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon">
+            Link quebrado?
+        </button>
+        <button class="back-button" onclick="hideDetails()">
+            <img src="https://imgur.com/GlZn3zw.png" alt="Ícone" class="back-icon">
+            Voltar
+        </button>
+        <div id="detailsContent">
+            <!-- Outros detalhes do livro, incluindo o título dinâmico -->
+        </div>
 
-    <!-- Adicione este container para o Giscus -->
-    <div class="giscus"></div>
-</div>
+        <!-- Container para o Giscus -->
+        <div id="giscus-container">
+            <!-- O widget do Giscus será adicionado aqui -->
+            <script src="https://giscus.app/client.js"
+                data-repo="SodaWIce/Soda-Library"
+                data-repo-id="R_kgDOMleTGg"
+                data-category-id="DIC_kwDOMleTGs4CiAr6"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="dark"
+                data-lang="pt"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
