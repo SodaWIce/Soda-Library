@@ -60,21 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderGiscus(bookId) {
-    // Remove o Giscus existente, se houver
     const giscusContainer = document.getElementById('giscus-container');
     giscusContainer.innerHTML = ''; // Limpa o contêiner
 
-    // Cria um novo elemento <script> para o Giscus
     const giscusScript = document.createElement('script');
     giscusScript.src = "https://giscus.app/client.js";
     giscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
     giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
     giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
-
-    // Use "specific" para o mapeamento de discussões e adicione um identificador exclusivo
     giscusScript.setAttribute('data-mapping', 'specific');
-    giscusScript.setAttribute('data-term', `Livro-${bookId}`); // Usando o ID do livro como identificador exclusivo
-
+    giscusScript.setAttribute('data-term', `Livro-${bookId}`);
     giscusScript.setAttribute('data-strict', '0');
     giscusScript.setAttribute('data-reactions-enabled', '1');
     giscusScript.setAttribute('data-emit-metadata', '0');
@@ -85,8 +80,9 @@ function renderGiscus(bookId) {
     giscusScript.crossOrigin = "anonymous";
     giscusScript.async = true;
 
-    // Adiciona o novo script do Giscus ao contêiner
-    giscusContainer.appendChild(giscusScript);
+    setTimeout(() => {
+        giscusContainer.appendChild(giscusScript);
+    }, 100); // Ajuste o tempo de espera, se necessário
 }
 
 function showDetails(bookId) {
