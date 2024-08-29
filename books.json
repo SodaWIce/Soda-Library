@@ -1,6 +1,36 @@
 {
     "books": [
          {
+    "id": "livro35",
+    "title": "O Instituto",
+    "image": "https://imgur.com/ja95DIi.png",
+    "author": "Stephen King",
+    "year": "2019",
+    "synopsis": "No meio da noite, em uma casa no subúrbio de Minneapolis, um grupo de invasores assassina os pais de Luke e sequestra silenciosamente o menino de doze anos. A operação leva menos de dois minutos./n/Quando Luke acorda, ele está no Instituto, em um quarto que parece muito o dele, exceto pelo fato de que não tem janela. E do lado de fora tem outras portas, e atrás delas, outras crianças com talentos especiais, que chegaram àquele lugar do mesmo jeito que Luke. O grupo formado por ele, Kalisha, Nick, George, Iris e o caçula, Avery Dixon, de apenas dez anos, está na Parte da Frente. Outros jovens, Luke descobre, foram levados para a Parte de Trás e nunca mais vistos./n/Nessa instituição sinistra, a equipe se dedica impiedosamente a extrair dessas crianças toda a força de seus poderes paranormais. Não existem escrúpulos. Conforme cada nova vítima vai desaparecendo para a Parte de Trás, Luke fica mais e mais desesperado para escapar e procurar ajuda. Mas até hoje ninguém nunca conseguiu fugir do Instituto./n/Tão aterrorizante quanto A incendiária e tão espetacular quando It: a Coisa, este novo livro de Stephen King mostra um mundo onde o bem nem sempre vence o mal.",
+    "pdf": "https://www.escolahenriquemedina.org/bibdigital/download/2171/O%20Instituto%20-%20Stephen%20King.pdf",
+    "genre": "Mistério"
+         },
+         {
+    "id": "livro34",
+    "title": "1984",
+    "image": "https://imgur.com/RHFjx44.png",
+    "author": "George Orwell",
+    "year": "1949",
+    "synopsis": "Winston, herói de 1984 , último romance de George Orwell, vive aprisionado na engrenagem totalitária de uma sociedade completamente dominada pelo Estado, onde tudo é feito coletivamente, mas cada qual vive sozinho. Ninguém escapa à vigilância do Grande Irmão, a mais famosa personificação literária de um poder cínico e cruel ao infinito, além de vazio de sentido histórico. De fato, a ideologia do Partido dominante em Oceânia não visa nada de coisa alguma para ninguém, no presente ou no futuro. O'Brien, hierarca do Partido, é quem explica a Winston que “só nos interessa o poder em si. Nem riqueza, nem luxo, nem vida longa, nem felicidade: só o poder pelo poder, poder puro”./n/Quando foi publicada em 1949, essa assustadora distopia datada de forma arbitrária num futuro perigosamente próximo logo experimentaria um imenso sucesso de público. Seus principais ingredientes - um homem sozinho desafiando uma tremenda ditadura; sexo furtivo e libertador; horrores letais - atraíram leitores de todas as idades, à esquerda e à direita do espectro político, com maior ou menor grau de instrução. À parte isso, a escrita translúcida de George Orwell, os personagens fortes, traçados a carvão por um vigoroso desenhista de personalidades, a trama seca e crua e o tom de sátira sombria garantiram a entrada precoce de 1984 no restrito panteão dos grandes clássicos modernos.",
+    "pdf": "https://multimidia.gazetadopovo.com.br/media/info/2022/202209/1984/e-book-1984.pdf",
+    "genre": "Ficção"
+         },
+         {
+    "id": "livro33",
+    "title": "O Pequeno Príncipe",
+    "image": "https://imgur.com/iNqSfZ1.png",
+    "author": "Antoine de Saint-Exupéry",
+    "year": "1943",
+    "synopsis": "O Pequeno Príncipe, escrito por Antoine de Saint-Exupéry, narra a história de um príncipe que deixa seu minúsculo planeta e viaja pelo universo. Durante sua jornada, ele encontra várias personagens que representam diferentes aspectos da natureza humana. Na Terra, ele conhece um aviador perdido no deserto e uma raposa que lhe ensina valiosas lições sobre amor e amizade.",
+    "pdf": "https://maisdiferencas.org.br/wp-content/themes/maisdiferencas/downloads/o_pequeno_principe/original.pdf",
+    "genre": "Fantasia"
+         },
+         {
     "id": "livro32",
     "title": "O Estreito Caminho Entre Desejos",
     "image": "https://imgur.com/ZzkU6OK.png",
