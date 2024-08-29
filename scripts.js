@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function renderGiscus() {
+function renderGiscus(bookId) {
     // Remove o Giscus existente, se houver
     const giscusContainer = document.getElementById('giscus-container');
     giscusContainer.innerHTML = ''; // Limpa o contêiner
@@ -70,7 +70,11 @@ function renderGiscus() {
     giscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
     giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
     giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
-    giscusScript.setAttribute('data-mapping', 'pathname');
+
+    // Use "specific" para o mapeamento de discussões e adicione um identificador exclusivo
+    giscusScript.setAttribute('data-mapping', 'specific');
+    giscusScript.setAttribute('data-term', `Livro-${bookId}`); // Usando o ID do livro como identificador exclusivo
+
     giscusScript.setAttribute('data-strict', '0');
     giscusScript.setAttribute('data-reactions-enabled', '1');
     giscusScript.setAttribute('data-emit-metadata', '0');
@@ -96,7 +100,7 @@ function showDetails(bookId) {
                 const mainContent = document.getElementById('mainContent');
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
-    
+
                 mainContent.style.display = 'none';
                 details.style.display = 'block';
                 detailsContent.innerHTML = `
@@ -119,8 +123,8 @@ function showDetails(bookId) {
                 const newUrl = `?book=${bookId}`;
                 history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
 
-                // Chama a função para recriar o Giscus
-                renderGiscus();
+                // Chama a função para recriar o Giscus com o ID do livro
+                renderGiscus(bookId);
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
