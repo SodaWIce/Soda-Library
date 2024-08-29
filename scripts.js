@@ -59,54 +59,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function showDetails(bookId) {
-    window.scrollTo(0, 0);
+function renderGiscus(bookId) {
+    // Remove o Giscus existente, se houver
+    const giscusContainer = document.getElementById('giscus-container');
+    giscusContainer.innerHTML = ''; // Limpa o contêiner
 
-    const book = booksData.books.find(b => b.id === bookId);
-    if (book) {
-        const mainContent = document.getElementById('mainContent');
-        const details = document.getElementById('details');
-        const detailsContent = document.getElementById('detailsContent');
+    // Cria um novo elemento <script> para o Giscus
+    const giscusScript = document.createElement('script');
+    giscusScript.src = "https://giscus.app/client.js";
+    giscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
+    giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
+    giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
 
-        mainContent.style.display = 'none';
-        details.style.display = 'block';
-        detailsContent.innerHTML = `
-            <div class="book-header">
-                <img src="${book.image}" alt="${book.title}" class="book-full">
-                <a class="download-link" href="${book.pdf}" target="_blank">
-                    <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                    Baixar PDF
-                </a>
-            </div>
-            <div class="book-info">
-                <p><strong>Título:</strong> ${book.title}</p>
-                <p><strong>Autor:</strong> ${book.author}</p>
-                <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-            </div>
-        `;
+    // Use "specific" para o mapeamento de discussões e adicione um identificador exclusivo
+    giscusScript.setAttribute('data-mapping', 'specific');
+    giscusScript.setAttribute('data-term', `Livro-${bookId}`); // Usando o ID do livro como identificador exclusivo
 
-        // Atualiza o widget Giscus existente
-        updateGiscus(bookId);
-    }
+    giscusScript.setAttribute('data-strict', '0');
+    giscusScript.setAttribute('data-reactions-enabled', '1');
+    giscusScript.setAttribute('data-emit-metadata', '0');
+    giscusScript.setAttribute('data-input-position', 'top');
+    giscusScript.setAttribute('data-theme', 'dark');
+    giscusScript.setAttribute('data-lang', 'pt');
+    giscusScript.setAttribute('data-loading', 'lazy');
+    giscusScript.crossOrigin = "anonymous";
+    giscusScript.async = true;
+
+    // Adiciona o novo script do Giscus ao contêiner
+    giscusContainer.appendChild(giscusScript);
 }
 
-function updateGiscus(bookId) {
-    const giscusContainer = document.querySelector('.giscus-frame'); // Use o seletor correto para o contêiner do Giscus
-    if (giscusContainer) {
-        // Cria uma nova mensagem para reenviar a configuração do Giscus
-        const message = {
-            giscus: {
-                setConfig: {
-                    term: `Livro-${bookId}`, // Atualiza o termo ou ID específico do livro
-                }
-            }
-        };
+function showDetails(bookId) {
+    window.scrollTo(0, 0);
+    
+    fetch('books.json')
+        .then(response => response.json())
+        .then(data => {
+            const book = data.books.find(b => b.id === bookId);
+            if (book) {
+                const mainContent = document.getElementById('mainContent');
+                const details = document.getElementById('details');
+                const detailsContent = document.getElementById('detailsContent');
 
-        // Envia a mensagem para o iframe do Giscus para atualizar o conteúdo
-        const giscusFrame = document.querySelector('iframe.giscus-frame');
-        giscusFrame.contentWindow.postMessage(message, 'https://giscus.app');
-    }
+                mainContent.style.display = 'none';
+                details.style.display = 'block';
+                detailsContent.innerHTML = `
+                    <div class="book-header">
+                        <img src="${book.image}" alt="${book.title}" class="book-full">
+                        <a class="download-link" href="${book.pdf}" target="_blank">
+                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                            Baixar PDF
+                        </a>
+                    </div>
+                    <div class="book-info">
+                        <p><strong>Título:</strong> ${book.title}</p>
+                        <p><strong>Autor:</strong> ${book.author}</p>
+                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+                    </div>
+                `;
+
+                // Atualiza a URL para refletir o livro atual
+                const newUrl = `?book=${bookId}`;
+                history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+
+                // Chama a função para recriar o Giscus com o ID do livro
+                renderGiscus(bookId);
+            }
+        })
+        .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
 }
 
 function hideDetails() {
