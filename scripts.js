@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showDetails(bookId) {
     window.scrollTo(0, 0);
-
+    
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
@@ -70,7 +70,7 @@ function showDetails(bookId) {
                 const mainContent = document.getElementById('mainContent');
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
-
+    
                 mainContent.style.display = 'none';
                 details.style.display = 'block';
                 detailsContent.innerHTML = `
@@ -93,13 +93,9 @@ function showDetails(bookId) {
                 const newUrl = `?book=${bookId}`;
                 history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
 
-                // Atualiza o conteúdo dos comentários do Giscus
-                const giscus = document.querySelector('.giscus');
-                if (giscus) {
-                    giscus.setAttribute('data-url', newUrl);
-                    if (window.Giscus) {
-                        window.Giscus.render();
-                    }
+                // Força o Giscus a renderizar novamente
+                if (window.Giscus) {
+                    window.Giscus.init();
                 }
             }
         })
