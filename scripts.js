@@ -61,43 +61,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showDetails(bookId) {
     window.scrollTo(0, 0);
-    
-    fetch('books.json')
-        .then(response => response.json())
-        .then(data => {
-            const book = data.books.find(b => b.id === bookId);
-            if (book) {
-                const mainContent = document.getElementById('mainContent');
-                const details = document.getElementById('details');
-                const detailsContent = document.getElementById('detailsContent');
 
-                mainContent.style.display = 'none';
-                details.style.display = 'block';
-                detailsContent.innerHTML = `
-                    <div class="book-header">
-                        <img src="${book.image}" alt="${book.title}" class="book-full">
-                        <a class="download-link" href="${book.pdf}" target="_blank">
-                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                            Baixar PDF
-                        </a>
-                    </div>
-                    <div class="book-info">
-                        <p><strong>Título:</strong> ${book.title}</p>
-                        <p><strong>Autor:</strong> ${book.author}</p>
-                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                    </div>
-                `;
+    const book = booksData.books.find(b => b.id === bookId);
+    if (book) {
+        const mainContent = document.getElementById('mainContent');
+        const details = document.getElementById('details');
+        const detailsContent = document.getElementById('detailsContent');
 
-                // Atualiza a URL para refletir o livro atual
-                const newUrl = `?book=${bookId}`;
-                history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+        mainContent.style.display = 'none';
+        details.style.display = 'block';
+        detailsContent.innerHTML = `
+            <div class="book-header">
+                <img src="${book.image}" alt="${book.title}" class="book-full">
+                <a class="download-link" href="${book.pdf}" target="_blank">
+                    <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                    Baixar PDF
+                </a>
+            </div>
+            <div class="book-info">
+                <p><strong>Título:</strong> ${book.title}</p>
+                <p><strong>Autor:</strong> ${book.author}</p>
+                <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+                <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+            </div>
+        `;
 
-                // Chama a função para recriar o Giscus com o ID do livro
-                renderGiscus(bookId);
+        // Atualiza o widget Giscus existente
+        updateGiscus(bookId);
+    }
+}
+
+function updateGiscus(bookId) {
+    const giscusContainer = document.querySelector('.giscus-frame'); // Use o seletor correto para o contêiner do Giscus
+    if (giscusContainer) {
+        // Cria uma nova mensagem para reenviar a configuração do Giscus
+        const message = {
+            giscus: {
+                setConfig: {
+                    term: `Livro-${bookId}`, // Atualiza o termo ou ID específico do livro
+                }
             }
-        })
-        .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
+        };
+
+        // Envia a mensagem para o iframe do Giscus para atualizar o conteúdo
+        const giscusFrame = document.querySelector('iframe.giscus-frame');
+        giscusFrame.contentWindow.postMessage(message, 'https://giscus.app');
+    }
 }
 
 function hideDetails() {
