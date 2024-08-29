@@ -89,6 +89,11 @@ function showDetails(bookId) {
     </div>
 `;
 
+                // Adiciona o container do Giscus
+                const giscusContainer = document.createElement('div');
+                giscusContainer.className = 'giscus';
+                details.appendChild(giscusContainer);
+
                 // Remover o script existente do Giscus, se houver
                 const existingGiscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
                 if (existingGiscusScript) {
@@ -112,7 +117,15 @@ function showDetails(bookId) {
                 giscusScript.crossOrigin = "anonymous";
                 giscusScript.async = true;
 
-                document.getElementById('details').appendChild(giscusScript);
+                // Adiciona o script do Giscus no container
+                details.appendChild(giscusScript);
+
+                // Recarrega o Giscus após adicionar dinamicamente
+                giscusScript.onload = () => {
+                    if (window.Giscus) {
+                        window.Giscus.render();
+                    }
+                };
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
