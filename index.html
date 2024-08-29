@@ -50,9 +50,34 @@
         </div>
 
         <!-- Container para o Giscus -->
-        <div id="giscus-container">
-    <!-- O widget do Giscus será dinamicamente adicionado aqui -->
-</div>
+        <div id="giscus-container"></div>
+        <script>
+    function renderGiscus(bookId) {
+        const giscusContainer = document.getElementById('giscus-container');
+        giscusContainer.innerHTML = ''; // Limpa o contêiner para evitar duplicação
+
+        // Cria o script do Giscus dinamicamente com o ID do livro
+        const giscusScript = document.createElement('script');
+        giscusScript.src = "https://giscus.app/client.js";
+        giscusScript.async = true;
+        giscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
+        giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
+        giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
+        giscusScript.setAttribute('data-mapping', 'specific');
+        giscusScript.setAttribute('data-term', `Livro-${bookId}`); // Mapeamento específico do ID do livro
+        giscusScript.setAttribute('data-strict', '0');
+        giscusScript.setAttribute('data-reactions-enabled', '1');
+        giscusScript.setAttribute('data-emit-metadata', '0');
+        giscusScript.setAttribute('data-input-position', 'top');
+        giscusScript.setAttribute('data-theme', 'dark');
+        giscusScript.setAttribute('data-lang', 'pt');
+        giscusScript.setAttribute('data-loading', 'lazy');
+        giscusScript.crossOrigin = "anonymous";
+
+        // Adiciona o script ao contêiner
+        giscusContainer.appendChild(giscusScript);
+    }
+</script>
     </div>
 
     <script src="scripts.js"></script>
