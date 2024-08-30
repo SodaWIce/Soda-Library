@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showDetails(bookId);
                 history.replaceState({page: 'details', bookId: bookId}, '', `?book=${bookId}`);
             } else {
-                history.replaceState({page: 'list'}, '', '?');  // Garantir que a lista de livros seja o estado inicial
+                showBookList();  // Mostrar lista de livros como estado inicial
             }
         })
         .catch(error => console.error('Erro ao carregar livros:', error));
@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('popstate', function(event) {
         if (event.state) {
             if (event.state.page === 'details') {
-                showDetails(event.state.bookId);
+                showDetails(event.state.bookId, false); // Não adicionar novo estado ao histórico
             } else if (event.state.page === 'list') {
-                hideDetails(); // Voltar à lista de livros
+                showBookList();
             }
         } else {
-            hideDetails(); // Se não houver estado, presume-se que a lista de livros deve ser exibida
+            showBookList(); // Exibir lista de livros se o estado for nulo
         }
     });
 
@@ -99,7 +99,7 @@ function renderGiscus(bookId) {
     giscusContainer.appendChild(newGiscusScript);
 }
 
-function showDetails(bookId) {
+function showDetails(bookId, pushState = true) {
     window.scrollTo(0, 0);
 
     fetch('books.json')
@@ -129,9 +129,9 @@ function showDetails(bookId) {
                     </div>
                 `;
 
-                // Atualiza a URL para refletir o livro atual
-                const newUrl = `?book=${bookId}`;
-                history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+                if (pushState) {
+                    history.pushState({page: 'details', bookId: bookId}, `${book.title}`, `?book=${bookId}`);
+                }
 
                 // Recria o widget Giscus para o novo livro
                 renderGiscus(bookId);
@@ -140,28 +140,34 @@ function showDetails(bookId) {
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
 }
 
-function hideDetails() {
+function showBookList() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
     history.replaceState({page: 'list'}, 'Book List', '?'); // Garante que o estado da lista de livros seja restaurado
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
-// Função para reverter o botão após o fechamento dos detalhes do livro
 function resetReportButton() {
-    reportButton.disabled = false;
-    reportButton.textContent = "Link quebrado?";
-    
-    // Recria o ícone e adiciona ao botão
-    const iconImg = document.createElement('img');
-    iconImg.src = "https://imgur.com/r5O2N0j.png";
-    iconImg.alt = "Ícone";
-    iconImg.style.width = "20px";
-    iconImg.style.height = "20px";
-    iconImg.style.verticalAlign = "middle";
-    iconImg.style.marginRight = "8px";
-    
-    reportButton.insertBefore(iconImg, reportButton.firstChild);
+    const reportButton = document.getElementById('reportButton'); // Certifique-se de que este botão exista no DOM
+    if (reportButton) {
+        reportButton.disabled = false;
+        reportButton.textContent = "Link quebrado?";
+        
+        // Remove ícones existentes e adiciona um novo
+        while (reportButton.firstChild) {
+            reportButton.removeChild(reportButton.firstChild);
+        }
+        
+        const iconImg = document.createElement('img');
+        iconImg.src = "https://imgur.com/r5O2N0j.png";
+        iconImg.alt = "Ícone";
+        iconImg.style.width = "20px";
+        iconImg.style.height = "20px";
+        iconImg.style.verticalAlign = "middle";
+        iconImg.style.marginRight = "8px";
+        
+        reportButton.insertBefore(iconImg, reportButton.firstChild);
+    }
 }
 
 // Evento para reverter o botão quando o estado muda
