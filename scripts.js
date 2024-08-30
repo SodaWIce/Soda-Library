@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             const bookList = document.getElementById('bookList');
-            const isMobile = window.innerWidth < 768;
+            const isMobile = window.innerWidth < 768; // Detecta se é um dispositivo móvel
 
             data.books.forEach(livro => {
                 const bookItem = document.createElement('div');
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 bookList.appendChild(bookItem);
             });
 
+            // Verifica a URL inicial para carregar o livro correto, se necessário
             const urlParams = new URLSearchParams(window.location.search);
             const bookId = urlParams.get('book');
             if (bookId) {
@@ -50,30 +51,33 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             hideDetails();
         }
-        resetReportButton(); // Adiciona o reset do botão aqui
     });
 
+    // Adicione o evento dragstart para desabilitar o arrastar e soltar
     document.addEventListener('dragstart', function(event) {
         event.preventDefault();
     });
 });
 
 function renderGiscus(bookId) {
+    // Remove o script do Giscus existente, se houver
     const existingGiscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
     if (existingGiscusScript) {
         existingGiscusScript.remove();
     }
 
+    // Remove o iframe do Giscus existente, se houver
     const giscusContainer = document.getElementById('giscus-container');
     giscusContainer.innerHTML = '';
 
+    // Cria um novo script Giscus com os parâmetros atualizados
     const newGiscusScript = document.createElement('script');
     newGiscusScript.src = 'https://giscus.app/client.js';
     newGiscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
     newGiscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
     newGiscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
     newGiscusScript.setAttribute('data-mapping', 'specific');
-    newGiscusScript.setAttribute('data-term', `Livro-${bookId}`);
+    newGiscusScript.setAttribute('data-term', `Livro-${bookId}`); // Usa o ID do livro como termo
     newGiscusScript.setAttribute('data-strict', '0');
     newGiscusScript.setAttribute('data-reactions-enabled', '1');
     newGiscusScript.setAttribute('data-emit-metadata', '0');
@@ -84,6 +88,7 @@ function renderGiscus(bookId) {
     newGiscusScript.crossOrigin = 'anonymous';
     newGiscusScript.async = true;
 
+    // Adiciona o novo script ao container Giscus
     giscusContainer.appendChild(newGiscusScript);
 }
 
@@ -117,9 +122,11 @@ function showDetails(bookId) {
                     </div>
                 `;
 
+                // Atualiza a URL para refletir o livro atual
                 const newUrl = `?book=${bookId}`;
                 history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
 
+                // Recria o widget Giscus para o novo livro
                 renderGiscus(bookId);
             }
         })
@@ -130,27 +137,36 @@ function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
     history.pushState({page: 'list'}, 'Book List', '?');
-    resetReportButton();
+    resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
+// Obtém o botão de reporte
 const reportButton = document.getElementById('reportButton');
 
+// Adiciona o evento de clique no botão de reporte
 reportButton.addEventListener('click', function() {
+    // Obtém o conteúdo do `detailsContent`
     const detailsContent = document.getElementById('detailsContent').textContent;
 
+    // Procura a linha que contém o título usando "Título:"
     const titleMatch = detailsContent.match(/Título:\s*(.+)/);
+
+    // Se encontrar o título, captura o texto correspondente
     const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
 
+    // Cria um objeto FormData para enviar os dados
     const formData = new URLSearchParams();
-    formData.append('entry.1901348521', bookTitle);
+    formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
 
+    // Envia os dados para o Google Formulário
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
         method: 'POST',
         body: formData,
-        mode: 'no-cors'
+        mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
     })
     .then(response => {
         console.log('Dados enviados com sucesso..');
+        // Desativa o botão após o envio e muda o texto
         reportButton.disabled = true;
         reportButton.innerHTML = `
             <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
@@ -162,10 +178,12 @@ reportButton.addEventListener('click', function() {
     });
 });
 
+// Função para reverter o botão após o fechamento dos detalhes do livro
 function resetReportButton() {
     reportButton.disabled = false;
     reportButton.textContent = "Link quebrado?";
     
+    // Recria o ícone e adiciona ao botão
     const iconImg = document.createElement('img');
     iconImg.src = "https://imgur.com/r5O2N0j.png";
     iconImg.alt = "Ícone";
@@ -174,27 +192,12 @@ function resetReportButton() {
     iconImg.style.verticalAlign = "middle";
     iconImg.style.marginRight = "8px";
     
-    reportButton.insertBefore(iconImg, reportButton.firstChild);
+    reportButton.innerHTML = ''; // Limpa o conteúdo atual do botão
+    reportButton.appendChild(iconImg); // Adiciona o ícone
+    reportButton.appendChild(document.createTextNode("Link quebrado?")); // Adiciona o texto
 }
 
-function filterBooks() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
-    const books = document.getElementById('bookList').getElementsByClassName('book-item');
-
-    Array.from(books).forEach(book => {
-        const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        const genre = book.getAttribute('data-genre');
-
-        let showBook = true;
-        if (genreFilter && genreFilter !== 'todos os gêneros' && genre !== genreFilter) {
-            showBook = false;
-        }
-
-        if (input && !title.includes(input)) {
-            showBook = false;
-        }
-
-        book.style.display = showBook ? '' : 'none';
-    });
-}
+// Adiciona um evento de popstate para detectar mudanças de página
+window.addEventListener('popstate', function() {
+    resetReportButton();
+});
