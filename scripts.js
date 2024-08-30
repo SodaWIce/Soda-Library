@@ -44,10 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Erro ao carregar livros:', error));
 
     window.addEventListener('popstate', function(event) {
-        if (event.state && event.state.page === 'details') {
-            showDetails(event.state.bookId);
+        if (event.state) {
+            if (event.state.page === 'details') {
+                showDetails(event.state.bookId);
+            } else if (event.state.page === 'list') {
+                hideDetails(); // Voltar à lista de livros
+            }
         } else {
-            hideDetails(); // Voltar à lista de livros
+            hideDetails(); // Se não houver estado, presume-se que a lista de livros deve ser exibida
         }
     });
 
@@ -143,44 +147,6 @@ function hideDetails() {
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
-// Obtém o botão de reporte
-const reportButton = document.getElementById('reportButton');
-
-// Adiciona o evento de clique no botão de reporte
-reportButton.addEventListener('click', function() {
-    // Obtém o conteúdo do `detailsContent`
-    const detailsContent = document.getElementById('detailsContent').textContent;
-
-    // Procura a linha que contém o título usando "Título:"
-    const titleMatch = detailsContent.match(/Título:\s*(.+)/);
-
-    // Se encontrar o título, captura o texto correspondente
-    const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
-
-    // Cria um objeto FormData para enviar os dados
-    const formData = new URLSearchParams();
-    formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
-
-    // Envia os dados para o Google Formulário
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
-    })
-    .then(response => {
-        console.log('Dados enviados com sucesso..');
-        // Desativa o botão após o envio e muda o texto
-        reportButton.disabled = true;
-        reportButton.innerHTML = `
-            <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-            Avisado!
-        `;
-    })
-    .catch(error => {
-        console.error('Erro ao enviar dados:', error);
-    });
-});
-
 // Função para reverter o botão após o fechamento dos detalhes do livro
 function resetReportButton() {
     reportButton.disabled = false;
@@ -198,7 +164,7 @@ function resetReportButton() {
     reportButton.insertBefore(iconImg, reportButton.firstChild);
 }
 
-// Adiciona um evento de popstate para detectar mudanças de página
+// Evento para reverter o botão quando o estado muda
 window.addEventListener('popstate', function() {
     resetReportButton();
 });
