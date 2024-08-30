@@ -57,27 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('dragstart', function(event) {
         event.preventDefault();
     });
-    
-    const searchBar = document.getElementById('search-bar');
-
-searchBar.addEventListener('input', function () {
-  const text = this.value; // Obter o texto atual digitado
-  this.value = ''; // Limpar o valor da barra de pesquisa
-
-  // Limpar spans existentes antes de adicionar novos
-  while (this.firstChild) {
-    this.removeChild(this.firstChild);
-  }
-
-  // Para cada letra digitada, criar um elemento <span> e aplicar a animação
-  text.split('').forEach((letter, index) => {
-    const span = document.createElement('span');
-    span.textContent = letter; // Define o conteúdo do span como a letra digitada
-    span.classList.add('letter-span'); // Adiciona a classe para o efeito
-    span.style.animationDelay = `${index * 50}ms`; // Adiciona um pequeno atraso entre as letras
-    this.appendChild(span); // Adiciona o span à barra de pesquisa
-  });
-});
 });
 
 function renderGiscus(bookId) {
