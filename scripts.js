@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 history.replaceState({page: 'details', bookId: bookId}, '', `?book=${bookId}`);
             } else {
                 showBookList();  // Mostrar lista de livros como estado inicial
+                history.replaceState({page: 'list'}, 'Book List', '?'); // Inicializa o estado da lista
             }
         })
         .catch(error => console.error('Erro ao carregar livros:', error));
@@ -71,17 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderGiscus(bookId) {
-    // Remove o script do Giscus existente, se houver
-    const existingGiscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
-    if (existingGiscusScript) {
-        existingGiscusScript.remove();
-    }
-
-    // Remove o iframe do Giscus existente, se houver
     const giscusContainer = document.getElementById('giscus-container');
     giscusContainer.innerHTML = '';
 
-    // Cria um novo script Giscus com os parâmetros atualizados
     const newGiscusScript = document.createElement('script');
     newGiscusScript.src = 'https://giscus.app/client.js';
     newGiscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
@@ -149,8 +142,8 @@ function showDetails(bookId, pushState = true) {
 function showBookList() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
-    history.replaceState({page: 'list'}, 'Book List', '?'); // Garante que o estado da lista de livros seja restaurado
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
+    history.replaceState({page: 'list'}, 'Book List', '?'); // Garante que o estado da lista de livros seja restaurado
 }
 
 function resetReportButton() {
@@ -174,8 +167,7 @@ function resetReportButton() {
 
         // Reaplica o evento de clique para executar a ação desejada
         reportButton.onclick = function() {
-            // Sua ação aqui, como enviar um relatório ou realizar outra tarefa
-            console.log('Botão Report foi clicado!');
+            console.log('Botão Report foi clicado!'); // Substitua por sua lógica
         };
     }
 }
