@@ -54,12 +54,6 @@ header .icon {
     pointer-events: none; /* Para garantir que o ícone não interfira na interação com o campo de entrada */
 }
 
-/* Adiciona o efeito de digitação suave ao placeholder da barra de pesquisa */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
 .search-bar input[type="text"] {
     padding: 0.8em;
     appearance: none;
@@ -71,18 +65,6 @@ header .icon {
     color: #ffffff; /* Cor do texto dentro dos campos */
     flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
     max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
-    overflow: hidden; /* Esconde o texto que ultrapassa o campo de entrada */
-    white-space: nowrap; /* Mantém o texto em uma única linha */
-    position: relative; /* Posiciona o placeholder relativo ao campo */
-}
-
-/* Estilo e animação do placeholder */
-.search-bar input[type="text"]::placeholder {
-    color: #888888; /* Cor do texto do placeholder */
-    white-space: nowrap; /* Mantém o texto em uma única linha */
-    overflow: hidden; /* Esconde o texto que ultrapassa o campo de entrada */
-    display: inline-block; /* Permite a animação da largura do placeholder */
-    animation: typing 4s steps(30, end) infinite; /* Adiciona a animação de digitação */
 }
 
 .search-bar select {
