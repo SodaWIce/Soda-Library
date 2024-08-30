@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const bookId = urlParams.get('book');
             if (bookId) {
-                showDetails(bookId);
+                showDetails(bookId, false);
                 history.replaceState({page: 'details', bookId: bookId}, '', `?book=${bookId}`);
             } else {
                 showBookList();  // Mostrar lista de livros como estado inicial
@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('dragstart', function(event) {
         event.preventDefault();
     });
+
+    // Configura o botão "Voltar" do site para exibir a lista de livros
+    const backButton = document.getElementById('backButton');
+    if (backButton) {
+        backButton.addEventListener('click', function() {
+            showBookList();
+            history.pushState({page: 'list'}, 'Book List', '?');
+        });
+    }
 });
 
 function renderGiscus(bookId) {
@@ -79,7 +88,7 @@ function renderGiscus(bookId) {
     newGiscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
     newGiscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
     newGiscusScript.setAttribute('data-mapping', 'specific');
-    newGiscusScript.setAttribute('data-term', `Livro-${bookId}`); // Usa o ID do livro como termo
+    newGiscusScript.setAttribute('data-term', `Livro-${bookId}`);
     newGiscusScript.setAttribute('data-strict', '0');
     newGiscusScript.setAttribute('data-reactions-enabled', '1');
     newGiscusScript.setAttribute('data-emit-metadata', '0');
@@ -90,12 +99,10 @@ function renderGiscus(bookId) {
     newGiscusScript.crossOrigin = 'anonymous';
     newGiscusScript.async = true;
 
-    // Adiciona um listener para verificar se o script foi carregado
     newGiscusScript.addEventListener('load', () => {
         console.log('Giscus carregado com sucesso.');
     });
 
-    // Adiciona o novo script ao container Giscus
     giscusContainer.appendChild(newGiscusScript);
 }
 
@@ -133,7 +140,6 @@ function showDetails(bookId, pushState = true) {
                     history.pushState({page: 'details', bookId: bookId}, `${book.title}`, `?book=${bookId}`);
                 }
 
-                // Recria o widget Giscus para o novo livro
                 renderGiscus(bookId);
             }
         })
@@ -148,16 +154,11 @@ function showBookList() {
 }
 
 function resetReportButton() {
-    const reportButton = document.getElementById('reportButton'); // Certifique-se de que este botão exista no DOM
+    const reportButton = document.getElementById('reportButton');
     if (reportButton) {
         reportButton.disabled = false;
-        reportButton.textContent = "Link quebrado?";
-        
-        // Remove ícones existentes e adiciona um novo
-        while (reportButton.firstChild) {
-            reportButton.removeChild(reportButton.firstChild);
-        }
-        
+        reportButton.innerHTML = ""; // Remove todo o conteúdo para evitar duplicação
+
         const iconImg = document.createElement('img');
         iconImg.src = "https://imgur.com/r5O2N0j.png";
         iconImg.alt = "Ícone";
@@ -165,8 +166,16 @@ function resetReportButton() {
         iconImg.style.height = "20px";
         iconImg.style.verticalAlign = "middle";
         iconImg.style.marginRight = "8px";
+
+        const buttonText = document.createTextNode("Link quebrado?");
         
-        reportButton.insertBefore(iconImg, reportButton.firstChild);
+        reportButton.appendChild(iconImg);
+        reportButton.appendChild(buttonText);
+
+        // Reaplica o evento de clique, se necessário
+        reportButton.onclick = function() {
+            alert('Reportar link quebrado!'); // Exemplo de ação
+        };
     }
 }
 
