@@ -124,7 +124,7 @@ function showDetails(bookId) {
 
                 // Atualiza a URL para refletir o livro atual
                 const newUrl = `?book=${bookId}`;
-                history.pushState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+                history.replaceState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
 
                 // Recria o widget Giscus para o novo livro
                 renderGiscus(bookId);
@@ -136,7 +136,7 @@ function showDetails(bookId) {
 function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
-    history.pushState({page: 'list'}, 'Book List', '?');
+    history.replaceState({page: 'list'}, 'Book List', '?');
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
@@ -192,12 +192,17 @@ function resetReportButton() {
     iconImg.style.verticalAlign = "middle";
     iconImg.style.marginRight = "8px";
     
-    reportButton.innerHTML = ''; // Limpa o conteúdo atual do botão
-    reportButton.appendChild(iconImg); // Adiciona o ícone
-    reportButton.appendChild(document.createTextNode("Link quebrado?")); // Adiciona o texto
+    // Limpa o conteúdo atual do botão e adiciona o ícone e texto
+    reportButton.innerHTML = '';
+    reportButton.appendChild(iconImg);
+    reportButton.appendChild(document.createTextNode("Link quebrado?"));
 }
 
 // Adiciona um evento de popstate para detectar mudanças de página
-window.addEventListener('popstate', function() {
-    resetReportButton();
+window.addEventListener('popstate', function(event) {
+    if (event.state && event.state.page === 'details') {
+        showDetails(event.state.bookId);
+    } else {
+        hideDetails();
+    }
 });
