@@ -14,20 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="book-title">${livro.title}</h3>
                 `;
 
+                const handleClick = () => {
+                    showDetails(livro.id);
+                    history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+                };
+
                 if (isMobile) {
-                    bookItem.onclick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
+                    bookItem.onclick = handleClick;
                 } else {
                     const bookTitle = bookItem.querySelector('.book-title');
                     const bookThumbnail = bookItem.querySelector('.book-thumbnail');
-
-                    const handleClick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
-
                     bookTitle.onclick = handleClick;
                     bookThumbnail.onclick = handleClick;
                 }
@@ -41,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (bookId) {
                 showDetails(bookId);
                 history.replaceState({page: 'details', bookId: bookId}, '', `?book=${bookId}`);
+            } else {
+                history.replaceState({page: 'list'}, '', '?');  // Garantir que a lista de livros seja o estado inicial
             }
         })
         .catch(error => console.error('Erro ao carregar livros:', error));
@@ -49,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.state && event.state.page === 'details') {
             showDetails(event.state.bookId);
         } else {
-            hideDetails();
+            hideDetails(); // Voltar à lista de livros
         }
     });
 
@@ -141,7 +139,7 @@ function showDetails(bookId) {
 function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
-    history.replaceState({page: 'list'}, 'Book List', '?');
+    history.replaceState({page: 'list'}, 'Book List', '?'); // Garante que o estado da lista de livros seja restaurado
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
