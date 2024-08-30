@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backButton) {
         backButton.addEventListener('click', function() {
             showBookList();
-            history.pushState({page: 'list'}, 'Book List', '?');
+            history.pushState({page: 'list'}, 'Book List', '?'); // Garante que o estado da lista seja restaurado
         });
     }
 });
@@ -172,15 +172,16 @@ function resetReportButton() {
         reportButton.appendChild(iconImg);
         reportButton.appendChild(buttonText);
 
-        // Reaplica o evento de clique, se necessário
+        // Reaplica o evento de clique para executar a ação desejada
         reportButton.onclick = function() {
-            alert('Reportar link quebrado!'); // Exemplo de ação
+            // Sua ação aqui, como enviar um relatório ou realizar outra tarefa
+            console.log('Botão Report foi clicado!');
         };
     }
 }
 
 // Evento para reverter o botão quando o estado muda
-window.addEventListener('popstate', function() {
+window.addEventListener('popstate', function(event) {
     resetReportButton();
 });
 
