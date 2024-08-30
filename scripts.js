@@ -88,6 +88,11 @@ function renderGiscus(bookId) {
     newGiscusScript.crossOrigin = 'anonymous';
     newGiscusScript.async = true;
 
+    // Adiciona um listener para verificar se o script foi carregado
+    newGiscusScript.addEventListener('load', () => {
+        console.log('Giscus carregado com sucesso.');
+    });
+
     // Adiciona o novo script ao container Giscus
     giscusContainer.appendChild(newGiscusScript);
 }
@@ -136,7 +141,7 @@ function showDetails(bookId) {
 function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
-    history.pushState({page: 'list'}, 'Book List', '?');
+    history.replaceState({page: 'list'}, 'Book List', '?');
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
