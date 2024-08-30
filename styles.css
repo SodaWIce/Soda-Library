@@ -76,11 +76,11 @@ header .icon {
     position: relative; /* Posiciona o placeholder relativo ao campo */
 }
 
-/* Adiciona animação de digitação ao placeholder */
+/* Estilo e animação do placeholder */
 .search-bar input[type="text"]::placeholder {
     color: #888888; /* Cor do texto do placeholder */
-    overflow: hidden; /* Esconde o texto que ultrapassa o campo de entrada */
     white-space: nowrap; /* Mantém o texto em uma única linha */
+    overflow: hidden; /* Esconde o texto que ultrapassa o campo de entrada */
     display: inline-block; /* Permite a animação da largura do placeholder */
     animation: typing 4s steps(30, end) infinite; /* Adiciona a animação de digitação */
 }
