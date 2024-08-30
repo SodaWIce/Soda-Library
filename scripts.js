@@ -206,3 +206,25 @@ window.addEventListener('popstate', function(event) {
         hideDetails();
     }
 });
+
+function filterBooks() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
+    const books = document.getElementById('bookList').getElementsByClassName('book-item');
+
+    Array.from(books).forEach(book => {
+        const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
+        const genre = book.getAttribute('data-genre');
+
+        let showBook = true;
+        if (genreFilter && genreFilter !== 'todos os gêneros' && genre !== genreFilter) {
+            showBook = false;
+        }
+
+        if (input && !title.includes(input)) {
+            showBook = false;
+        }
+
+        book.style.display = showBook ? '' : 'none';
+    });
+}
