@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro39",
+    "title": "Frankenstein",
+    "image": "https://imgur.com/JsmZEvp.png",
+    "author": "Mary Shelley",
+    "year": "1818",
+    "synopsis": "Victor Frankenstein desde muito jovem se dedicou aos estudos da filosofia e das ciências naturais. Até que, em uma experiência bem-sucedida (que lhe sugou a energia e o afastou do convívio dos seus entes queridos), ele foi capaz de dar vida a um ser de feições e trejeitos assustadores. A partir de então, criador e criatura passam a viver um jogo de perseguição repleto de sangue e horror – a primeira obra de ficção científica da literatura e um clássico do terror.",
+    "pdf": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://edisciplinas.usp.br/mod/resource/view.php%3Fid%3D3858887&ved=2ahUKEwiAnOzu8J-IAxVUGrkGHSzvAIcQFnoECDMQAQ&usg=AOvVaw0e1Q0yK5-AmYj1dehjpZ2G",
+    "genre": "Ficção"
+         },
+         {
     "id": "livro38",
     "title": "A Revolução dos Bichos",
     "image": "https://imgur.com/J3VvVEQ.png",
