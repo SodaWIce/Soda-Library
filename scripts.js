@@ -64,7 +64,7 @@ const searchInput = document.getElementById('searchInput');
     // Função para alternar o ícone ao digitar
     searchInput.addEventListener('input', function () {
         if (searchInput.value.length > 0) {
-            searchIcon.src = 'https://imgur.com/VjB15yZ.png'; // URL para o ícone de "X" (altere para o caminho do seu ícone de "X")
+            searchIcon.src = 'https://imgur.com/zBGC0yw.png'; // URL para o ícone de "X" (altere para o caminho do seu ícone de "X")
             searchIcon.style.pointerEvents = 'auto'; // Permite clique no ícone
         } else {
             searchIcon.src = 'https://imgur.com/90y8bbS.png'; // URL para o ícone de lupa (altere para o caminho do seu ícone de lupa)
