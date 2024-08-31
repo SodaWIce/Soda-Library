@@ -207,6 +207,30 @@ window.addEventListener('popstate', function(event) {
     }
 });
 
+const input = document.getElementById('searchInput');
+const genreFilter = document.getElementById('genreFilter');
+
+// Adiciona o listener para o filtro de gênero para que o filtro funcione conforme a seleção muda
+genreFilter.addEventListener('change', filterBooks);
+
+// Função para o efeito de digitação suave
+input.addEventListener('input', function (e) {
+    const value = e.target.value; // Captura o valor digitado
+    e.target.value = ''; // Limpa o campo antes de começar o efeito de digitação suave
+    let i = 0;
+
+    const interval = setInterval(() => {
+        if (i < value.length) {
+            e.target.value += value[i]; // Adiciona uma letra por vez
+            i++;
+            filterBooks(); // Chama a função de filtro a cada letra adicionada
+        } else {
+            clearInterval(interval); // Para o intervalo quando todas as letras forem adicionadas
+        }
+    }, 100); // Tempo de delay entre cada letra (em milissegundos)
+});
+
+// Função de filtro existente
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
