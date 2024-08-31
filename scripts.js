@@ -207,20 +207,6 @@ window.addEventListener('popstate', function(event) {
     }
 });
 
-const input = document.getElementById('searchInput');
-const genreFilter = document.getElementById('genreFilter');
-
-// Listener para o filtro de gênero
-genreFilter.addEventListener('change', filterBooks);
-
-// Função para aplicar a classe de animação de suavização
-input.addEventListener('input', function () {
-    input.classList.add('fade-text'); // Adiciona a classe que inicia a animação de opacidade
-    setTimeout(() => input.classList.remove('fade-text'), 300); // Remove a classe após a animação
-    filterBooks(); // Chama a função de filtro
-});
-
-// Função de filtro existente
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const genreFilter = document.getElementById('genreFilter').value.toLowerCase();

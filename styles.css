@@ -67,17 +67,6 @@ header .icon {
     max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
 }
 
-/* Estilo para suavizar a digitação */
-.fade-text {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out; /* Transição de opacidade para efeito de suavização */
-}
-
-/* Quando o texto estiver presente, a opacidade volta a 1 */
-input[type="text"]:not(:placeholder-shown) {
-    opacity: 1;
-}
-
 .search-bar select {
     padding: 0.8em;
     appearance: none;
