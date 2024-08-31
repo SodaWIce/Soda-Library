@@ -72,9 +72,10 @@ const searchInput = document.getElementById('searchInput');
 
     // Função para limpar o campo de pesquisa ao clicar no ícone "X"
     const clearSearch = () => {
-        searchInput.value = '';
-        searchInput.focus(); // Foco no campo de pesquisa novamente
-        searchIconContainer.classList.remove('show-clear'); // Volta para o ícone de lupa
+        searchInput.value = '';  // Limpa o campo de pesquisa
+        searchInput.focus();  // Foco no campo de pesquisa novamente
+        searchIconContainer.classList.remove('show-clear');  // Volta para o ícone de lupa
+        filterBooks();  // Chama a função de filtro para mostrar todos os itens novamente
     };
 
     // Adiciona evento de clique no contêiner do ícone para limpar o campo
