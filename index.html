@@ -18,8 +18,11 @@
     </header>
     <div id="mainContent">
         <div class="search-bar">
-  <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
-  <img src="https://imgur.com/90y8bbS.png" alt="Ícone de Pesquisa" id="searchIcon" class="search-icon" onclick="clearSearch()">
+    <input type="text" id="searchInput" placeholder="Pesquisar livros..." onkeyup="filterBooks()">
+    <div class="search-icon-container">
+        <img src="https://imgur.com/90y8bbS.png" alt="Ícone de Pesquisa" class="search-icon search-icon-lupa">
+        <img src="https://imgur.com/zBGC0yw.png" alt="Ícone de Limpar" class="search-icon search-icon-x">
+    </div>
             <select id="genreFilter" onchange="filterBooks()">
                 <option value="">Todos</option>
                 <option value="Ficção">Ficção</option>

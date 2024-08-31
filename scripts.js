@@ -59,28 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 const searchInput = document.getElementById('searchInput');
-    const searchIcon = document.getElementById('searchIcon');
+    const searchIconContainer = document.querySelector('.search-icon-container');
 
     // Função para alternar o ícone ao digitar
     searchInput.addEventListener('input', function () {
         if (searchInput.value.length > 0) {
-            searchIcon.src = 'https://imgur.com/zBGC0yw.png'; // URL para o ícone de "X" (altere para o caminho do seu ícone de "X")
-            searchIcon.style.pointerEvents = 'auto'; // Permite clique no ícone
+            searchIconContainer.classList.add('show-clear'); // Adiciona classe para mostrar o ícone "X"
         } else {
-            searchIcon.src = 'https://imgur.com/90y8bbS.png'; // URL para o ícone de lupa (altere para o caminho do seu ícone de lupa)
-            searchIcon.style.pointerEvents = 'none'; // Desabilita o clique no ícone quando é a lupa
+            searchIconContainer.classList.remove('show-clear'); // Remove a classe para mostrar o ícone de lupa
         }
     });
 
-    // Função para limpar o campo de pesquisa
-    function clearSearch() {
+    // Função para limpar o campo de pesquisa ao clicar no ícone "X"
+    const clearSearch = () => {
         searchInput.value = '';
         searchInput.focus(); // Foco no campo de pesquisa novamente
-        searchIcon.src = 'https://imgur.com/90y8bbS.png'; // URL para o ícone de lupa (altere para o caminho do seu ícone de lupa)
-        searchIcon.style.pointerEvents = 'none'; // Desabilita o clique no ícone quando é a lupa
-    }
+        searchIconContainer.classList.remove('show-clear'); // Volta para o ícone de lupa
+    };
 
-    searchIcon.addEventListener('click', clearSearch); // Adiciona evento de clique no ícone
+    // Adiciona evento de clique no contêiner do ícone para limpar o campo
+    searchIconContainer.addEventListener('click', clearSearch);
 });
 
 function renderGiscus(bookId) {
