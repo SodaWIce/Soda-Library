@@ -45,26 +45,27 @@ header .icon {
 }
 
 .search-bar .search-icon {
-    position: absolute;
-    right: 168px; /* Ajuste conforme necessário para alinhar com o campo de entrada */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px; /* Igual ao tamanho dos ícones dos botões */
-    height: 20px; /* Igual ao tamanho dos ícones dos botões */
-    pointer-events: none; /* Para garantir que o ícone não interfira na interação com o campo de entrada */
+  position: absolute;
+  right: 168px; /* Ajuste conforme necessário para alinhar com o campo de entrada */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Igual ao tamanho dos ícones dos botões */
+  height: 20px; /* Igual ao tamanho dos ícones dos botões */
+  cursor: pointer; /* Torna o ícone clicável */
+  pointer-events: auto; /* Permite interação com o ícone */
 }
 
 .search-bar input[type="text"] {
-    padding: 0.8em;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: 2px solid #ffffff; /* Borda clara para a barra de pesquisa */
-    border-radius: 100px;
-    background-color: #111111; /* Fundo dos campos de entrada */
-    color: #ffffff; /* Cor do texto dentro dos campos */
-    flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
-    max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
+  padding: 0.8em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #ffffff; /* Borda clara para a barra de pesquisa */
+  border-radius: 100px;
+  background-color: #111111; /* Fundo dos campos de entrada */
+  color: #ffffff; /* Cor do texto dentro dos campos */
+  flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
+  max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
 }
 
 .search-bar select {

@@ -57,6 +57,30 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('dragstart', function(event) {
         event.preventDefault();
     });
+    
+const searchInput = document.getElementById('searchInput');
+    const searchIcon = document.getElementById('searchIcon');
+
+    // Função para alternar o ícone ao digitar
+    searchInput.addEventListener('input', function () {
+        if (searchInput.value.length > 0) {
+            searchIcon.src = 'https://imgur.com/VjB15yZ.png'; // URL para o ícone de "X" (altere para o caminho do seu ícone de "X")
+            searchIcon.style.pointerEvents = 'auto'; // Permite clique no ícone
+        } else {
+            searchIcon.src = 'https://imgur.com/90y8bbS.png'; // URL para o ícone de lupa (altere para o caminho do seu ícone de lupa)
+            searchIcon.style.pointerEvents = 'none'; // Desabilita o clique no ícone quando é a lupa
+        }
+    });
+
+    // Função para limpar o campo de pesquisa
+    function clearSearch() {
+        searchInput.value = '';
+        searchInput.focus(); // Foco no campo de pesquisa novamente
+        searchIcon.src = 'https://imgur.com/90y8bbS.png'; // URL para o ícone de lupa (altere para o caminho do seu ícone de lupa)
+        searchIcon.style.pointerEvents = 'none'; // Desabilita o clique no ícone quando é a lupa
+    }
+
+    searchIcon.addEventListener('click', clearSearch); // Adiciona evento de clique no ícone
 });
 
 function renderGiscus(bookId) {
