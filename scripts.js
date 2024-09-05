@@ -116,7 +116,11 @@ function renderGiscus(bookId) {
 }
 
 function showDetails(bookId) {
-    window.scrollTo(0, 0);
+    // Rolagem suave para o topo
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Faz a rolagem suave
+    });
 
     fetch('books.json')
         .then(response => response.json())
@@ -127,30 +131,38 @@ function showDetails(bookId) {
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
 
-                mainContent.style.display = 'none';
-                details.style.display = 'block';
-                detailsContent.innerHTML = `
-                    <div class="book-header">
-                        <img src="${book.image}" alt="${book.title}" class="book-full">
-                        <a class="download-link" href="${book.pdf}" target="_blank">
-                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                            Baixar PDF
-                        </a>
-                    </div>
-                    <div class="book-info">
-                        <p><strong>Título:</strong> ${book.title}</p>
-                        <p><strong>Autor:</strong> ${book.author}</p>
-                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                    </div>
-                `;
+                // Esconde o conteúdo atual
+                details.style.opacity = 0;
 
-                // Atualiza a URL para refletir o livro atual
-                const newUrl = `?book=${bookId}`;
-                history.replaceState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+                setTimeout(() => {
+                    mainContent.style.display = 'none';
+                    details.style.display = 'block';
+                    detailsContent.innerHTML = `
+                        <div class="book-header">
+                            <img src="${book.image}" alt="${book.title}" class="book-full">
+                            <a class="download-link" href="${book.pdf}" target="_blank">
+                                <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                                Baixar PDF
+                            </a>
+                        </div>
+                        <div class="book-info">
+                            <p><strong>Título:</strong> ${book.title}</p>
+                            <p><strong>Autor:</strong> ${book.author}</p>
+                            <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+                            <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+                        </div>
+                    `;
 
-                // Recria o widget Giscus para o novo livro
-                renderGiscus(bookId);
+                    // Atualiza a URL para refletir o livro atual
+                    const newUrl = `?book=${bookId}`;
+                    history.replaceState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+
+                    // Recria o widget Giscus para o novo livro
+                    renderGiscus(bookId);
+
+                    // Mostra o novo conteúdo suavemente
+                    details.style.opacity = 1;
+                }, 300); // 300 ms de atraso para coincidir com o tempo da transição
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
