@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro45",
+    "title": "A Metamorfose",
+    "image": "https://imgur.com/GyPEU1t.png",
+    "author": "Franz Kafka",
+    "year": "1915",
+    "synopsis": "O caixeiro-viajante Gregor acorda metamorfoseado em um enorme inseto e percebe que tudo mudou e não só em sua vida, mas no mundo. Ele, então, acompanha as reações de sua família ao perceberem o estranho ser em que ele se tornou. E, enquanto luta para se manter vivo, reflete sobre o comportamento de seus pais, de sua irmã e sobre a sua nova vida.",
+    "pdf": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://colegiocngparanagua.com.br/wp-content/uploads/2021/02/A-METAMORFOSE.pdf&ved=2ahUKEwiytImbwqyIAxW_LrkGHUvRFZQQFnoECAYQAQ&usg=AOvVaw0vTp8NG85B7UC3cs_ew31B",
+    "genre": "Ficção"
+         },
+         {
     "id": "livro44",
     "title": "Salem",
     "image": "https://imgur.com/CgqhHcN.png",
