@@ -1,6 +1,26 @@
 {
     "books": [
          {
+    "id": "livro44",
+    "title": "Salem",
+    "image": "https://imgur.com/CgqhHcN.png",
+    "author": "Stephen King",
+    "year": "1975",
+    "synopsis": "Ambientado na cidadezinha de Jerusalem`s Lot, na Nova Inglaterra, conta a história de três forasteiros. Ben Mears, um escritor que viveu alguns anos na cidade quando criança e está disposto a acertar contas com o próprio passado, Mark Petrie, um menino obcecado por monstros e filmes de terror e o Senhor Barlow, uma figura misteriosa que decide abrir uma loja na cidade./n/Após a chegada desses forasteiros, fatos inexplicáveis começam perturbar a rotina provinciana de Jerusalem`s Lot: uma criança é encontrada morta, habitantes começam a desaparecer sem deixar vestígios ou sucumbem a uma estranha doença. A morte passa a envolver a pequena cidade com seu toque maléfico e Ben e Mark são obrigados a escolher o único caminho que resta aos sobreviventes da praga: fugir./n/Mas isso não será tão simples: os destinos de Ben, Mark, Barlow e Jerusalem`s Lot estão agora para sempre interligados.",
+    "pdf": "https://drive.google.com/file/d/1DRpl3Ci_yjtcx5reeK7mQ1prHHIjEKGl/view?usp=sharing",
+    "genre": "Terror"
+         },
+         {
+    "id": "livro43",
+    "title": "Amor & Gelato",
+    "image": "https://imgur.com/lFJu4ju.png",
+    "author": "Jenna Evans Welch",
+    "year": "2016",
+    "synopsis": "Um verão na Itália, uma antiga história de amor e um segredo de família/n/Depois da morte da mãe, Lina fica com a missão de realizar um último pedido: ir até a Itália para conhecer o pai. Do dia para a noite, ela se vê na famosa paisagem da Toscana, morando em uma casa localizada no mesmo terreno de um cemitério memorial de soldados americanos da Segunda Guerra Mundial, com um homem que nunca tinha ouvido falar. Apesar das belezas arquitetônicas, da história da cidade e das comidas maravilhosas, o que Lina mais quer é ir embora correndo dali./n/Mas as coisas começam a mudar quando ela recebe um antigo diário da mãe. Nele, a menina embarca em uma misteriosa história de amor, que pode explicar suas próprias origens. No meio desse turbilhão de emoções, Lina ainda conhece Ren e Thomas, dois meninos lindos que vão mexer ainda mais com seu coração./n/Uma trajetória que fará Lina descobrir o amor, a si mesma e também aprender a lidar com a perda. Amor & gelato é uma deliciosa viagem pelos mais românticos pontos turísticos italianos, com direito a tudo de mais intenso que o lugar tem a oferecer: desde paixões até corações partidos.",
+    "pdf": "https://napontadospes693885424.files.wordpress.com/2020/04/amor-gelato-jenna-evans-welch.pdf",
+    "genre": "Romance"
+         },
+         {
     "id": "livro42",
     "title": "Hamlet",
     "image": "https://imgur.com/XUwCjnY.png",
