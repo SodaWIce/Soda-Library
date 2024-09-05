@@ -177,8 +177,6 @@ header .icon {
     color: #ffffff; /* Cor do texto para contraste */
     padding: 0;
     position: relative; /* Adicione isto para posicionamento relativo */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Transição suave */
 }
 
 .book-header {
@@ -187,10 +185,6 @@ header .icon {
     align-items: center; /* Centraliza horizontalmente o conteúdo */
     width: 100%;
     margin-bottom: 1em; /* Espaço entre a imagem e o link */
-}
-
-.book-details.show {
-    opacity: 1; /* Tornar visível ao adicionar a classe */
 }
 
 .book-full {
