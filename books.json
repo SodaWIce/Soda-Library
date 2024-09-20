@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro46",
+    "title": "Edgar Allan Poe: Medo Clássico Vol.1",
+    "image": "https://imgur.com/HNeaHnN.png",
+    "author": "Edgar Allan Poe",
+    "year": "1839-1849",
+    "synopsis": "No Medo Clássico de Edgar Allan Poe Vol. 1, a DarkSide reúne uma seleção dos contos mais emblemáticos de um dos mestres do horror gótico. O volume apresenta histórias que exploram os medos mais profundos da psique humana, mergulhando em temas como a loucura, a culpa, o medo da morte e o mistério. Com uma escrita sombria e envolvente, Poe cria cenários perturbadores e personagens marcantes que desafiam os limites da sanidade. Este livro é uma porta de entrada perfeita para o universo sombrio de Poe, repleto de tensão e atmosferas inquietantes, que continuam a fascinar gerações.",
+    "pdf": "https://drive.google.com/file/d/1cn1XR0B-Z-0UELNi9xiUgeeH0rwKpA8j/view?usp=drivesdk",
+    "genre": "Terror"
+         },
+         {
     "id": "livro45",
     "title": "A Metamorfose",
     "image": "https://imgur.com/GyPEU1t.png",
