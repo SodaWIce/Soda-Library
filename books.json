@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro47",
+    "title": "Memórias Póstumas de Brás Cubas",
+    "image": "https://imgur.com/bwTEJrQ.png",
+    "author": "Machado de Assis",
+    "year": "1881",
+    "synopsis": "Memórias Póstumas de Brás Cubas é uma ficção que se dedica a contar a história de vida do protagonista, iniciando de modo inusitado: pela sua morte. Narrado em primeira pessoa pelo próprio defunto, Brás Cubas nos explica, logo nas primeiras páginas, que teve uma ideia fixa: criar um emplasto anti-hipocondríaco que serviria para aliviar a melancolia humana. A partir daí, o relato se desenrola em fatos e divagações sobre momentos e sentimentos cultivados pelo autor ao longo de sua existência, como sua infância e seu amor por Virgília.",
+    "pdf": "https://drive.google.com/file/d/1dvS7_AdftoHBpLgTUvfESzKQp5hsQ2ib/view?usp=drivesdk",
+    "genre": "Ficção"
+         },
+         {
     "id": "livro46",
     "title": "Edgar Allan Poe: Medo Clássico Vol.1",
     "image": "https://imgur.com/HNeaHnN.png",
