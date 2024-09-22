@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro48",
+    "title": "O Estranho Misterioso",
+    "image": "https://imgur.com/1p6XFBi.png",
+    "author": "Mark Twain",
+    "year": "1916",
+    "synopsis": "O Estranho Misterioso, de Mark Twain, é uma novela sombria e filosófica que explora a natureza do bem e do mal, além das ambiguidades da moralidade humana. A trama gira em torno de três jovens que vivem em um vilarejo isolado na Áustria do século XVI, onde encontram um enigmático estrangeiro chamado Satanás. Esse visitante peculiar os envolve em eventos sobrenaturais e provoca profundas reflexões sobre a vida, o destino e a liberdade. Com sua narrativa intrigante e diálogos provocativos, Twain conduz o leitor por uma jornada intensa, questionando as noções de moralidade e religião.",
+    "pdf": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.agr-tc.pt/bibliotecadigital/aetc/download/752/O%2520Estranho%2520Misterioso%2520-%2520Mark%2520Twain.pdf&ved=2ahUKEwjBwd3bvNWIAxWcmZUCHUlYFm0QFnoECCUQAQ&usg=AOvVaw3yrl7pXm5HMEakbvBBf8Qm",
+    "genre": "Ficção"
+         },
+         {
     "id": "livro47",
     "title": "Memórias Póstumas de Brás Cubas",
     "image": "https://imgur.com/bwTEJrQ.png",
