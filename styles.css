@@ -298,11 +298,13 @@ header.light-theme h1 {
 }
 
 .light-mode #bookDetailsContainer {
-    background-color: #f7f7f7; /* Mantenha a cor clara */
+    background-color: transparent; /* Mantenha a cor clara */
+    color: #111111
 }
 
 .dark-mode #bookDetailsContainer {
-    background-color: #222222; /* Cor do modo escuro, se necessário */
+    background-color: transparent; /* Cor do modo escuro, se necessário */
+    color: #ffffff
 }
 
 /* Estilo para a barra de pesquisa e botões no tema claro */

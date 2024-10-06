@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Definir a URL do ícone de aviso baseado no tema
             const avisoIconUrl = isLightTheme 
-                ? 'https://imgur.com/Aviso-light.png' // Substitua com a URL do ícone "Avisado!" no tema claro
+                ? 'https://imgur.com/tc1gvoE.png' // Substitua com a URL do ícone "Avisado!" no tema claro
                 : 'https://imgur.com/5PDMsZ2.png'; // URL do ícone "Avisado!" no tema escuro
 
             // Atualiza o botão Report para o estado "Avisado!"
