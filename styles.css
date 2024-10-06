@@ -171,7 +171,7 @@ header .icon {
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
     margin: 2em;
-    background: #111111; /* Fundo escuro para os detalhes do livro */
+    background: transparent; /* Fundo escuro para os detalhes do livro */
     border: none;
     border-radius: 0px;
     color: #ffffff; /* Cor do texto para contraste */
@@ -292,19 +292,8 @@ header.light-theme h1 {
     color: #111111;
 }
 
-#bookDetailsContainer {
-    background-color: transparent; /* ou a cor que você usa no modo claro */
-    color: #111111
-}
-
-.light-mode #bookDetailsContainer {
-    background-color: transparent; /* Mantenha a cor clara */
-    color: #111111
-}
-
-.dark-mode #bookDetailsContainer {
-    background-color: transparent; /* Cor do modo escuro, se necessário */
-    color: #ffffff
+.light-theme .book-details {
+    color: #111111; /* Cor do texto no tema claro */
 }
 
 /* Estilo para a barra de pesquisa e botões no tema claro */
