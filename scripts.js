@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Verifica o tema armazenado e aplica
-    const currentTheme = localStorage.getItem('theme') || 'dark'; // Padrão para 'dark'
-    applyTheme(currentTheme); // Chama a função applyTheme com o tema atual
     // Função para aplicar o tema
     const applyTheme = (theme) => {
         const body = document.body;
@@ -72,6 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Verifica o tema armazenado e aplica
+    const currentTheme = localStorage.getItem('theme') || 'dark'; // Padrão para 'dark'
+    applyTheme(currentTheme); // Chama a função applyTheme com o tema atual
+
     // Função para alternar o tema
     const toggleTheme = () => {
         const currentTheme = localStorage.getItem('theme') || 'dark'; // Padrão para 'dark'
@@ -79,6 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     };
+
+    // Adicione o evento de clique no ícone de alternância de tema
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // ... (outras funções que você já tinha)
+});
 
     // Função para resetar o botão Report com base no tema atual
     const resetReportButton = () => {
