@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adiciona evento de clique no contêiner do ícone para limpar o campo
     searchIconContainer.addEventListener('click', clearSearch);
 
-    // Função de alternância de tema
+    // Função de alternância de tema aprimorada
     const toggleTheme = () => {
         const body = document.body;
         const header = document.querySelector('header');
@@ -116,60 +116,49 @@ document.addEventListener('DOMContentLoaded', () => {
             backButtonIcon
         });
 
-        // Verifica se todos os elementos necessários foram encontrados
-        if (!body || !header || !searchInput || !genreFilter || !backButton || !reportButton || !themeToggleIcon || !searchLupaIcon || !searchXIcon || !reportButtonIcon || !backButtonIcon) {
-            console.error('Um ou mais elementos necessários para alternância de tema não foram encontrados.');
-            return;
+        // Alterna as classes de tema se os elementos existirem
+        if (body) body.classList.toggle('light-theme');
+        if (header) header.classList.toggle('light-theme');
+        if (bookItems) {
+            bookItems.forEach(item => {
+                item.classList.toggle('light-theme');
+            });
+        }
+        if (searchInput) searchInput.classList.toggle('light-theme');
+        if (genreFilter) genreFilter.classList.toggle('light-theme');
+        if (backButton) backButton.classList.toggle('light-theme');
+        if (reportButton) reportButton.classList.toggle('light-theme');
+
+        // Troca os ícones se existirem
+        if (themeToggleIcon) {
+            themeToggleIcon.src = body.classList.contains('light-theme') 
+                ? 'https://imgur.com/23SH3Qm.png' 
+                : 'https://i.imgur.com/7ZaM26T.png';
+        }
+        if (searchLupaIcon) {
+            searchLupaIcon.src = body.classList.contains('light-theme') 
+                ? 'https://imgur.com/wzRSUO5.png' 
+                : 'https://i.imgur.com/90y8bbS.png';
+        }
+        if (searchXIcon) {
+            searchXIcon.src = body.classList.contains('light-theme') 
+                ? 'https://imgur.com/8P7sffl.png' 
+                : 'https://i.imgur.com/zBGC0yw.png';
+        }
+        if (reportButtonIcon) {
+            reportButtonIcon.src = body.classList.contains('light-theme') 
+                ? 'https://imgur.com/1TExDoB.png' 
+                : 'https://i.imgur.com/r5O2N0j.png';
+        }
+        if (backButtonIcon) {
+            backButtonIcon.src = body.classList.contains('light-theme') 
+                ? 'https://imgur.com/IB823b1.png' 
+                : 'https://i.imgur.com/GlZn3zw.png';
         }
 
-        // Alterna as classes de tema
-        if (body.classList.contains('light-theme')) {
-            // Remove o tema claro e volta ao padrão (tema escuro)
-            body.classList.remove('light-theme');
-            header.classList.remove('light-theme');
-            bookItems.forEach(item => {
-                item.classList.remove('light-theme');
-            });
-
-            // Remover classes de elementos específicos
-            searchInput.classList.remove('light-theme');
-            genreFilter.classList.remove('light-theme');
-            backButton.classList.remove('light-theme');
-            reportButton.classList.remove('light-theme');
-
-            // Trocar ícones para o tema escuro (padrão)
-            themeToggleIcon.src = 'https://i.imgur.com/7ZaM26T.png'; // Ícone padrão do cabeçalho
-            searchLupaIcon.src = 'https://i.imgur.com/90y8bbS.png'; // Ícone padrão da lupa
-            searchXIcon.src = 'https://i.imgur.com/zBGC0yw.png'; // Ícone padrão de limpar
-            reportButtonIcon.src = 'https://i.imgur.com/r5O2N0j.png'; // Ícone padrão de reportar
-            backButtonIcon.src = 'https://i.imgur.com/GlZn3zw.png'; // Ícone padrão de voltar
-
-            // Salva a preferência no localStorage
-            localStorage.setItem('theme', 'dark');
-        } else {
-            // Adiciona o tema claro
-            body.classList.add('light-theme');
-            header.classList.add('light-theme');
-            bookItems.forEach(item => {
-                item.classList.add('light-theme');
-            });
-
-            // Adicionar classes de elementos específicos
-            searchInput.classList.add('light-theme');
-            genreFilter.classList.add('light-theme');
-            backButton.classList.add('light-theme');
-            reportButton.classList.add('light-theme');
-
-            // Trocar ícones para o tema claro
-            themeToggleIcon.src = 'https://imgur.com/23SH3Qm.png'; // Ícone claro do cabeçalho
-            searchLupaIcon.src = 'https://imgur.com/wzRSUO5.png'; // Ícone claro da lupa
-            searchXIcon.src = 'https://imgur.com/8P7sffl.png'; // Ícone claro de limpar
-            reportButtonIcon.src = 'https://imgur.com/1TExDoB.png'; // Ícone claro de reportar
-            backButtonIcon.src = 'https://imgur.com/IB823b1.png'; // Ícone claro de voltar
-
-            // Salva a preferência no localStorage
-            localStorage.setItem('theme', 'light');
-        }
+        // Salva a preferência no localStorage
+        const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+        localStorage.setItem('theme', currentTheme);
     };
 
     // Aplica o tema salvo no localStorage ao carregar a página
@@ -227,6 +216,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Elemento com ID "reportButton" não encontrado.');
     }
 
+    // Adiciona event listener para o botão de Voltar
+    const backButton = document.getElementById('backButton');
+    if (backButton) {
+        backButton.addEventListener('click', () => {
+            history.back();
+        });
+    } else {
+        console.error('Elemento com ID "backButton" não encontrado.');
+    }
+
     // Função para reverter o botão após o fechamento dos detalhes do livro
     function resetReportButton() {
         const reportButton = document.getElementById('reportButton'); // Certifica-se de obter o botão aqui
@@ -239,6 +238,29 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.error('Elemento com ID "reportButton" não encontrado ao resetar.');
         }
+    }
+
+    // Função para filtrar livros
+    function filterBooks() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
+        const books = document.getElementById('bookList').getElementsByClassName('book-item');
+
+        Array.from(books).forEach(book => {
+            const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
+            const genre = book.getAttribute('data-genre');
+
+            let showBook = true;
+            if (genreFilter && genreFilter !== 'todos' && genre !== genreFilter) {
+                showBook = false;
+            }
+
+            if (input && !title.includes(input)) {
+                showBook = false;
+            }
+
+            book.style.display = showBook ? '' : 'none';
+        });
     }
 });
 
@@ -337,25 +359,16 @@ function hideDetails() {
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
-// Função para filtrar livros
-function filterBooks() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
-    const books = document.getElementById('bookList').getElementsByClassName('book-item');
-
-    Array.from(books).forEach(book => {
-        const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        const genre = book.getAttribute('data-genre');
-
-        let showBook = true;
-        if (genreFilter && genreFilter !== 'todos' && genre !== genreFilter) {
-            showBook = false;
-        }
-
-        if (input && !title.includes(input)) {
-            showBook = false;
-        }
-
-        book.style.display = showBook ? '' : 'none';
-    });
+// Função para reverter o botão após o fechamento dos detalhes do livro
+function resetReportButton() {
+    const reportButton = document.getElementById('reportButton'); // Certifica-se de obter o botão aqui
+    if (reportButton) {
+        reportButton.disabled = false;
+        reportButton.innerHTML = `
+            <img src="https://i.imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon">
+            Link quebrado?
+        `;
+    } else {
+        console.error('Elemento com ID "reportButton" não encontrado ao resetar.');
+    }
 }
