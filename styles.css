@@ -293,7 +293,8 @@ header.light-theme h1 {
 }
 
 #bookDetailsContainer {
-    background-color: #f7f7f7; /* ou a cor que você usa no modo claro */
+    background-color: transparent; /* ou a cor que você usa no modo claro */
+    color: #111111
 }
 
 .light-mode #bookDetailsContainer {
