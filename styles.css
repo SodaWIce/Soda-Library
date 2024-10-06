@@ -454,7 +454,7 @@ button.report-button:focus {
 
 .book-item {
     cursor: default;
-    background: #111111; /* Fundo escuro para os itens da lista */
+    background: transparent; /* Fundo escuro para os itens da lista */
     /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
     border-radius: 10px;
     padding: 1em;

@@ -229,10 +229,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para reverter o botão após o fechamento dos detalhes do livro
     function resetReportButton() {
         const reportButton = document.getElementById('reportButton'); // Certifica-se de obter o botão aqui
+        const body = document.body;
+        const isLightTheme = body.classList.contains('light-theme');
+        const reportIconUrl = isLightTheme 
+            ? 'https://imgur.com/1TExDoB.png' // Ícone claro de reportar
+            : 'https://i.imgur.com/r5O2N0j.png'; // Ícone escuro de reportar
+
         if (reportButton) {
             reportButton.disabled = false;
             reportButton.innerHTML = `
-                <img src="https://i.imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon">
+                <img src="${reportIconUrl}" alt="Ícone" class="report-icon">
                 Link quebrado?
             `;
         } else {
@@ -357,18 +363,4 @@ function hideDetails() {
     if (details) details.style.display = 'none';
     history.replaceState({page: 'list'}, 'Book List', '?');
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
-}
-
-// Função para reverter o botão após o fechamento dos detalhes do livro
-function resetReportButton() {
-    const reportButton = document.getElementById('reportButton'); // Certifica-se de obter o botão aqui
-    if (reportButton) {
-        reportButton.disabled = false;
-        reportButton.innerHTML = `
-            <img src="https://i.imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon">
-            Link quebrado?
-        `;
-    } else {
-        console.error('Elemento com ID "reportButton" não encontrado ao resetar.');
-    }
 }
