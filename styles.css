@@ -292,6 +292,18 @@ header.light-theme h1 {
     color: #111111;
 }
 
+#bookDetailsContainer {
+    background-color: #f7f7f7; /* ou a cor que você usa no modo claro */
+}
+
+.light-mode #bookDetailsContainer {
+    background-color: #f7f7f7; /* Mantenha a cor clara */
+}
+
+.dark-mode #bookDetailsContainer {
+    background-color: #222222; /* Cor do modo escuro, se necessário */
+}
+
 /* Estilo para a barra de pesquisa e botões no tema claro */
 #searchInput.light-theme,
 #genreFilter.light-theme, /* Adicione o ID da barra de filtro aqui */
@@ -327,7 +339,7 @@ input[type="button"],
 select,
 button.back-button,
 button.report-button {
-    border: 1px solid transparent; /* Borda padrão */
+    border: 2px solid #ffffff; /* Borda padrão */
     transition: border-color 0.3s; /* Transição suave para a cor da borda */
 }
 
