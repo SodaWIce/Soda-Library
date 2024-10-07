@@ -337,7 +337,7 @@ header .icon {
 
     .book-list {
         display: grid; /* Define grid para o layout */
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 220px */
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 220px */
         gap: 1em; /* Ajusta o espaçamento entre os itens da lista */
     }
     
