@@ -7,15 +7,15 @@ const booksPerPage = 50;    // Número de livros por página
 function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
-    
-    // Armazenar todos os livros (independente da página)
-    const allBooks = Array.from(document.getElementsByClassName('book-item'));
-    
+
+    // Remover a palavra 'const' para utilizar a variável global
+    allBooks = Array.from(document.getElementsByClassName('book-item'));
+
     // Filtrar todos os livros com base no título e no gênero
-    const filteredBooks = allBooks.filter(book => {
+    filteredBooks = allBooks.filter(book => {
         const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
         const genre = book.getAttribute('data-genre');
-        
+
         let matchesFilter = true;
 
         // Verifica o gênero
