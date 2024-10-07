@@ -310,7 +310,7 @@ header .icon {
 /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
-        font-size: 0.7em; /* Aumenta o tamanho do texto quando em landscape */
+        font-size: 0.6em; /* Aumenta o tamanho do texto quando em landscape */
     }
     
     .book-list {
@@ -332,7 +332,7 @@ header .icon {
     }
 
     .book-item {
-        font-size: 0.7em; /* Ajusta o tamanho do texto */
+        font-size: 0.6em; /* Ajusta o tamanho do texto */
     }
 
     .book-list {
@@ -357,12 +357,12 @@ header .icon {
 /* Estilos para dispositivos móveis */
 @media (max-width: 1023px) {
     .book-item {
-        font-size: 0.8em; /* Tamanho de fonte adequado para dispositivos móveis */
+        font-size: 0.7em; /* Tamanho de fonte adequado para dispositivos móveis */
     }
 
     .book-list {
         display: grid; /* Define grid para o layout */
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 150px */
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 150px */
         gap: 0.5em; /* Ajusta o espaçamento entre os itens da lista */
     }
 }
