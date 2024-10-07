@@ -52,6 +52,50 @@ document.addEventListener('DOMContentLoaded', () => {
         // Chama a função de filtro
         filterBooks();
     });
+    
+    function filterBooks() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
+    
+    // Armazenar todos os livros (independente da página)
+    const allBooks = Array.from(document.getElementsByClassName('book-item'));
+    
+    // Filtrar todos os livros com base no título e no gênero
+    const filteredBooks = allBooks.filter(book => {
+        const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
+        const genre = book.getAttribute('data-genre');
+        
+        let matchesFilter = true;
+
+        // Verifica o gênero
+        if (genreFilter && genreFilter !== 'todos os gêneros' && genre !== genreFilter) {
+            matchesFilter = false;
+        }
+
+        // Verifica o título
+        if (input && !title.includes(input)) {
+            matchesFilter = false;
+        }
+
+        return matchesFilter;
+    });
+
+    // Recalcula a paginação para a nova lista filtrada
+    updatePagination(filteredBooks);
+}
+
+// Função para atualizar a paginação com os livros filtrados
+function updatePagination(filteredBooks) {
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+    // Atualiza a interface da paginação com os novos livros
+    displayBooksForPage(currentPage, filteredBooks);
+    renderPagination(totalPages);
+}
+
+// Chamar a função de filtro sempre que houver entrada na barra de pesquisa ou seleção de gênero
+document.getElementById('searchInput').addEventListener('input', filterBooks);
+document.getElementById('genreFilter').addEventListener('change', filterBooks);
 
     // Função para limpar o campo de pesquisa ao clicar no ícone "X"
     const clearSearch = () => {
