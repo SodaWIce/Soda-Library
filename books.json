@@ -1,5 +1,15 @@
 {
     "books": [
+        {
+    "id": "livro52",
+    "title": "Orgulho e Preconceito",
+    "image": "https://imgur.com/FW3XiGf.png",
+    "author": "Jane Austen",
+    "year": "1813",
+    "synopsis": "Segunda das cinco filhas dos Bennet, Elizabeth é sagaz e de espírito independente, mas, assim como as jovens da época, vê no casamento com um bom partido o caminho natural para uma vida aceitável. Ao conhecer o sr. Darcy, cobiçado solteiro que se muda para o seu condado, é repelida pela arrogância do cavalheiro, que por sua vez parece indiferente aos encantos da moça.",
+    "pdf": "https://drive.google.com/file/d/1r6ctDeeGKqjS9YxWpVItmJXiPUWxKroK/view?usp=drivesdk",
+    "genre": "Romance"
+         },
          {
     "id": "livro51",
     "title": "Jane Eyre",
