@@ -1,6 +1,16 @@
 {
     "books": [
-        {
+         {
+        : "livro51",
+    "title": "Jane Eyre",
+    "image": "https://imgur.com/CJTUBER.png",
+    "author": "Charlotte Brontë",
+    "year": "1847",
+    "synopsis": "Jane Eyre conheceu o sofrimento ainda pequena, na casa da tia que a criou e na austera Lowood Institution onde foi educada. Mas também pequena já mostrava sua natureza firme e independente. Fiel a si mesma, ciente do seu valor e da consideração que merecia, assim manteve-se por toda a vida – ao abandonar os tormentos de Lowood e se empregar como governanta em Thornfield Hall; ao descobrir o amor mas, com ele, um terrível segredo; ao decidir partir e, depois, recomeçar.",
+    "pdf": "https://drive.google.com/file/d/1r4vS2wijQBO6Ysycw6q3BkOdRweuIpmw/view?usp=drivesdk",
+    "genre": "Romance Gótico"
+         },
+         {
     "id": "livro50",
     "title": "O Senhor das Moscas",
     "image": "https://imgur.com/q2omI2O.png",
