@@ -245,33 +245,32 @@ function showDetails(bookId) {
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
 }
 
-// Função para renderizar o Giscus com base no livro atual
 function renderGiscus(bookId) {
     const giscusContainer = document.getElementById('giscus-container');
-    
-    // Limpa o conteúdo do container do Giscus antes de renderizar
+
+    // Limpa o conteúdo anterior
     giscusContainer.innerHTML = '';
 
-    // Cria o script do Giscus dinamicamente
-    const script = document.createElement('script');
-    script.src = "https://giscus.app/client.js";
-    script.setAttribute('data-repo', 'SodaWIce/Soda-Library');
-    script.setAttribute('data-repo-id', 'R_kgDOMleTGg');
-    script.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
-    script.setAttribute('data-mapping', 'specific');
-    script.setAttribute('data-term', `Livro-${bookId}`); // Use o ID do livro para o termo
-    script.setAttribute('data-strict', '0');
-    script.setAttribute('data-reactions-enabled', '1');
-    script.setAttribute('data-emit-metadata', '0');
-    script.setAttribute('data-input-position', 'top');
-    script.setAttribute('data-theme', 'dark');
-    script.setAttribute('data-lang', 'pt');
-    script.setAttribute('data-loading', 'lazy');
-    script.crossOrigin = "anonymous";
-    script.async = true;
+    // Cria o elemento de script do Giscus
+    const giscusScript = document.createElement('script');
+    giscusScript.src = 'https://giscus.app/client.js';
+    giscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
+    giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
+    giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
+    giscusScript.setAttribute('data-mapping', 'specific');
+    giscusScript.setAttribute('data-term', bookId); // Use o ID do livro como termo
+    giscusScript.setAttribute('data-strict', '0');
+    giscusScript.setAttribute('data-reactions-enabled', '1');
+    giscusScript.setAttribute('data-emit-metadata', '0');
+    giscusScript.setAttribute('data-input-position', 'top');
+    giscusScript.setAttribute('data-theme', 'dark');
+    giscusScript.setAttribute('data-lang', 'pt');
+    giscusScript.setAttribute('data-loading', 'lazy');
+    giscusScript.setAttribute('crossOrigin', 'anonymous');
+    giscusScript.setAttribute('async', 'true');
 
-    // Adiciona o script ao container do Giscus
-    giscusContainer.appendChild(script);
+    // Adiciona o script ao contêiner
+    giscusContainer.appendChild(giscusScript);
 }
 
 // Chame essa função sempre que um novo livro for carregado
