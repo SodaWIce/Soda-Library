@@ -321,9 +321,13 @@ reportButton.addEventListener('click', function() {
             <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
             Avisado!
         `;
+
+        // Adiciona o aviso após o envio
+        alert('Seu aviso foi enviado com sucesso!');
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
+        alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro
     });
 });
 
