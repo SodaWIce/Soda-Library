@@ -310,12 +310,14 @@ header .icon {
 /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
-        font-size: 0.5em; /* Diminui o tamanho do texto quando em landscape */
+        font-size: 0.8em; /* Aumenta o tamanho do texto quando em landscape */
     }
     
     .book-list {
         row-gap: 1em;
         column-gap: 0.5em;
+        display: grid; /* Define grid para o layout */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajusta o mínimo de largura para cada item */
     }
     
     .book-full {
@@ -323,24 +325,25 @@ header .icon {
     }
 }    
 
-    /* Personalizações para visualização no PC */
+/* Personalizações para visualização no PC */
 @media (min-width: 1024px) {
     .search-bar {
         padding: 0 1em; /* Garante padding lateral adequado */
-}
+    }
 
     .book-item {
-        font-size: 0.6em;
+        font-size: 0.8em; /* Ajusta o tamanho do texto */
     }
 
     .book-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
-        gap: 0.5em; /* Diminui o espaçamento entre os itens da lista */
-}
+        display: grid; /* Define grid para o layout */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 220px */
+        gap: 1em; /* Ajusta o espaçamento entre os itens da lista */
+    }
     
     .book-full {
-        max-width: 20%; /* Reduz o tamanho das imagens do *book full* no PC */
-}
+        max-width: 20%; /* Reduz o tamanho das imagens do book full no PC */
+    }
 
     .book-details {
         font-size: 1.3em;
@@ -348,5 +351,18 @@ header .icon {
         max-width: 1000px; /* Define a largura máxima para centralizar o conteúdo */
         margin-left: auto;
         margin-right: auto; /* Centraliza o conteúdo horizontalmente */
+    }
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 1023px) {
+    .book-item {
+        font-size: 0.9em; /* Tamanho de fonte adequado para dispositivos móveis */
+    }
+
+    .book-list {
+        display: grid; /* Define grid para o layout */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 150px */
+        gap: 0.5em; /* Ajusta o espaçamento entre os itens da lista */
     }
 }
