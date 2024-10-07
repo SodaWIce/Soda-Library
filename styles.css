@@ -317,7 +317,7 @@ header .icon {
         row-gap: 1em;
         column-gap: 0.5em;
         display: grid; /* Define grid para o layout */
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajusta o mínimo de largura para cada item */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta o mínimo de largura para cada item */
     }
     
     .book-full {
@@ -337,7 +337,7 @@ header .icon {
 
     .book-list {
         display: grid; /* Define grid para o layout */
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 220px */
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 220px */
         gap: 1em; /* Ajusta o espaçamento entre os itens da lista */
     }
     
