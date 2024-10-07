@@ -237,7 +237,6 @@ function showDetails(bookId) {
                         <p><strong>Autor:</strong> ${book.author}</p>
                         <p><strong>Ano de Publicação:</strong> ${book.year}</p>
                         <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                        <button id="reportButton">Link quebrado?</button> <!-- Certifique-se de que o botão está aqui -->
                     </div>
                 `;
                 
