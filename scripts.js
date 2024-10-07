@@ -273,12 +273,17 @@ function showDetails(bookId) {
                             `;
 
                             // Adiciona o aviso após o envio
-                            alert('Seu aviso foi enviado com sucesso!');
-                        })
-                        .catch(error => {
-                            console.error('Erro ao enviar dados:', error);
-                            alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro
-                        });
+setTimeout(() => {
+    alert('Seu aviso foi enviado com sucesso!');
+}, 100);  // Delay de 100ms antes de mostrar o alerta
+
+})
+.catch(error => {
+    console.error('Erro ao enviar dados:', error);
+    setTimeout(() => {
+        alert('Houve um erro ao enviar seu aviso. Tente novamente.');  // Aviso de erro com delay
+    }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
+});
                     });
                 } else {
                     console.error('Botão de reporte não encontrado no DOM.');
