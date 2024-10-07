@@ -121,7 +121,7 @@ header .icon {
 .pagination {
     display: flex;
     justify-content: center; /* Centraliza os botões */
-    margin: 20px 0 -4px; /* Espaçamento acima e abaixo */
+    margin: 20px 0 -5px; /* Espaçamento acima e abaixo */
 }
 
 .pagination button {
