@@ -24,12 +24,12 @@ header h1 {
     font-family: 'Lato', sans-serif;
     color: #ffffff; /* Cor do texto */
     margin: 12px 0 0 0; /* Margens do titulo */
-    font-size: 24px;
+    font-size: 25px;
 }
 
 header .icon {
-    width: 30px; /* Ajuste o tamanho do ícone conforme necessário */
-    height: 30px; /* Ajuste o tamanho do ícone conforme necessário */
+    width: 32px; /* Ajuste o tamanho do ícone conforme necessário */
+    height: 32px; /* Ajuste o tamanho do ícone conforme necessário */
     margin-right: 8px; /* Espaço entre o ícone e o texto */
     vertical-align: middle; /* Alinha o ícone com o texto se necessário */
 }
