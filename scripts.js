@@ -1,39 +1,19 @@
+// Definir variáveis globais de paginação
+let allBooks = [];          // Armazena todos os livros carregados
+let filteredBooks = [];     // Armazena os livros filtrados após a busca
+let currentPage = 1;        // Página atual
+const booksPerPage = 50;    // Número de livros por página
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
-            const bookList = document.getElementById('bookList');
-            const isMobile = window.innerWidth < 768; // Detecta se é um dispositivo móvel
+            // Armazena todos os livros
+            allBooks = data.books;
+            filteredBooks = allBooks;
 
-            data.books.forEach(livro => {
-                const bookItem = document.createElement('div');
-                bookItem.classList.add('book-item');
-                bookItem.setAttribute('data-genre', livro.genre.toLowerCase());
-                bookItem.innerHTML = `
-                    <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail">
-                    <h3 class="book-title">${livro.title}</h3>
-                `;
-
-                if (isMobile) {
-                    bookItem.onclick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
-                } else {
-                    const bookTitle = bookItem.querySelector('.book-title');
-                    const bookThumbnail = bookItem.querySelector('.book-thumbnail');
-
-                    const handleClick = () => {
-                        showDetails(livro.id);
-                        history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
-                    };
-
-                    bookTitle.onclick = handleClick;
-                    bookThumbnail.onclick = handleClick;
-                }
-
-                bookList.appendChild(bookItem);
-            });
+            // Renderiza a primeira página
+            renderBooks();
 
             // Verifica a URL inicial para carregar o livro correto, se necessário
             const urlParams = new URLSearchParams(window.location.search);
@@ -58,16 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
     });
     
-const searchInput = document.getElementById('searchInput');
+    const searchInput = document.getElementById('searchInput');
     const searchIconContainer = document.querySelector('.search-icon-container');
 
-    // Função para alternar o ícone ao digitar
+    // Função para alternar o ícone ao digitar e filtrar os livros
     searchInput.addEventListener('input', function () {
         if (searchInput.value.length > 0) {
             searchIconContainer.classList.add('show-clear'); // Adiciona classe para mostrar o ícone "X"
         } else {
             searchIconContainer.classList.remove('show-clear'); // Remove a classe para mostrar o ícone de lupa
         }
+        
+        // Chama a função de filtro
+        filterBooks();
     });
 
     // Função para limpar o campo de pesquisa ao clicar no ícone "X"
@@ -82,46 +65,114 @@ const searchInput = document.getElementById('searchInput');
     searchIconContainer.addEventListener('click', clearSearch);
 });
 
-function renderGiscus(bookId) {
-    // Remove o script do Giscus existente, se houver
-    const existingGiscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
-    if (existingGiscusScript) {
-        existingGiscusScript.remove();
-    }
+// Função para renderizar os livros na página atual
+function renderBooks() {
+    const bookList = document.getElementById('bookList');
+    bookList.innerHTML = ''; // Limpa a lista atual
 
-    // Remove o iframe do Giscus existente, se houver
-    const giscusContainer = document.getElementById('giscus-container');
-    giscusContainer.innerHTML = '';
+    // Calcula os índices de início e fim para os livros a serem exibidos
+    const start = (currentPage - 1) * booksPerPage;
+    const end = start + booksPerPage;
+    const paginatedBooks = filteredBooks.slice(start, end);
 
-    // Cria um novo script Giscus com os parâmetros atualizados
-    const newGiscusScript = document.createElement('script');
-    newGiscusScript.src = 'https://giscus.app/client.js';
-    newGiscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
-    newGiscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
-    newGiscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
-    newGiscusScript.setAttribute('data-mapping', 'specific');
-    newGiscusScript.setAttribute('data-term', `Livro-${bookId}`); // Usa o ID do livro como termo
-    newGiscusScript.setAttribute('data-strict', '0');
-    newGiscusScript.setAttribute('data-reactions-enabled', '1');
-    newGiscusScript.setAttribute('data-emit-metadata', '0');
-    newGiscusScript.setAttribute('data-input-position', 'top');
-    newGiscusScript.setAttribute('data-theme', 'dark');
-    newGiscusScript.setAttribute('data-lang', 'pt');
-    newGiscusScript.setAttribute('data-loading', 'lazy');
-    newGiscusScript.crossOrigin = 'anonymous';
-    newGiscusScript.async = true;
+    // Cria os elementos HTML para cada livro
+    paginatedBooks.forEach(livro => {
+        const bookItem = document.createElement('div');
+        bookItem.classList.add('book-item');
+        bookItem.setAttribute('data-genre', livro.genre.toLowerCase());
+        bookItem.innerHTML = `
+            <img src="${livro.image}" alt="${livro.title}" class="book-thumbnail" loading="lazy">
+            <h3 class="book-title">${livro.title}</h3>
+        `;
 
-    // Adiciona o novo script ao container Giscus
-    giscusContainer.appendChild(newGiscusScript);
+        if (window.innerWidth < 768) { // Detecta se é um dispositivo móvel
+            bookItem.onclick = () => {
+                showDetails(livro.id);
+                history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+            };
+        } else {
+            const bookTitle = bookItem.querySelector('.book-title');
+            const bookThumbnail = bookItem.querySelector('.book-thumbnail');
+
+            const handleClick = () => {
+                showDetails(livro.id);
+                history.pushState({page: 'details', bookId: livro.id}, `${livro.title}`, `?book=${livro.id}`);
+            };
+
+            bookTitle.onclick = handleClick;
+            bookThumbnail.onclick = handleClick;
+        }
+
+        bookList.appendChild(bookItem);
+    });
+
+    // Renderiza a paginação
+    renderPagination();
 }
 
+// Função para renderizar os botões de paginação
+function renderPagination() {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = ''; // Limpa a paginação atual
+
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+    // Limite de páginas a serem exibidas (opcional)
+    const maxPagesToShow = 10;
+    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+    let endPage = startPage + maxPagesToShow - 1;
+
+    if (endPage > totalPages) {
+        endPage = totalPages;
+        startPage = Math.max(1, endPage - maxPagesToShow + 1);
+    }
+
+    // Botão "Anterior"
+    if (currentPage > 1) {
+        const prevButton = document.createElement('button');
+        prevButton.innerText = 'Anterior';
+        prevButton.addEventListener('click', () => {
+            currentPage--;
+            renderBooks();
+            window.scrollTo(0, 0); // Opcional: rola para o topo
+        });
+        pagination.appendChild(prevButton);
+    }
+
+    // Botões de página
+    for (let i = startPage; i <= endPage; i++) {
+        const btn = document.createElement('button');
+        btn.innerText = i;
+        if (i === currentPage) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+            currentPage = i;
+            renderBooks();
+            window.scrollTo(0, 0);
+        });
+        pagination.appendChild(btn);
+    }
+
+    // Botão "Próximo"
+    if (currentPage < totalPages) {
+        const nextButton = document.createElement('button');
+        nextButton.innerText = 'Próximo';
+        nextButton.addEventListener('click', () => {
+            currentPage++;
+            renderBooks();
+            window.scrollTo(0, 0);
+        });
+        pagination.appendChild(nextButton);
+    }
+}
+
+// Função para exibir detalhes do livro (implemente conforme sua necessidade)
 function showDetails(bookId) {
     window.scrollTo(0, 0);
 
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
-            const book = data.books.find(b => b.id === bookId);
+            const book = data.books.find(b => b.id == bookId); // Use == para comparar string e número
             if (book) {
                 const mainContent = document.getElementById('mainContent');
                 const details = document.getElementById('details');
@@ -185,7 +236,7 @@ reportButton.addEventListener('click', function() {
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
         method: 'POST',
         body: formData,
-        mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors'.
+        mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors.'
     })
     .then(response => {
         console.log('Dados enviados com sucesso..');
@@ -229,25 +280,3 @@ window.addEventListener('popstate', function(event) {
         hideDetails();
     }
 });
-
-function filterBooks() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
-    const books = document.getElementById('bookList').getElementsByClassName('book-item');
-
-    Array.from(books).forEach(book => {
-        const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        const genre = book.getAttribute('data-genre');
-
-        let showBook = true;
-        if (genreFilter && genreFilter !== 'todos os gêneros' && genre !== genreFilter) {
-            showBook = false;
-        }
-
-        if (input && !title.includes(input)) {
-            showBook = false;
-        }
-
-        book.style.display = showBook ? '' : 'none';
-    });
-}

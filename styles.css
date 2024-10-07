@@ -117,6 +117,31 @@ header .icon {
     outline: none; /* Remove a borda de foco padrão */
 }
 
+.pagination {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    margin: 20px 0; /* Espaçamento acima e abaixo */
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #ddd;
+}
+
+.pagination button.active {
+    background-color: #007BFF;
+    color: white;
+}
+
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Exibe colunas automaticamente, no mínimo 2 */
