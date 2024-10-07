@@ -1,5 +1,15 @@
 {
     "books": [
+        {
+    "id": "livro50",
+    "title": "O Senhor das Moscas",
+    "image": "https://imgur.com/q2omI2O.png",
+    "author": "William Golding",
+    "year": "1954",
+    "synopsis": "Durante a Segunda Guerra Mundial, um avião cai numa ilha deserta e os únicos sobreviventes são um grupo de meninos. Liderados por Ralph, eles procuram se organizar enquanto esperam um possível resgate. Mas aos poucos esses garotos aparentemente inocentes transformam a ilha numa visceral disputa pelo poder, e sua selvageria rasga a fina superfície da civilidade.",
+    "pdf": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://static.tumblr.com/yijpogv/qJkoj85op/o_senhor_das_moscas_-_william_golding.pdf&ved=2ahUKEwiN4_nqhfuIAxUorJUCHft0ElQQFnoECCMQAQ&usg=AOvVaw3bISiCiV-19iJ2trZ0fTXQ",
+    "genre": "Ficção"
+         },
          {
     "id": "livro49",
     "title": "Eu e Minha Boca Grande!",
