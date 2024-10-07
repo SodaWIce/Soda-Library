@@ -10,9 +10,9 @@ function filterBooks() {
 
     // Usar a variável global allBooks em vez de redefini-la
     filteredBooks = allBooks.filter(book => {
-        const title = book.title.toLowerCase(); // Assume que `title` é um campo de objeto
-        const genre = book.genre.toLowerCase(); // Assumindo que `genre` é uma propriedade do objeto
-        
+        const title = book.title.toLowerCase();
+        const genre = book.genre.toLowerCase();
+
         let matchesFilter = true;
 
         // Verifica o gênero
@@ -30,7 +30,9 @@ function filterBooks() {
 
     // Recalcula a página atual, sempre reiniciando para a primeira página após o filtro
     currentPage = 1;
-    updatePagination(filteredBooks);
+    
+    // Atualiza a exibição dos livros automaticamente
+    renderBooks(); // Chama a função para renderizar os livros filtrados
 }
 
 // Função para atualizar a paginação com os livros filtrados
