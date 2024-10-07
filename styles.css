@@ -142,6 +142,8 @@ header .icon {
 
 .pagination button.active {
     background-color: #B22222;
+    border-color: #B22222;
+    transform: scale(1.05);
 }
 
 .book-list {
