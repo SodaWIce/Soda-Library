@@ -23,7 +23,8 @@ header h1 {
     align-items: center; /* Alinha o ícone e o texto verticalmente */
     font-family: 'Lato', sans-serif;
     color: #ffffff; /* Cor do texto */
-    margin: 8px 0 0 0; /* Margens do titulo */
+    margin: 12px 0 0 0; /* Margens do titulo */
+    font-size: 24px;
 }
 
 header .icon {
