@@ -245,6 +245,39 @@ function showDetails(bookId) {
                 const newUrl = `?book=${bookId}`;
                 history.replaceState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
 
+                // Função para renderizar o Giscus com base no livro atual
+function renderGiscus(bookId) {
+    const giscusContainer = document.getElementById('giscus-container');
+    
+    // Limpa o conteúdo do container do Giscus antes de renderizar
+    giscusContainer.innerHTML = '';
+
+    // Cria o script do Giscus dinamicamente
+    const script = document.createElement('script');
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute('data-repo', 'SodaWIce/Soda-Library');
+    script.setAttribute('data-repo-id', 'R_kgDOMleTGg');
+    script.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
+    script.setAttribute('data-mapping', 'specific');
+    script.setAttribute('data-term', `Livro-${bookId}`); // Use o ID do livro para o termo
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'top');
+    script.setAttribute('data-theme', 'dark');
+    script.setAttribute('data-lang', 'pt');
+    script.setAttribute('data-loading', 'lazy');
+    script.crossOrigin = "anonymous";
+    script.async = true;
+
+    // Adiciona o script ao container do Giscus
+    giscusContainer.appendChild(script);
+}
+
+// Chame essa função sempre que um novo livro for carregado
+const newUrl = `?book=${bookId}`;
+history.replaceState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
+                
                 // Recria o widget Giscus para o novo livro
                 renderGiscus(bookId);
             }
