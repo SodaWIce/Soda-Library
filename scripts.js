@@ -8,14 +8,11 @@ function filterBooks() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const genreFilter = document.getElementById('genreFilter').value.toLowerCase();
 
-    // Remover a palavra 'const' para utilizar a variável global
-    allBooks = Array.from(document.getElementsByClassName('book-item'));
-
-    // Filtrar todos os livros com base no título e no gênero
+    // Usar a variável global allBooks em vez de redefini-la
     filteredBooks = allBooks.filter(book => {
-        const title = book.getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        const genre = book.getAttribute('data-genre');
-
+        const title = book.title.toLowerCase(); // Assume que `title` é um campo de objeto
+        const genre = book.genre.toLowerCase(); // Assumindo que `genre` é uma propriedade do objeto
+        
         let matchesFilter = true;
 
         // Verifica o gênero
@@ -31,7 +28,8 @@ function filterBooks() {
         return matchesFilter;
     });
 
-    // Recalcula a paginação para a nova lista filtrada
+    // Recalcula a página atual, sempre reiniciando para a primeira página após o filtro
+    currentPage = 1;
     updatePagination(filteredBooks);
 }
 
