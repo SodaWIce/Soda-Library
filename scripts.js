@@ -244,6 +244,7 @@ function showDetails(bookId) {
                 const reportButton = document.getElementById('reportButton');
                 if (reportButton) {
                     reportButton.addEventListener('click', function() {
+                        reportButton.disabled = true;
                         // Obtém o conteúdo do `detailsContent`
                         const detailsContent = document.getElementById('detailsContent').textContent;
 
@@ -265,8 +266,6 @@ function showDetails(bookId) {
                         })
                         .then(response => {
                             console.log('Dados enviados com sucesso..');
-                            // Desativa o botão após o envio e muda o texto
-                            reportButton.disabled = true;
                             reportButton.innerHTML = `
                                 <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
                                 Avisado!
@@ -275,14 +274,14 @@ function showDetails(bookId) {
                             // Adiciona o aviso após o envio
 setTimeout(() => {
     alert('Seu aviso foi enviado com sucesso!');
-}, 600);  // Delay de 100ms antes de mostrar o alerta
+}, 100);  // Delay de 100ms antes de mostrar o alerta
 
 })
 .catch(error => {
     console.error('Erro ao enviar dados:', error);
     setTimeout(() => {
         alert('Houve um erro ao enviar seu aviso. Tente novamente.');  // Aviso de erro com delay
-    }, 600);  // Delay de 100ms antes de mostrar o alerta de erro
+    }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
 });
                     });
                 } else {
