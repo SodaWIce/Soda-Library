@@ -126,20 +126,22 @@ header .icon {
 .pagination button {
     margin: 0 5px;
     padding: 8px 12px;
-    border: none;
-    background-color: #f0f0f0;
+    background-color: #111111; /* Fundo preto para o botão */
+    color: #ffffff; /* Cor do texto do botão */
+    border: 2px solid #ffffff; /* Borda clara para o botão */
+    border-radius: 100px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    outline: none; /* Remove a borda de foco padrão do navegador */
+    transition: transform 0.3s ease;
 }
 
 .pagination button:hover {
-    background-color: #ddd;
+    border-color: #B22222; /* Cor da borda quando o botão está em foco */
+    transform: scale(1.05);
 }
 
 .pagination button.active {
-    background-color: #007BFF;
-    color: white;
+    background-color: #B22222;
 }
 
 .book-list {
