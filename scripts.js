@@ -241,55 +241,58 @@ function showDetails(bookId) {
                 `;
                 
                 // Adicione o event listener do reportButton aqui
-                const reportButton = document.getElementById('reportButton');
-                if (reportButton) {
-                    reportButton.addEventListener('click', function() {
-                        reportButton.disabled = true;
-                        // Obtém o conteúdo do `detailsContent`
-                        const detailsContent = document.getElementById('detailsContent').textContent;
+const reportButton = document.getElementById('reportButton');
+if (reportButton) {
+    const handleClick = function() {
+        reportButton.disabled = true;
 
-                        // Procura a linha que contém o título usando "Título:"
-                        const titleMatch = detailsContent.match(/Título:\s*(.+)/);
+        // Obtém o conteúdo do `detailsContent`
+        const detailsContent = document.getElementById('detailsContent').textContent;
 
-                        // Se encontrar o título, captura o texto correspondente
-                        const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
+        // Procura a linha que contém o título usando "Título:"
+        const titleMatch = detailsContent.match(/Título:\s*(.+)/);
+        const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
 
-                        // Cria um objeto FormData para enviar os dados
-                        const formData = new URLSearchParams();
-                        formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
+        // Cria um objeto FormData para enviar os dados
+        const formData = new URLSearchParams();
+        formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
 
-                        // Envia os dados para o Google Formulário
-                        fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
-                            method: 'POST',
-                            body: formData,
-                            mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors.'
-                        })
-                        .then(response => {
-                            console.log('Dados enviados com sucesso..');
-                            reportButton.innerHTML = `
-                                <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                                Avisado!
-                            `;
+        // Envia os dados para o Google Formulário
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors.'
+        })
+        .then(response => {
+            console.log('Dados enviados com sucesso..');
+            reportButton.innerHTML = `
+                <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                Avisado!
+            `;
 
-                            // Adiciona o aviso após o envio
-setTimeout(() => {
-    alert('Seu aviso foi enviado com sucesso!');
-}, 100);  // Delay de 100ms antes de mostrar o alerta
+            // Adiciona o aviso após o envio
+            setTimeout(() => {
+                alert('Seu aviso foi enviado com sucesso!');
+                reportButton.removeEventListener('click', handleClick); // Remove o event listener após o primeiro clique
+            }, 100);  // Delay de 100ms antes de mostrar o alerta
+        })
+        .catch(error => {
+            console.error('Erro ao enviar dados:', error);
+            setTimeout(() => {
+                alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro com delay
+                reportButton.disabled = false; // Reativa o botão após o erro
+                reportButton.removeEventListener('click', handleClick); // Remove o event listener após o erro
+            }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
+        });
+    };
 
-})
-.catch(error => {
-    console.error('Erro ao enviar dados:', error);
-    setTimeout(() => {
-        alert('Houve um erro ao enviar seu aviso. Tente novamente.');  // Aviso de erro com delay
-    }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
-});
-                    });
-                } else {
-                    console.error('Botão de reporte não encontrado no DOM.');
-                }
+    reportButton.addEventListener('click', handleClick); // Adiciona o event listener
+} else {
+    console.error('Botão de reporte não encontrado no DOM.');
+}
 
-                // Chame o renderGiscus aqui após mostrar os detalhes do livro
-                renderGiscus(bookId);
+// Chame o renderGiscus aqui após mostrar os detalhes do livro
+renderGiscus(bookId);
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
