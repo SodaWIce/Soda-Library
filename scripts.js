@@ -240,12 +240,12 @@ function showDetails(bookId) {
                         <p><strong>Sinopse:</strong> ${book.synopsis}</p>
                     </div>
                 `;
+            }
+        })
+        .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
+}
 
-                // Atualiza a URL para refletir o livro atual
-                const newUrl = `?book=${bookId}`;
-                history.replaceState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
-
-                // Função para renderizar o Giscus com base no livro atual
+// Função para renderizar o Giscus com base no livro atual
 function renderGiscus(bookId) {
     const giscusContainer = document.getElementById('giscus-container');
     
@@ -277,13 +277,9 @@ function renderGiscus(bookId) {
 // Chame essa função sempre que um novo livro for carregado
 const newUrl = `?book=${bookId}`;
 history.replaceState({page: 'details', bookId: bookId}, `${book.title}`, newUrl);
-                
-                // Recria o widget Giscus para o novo livro
-                renderGiscus(bookId);
-            }
-        })
-        .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
-}
+
+// Recria o widget Giscus para o novo livro
+renderGiscus(bookId);
 
 function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
