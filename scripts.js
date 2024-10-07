@@ -158,6 +158,7 @@ function renderPagination() {
     pagination.innerHTML = ''; // Limpa a paginação atual
 
     const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+    if (totalPages <= 0) return; // Adiciona verificação para evitar erros
 
     // Limite de páginas a serem exibidas (opcional)
     const maxPagesToShow = 10;
