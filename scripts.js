@@ -275,14 +275,14 @@ function showDetails(bookId) {
                             // Adiciona o aviso após o envio
 setTimeout(() => {
     alert('Seu aviso foi enviado com sucesso!');
-}, 200);  // Delay de 100ms antes de mostrar o alerta
+}, 400);  // Delay de 100ms antes de mostrar o alerta
 
 })
 .catch(error => {
     console.error('Erro ao enviar dados:', error);
     setTimeout(() => {
         alert('Houve um erro ao enviar seu aviso. Tente novamente.');  // Aviso de erro com delay
-    }, 200);  // Delay de 100ms antes de mostrar o alerta de erro
+    }, 400);  // Delay de 100ms antes de mostrar o alerta de erro
 });
                     });
                 } else {
