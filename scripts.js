@@ -315,6 +315,7 @@ reportButton.addEventListener('click', function() {
     })
     .then(response => {
         console.log('Dados enviados com sucesso..');
+
         // Desativa o botão após o envio e muda o texto
         reportButton.disabled = true;
         reportButton.innerHTML = `
@@ -322,12 +323,18 @@ reportButton.addEventListener('click', function() {
             Avisado!
         `;
 
-        // Adiciona o aviso após o envio
-        alert('Seu aviso foi enviado com sucesso!');
+        // Exibe o aviso após um pequeno atraso para garantir que tudo funcione
+        setTimeout(() => {
+            alert('Seu aviso foi enviado com sucesso!');
+        }, 100); // Atraso de 100 milissegundos
     })
     .catch(error => {
         console.error('Erro ao enviar dados:', error);
-        alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro
+
+        // Exibe o aviso de erro após um pequeno atraso
+        setTimeout(() => {
+            alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro
+        }, 100); // Atraso de 100 milissegundos
     });
 });
 
