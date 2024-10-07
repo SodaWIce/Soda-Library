@@ -240,6 +240,8 @@ function showDetails(bookId) {
                         <p><strong>Sinopse:</strong> ${book.synopsis}</p>
                     </div>
                 `;
+            // Chame o renderGiscus aqui após mostrar os detalhes do livro
+                renderGiscus(bookId);
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
