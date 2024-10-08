@@ -280,6 +280,7 @@ if (reportButton) {
             setTimeout(() => {
                 alert('Seu aviso foi enviado com sucesso!');
                 reportButton.removeEventListener('click', handleClick); // Remove o event listener após o primeiro clique
+                reportButton.classList.remove('enviando'); // Remove a classe "enviando" após o sucesso
             }, 100);  // Delay de 100ms antes de mostrar o alerta
         })
         .catch(error => {
@@ -287,7 +288,7 @@ if (reportButton) {
             setTimeout(() => {
                 alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro com delay
                 reportButton.disabled = false; // Reativa o botão após o erro
-                reportButton.classList.remove('enviando'); // Remove o estado de envio em caso de erro
+                reportButton.classList.remove('enviando'); // Remove a classe "enviando" após o erro
             }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
         });
     };
