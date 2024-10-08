@@ -285,6 +285,10 @@ if (reportButton) {
             }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
         });
     };
+
+    reportButton.addEventListener('click', handleClick); // Adiciona o event listener
+}
+
 // Chame o renderGiscus aqui após mostrar os detalhes do livro
 renderGiscus(bookId);
             }
