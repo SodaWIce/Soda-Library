@@ -244,7 +244,13 @@ function showDetails(bookId) {
 const reportButton = document.getElementById('reportButton');
 if (reportButton) {
     const handleClick = function() {
-        reportButton.disabled = true;
+        // Verifica se o botão já está desativado (ou seja, se já está enviando)
+        if (reportButton.classList.contains('enviando')) {
+            return; // Evita múltiplos cliques
+        }
+
+        reportButton.disabled = true; // Desativa o botão imediatamente
+        reportButton.classList.add('enviando'); // Marca o botão como "enviando"
 
         // Obtém o conteúdo do `detailsContent`
         const detailsContent = document.getElementById('detailsContent').textContent;
@@ -281,7 +287,7 @@ if (reportButton) {
             setTimeout(() => {
                 alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro com delay
                 reportButton.disabled = false; // Reativa o botão após o erro
-                reportButton.removeEventListener('click', handleClick); // Remove o event listener após o erro
+                reportButton.classList.remove('enviando'); // Remove o estado de envio em caso de erro
             }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
         });
     };
