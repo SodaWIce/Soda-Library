@@ -1,5 +1,15 @@
 {
     "books": [
+         {
+    "id": "livro53",
+    "title": "O Corcunda de Notre Dame",
+    "image": "https://imgur.com/fLoNzUe.png",
+    "author": "Victor Hugo",
+    "year": "1831",
+    "synopsis": "Na Paris do século XV, a cigana Esmeralda dança em frente à catedral de Notre Dame. Ao redor da jovem e da igreja, dançam outros personagens inesquecíveis - como o cruel arquidiácono Claude Frollo, o capitão Phoebus, a velha reclusa Gudule e, claro, o disforme Quasímodo, o corcunda que cuida dos sinos da catedral.",
+    "pdf": "https://drive.google.com/file/d/1t9lJLACT4h2i4UY4CLouBnX9GGmOTIdQ/view?usp=drivesdk",
+    "genre": "Ficção"
+         },
         {
     "id": "livro52",
     "title": "Orgulho e Preconceito",
