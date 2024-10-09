@@ -314,10 +314,13 @@ header .icon {
 }
 
 /* Cabeçalho no tema claro */
-.tema-claro header,
-header h1 {
+.tema-claro header {
     background-color: #ffffff; /* Cor de fundo do cabeçalho clara */
     color: #111111; /* Cor do texto do cabeçalho escuro */
+}
+
+.tema-claro header h1 {
+    color: #111111
 }
 
 /* Book item */
@@ -335,7 +338,7 @@ header h1 {
 }
 
 /* Ícone da search bar */
-.tema-claro .search-bar .icon {
+.tema-claro .search.icon {
     content: url('https://imgur.com/uLSgVhx.png'); /* Link do ícone da search bar */
 }
 
@@ -355,12 +358,12 @@ header h1 {
 }
 
 /* Ícone do back button */
-.tema-claro .back-button .icon {
+.tema-claro .back-button {
     content: url('https://imgur.com/xbvjaVe'); /* Link do ícone do back button */
 }
 
 /* Ícone do report button */
-.tema-claro .report-button .icon {
+.tema-claro .report-button {
     content: url('https://imgur.com/h9UG3Ou'); /* Link do ícone do report button */
 }
 
