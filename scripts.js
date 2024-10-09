@@ -368,8 +368,11 @@ if (reportButton) {
     reportButton.addEventListener('click', handleClick); // Adiciona o event listener
 }
 
-// Chame o renderGiscus aqui após mostrar os detalhes do livro
-renderGiscus(bookId);
+// Verifica se o tema claro está ativado
+const isLightTheme = body.classList.contains('tema-claro');
+
+// Chame o renderGiscus com o ID do livro e o estado do tema
+renderGiscus(bookId, isLightTheme);
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
