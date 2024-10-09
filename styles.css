@@ -329,12 +329,25 @@ header .icon {
     color: #111111; /* Cor do texto do book item escuro */
 }
 
+.tema-claro .book-item:hover,
+.tema-claro .book-item:focus {
+    color: #3CB371; /* Cor do texto do book item escuro */
+}
+
 /* Search bar */
 .tema-claro .search-bar input[type="text"],
 .tema-claro .search-bar select {
     border-color: #e9ecef;
     background-color: #e9ecef; /* Cor de fundo da search bar clara */
     color: #111111; /* Cor do texto da search bar escura */
+}
+
+/* Hover e Focus para Search Bar */
+.tema-claro .search-bar input[type="text"]:hover,
+.tema-claro .search-bar select:hover,
+.tema-claro .search-bar input[type="text"]:focus,
+.tema-claro .search-bar select:focus {
+    border-color: #3CB371; /* Cor da borda no hover/focus */
 }
 
 /* Pagination button */
@@ -344,12 +357,30 @@ header .icon {
     color: #111111; /* Cor do texto do botão de paginação */
 }
 
+/* Hover e Focus para Pagination Button */
+.tema-claro .pagination button:hover,
+.tema-claro .pagination button:focus {
+    background-color: #3CB371; /* Cor de fundo no hover/focus */
+}
+
+.tema-claro .pagination button.active {
+    background-color: #3CB371;
+    transform: scale(1.15);
+}
+
 /* Back button e Report button */
 .tema-claro .back-button,
 .tema-claro .report-button {
     border-color: #e9ecef;
     background-color: #e9ecef; /* Cor de fundo dos botões */
     color: #111111; /* Cor do texto dos botões */
+}
+
+.tema-claro .back-button:hover,
+.tema-claro .report-button:hover,
+.tema-claro .back-button:focus,
+.tema-claro .report-button:focus {
+    border-color: #3CB371;
 }
 
 /* Book details */
