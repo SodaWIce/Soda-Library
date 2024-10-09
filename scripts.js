@@ -424,9 +424,14 @@ function resetReportButton() {
     reportButton.disabled = false;
     reportButton.textContent = "Link quebrado?";
     
-    // Recria o ícone e adiciona ao botão
+    // Verifica se o tema é claro ou escuro e define a imagem correspondente
     const iconImg = document.createElement('img');
-    iconImg.src = "https://imgur.com/r5O2N0j.png";
+    if (isLightTheme) {
+        iconImg.src = "https://imgur.com/h9UG3Ou.png"; // Imagem para tema claro
+    } else {
+        iconImg.src = "https://imgur.com/r5O2N0j.png"; // Imagem para tema escuro
+    }
+
     iconImg.alt = "Ícone";
     iconImg.style.width = "20px";
     iconImg.style.height = "20px";
