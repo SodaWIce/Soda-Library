@@ -423,18 +423,16 @@ function hideDetails() {
 function resetReportButton() {
     reportButton.disabled = false;
     reportButton.textContent = "Link quebrado?";
-
-    // Cria o elemento de ícone
+    
+    // Recria o ícone e adiciona ao botão
     const iconImg = document.createElement('img');
-
-    // Define o ícone de acordo com o estado do tema
-    iconImg.src = isLightTheme ? "https://imgur.com/h9UG3Ou.png" : "https://imgur.com/r5O2N0j.png";
+    iconImg.src = "https://imgur.com/r5O2N0j.png";
     iconImg.alt = "Ícone";
     iconImg.style.width = "20px";
     iconImg.style.height = "20px";
     iconImg.style.verticalAlign = "middle";
     iconImg.style.marginRight = "8px";
-
+    
     // Limpa o conteúdo atual do botão e adiciona o ícone e texto
     reportButton.innerHTML = '';
     reportButton.appendChild(iconImg);
