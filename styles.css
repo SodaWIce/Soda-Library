@@ -367,6 +367,8 @@ header .icon {
 
 .tema-claro .pagination button.active {
     background-color: #3CB371;
+    color: #ffffff;
+    border-color: #3CB371;
     transform: scale(1.15);
 }
 
