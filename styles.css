@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif; /* Atualiza a fonte para Roboto */
     margin: 0;
     padding: 0;
-    background: #111111; /* Fundo preto */
+    background: #2C3E50; /* Fundo azul marinho */
     color: #ffffff; /* Cor do texto para contraste com o fundo escuro */
 }
 
@@ -13,7 +13,7 @@ header {
     display: flex; /* Usa flexbox no cabeçalho */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Alinha o conteúdo verticalmente, se necessário */
-    background-color: #111111; /* Cor de fundo do cabeçalho */
+    background-color: #2C3E50; /* Cor de fundo do cabeçalho */
     height: 70px; /* Ajuste conforme necessário */
     padding: 0 1em; /* Ajusta o padding horizontal, se necessário */
 }
@@ -201,7 +201,7 @@ header .icon {
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
     margin: 2em;
-    background: #111111; /* Fundo escuro para os detalhes do livro */
+    background: #2C3E50; /* Fundo escuro para os detalhes do livro */
     border: none;
     border-radius: 0px;
     color: #ffffff; /* Cor do texto para contraste */
