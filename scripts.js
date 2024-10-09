@@ -226,6 +226,7 @@ themeToggle.addEventListener('click', () => {
     if (body.classList.contains('tema-claro')) {
         body.classList.remove('tema-claro');
         localStorage.removeItem('theme'); // Remove o tema do localStorage
+        updateIcons('default'); // Atualiza os ícones para o padrão
     } else {
         body.classList.add('tema-claro');
         localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
@@ -252,6 +253,16 @@ function updateIcons(theme) {
         searchIconX.src = 'https://imgur.com/Pwd8YI7.png'; // Ícone "X" na barra de pesquisa no tema claro
         searchIconLupa.src = 'https://imgur.com/uLSgVhx.png'; // Ícone da lupa na barra de pesquisa no tema claro
         icon.src = 'https://imgur.com/lE4oMBX.png'; // Ícone do tema
+    } else {
+        // Retorna os ícones para o padrão quando o tema claro está desligado
+        reportButton.src = 'https://imgur.com/r5O2N0j.png'; // Substitua pelo URL do ícone padrão do botão de report
+        if (reportButtonDisabled) {
+            reportButtonDisabled.src = 'https://imgur.com/5PDMsZ2.png'; // Substitua pelo URL do ícone padrão do botão de report desabilitado
+        }
+        backButton.src = 'https://imgur.com/GlZn3zw.png'; // Substitua pelo URL do ícone padrão do botão de voltar
+        searchIconX.src = 'https://imgur.com/zBGC0yw.png'; // Substitua pelo URL do ícone padrão "X"
+        searchIconLupa.src = 'https://imgur.com/90y8bbS.png'; // Substitua pelo URL do ícone padrão da lupa
+        icon.src = 'https://imgur.com/7ZaM26T.png'; // Substitua pelo URL do ícone padrão
     }
 }
 
