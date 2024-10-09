@@ -196,6 +196,8 @@ header .icon {
 /* Restante do código CSS */
 
 .book-details {
+    opacity: 1; /* Estado inicial de visibilidade */
+    transition: opacity 0.5s ease-in-out; /* Transição suave ao mudar a opacidade */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
