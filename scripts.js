@@ -359,7 +359,7 @@ renderGiscus(bookId);
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
 }
 
-function renderGiscus(bookId) {
+function renderGiscus(bookId, isLightTheme) {
     const giscusContainer = document.getElementById('giscus-container');
 
     // Limpa o conteúdo anterior
@@ -377,7 +377,10 @@ function renderGiscus(bookId) {
     giscusScript.setAttribute('data-reactions-enabled', '1');
     giscusScript.setAttribute('data-emit-metadata', '0');
     giscusScript.setAttribute('data-input-position', 'top');
-    giscusScript.setAttribute('data-theme', 'dark');
+    
+    // Define o tema de acordo com o estado do tema claro
+    giscusScript.setAttribute('data-theme', isLightTheme ? 'light' : 'dark');
+    
     giscusScript.setAttribute('data-lang', 'pt');
     giscusScript.setAttribute('data-loading', 'lazy');
     giscusScript.setAttribute('crossOrigin', 'anonymous');
