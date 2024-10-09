@@ -328,17 +328,19 @@ header .icon {
 /* Search bar */
 .tema-claro .search-bar input[type="text"],
 .search-bar select {
+    border-color: #e9ecef;
     background-color: #e9ecef; /* Cor de fundo da search bar clara */
     color: #111111; /* Cor do texto da search bar escura */
 }
 
 /* Ícone da search bar */
 .tema-claro .search-bar .icon {
-    content: url(https://imgur.com/uLSgVhx.png); /* Link do ícone da search bar */
+    content: url('https://imgur.com/uLSgVhx.png'); /* Link do ícone da search bar */
 }
 
 /* Pagination button */
-.tema-claro .pagination-button {
+.tema-claro .pagination button {
+    border-color: #e9ecef;
     background-color: #e9ecef; /* Cor de fundo do botão de paginação */
     color: #111111; /* Cor do texto do botão de paginação */
 }
@@ -346,18 +348,19 @@ header .icon {
 /* Back button e Report button */
 .tema-claro .back-button,
 .tema-claro .report-button {
+    border-color: #e9ecef;
     background-color: #e9ecef; /* Cor de fundo dos botões */
     color: #111111; /* Cor do texto dos botões */
 }
 
 /* Ícone do back button */
 .tema-claro .back-button .icon {
-    content: url(https://imgur.com/xbvjaVe); /* Link do ícone do back button */
+    content: url('https://imgur.com/xbvjaVe'); /* Link do ícone do back button */
 }
 
 /* Ícone do report button */
 .tema-claro .report-button .icon {
-    content: url(https://imgur.com/h9UG3Ou); /* Link do ícone do report button */
+    content: url('https://imgur.com/h9UG3Ou'); /* Link do ícone do report button */
 }
 
 /* Book details */
@@ -368,7 +371,7 @@ header .icon {
 
 /* Ícone do cabeçalho */
 .tema-claro .header-icon {
-    content: url(https://imgur.com/lE4oMBX); /* Link do ícone do cabeçalho */
+    content: url('https://imgur.com/lE4oMBX'); /* Link do ícone do cabeçalho */
 }
 
 /* Estilos específicos para landscape */
