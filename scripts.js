@@ -211,34 +211,56 @@ function renderPagination() {
 }
 
 function showDetails(bookId) {
-    window.scrollTo(0, 0);
+    // Rolagem suave para o topo
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Transição suave ao rolar para o topo
+    });
 
     fetch('books.json')
         .then(response => response.json())
         .then(data => {
-            const book = data.books.find(b => b.id == bookId); // Use == para comparar string e número
+            const book = data.books.find(b => b.id == bookId);
             if (book) {
                 const mainContent = document.getElementById('mainContent');
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
 
-                mainContent.style.display = 'none';
-                details.style.display = 'block';
-                detailsContent.innerHTML = `
-                    <div class="book-header">
-                        <img src="${book.image}" alt="${book.title}" class="book-full">
-                        <a class="download-link" href="${book.pdf}" target="_blank">
-                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                            Baixar PDF
-                        </a>
-                    </div>
-                    <div class="book-info">
-                        <p><strong>Título:</strong> ${book.title}</p>
-                        <p><strong>Autor:</strong> ${book.author}</p>
-                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                    </div>
-                `;
+                // Adicionar animação de transição suave
+                mainContent.style.transition = 'opacity 0.5s ease-in-out';
+                details.style.transition = 'opacity 0.5s ease-in-out';
+
+                // Fade out do conteúdo principal
+                mainContent.style.opacity = 0;
+
+                // Aguarda a animação de fade out para trocar o conteúdo
+                setTimeout(() => {
+                    mainContent.style.display = 'none'; // Esconde o conteúdo principal
+                    details.style.display = 'block';    // Mostra os detalhes do livro
+
+                    // Popula os detalhes do livro
+                    detailsContent.innerHTML = `
+                        <div class="book-header">
+                            <img src="${book.image}" alt="${book.title}" class="book-full">
+                            <a class="download-link" href="${book.pdf}" target="_blank">
+                                <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                                Baixar PDF
+                            </a>
+                        </div>
+                        <div class="book-info">
+                            <p><strong>Título:</strong> ${book.title}</p>
+                            <p><strong>Autor:</strong> ${book.author}</p>
+                            <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+                            <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+                        </div>
+                    `;
+
+                    // Fade in dos detalhes do livro
+                    details.style.opacity = 1;
+                }, 500); // O tempo da animação deve coincidir com o tempo de transição
+            }
+        });
+}
                 
                 // Adicione o event listener do reportButton aqui
 const reportButton = document.getElementById('reportButton');
