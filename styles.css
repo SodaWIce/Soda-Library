@@ -361,6 +361,8 @@ header .icon {
 .tema-claro .pagination button:hover,
 .tema-claro .pagination button:focus {
     background-color: #3CB371; /* Cor de fundo no hover/focus */
+    color: #ffffff;
+    border-color: #3CB371;
 }
 
 .tema-claro .pagination button.active {
