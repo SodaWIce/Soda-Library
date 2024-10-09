@@ -315,49 +315,60 @@ header .icon {
 
 /* Cabeçalho no tema claro */
 .tema-claro header {
-    background-color: #f8f9fa; /* Cor de fundo do cabeçalho clara */
-    color: #343a40; /* Cor do texto do cabeçalho escuro */
+    background-color: #ffffff; /* Cor de fundo do cabeçalho clara */
+    color: #111111; /* Cor do texto do cabeçalho escuro */
 }
 
 /* Book item */
 .tema-claro .book-item {
-    background-color: #e9ecef; /* Cor de fundo do book item clara */
-    color: #212529; /* Cor do texto do book item escuro */
+    background-color: #ffffff; /* Cor de fundo do book item clara */
+    color: #111111; /* Cor do texto do book item escuro */
 }
 
 /* Search bar */
-.tema-claro .search-bar {
-    background-color: #f1f1f1; /* Cor de fundo da search bar clara */
-    color: #212529; /* Cor do texto da search bar escura */
+.tema-claro .search-bar input[type="text"],
+.search-bar select {
+    background-color: #e9ecef; /* Cor de fundo da search bar clara */
+    color: #111111; /* Cor do texto da search bar escura */
 }
 
-/* Ícone da search bar (ajuste conforme necessário) */
+/* Ícone da search bar */
 .tema-claro .search-bar .icon {
-    filter: brightness(0) invert(1); /* Para garantir que o ícone seja visível em fundo claro */
+    content: url(https://imgur.com/uLSgVhx.png); /* Link do ícone da search bar */
 }
 
 /* Pagination button */
 .tema-claro .pagination-button {
-    background-color: #007bff; /* Cor de fundo do botão de paginação */
-    color: #ffffff; /* Cor do texto do botão de paginação */
+    background-color: #e9ecef; /* Cor de fundo do botão de paginação */
+    color: #111111; /* Cor do texto do botão de paginação */
 }
 
 /* Back button e Report button */
 .tema-claro .back-button,
 .tema-claro .report-button {
-    background-color: #6c757d; /* Cor de fundo dos botões */
-    color: #ffffff; /* Cor do texto dos botões */
+    background-color: #e9ecef; /* Cor de fundo dos botões */
+    color: #111111; /* Cor do texto dos botões */
+}
+
+/* Ícone do back button */
+.tema-claro .back-button .icon {
+    content: url(https://imgur.com/xbvjaVe); /* Link do ícone do back button */
+}
+
+/* Ícone do report button */
+.tema-claro .report-button .icon {
+    content: url(https://imgur.com/h9UG3Ou); /* Link do ícone do report button */
 }
 
 /* Book details */
 .tema-claro .book-details {
     background-color: #ffffff; /* Cor de fundo do book details clara */
-    color: #000000; /* Cor do texto do book details escuro */
+    color: #111111; /* Cor do texto do book details escuro */
 }
 
-/* Ícone do cabeçalho (ajuste conforme necessário) */
+/* Ícone do cabeçalho */
 .tema-claro .header-icon {
-    filter: brightness(0) invert(1); /* Para garantir que o ícone seja visível em fundo claro */
+    content: url(https://imgur.com/lE4oMBX); /* Link do ícone do cabeçalho */
 }
 
 /* Estilos específicos para landscape */
