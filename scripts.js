@@ -215,22 +215,38 @@ const body = document.body;
 
 // Verifica se o tema já foi definido e aplica
 const currentTheme = localStorage.getItem('theme');
+const bookId = 'id-do-livro'; // Substitua pelo ID do livro
+
 if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
     updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
+    
+    // Renderiza o Giscus com o tema claro
+    renderGiscus(bookId, 'tema-claro');
+} else {
+    // Renderiza o Giscus com o tema escuro (ou padrão)
+    renderGiscus(bookId, 'tema-escuro');
 }
 
 // Adiciona um evento de clique para o ícone
 themeToggle.addEventListener('click', () => {
+    const bookId = 'id-do-livro'; // Substitua pelo ID do livro que você está usando no momento
+
     // Alterna entre o tema claro e o padrão
     if (body.classList.contains('tema-claro')) {
         body.classList.remove('tema-claro');
         localStorage.removeItem('theme'); // Remove o tema do localStorage
         updateIcons('default'); // Atualiza os ícones para o padrão
+        
+        // Renderiza o Giscus com o tema escuro
+        renderGiscus(bookId, 'tema-escuro'); 
     } else {
         body.classList.add('tema-claro');
         localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
         updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
+        
+        // Renderiza o Giscus com o tema claro
+        renderGiscus(bookId, 'tema-claro');
     }
 });
 
