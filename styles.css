@@ -88,7 +88,7 @@ header .icon {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 100px;
-  background-color: #28A745; /* Fundo dos campos de entrada */
+  background-color: #1A1A1A; /* Fundo dos campos de entrada */
   color: #ffffff; /* Cor do texto dentro dos campos */
   flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
   max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
