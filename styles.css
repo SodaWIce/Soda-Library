@@ -337,15 +337,6 @@ header .icon {
     color: #111111; /* Cor do texto da search bar escura */
 }
 
-/* Ícone da search bar */
-.tema-claro .search-icon-lupa {
-    background-image: url('https://imgur.com/uLSgVhx.png'); /* Link do ícone da search bar */
-}
-
-.tema-claro .search-icon-x {
-    background-image: url('https://imgur.com/Pwd8YI7.png'); /* Link do ícone da search bar */
-}
-
 /* Pagination button */
 .tema-claro .pagination button {
     border-color: #e9ecef;
@@ -361,25 +352,10 @@ header .icon {
     color: #111111; /* Cor do texto dos botões */
 }
 
-/* Ícone do back button */
-.tema-claro .back-button {
-    background-image: url('https://imgur.com/xbvjaVe.png'); /* Link do ícone do back button */
-}
-
-/* Ícone do report button */
-.tema-claro .report-button {
-    background-image: url('https://imgur.com/h9UG3Ou.png'); /* Link do ícone do report button */
-}
-
 /* Book details */
 .tema-claro .book-details {
     background-color: #ffffff; /* Cor de fundo do book details clara */
     color: #111111; /* Cor do texto do book details escuro */
-}
-
-/* Ícone do cabeçalho */
-.tema-claro .theme-toggle {
-    background-image: url('https://imgur.com/lE4oMBX.png'); /* Link do ícone do cabeçalho */
 }
 
 /* Estilos específicos para landscape */

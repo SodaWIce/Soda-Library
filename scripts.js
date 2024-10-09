@@ -217,6 +217,7 @@ const body = document.body;
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
+    updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
 }
 
 // Adiciona um evento de clique para o ícone
@@ -225,11 +226,35 @@ themeToggle.addEventListener('click', () => {
     if (body.classList.contains('tema-claro')) {
         body.classList.remove('tema-claro');
         localStorage.removeItem('theme'); // Remove o tema do localStorage
+        updateIcons('default'); // Retorna para o padrão (tema escuro)
     } else {
         body.classList.add('tema-claro');
         localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
+        updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
     }
 });
+
+// Função para atualizar os ícones com base no tema
+function updateIcons(theme) {
+    const reportButton = document.querySelector('.report-button');
+    const reportButtonDisabled = document.querySelector('.report-button-disabled'); // Substitua pelo seletor correto
+    const backButton = document.querySelector('.back-button'); // Substitua pelo seletor correto
+    const searchIconX = document.querySelector('.search-icon-x');
+    const searchIconLupa = document.querySelector('.search-icon-lupa');
+    const icon = document.querySelector('.icon'); // Seletor para o ícone
+
+    if (theme === 'tema-claro') {
+        // Atualize os ícones para o tema claro
+        reportButton.src = 'https://imgur.com/h9UG3Ou.png'; // Substitua pelo URL do ícone do botão de report no tema claro
+        reportButtonDisabled.src = 'https://imgur.com/soMJZWj'; // Substitua pelo URL do ícone do botão de report desabilitado no tema claro
+        backButton.src = 'https://imgur.com/xbvjaVe.png'; // Substitua pelo URL do ícone do botão de voltar no tema claro
+        searchIconX.src = 'https://imgur.com/Pwd8YI7.png'; // Substitua pelo URL do ícone "X" na barra de pesquisa no tema claro
+        searchIconLupa.src = 'https://imgur.com/uLSgVhx.png'; // Substitua pelo URL do ícone da lupa na barra de pesquisa no tema claro
+        icon.src = 'https://imgur.com/lE4oMBX.png'; // Substitua pelo URL do ícone no tema claro
+    } else {
+        // Não precisa atualizar os ícones para o tema escuro, pois já estão configurados como padrão
+    }
+}
 
 function showDetails(bookId) {
     window.scrollTo(0, 0);
