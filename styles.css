@@ -87,9 +87,8 @@ header .icon {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 2px solid #ffffff; /* Borda clara para a barra de pesquisa */
   border-radius: 100px;
-  background-color: #33074b; /* Fundo dos campos de entrada */
+  background-color: #28A745; /* Fundo dos campos de entrada */
   color: #ffffff; /* Cor do texto dentro dos campos */
   flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
   max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
@@ -100,9 +99,8 @@ header .icon {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: 2px solid #ffffff;
     border-radius: 100px;
-    background-color: #33074b;
+    background-color: #28A745;
     color: #ffffff;
     text-align-last: center; /* Centraliza o texto da opção selecionada */
     white-space: nowrap;
@@ -127,9 +125,8 @@ header .icon {
 .pagination button {
     margin: 0 5px;
     padding: 8px 12px;
-    background-color: #33074b; /* Fundo para o botão */
+    background-color: #28A745; /* Fundo para o botão */
     color: #ffffff; /* Cor do texto do botão */
-    border: 2px solid #ffffff; /* Borda clara para o botão */
     border-radius: 100px;
     cursor: pointer;
     outline: none; /* Remove a borda de foco padrão do navegador */
@@ -137,13 +134,12 @@ header .icon {
 }
 
 .pagination button:hover {
-    border-color: #87CEFA; /* Cor da borda quando o botão está em foco */
     transform: scale(1.05);
+    background-color: #42C25F;
 }
 
 .pagination button.active {
-    background-color: #87CEFA;
-    border-color: #87CEFA;
+    background-color: #42C25F;
     transform: scale(1.05);
 }
 
@@ -178,7 +174,7 @@ header .icon {
 .book-item:hover,
 .book-item:focus {
     cursor: default;
-    color: #87CEFA; /* Cor do título quando o item está em foco */
+    color: #28A745; /* Cor do título quando o item está em foco */
     transform: scale(1.10);
 }
 
@@ -226,10 +222,10 @@ header .icon {
 
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
-    background: linear-gradient(to right, #FF6F40, #FF7F50); /* Gradiente de #8B0000 para #B22222 */
+    background: linear-gradient(to right, #124577, #3b669b); /* Gradiente de #8B0000 para #B22222 */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #FF7F50; /* Borda padrão do botão */
+    border: 2px solid #3b669b; /* Borda padrão do botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
@@ -241,18 +237,17 @@ header .icon {
 
 .download-link:hover,
 .download-link:focus {
-    background: linear-gradient(to left, #FF6F40, #FF7F50); /* Gradiente invertido no hover/focus */
+    background: linear-gradient(to left, #124577, #3b669b); /* Gradiente invertido no hover/focus */
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
-    border-color: #FF7F50; /* Cor da borda ao passar o mouse ou focar */
+    border-color: #3b669b; /* Cor da borda ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
-    box-shadow: 0 0 10px 2px rgba(178, 34, 34, 0.8); /* Efeito de brilho neon */
+    box-shadow: 0 0 10px 2px rgba(59, 102, 155, 0.8); /* Efeito de brilho neon com a cor #3B669B */
 }
 
 .back-button {
-    background-color: #33074b; /* Fundo preto para o botão */
+    background-color: #28A745; /* Fundo para o botão */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #ffffff; /* Borda clara para o botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
@@ -266,15 +261,13 @@ header .icon {
 
 .back-button:focus,
 .back-button:hover {
-    border-color: #87CEFA; /* Cor da borda quando o botão está em foco */
     transform: scale(1.05);
 }
 
 .report-button {
-    background-color: #33074b; /* Fundo preto para o botão */
+    background-color: #28A745; /* Fundo preto para o botão */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #ffffff; /* Borda clara para o botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
@@ -288,7 +281,6 @@ header .icon {
 
 .report-button:focus,
 .report-button:hover {
-    border-color: #87CEFA; /* Cor da borda quando o botão está em foco */
     transform: scale(1.05);
 }
 
