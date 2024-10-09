@@ -415,15 +415,15 @@ function resetReportButton(theme) {
     
     // Reseta o botão como desativado
     reportButton.disabled = false;
+    reportButton.setAttribute('data-activated', 'false'); // Adicionando estado desativado
     reportButton.textContent = "Link quebrado?";
-    
+
     // Recria o ícone com base no tema e estado desativado
     const iconImg = document.createElement('img');
-    if (theme === 'tema-claro') {
-        iconImg.src = "https://imgur.com/r5O2N0j.png"; // Ícone desativado no tema claro
-    } else {
-        iconImg.src = "https://imgur.com/r5O2N0j.png"; // Ícone desativado no tema escuro
-    }
+    iconImg.src = theme === 'tema-claro' 
+        ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
+        : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
+    
     iconImg.alt = "Ícone";
     iconImg.style.width = "20px";
     iconImg.style.height = "20px";
@@ -446,24 +446,20 @@ function toggleReportButton(theme) {
     reportButton.setAttribute('data-activated', newState);
 
     // Atualiza o ícone e texto com base no estado e tema
-    const iconImg = reportButton.querySelector('img');
+    const iconImg = document.createElement('img');
     if (newState) {
         reportButton.textContent = "Reportado";
-        if (theme === 'tema-claro') {
-            iconImg.src = "https://imgur.com/h9UG3Ou.png"; // Ícone ativado no tema claro
-        } else {
-            iconImg.src = "https://imgur.com/ctWre6X.png"; // Ícone ativado no tema escuro
-        }
+        iconImg.src = theme === 'tema-claro' 
+            ? "https://imgur.com/h9UG3Ou.png" // Ícone ativado no tema claro
+            : "https://imgur.com/ctWre6X.png"; // Ícone ativado no tema escuro
     } else {
         reportButton.textContent = "Link quebrado?";
-        if (theme === 'tema-claro') {
-            iconImg.src = "https://imgur.com/r5O2N0j.png"; // Ícone desativado no tema claro
-        } else {
-            iconImg.src = "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
-        }
+        iconImg.src = theme === 'tema-claro' 
+            ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
+            : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
     }
 
-    // Recoloca o texto após o ícone
+    // Limpa o conteúdo atual do botão e adiciona o ícone e texto
     reportButton.innerHTML = '';
     reportButton.appendChild(iconImg);
     reportButton.appendChild(document.createTextNode(newState ? "Reportado" : "Link quebrado?"));
