@@ -222,13 +222,14 @@ function showDetails(bookId) {
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
 
-                // Comece a transição de saída
-                mainContent.classList.add('hidden');
+                // Inicia a transição de saída do conteúdo principal
+                mainContent.style.opacity = '0'; // Começa a animação de desvanecimento
 
-                // Aguarde a transição de saída para ocultar o conteúdo principal
-                setTimeout(() => {
-                    mainContent.style.display = 'none'; // Esconde o conteúdo principal
-                    details.style.display = 'block'; // Mostra os detalhes do livro
+                // Aguarda a animação de desvanecimento para trocar o conteúdo
+                mainContent.addEventListener('transitionend', () => {
+                    // Oculta o conteúdo principal e mostra os detalhes do livro
+                    mainContent.style.display = 'none';
+                    details.style.display = 'block';
 
                     // Popula os detalhes do livro
                     detailsContent.innerHTML = `
@@ -247,11 +248,18 @@ function showDetails(bookId) {
                         </div>
                     `;
 
-                    // Remova a classe 'hidden' e faça a transição de entrada
-                    details.classList.remove('hidden');
-                }, 500); // Tempo da transição para ocultar
+                    // Faz a transição de opacidade do conteúdo de detalhes
+                    details.style.opacity = '1';
+
+                    // Chama o renderGiscus aqui após mostrar os detalhes do livro
+                    renderGiscus(bookId);
+                });
+
+                // Assegure-se de que o conteúdo principal tem a transição de opacidade
+                mainContent.style.transition = 'opacity 0.5s ease-in-out';
             }
-        });
+        })
+        .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
 }
                 
                 // Adicione o event listener do reportButton aqui
