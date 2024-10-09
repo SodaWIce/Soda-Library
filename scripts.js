@@ -222,45 +222,23 @@ function showDetails(bookId) {
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
 
-                // Inicia a transição de saída do conteúdo principal
-                mainContent.style.opacity = '0'; // Começa a animação de desvanecimento
-
-                // Aguarda a animação de desvanecimento para trocar o conteúdo
-                mainContent.addEventListener('transitionend', () => {
-                    // Oculta o conteúdo principal e mostra os detalhes do livro
-                    mainContent.style.display = 'none';
-                    details.style.display = 'block';
-
-                    // Popula os detalhes do livro
-                    detailsContent.innerHTML = `
-                        <div class="book-header">
-                            <img src="${book.image}" alt="${book.title}" class="book-full">
-                            <a class="download-link" href="${book.pdf}" target="_blank">
-                                <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                                Baixar PDF
-                            </a>
-                        </div>
-                        <div class="book-info">
-                            <p><strong>Título:</strong> ${book.title}</p>
-                            <p><strong>Autor:</strong> ${book.author}</p>
-                            <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                            <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                        </div>
-                    `;
-
-                    // Faz a transição de opacidade do conteúdo de detalhes
-                    details.style.opacity = '1';
-
-                    // Chama o renderGiscus aqui após mostrar os detalhes do livro
-                    renderGiscus(bookId);
-                });
-
-                // Assegure-se de que o conteúdo principal tem a transição de opacidade
-                mainContent.style.transition = 'opacity 0.5s ease-in-out';
-            }
-        })
-        .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
-}
+                mainContent.style.display = 'none';
+                details.style.display = 'block';
+                detailsContent.innerHTML = `
+                    <div class="book-header">
+                        <img src="${book.image}" alt="${book.title}" class="book-full">
+                        <a class="download-link" href="${book.pdf}" target="_blank">
+                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                            Baixar PDF
+                        </a>
+                    </div>
+                    <div class="book-info">
+                        <p><strong>Título:</strong> ${book.title}</p>
+                        <p><strong>Autor:</strong> ${book.author}</p>
+                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+                    </div>
+                `;
                 
                 // Adicione o event listener do reportButton aqui
 const reportButton = document.getElementById('reportButton');
