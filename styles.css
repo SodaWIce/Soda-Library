@@ -330,8 +330,7 @@ header .icon {
 }
 
 /* Search bar */
-.tema-claro .search-bar input[type="text"],
-.search-bar select {
+.tema-claro .search-bar {
     border-color: #e9ecef;
     background-color: #e9ecef; /* Cor de fundo da search bar clara */
     color: #111111; /* Cor do texto da search bar escura */
@@ -339,7 +338,7 @@ header .icon {
 
 /* Ícone da search bar */
 .tema-claro .search.icon {
-    content: url('https://imgur.com/uLSgVhx.png'); /* Link do ícone da search bar */
+    background-image: url('https://imgur.com/uLSgVhx.png'); /* Link do ícone da search bar */
 }
 
 /* Pagination button */
@@ -359,12 +358,12 @@ header .icon {
 
 /* Ícone do back button */
 .tema-claro .back-button {
-    content: url('https://imgur.com/xbvjaVe'); /* Link do ícone do back button */
+    background-image: url('https://imgur.com/xbvjaVe'); /* Link do ícone do back button */
 }
 
 /* Ícone do report button */
 .tema-claro .report-button {
-    content: url('https://imgur.com/h9UG3Ou'); /* Link do ícone do report button */
+    background-image: url('https://imgur.com/h9UG3Ou'); /* Link do ícone do report button */
 }
 
 /* Book details */
@@ -375,7 +374,7 @@ header .icon {
 
 /* Ícone do cabeçalho */
 .tema-claro .header icon {
-    content: url('https://imgur.com/lE4oMBX'); /* Link do ícone do cabeçalho */
+    background-image: url('https://imgur.com/lE4oMBX'); /* Link do ícone do cabeçalho */
 }
 
 /* Estilos específicos para landscape */
