@@ -330,7 +330,8 @@ header .icon {
 }
 
 /* Search bar */
-.tema-claro .search-bar {
+.tema-claro .search-bar input[type="text"],
+.tema-claro .search-bar select {
     border-color: #e9ecef;
     background-color: #e9ecef; /* Cor de fundo da search bar clara */
     color: #111111; /* Cor do texto da search bar escura */
