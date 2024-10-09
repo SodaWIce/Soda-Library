@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif; /* Atualiza a fonte para Roboto */
     margin: 0;
     padding: 0;
-    background: #2C3E50; /* Fundo azul marinho */
+    background: #003DA5; /* Fundo azul marinho */
     color: #ffffff; /* Cor do texto para contraste com o fundo escuro */
 }
 
@@ -159,7 +159,7 @@ header .icon {
 
 .book-item {
     cursor: default;
-    background: #111111; /* Fundo escuro para os itens da lista */
+    background: #003DA5; /* Fundo escuro para os itens da lista */
     /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
     border-radius: 10px;
     padding: 1em;
@@ -201,7 +201,7 @@ header .icon {
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
     margin: 2em;
-    background: #2C3E50; /* Fundo escuro para os detalhes do livro */
+    background: #003DA5; /* Fundo escuro para os detalhes do livro */
     border: none;
     border-radius: 0px;
     color: #ffffff; /* Cor do texto para contraste */
