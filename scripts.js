@@ -253,35 +253,60 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
+let isReportButtonDisabled = false; // Variável para rastrear o estado do botão de report
+
 // Função para atualizar os ícones com base no tema
 function updateIcons(theme) {
-    const reportButton = document.querySelector('.report-button img'); // Acesse a imagem dentro do botão
-    const reportButtonDisabled = document.querySelector('.report-button-disabled img'); // Se houver um botão de report desabilitado
-    const backButton = document.querySelector('.back-button img'); // Acesse a imagem dentro do botão de voltar
-    const searchIconX = document.querySelector('.search-icon-x'); // Ícone de limpar
-    const searchIconLupa = document.querySelector('.search-icon-lupa'); // Ícone de pesquisa
-    const icon = document.querySelector('.icon'); // Seletor para o ícone de tema
+    const reportButton = document.querySelector('.report-button img');
+    const reportButtonDisabled = document.querySelector('.report-button-disabled img');
+    const backButton = document.querySelector('.back-button img');
+    const searchIconX = document.querySelector('.search-icon-x');
+    const searchIconLupa = document.querySelector('.search-icon-lupa');
+    const icon = document.querySelector('.icon');
 
     if (theme === 'tema-claro') {
         // Atualize os ícones para o tema claro
-        reportButton.src = 'https://imgur.com/h9UG3Ou.png'; // Ícone do botão de report no tema claro
+        reportButton.src = isReportButtonDisabled 
+            ? 'https://imgur.com/ctWre6X.png' // Ícone do botão de report desabilitado no tema claro
+            : 'https://imgur.com/h9UG3Ou.png'; // Ícone do botão de report no tema claro
         if (reportButtonDisabled) {
             reportButtonDisabled.src = 'https://imgur.com/ctWre6X.png'; // Ícone do botão de report desabilitado no tema claro
         }
-        backButton.src = 'https://imgur.com/xbvjaVe.png'; // Ícone do botão de voltar no tema claro
-        searchIconX.src = 'https://imgur.com/Pwd8YI7.png'; // Ícone "X" na barra de pesquisa no tema claro
-        searchIconLupa.src = 'https://imgur.com/uLSgVhx.png'; // Ícone da lupa na barra de pesquisa no tema claro
-        icon.src = 'https://imgur.com/lE4oMBX.png'; // Ícone do tema
+        backButton.src = 'https://imgur.com/xbvjaVe.png';
+        searchIconX.src = 'https://imgur.com/Pwd8YI7.png';
+        searchIconLupa.src = 'https://imgur.com/uLSgVhx.png';
+        icon.src = 'https://imgur.com/lE4oMBX.png';
     } else {
         // Retorna os ícones para o padrão quando o tema claro está desligado
-        reportButton.src = 'https://imgur.com/r5O2N0j.png'; // Substitua pelo URL do ícone padrão do botão de report
+        reportButton.src = isReportButtonDisabled 
+            ? 'https://imgur.com/5PDMsZ2.png' // Ícone do botão de report desabilitado no tema escuro
+            : 'https://imgur.com/r5O2N0j.png'; // Ícone do botão de report no tema escuro
         if (reportButtonDisabled) {
-            reportButtonDisabled.src = 'https://imgur.com/5PDMsZ2.png'; // Substitua pelo URL do ícone padrão do botão de report desabilitado
+            reportButtonDisabled.src = 'https://imgur.com/5PDMsZ2.png'; // Ícone do botão de report desabilitado no tema escuro
         }
-        backButton.src = 'https://imgur.com/GlZn3zw.png'; // Substitua pelo URL do ícone padrão do botão de voltar
-        searchIconX.src = 'https://imgur.com/zBGC0yw.png'; // Substitua pelo URL do ícone padrão "X"
-        searchIconLupa.src = 'https://imgur.com/90y8bbS.png'; // Substitua pelo URL do ícone padrão da lupa
-        icon.src = 'https://imgur.com/7ZaM26T.png'; // Substitua pelo URL do ícone padrão
+        backButton.src = 'https://imgur.com/GlZn3zw.png';
+        searchIconX.src = 'https://imgur.com/zBGC0yw.png';
+        searchIconLupa.src = 'https://imgur.com/90y8bbS.png';
+        icon.src = 'https://imgur.com/7ZaM26T.png';
+    }
+}
+
+// Função para habilitar ou desabilitar o botão de report
+function toggleReportButton(disabled) {
+    isReportButtonDisabled = disabled; // Atualiza o estado do botão
+    const reportButton = document.querySelector('.report-button img');
+    const reportButtonDisabled = document.querySelector('.report-button-disabled img');
+
+    // Atualiza o ícone do botão de report
+    if (disabled) {
+        reportButton.src = ''; // Limpa o ícone do botão de report habilitado
+        reportButtonDisabled.src = isReportButtonDisabled 
+            ? 'https://imgur.com/ctWre6X.png' // Ícone do botão de report desabilitado
+            : 'https://imgur.com/5PDMsZ2.png'; // Ícone do botão de report desabilitado no tema escuro
+    } else {
+        reportButton.src = isReportButtonDisabled 
+            ? 'https://imgur.com/ctWre6X.png' // Ícone do botão de report desabilitado
+            : 'https://imgur.com/h9UG3Ou.png'; // Ícone do botão de report
     }
 }
 
