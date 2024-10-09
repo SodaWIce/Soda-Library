@@ -210,6 +210,27 @@ function renderPagination() {
     }
 }
 
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Verifica se o tema já foi definido e aplica
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'tema-claro') {
+    body.classList.add('tema-claro');
+}
+
+// Adiciona um evento de clique para o ícone
+themeToggle.addEventListener('click', () => {
+    // Alterna entre o tema claro e o padrão
+    if (body.classList.contains('tema-claro')) {
+        body.classList.remove('tema-claro');
+        localStorage.removeItem('theme'); // Remove o tema do localStorage
+    } else {
+        body.classList.add('tema-claro');
+        localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
+    }
+});
+
 function showDetails(bookId) {
     window.scrollTo(0, 0);
 

@@ -307,6 +307,59 @@ header .icon {
     pointer-events: none; /* Desativa a interação */
 }
 
+/* Tema claro */
+.tema-claro {
+    background-color: #ffffff; /* Cor de fundo do body clara */
+    color: #000000; /* Cor do texto escuro */
+}
+
+/* Cabeçalho no tema claro */
+.tema-claro header {
+    background-color: #f8f9fa; /* Cor de fundo do cabeçalho clara */
+    color: #343a40; /* Cor do texto do cabeçalho escuro */
+}
+
+/* Book item */
+.tema-claro .book-item {
+    background-color: #e9ecef; /* Cor de fundo do book item clara */
+    color: #212529; /* Cor do texto do book item escuro */
+}
+
+/* Search bar */
+.tema-claro .search-bar {
+    background-color: #f1f1f1; /* Cor de fundo da search bar clara */
+    color: #212529; /* Cor do texto da search bar escura */
+}
+
+/* Ícone da search bar (ajuste conforme necessário) */
+.tema-claro .search-bar .icon {
+    filter: brightness(0) invert(1); /* Para garantir que o ícone seja visível em fundo claro */
+}
+
+/* Pagination button */
+.tema-claro .pagination-button {
+    background-color: #007bff; /* Cor de fundo do botão de paginação */
+    color: #ffffff; /* Cor do texto do botão de paginação */
+}
+
+/* Back button e Report button */
+.tema-claro .back-button,
+.tema-claro .report-button {
+    background-color: #6c757d; /* Cor de fundo dos botões */
+    color: #ffffff; /* Cor do texto dos botões */
+}
+
+/* Book details */
+.tema-claro .book-details {
+    background-color: #ffffff; /* Cor de fundo do book details clara */
+    color: #000000; /* Cor do texto do book details escuro */
+}
+
+/* Ícone do cabeçalho (ajuste conforme necessário) */
+.tema-claro .header-icon {
+    filter: brightness(0) invert(1); /* Para garantir que o ícone seja visível em fundo claro */
+}
+
 /* Estilos específicos para landscape */
 @media only screen and (orientation: landscape) {
     .book-item {
