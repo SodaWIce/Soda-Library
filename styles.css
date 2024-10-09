@@ -114,7 +114,7 @@ header .icon {
 
 .search-bar input[type="text"]:hover, .search-bar select:hover,
 .search-bar input[type="text"]:focus, .search-bar select:focus {
-    border-color: #87CEFA; /* Muda a cor da borda quando o elemento está em foco */
+    border-color: #3CB371; /* Muda a cor da borda quando o elemento está em foco */
     outline: none; /* Remove a borda de foco padrão */
 }
 
@@ -137,13 +137,13 @@ header .icon {
 }
 
 .pagination button:hover {
-    transform: scale(1.05);
-    background-color: #42C25F;
+    transform: scale(1.15);
+    background-color: #3CB371;
 }
 
 .pagination button.active {
-    background-color: #42C25F;
-    transform: scale(1.05);
+    background-color: #3CB371;
+    transform: scale(1.15);
 }
 
 .book-list {
@@ -177,7 +177,7 @@ header .icon {
 .book-item:hover,
 .book-item:focus {
     cursor: default;
-    color: #28A745; /* Cor do título quando o item está em foco */
+    color: #3CB371; /* Cor do título quando o item está em foco */
     transform: scale(1.10);
 }
 
@@ -225,10 +225,10 @@ header .icon {
 
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
-    background: linear-gradient(to right, #124577, #3b669b); /* Gradiente de #8B0000 para #B22222 */
+    background: linear-gradient(to right, #008B8B, #3CB371); /* Gradiente de #8B0000 para #B22222 */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #3b669b; /* Borda padrão do botão */
+    border: 2px solid #3CB371; /* Borda padrão do botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
@@ -240,11 +240,11 @@ header .icon {
 
 .download-link:hover,
 .download-link:focus {
-    background: linear-gradient(to left, #124577, #3b669b); /* Gradiente invertido no hover/focus */
+    background: linear-gradient(to left, #008B8B, #3CB371); /* Gradiente invertido no hover/focus */
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
-    border-color: #3b669b; /* Cor da borda ao passar o mouse ou focar */
+    border-color: #3CB371; /* Cor da borda ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
-    box-shadow: 0 0 10px 2px rgba(59, 102, 155, 0.8); /* Efeito de brilho neon com a cor #3B669B */
+    box-shadow: 0 0 10px 2px rgba(60, 179, 113, 0.8); /* Efeito de brilho neon com a cor #3CB371 */
 }
 
 .back-button {
@@ -265,7 +265,7 @@ header .icon {
 
 .back-button:focus,
 .back-button:hover {
-    transform: scale(1.05);
+    border-color: #3CB371;
 }
 
 .report-button {
@@ -286,7 +286,7 @@ header .icon {
 
 .report-button:focus,
 .report-button:hover {
-    transform: scale(1.05);
+    border-color: #3CB371;
 }
 
 .back-button img,
