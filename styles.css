@@ -114,7 +114,7 @@ header .icon {
 
 .search-bar input[type="text"]:hover, .search-bar select:hover,
 .search-bar input[type="text"]:focus, .search-bar select:focus {
-    border-color: #B22222; /* Muda a cor da borda quando o elemento está em foco */
+    border-color: #FF7F50; /* Muda a cor da borda quando o elemento está em foco */
     outline: none; /* Remove a borda de foco padrão */
 }
 
