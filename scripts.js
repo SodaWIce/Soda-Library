@@ -230,7 +230,6 @@ if (currentTheme === 'tema-claro') {
 
 // Adiciona um evento de clique para o ícone
 themeToggle.addEventListener('click', () => {
-    const bookId = 'id-do-livro'; // Substitua pelo ID do livro que você está usando no momento
 
     // Alterna entre o tema claro e o padrão
     if (body.classList.contains('tema-claro')) {
