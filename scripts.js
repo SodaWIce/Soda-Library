@@ -465,16 +465,19 @@ function toggleReportButton(theme) {
     reportButton.appendChild(document.createTextNode(newState ? "Reportado" : "Link quebrado?"));
 }
 
-// Função para ser chamada ao carregar a página e restaurar o estado do botão (resetando)
 document.addEventListener('DOMContentLoaded', function () {
     const currentTheme = localStorage.getItem('theme') || 'tema-padrao';
     resetReportButton(currentTheme); // Restaura o estado do botão com base no tema
-});
 
-// Exemplo de evento que reseta o botão ao fechar os detalhes do livro
-document.querySelector('.fechar-detalhes-livro').addEventListener('click', function () {
-    const currentTheme = localStorage.getItem('theme') || 'tema-padrao';
-    resetReportButton(currentTheme); // Restaura o botão ao fechar os detalhes
+    // Adiciona o evento de click para o botão de voltar
+    const backButton = document.querySelector('.back-button'); // Atualizado para usar a classe correta
+    if (backButton) { // Verifique se o elemento existe
+        backButton.addEventListener('click', function () {
+            resetReportButton(currentTheme); // Restaura o botão ao fechar os detalhes
+        });
+    } else {
+        console.error("Elemento '.back-button' não encontrado."); // Mensagem de erro se o elemento não existir
+    }
 });
 
 // Adiciona um evento de popstate para detectar mudanças de página
