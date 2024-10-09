@@ -214,7 +214,7 @@ function showDetails(bookId) {
     // Rolagem suave para o topo
     window.scrollTo({
         top: 0,
-        behavior: 'smooth' // Transição suave ao rolar para o topo
+        behavior: 'smooth'
     });
 
     fetch('books.json')
@@ -226,40 +226,59 @@ function showDetails(bookId) {
                 const details = document.getElementById('details');
                 const detailsContent = document.getElementById('detailsContent');
 
-                // Adicionar animação de transição suave
-                mainContent.style.transition = 'opacity 0.5s ease-in-out';
-                details.style.transition = 'opacity 0.5s ease-in-out';
+                if (mainContent && details && detailsContent) {
+                    // Adicionar animação de transição suave
+                    mainContent.style.transition = 'opacity 0.5s ease-in-out';
+                    details.style.transition = 'opacity 0.5s ease-in-out';
 
-                // Fade out do conteúdo principal
-                mainContent.style.opacity = 0;
+                    // Fade out do conteúdo principal
+                    mainContent.style.opacity = 0;
 
-                // Aguarda a animação de fade out para trocar o conteúdo
-                setTimeout(() => {
-                    mainContent.style.display = 'none'; // Esconde o conteúdo principal
-                    details.style.display = 'block';    // Mostra os detalhes do livro
+                    setTimeout(() => {
+                        mainContent.style.display = 'none'; // Esconde o conteúdo principal
+                        details.style.display = 'block';    // Mostra os detalhes do livro
 
-                    // Popula os detalhes do livro
-                    detailsContent.innerHTML = `
-                        <div class="book-header">
-                            <img src="${book.image}" alt="${book.title}" class="book-full">
-                            <a class="download-link" href="${book.pdf}" target="_blank">
-                                <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                                Baixar PDF
-                            </a>
-                        </div>
-                        <div class="book-info">
-                            <p><strong>Título:</strong> ${book.title}</p>
-                            <p><strong>Autor:</strong> ${book.author}</p>
-                            <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                            <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                        </div>
-                    `;
+                        // Popula os detalhes do livro
+                        detailsContent.innerHTML = `
+                            <div class="book-header">
+                                <img src="${book.image}" alt="${book.title}" class="book-full">
+                                <a class="download-link" href="${book.pdf}" target="_blank">
+                                    <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                                    Baixar PDF
+                                </a>
+                            </div>
+                            <div class="book-info">
+                                <p><strong>Título:</strong> ${book.title}</p>
+                                <p><strong>Autor:</strong> ${book.author}</p>
+                                <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+                                <p><strong>Sinopse:</strong> ${book.synopsis}</p>
+                            </div>
+                        `;
 
-                    // Fade in dos detalhes do livro
-                    details.style.opacity = 1;
-                }, 500); // O tempo da animação deve coincidir com o tempo de transição
+                        // Fade in dos detalhes do livro
+                        details.style.opacity = 1;
+
+                        // Carregar o widget Giscus separadamente sem atrasar a transição
+                        loadGiscusWidget();
+                    }, 500);
+                }
             }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar o JSON de livros:', error);
         });
+}
+
+// Função separada para carregar o Giscus
+function loadGiscusWidget() {
+    const giscusWidget = document.querySelector('.giscus'); // Seleciona o widget Giscus
+    if (giscusWidget) {
+        // Verifica se o widget já está no DOM, se precisar de alguma lógica de carregamento adicional, adicione aqui.
+        console.log('Giscus widget carregado.');
+    } else {
+        // Se o widget ainda não estiver pronto, aguarde ou carregue dinamicamente
+        console.log('Carregando Giscus...');
+    }
 }
                 
                 // Adicione o event listener do reportButton aqui
