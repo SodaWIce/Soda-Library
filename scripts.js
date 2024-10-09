@@ -239,14 +239,14 @@ themeToggle.addEventListener('click', () => {
         updateIcons('default'); // Atualiza os ícones para o padrão
         
         // Renderiza o Giscus com o tema escuro
-        renderGiscus(bookId, 'tema-escuro'); 
+        renderGiscus(bookId, false); // Passa false para tema escuro
     } else {
         body.classList.add('tema-claro');
         localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
         updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
         
         // Renderiza o Giscus com o tema claro
-        renderGiscus(bookId, 'tema-claro');
+        renderGiscus(bookId, true); // Passa true para tema claro
     }
 });
 
