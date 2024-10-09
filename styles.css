@@ -314,7 +314,8 @@ header .icon {
 }
 
 /* Cabeçalho no tema claro */
-.tema-claro header {
+.tema-claro header,
+header h1 {
     background-color: #ffffff; /* Cor de fundo do cabeçalho clara */
     color: #111111; /* Cor do texto do cabeçalho escuro */
 }
@@ -370,7 +371,7 @@ header .icon {
 }
 
 /* Ícone do cabeçalho */
-.tema-claro .header-icon {
+.tema-claro .header icon {
     content: url('https://imgur.com/lE4oMBX'); /* Link do ícone do cabeçalho */
 }
 
