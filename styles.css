@@ -88,6 +88,7 @@ header .icon {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 100px;
+    border: 2px solid #1A1A1A;
   background-color: #1A1A1A; /* Fundo dos campos de entrada */
   color: #ffffff; /* Cor do texto dentro dos campos */
   flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
@@ -100,7 +101,8 @@ header .icon {
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 100px;
-    background-color: #28A745;
+    border: 2px solid #1A1A1A;
+    background-color: #1A1A1A;
     color: #ffffff;
     text-align-last: center; /* Centraliza o texto da opção selecionada */
     white-space: nowrap;
@@ -125,7 +127,8 @@ header .icon {
 .pagination button {
     margin: 0 5px;
     padding: 8px 12px;
-    background-color: #28A745; /* Fundo para o botão */
+    border: 2px solid #1A1A1A;
+    background-color: #1A1A1A; /* Fundo para o botão */
     color: #ffffff; /* Cor do texto do botão */
     border-radius: 100px;
     cursor: pointer;
@@ -245,10 +248,11 @@ header .icon {
 }
 
 .back-button {
-    background-color: #28A745; /* Fundo para o botão */
+    background-color: #1A1A1A; /* Fundo para o botão */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
+    border: 2px solid #1A1A1A;
     cursor: pointer;
     text-align: center;
     position: relative;
@@ -265,10 +269,11 @@ header .icon {
 }
 
 .report-button {
-    background-color: #28A745; /* Fundo preto para o botão */
+    background-color: #1A1A1A; /* Fundo preto para o botão */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
+    border: 2px solid #1A1A1A;
     cursor: pointer;
     text-align: center;
     position: absolute;
