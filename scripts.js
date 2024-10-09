@@ -247,7 +247,7 @@ function updateIcons(theme) {
         // Atualize os ícones para o tema claro
         reportButton.src = 'https://imgur.com/h9UG3Ou.png'; // Ícone do botão de report no tema claro
         if (reportButtonDisabled) {
-            reportButtonDisabled.src = 'https://imgur.com/soMJZWj.png'; // Ícone do botão de report desabilitado no tema claro
+            reportButtonDisabled.src = 'https://imgur.com/ctWre6X.png'; // Ícone do botão de report desabilitado no tema claro
         }
         backButton.src = 'https://imgur.com/xbvjaVe.png'; // Ícone do botão de voltar no tema claro
         searchIconX.src = 'https://imgur.com/Pwd8YI7.png'; // Ícone "X" na barra de pesquisa no tema claro
