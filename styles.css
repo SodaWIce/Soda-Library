@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif; /* Atualiza a fonte para Roboto */
     margin: 0;
     padding: 0;
-    background: #1E1A78; /* Fundo azul marinho */
+    background: #001E4E; /* Fundo azul marinho */
     color: #ffffff; /* Cor do texto para contraste com o fundo escuro */
 }
 
@@ -13,7 +13,7 @@ header {
     display: flex; /* Usa flexbox no cabeçalho */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Alinha o conteúdo verticalmente, se necessário */
-    background-color: #1E1A78; /* Cor de fundo do cabeçalho */
+    background-color: #001E4E; /* Cor de fundo do cabeçalho */
     height: 70px; /* Ajuste conforme necessário */
     padding: 0 1em; /* Ajusta o padding horizontal, se necessário */
 }
@@ -159,7 +159,7 @@ header .icon {
 
 .book-item {
     cursor: default;
-    background: #1E1A78; /* Fundo escuro para os itens da lista */
+    background: #001E4E; /* Fundo escuro para os itens da lista */
     /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
     border-radius: 10px;
     padding: 1em;
@@ -201,7 +201,7 @@ header .icon {
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
     margin: 2em;
-    background: #1E1A78; /* Fundo escuro para os detalhes do livro */
+    background: #001E4E; /* Fundo escuro para os detalhes do livro */
     border: none;
     border-radius: 0px;
     color: #ffffff; /* Cor do texto para contraste */
