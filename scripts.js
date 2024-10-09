@@ -414,6 +414,26 @@ function isLightThemeActive() {
     return document.body.classList.contains('isLightTheme');
 }
 
+// Função para criar o ícone com base no tema e estado
+function createIcon(activated) {
+    const iconImg = document.createElement('img');
+    if (activated) {
+        iconImg.src = isLightThemeActive()
+            ? "https://imgur.com/h9UG3Ou.png" // Ícone ativado no tema claro
+            : "https://imgur.com/ctWre6X.png"; // Ícone ativado no tema escuro
+    } else {
+        iconImg.src = isLightThemeActive()
+            ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
+            : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
+    }
+    iconImg.alt = "Ícone";
+    iconImg.style.width = "20px";
+    iconImg.style.height = "20px";
+    iconImg.style.verticalAlign = "middle";
+    iconImg.style.marginRight = "8px";
+    return iconImg;
+}
+
 // Função para reverter o botão após o fechamento dos detalhes do livro
 function resetReportButton() {
     const reportButton = document.querySelector('.report-button');
@@ -421,23 +441,8 @@ function resetReportButton() {
     // Reseta o botão como desativado
     reportButton.disabled = false;
     reportButton.setAttribute('data-activated', 'false'); // Adicionando estado desativado
-    reportButton.textContent = "Link quebrado?";
-
-    // Recria o ícone com base no tema e estado desativado
-    const iconImg = document.createElement('img');
-    iconImg.src = isLightThemeActive() 
-        ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
-        : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
-    
-    iconImg.alt = "Ícone";
-    iconImg.style.width = "20px";
-    iconImg.style.height = "20px";
-    iconImg.style.verticalAlign = "middle";
-    iconImg.style.marginRight = "8px";
-    
-    // Limpa o conteúdo atual do botão e adiciona o ícone e texto
-    reportButton.innerHTML = '';
-    reportButton.appendChild(iconImg);
+    reportButton.innerHTML = ''; // Limpa o conteúdo atual do botão
+    reportButton.appendChild(createIcon(false)); // Adiciona ícone desativado
     reportButton.appendChild(document.createTextNode("Link quebrado?"));
 }
 
@@ -450,23 +455,9 @@ function toggleReportButton() {
     const newState = !isActivated;
     reportButton.setAttribute('data-activated', newState);
 
-    // Atualiza o ícone e texto com base no estado e tema
-    const iconImg = document.createElement('img');
-    if (newState) {
-        reportButton.textContent = "Reportado";
-        iconImg.src = isLightThemeActive() 
-            ? "https://imgur.com/h9UG3Ou.png" // Ícone ativado no tema claro
-            : "https://imgur.com/ctWre6X.png"; // Ícone ativado no tema escuro
-    } else {
-        reportButton.textContent = "Link quebrado?";
-        iconImg.src = isLightThemeActive() 
-            ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
-            : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
-    }
-
-    // Limpa o conteúdo atual do botão e adiciona o ícone e texto
-    reportButton.innerHTML = '';
-    reportButton.appendChild(iconImg);
+    // Atualiza o conteúdo do botão com base no estado
+    reportButton.innerHTML = ''; // Limpa o conteúdo atual do botão
+    reportButton.appendChild(createIcon(newState)); // Adiciona ícone com base no estado
     reportButton.appendChild(document.createTextNode(newState ? "Reportado" : "Link quebrado?"));
 }
 
@@ -481,6 +472,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     } else {
         console.error("Elemento '.back-button' não encontrado."); // Mensagem de erro se o elemento não existir
+    }
+
+    // Adiciona o evento de click para o botão de report
+    const reportButton = document.querySelector('.report-button');
+    if (reportButton) {
+        reportButton.addEventListener('click', toggleReportButton); // Adiciona evento para alternar o botão
     }
 });
 
