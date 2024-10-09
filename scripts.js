@@ -423,20 +423,13 @@ function hideDetails() {
 function resetReportButton() {
     reportButton.disabled = false;
     reportButton.textContent = "Link quebrado?";
-    
-    // Recria o ícone e adiciona ao botão
-    const iconImg = document.createElement('img');
-    iconImg.src = "https://imgur.com/r5O2N0j.png";
-    iconImg.alt = "Ícone";
-    iconImg.style.width = "20px";
-    iconImg.style.height = "20px";
-    iconImg.style.verticalAlign = "middle";
-    iconImg.style.marginRight = "8px";
-    
-    // Limpa o conteúdo atual do botão e adiciona o ícone e texto
+
+    // Limpa o conteúdo atual do botão e adiciona o texto
     reportButton.innerHTML = '';
-    reportButton.appendChild(iconImg);
     reportButton.appendChild(document.createTextNode("Link quebrado?"));
+
+    // Atualiza o ícone com base no tema atual
+    updateIcons(isLightTheme ? 'tema-claro' : 'tema-escuro');
 }
 
 // Adiciona um evento de popstate para detectar mudanças de página
