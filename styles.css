@@ -298,7 +298,7 @@ header .icon {
 }
 
 .report-button:disabled {
-    background-color: #333333; /* Cor de fundo cinza escuro */
+    background-color: #2F4F4F; /* Cor de fundo cinza escuro */
     color: #ffffff; /* Cor do texto branco */
     border: none; /* Remove a borda */
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
