@@ -114,7 +114,7 @@ header .icon {
 
 .search-bar input[type="text"]:hover, .search-bar select:hover,
 .search-bar input[type="text"]:focus, .search-bar select:focus {
-    border-color: #FF7F50; /* Muda a cor da borda quando o elemento está em foco */
+    border-color: #87CEFA; /* Muda a cor da borda quando o elemento está em foco */
     outline: none; /* Remove a borda de foco padrão */
 }
 
@@ -137,13 +137,13 @@ header .icon {
 }
 
 .pagination button:hover {
-    border-color: #B22222; /* Cor da borda quando o botão está em foco */
+    border-color: #87CEFA; /* Cor da borda quando o botão está em foco */
     transform: scale(1.05);
 }
 
 .pagination button.active {
-    background-color: #B22222;
-    border-color: #B22222;
+    background-color: #87CEFA;
+    border-color: #87CEFA;
     transform: scale(1.05);
 }
 
@@ -178,7 +178,7 @@ header .icon {
 .book-item:hover,
 .book-item:focus {
     cursor: default;
-    color: #B22222; /* Cor do título quando o item está em foco */
+    color: #87CEFA; /* Cor do título quando o item está em foco */
     transform: scale(1.10);
 }
 
@@ -226,10 +226,10 @@ header .icon {
 
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
-    background: linear-gradient(to right, #8B0000, #B22222); /* Gradiente de #8B0000 para #B22222 */
+    background: linear-gradient(to right, #FF6F40, #FF7F50); /* Gradiente de #8B0000 para #B22222 */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
-    border: 2px solid #B22222; /* Borda padrão do botão */
+    border: 2px solid #FF7F50; /* Borda padrão do botão */
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
@@ -241,9 +241,9 @@ header .icon {
 
 .download-link:hover,
 .download-link:focus {
-    background: linear-gradient(to left, #8B0000, #B22222); /* Gradiente invertido no hover/focus */
+    background: linear-gradient(to left, #FF6F40, #FF7F50); /* Gradiente invertido no hover/focus */
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
-    border-color: #B22222; /* Cor da borda ao passar o mouse ou focar */
+    border-color: #FF7F50; /* Cor da borda ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
     box-shadow: 0 0 10px 2px rgba(178, 34, 34, 0.8); /* Efeito de brilho neon */
 }
@@ -266,7 +266,7 @@ header .icon {
 
 .back-button:focus,
 .back-button:hover {
-    border-color: #B22222; /* Cor da borda quando o botão está em foco */
+    border-color: #87CEFA; /* Cor da borda quando o botão está em foco */
     transform: scale(1.05);
 }
 
@@ -288,7 +288,7 @@ header .icon {
 
 .report-button:focus,
 .report-button:hover {
-    border-color: #B22222; /* Cor da borda quando o botão está em foco */
+    border-color: #87CEFA; /* Cor da borda quando o botão está em foco */
     transform: scale(1.05);
 }
 
