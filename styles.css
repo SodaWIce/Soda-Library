@@ -338,7 +338,7 @@ header .icon {
 }
 
 /* Ícone da search bar */
-.tema-claro .search.icon {
+.tema-claro .search-icon {
     background-image: url('https://imgur.com/uLSgVhx.png'); /* Link do ícone da search bar */
 }
 
@@ -374,7 +374,7 @@ header .icon {
 }
 
 /* Ícone do cabeçalho */
-.tema-claro .header icon {
+.tema-claro .theme-toggle {
     background-image: url('https://imgur.com/lE4oMBX'); /* Link do ícone do cabeçalho */
 }
 
