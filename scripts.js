@@ -409,8 +409,13 @@ function hideDetails() {
     resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
 }
 
+// Função para verificar se o tema é claro
+function isLightThemeActive() {
+    return document.body.classList.contains('isLightTheme');
+}
+
 // Função para reverter o botão após o fechamento dos detalhes do livro
-function resetReportButton(theme) {
+function resetReportButton() {
     const reportButton = document.querySelector('.report-button');
     
     // Reseta o botão como desativado
@@ -420,7 +425,7 @@ function resetReportButton(theme) {
 
     // Recria o ícone com base no tema e estado desativado
     const iconImg = document.createElement('img');
-    iconImg.src = theme === 'tema-claro' 
+    iconImg.src = isLightThemeActive() 
         ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
         : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
     
@@ -437,7 +442,7 @@ function resetReportButton(theme) {
 }
 
 // Função para alternar o estado do botão de "report"
-function toggleReportButton(theme) {
+function toggleReportButton() {
     const reportButton = document.querySelector('.report-button');
     const isActivated = reportButton.getAttribute('data-activated') === 'true';
 
@@ -449,12 +454,12 @@ function toggleReportButton(theme) {
     const iconImg = document.createElement('img');
     if (newState) {
         reportButton.textContent = "Reportado";
-        iconImg.src = theme === 'tema-claro' 
+        iconImg.src = isLightThemeActive() 
             ? "https://imgur.com/h9UG3Ou.png" // Ícone ativado no tema claro
             : "https://imgur.com/ctWre6X.png"; // Ícone ativado no tema escuro
     } else {
         reportButton.textContent = "Link quebrado?";
-        iconImg.src = theme === 'tema-claro' 
+        iconImg.src = isLightThemeActive() 
             ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
             : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
     }
@@ -466,14 +471,13 @@ function toggleReportButton(theme) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const currentTheme = localStorage.getItem('theme') || 'tema-padrao';
-    resetReportButton(currentTheme); // Restaura o estado do botão com base no tema
+    resetReportButton(); // Restaura o estado do botão com base no tema
 
     // Adiciona o evento de click para o botão de voltar
     const backButton = document.querySelector('.back-button'); // Atualizado para usar a classe correta
     if (backButton) { // Verifique se o elemento existe
         backButton.addEventListener('click', function () {
-            resetReportButton(currentTheme); // Restaura o botão ao fechar os detalhes
+            resetReportButton(); // Restaura o botão ao fechar os detalhes
         });
     } else {
         console.error("Elemento '.back-button' não encontrado."); // Mensagem de erro se o elemento não existir
