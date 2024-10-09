@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif; /* Atualiza a fonte para Roboto */
     margin: 0;
     padding: 0;
-    background: #1a002b; /* Fundo azul marinho */
+    background: #111111; /* Fundo azul marinho */
     color: #ffffff; /* Cor do texto para contraste com o fundo escuro */
 }
 
@@ -13,7 +13,7 @@ header {
     display: flex; /* Usa flexbox no cabeçalho */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Alinha o conteúdo verticalmente, se necessário */
-    background-color: #1a002b; /* Cor de fundo do cabeçalho */
+    background-color: #111111; /* Cor de fundo do cabeçalho */
     height: 70px; /* Ajuste conforme necessário */
     padding: 0 1em; /* Ajusta o padding horizontal, se necessário */
 }
@@ -89,7 +89,7 @@ header .icon {
   -moz-appearance: none;
   border: 2px solid #ffffff; /* Borda clara para a barra de pesquisa */
   border-radius: 100px;
-  background-color: ##33074b; /* Fundo dos campos de entrada */
+  background-color: #33074b; /* Fundo dos campos de entrada */
   color: #ffffff; /* Cor do texto dentro dos campos */
   flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
   max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
@@ -102,7 +102,7 @@ header .icon {
     -moz-appearance: none;
     border: 2px solid #ffffff;
     border-radius: 100px;
-    background-color: ##33074b;
+    background-color: #33074b;
     color: #ffffff;
     text-align-last: center; /* Centraliza o texto da opção selecionada */
     white-space: nowrap;
@@ -127,7 +127,7 @@ header .icon {
 .pagination button {
     margin: 0 5px;
     padding: 8px 12px;
-    background-color: ##33074b; /* Fundo para o botão */
+    background-color: #33074b; /* Fundo para o botão */
     color: #ffffff; /* Cor do texto do botão */
     border: 2px solid #ffffff; /* Borda clara para o botão */
     border-radius: 100px;
@@ -159,7 +159,7 @@ header .icon {
 
 .book-item {
     cursor: default;
-    background: #1a002b; /* Fundo escuro para os itens da lista */
+    background: #111111; /* Fundo escuro para os itens da lista */
     /*border: 0px solid #333333; /* Borda escura para combinar com o fundo */
     border-radius: 10px;
     padding: 1em;
@@ -201,7 +201,7 @@ header .icon {
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
     margin: 2em;
-    background: #1a002b; /* Fundo escuro para os detalhes do livro */
+    background: #111111; /* Fundo escuro para os detalhes do livro */
     border: none;
     border-radius: 0px;
     color: #ffffff; /* Cor do texto para contraste */
@@ -249,7 +249,7 @@ header .icon {
 }
 
 .back-button {
-    background-color: ##33074b; /* Fundo preto para o botão */
+    background-color: #33074b; /* Fundo preto para o botão */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border: 2px solid #ffffff; /* Borda clara para o botão */
@@ -271,7 +271,7 @@ header .icon {
 }
 
 .report-button {
-    background-color: ##33074b; /* Fundo preto para o botão */
+    background-color: #33074b; /* Fundo preto para o botão */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border: 2px solid #ffffff; /* Borda clara para o botão */
