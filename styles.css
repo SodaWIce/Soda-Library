@@ -227,7 +227,7 @@ header .icon {
 
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
-    background: linear-gradient(to right, #2F4F4F, #3CB371); /* Gradiente de #8B0000 para #B22222 */
+    background: linear-gradient(to right, #20B2AA, #3CB371); /* Gradiente de #8B0000 para #B22222 */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     /* border: 2px solid transparent;  Borda padrão do botão */
@@ -242,7 +242,7 @@ header .icon {
 
 .download-link:hover,
 .download-link:focus {
-    background: linear-gradient(to left, #2F4F4F, #3CB371); /* Gradiente invertido no hover/focus */
+    background: linear-gradient(to left, #20B2AA, #3CB371); /* Gradiente invertido no hover/focus */
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     /* border-color: transparent;  Cor da borda ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
@@ -300,7 +300,7 @@ header .icon {
 }
 
 .report-button:disabled {
-    background-color: #2F4F4F; /* Cor de fundo cinza escuro */
+    background-color: #1A1A1A; /* Cor de fundo cinza escuro */
     color: #ffffff; /* Cor do texto branco */
     border: none; /* Remove a borda */
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
