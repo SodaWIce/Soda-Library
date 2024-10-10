@@ -336,10 +336,7 @@ if (reportButton) {
         })
         .then(response => {
             console.log('Dados enviados com sucesso..');
-            reportButton.innerHTML = `
-                <img src="https://imgur.com/5PDMsZ2.png" alt="Ícone desativado" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                Avisado!
-            `;
+            document.getElementById('textBtnLinkQuebrado').innerText = 'Avisado!';
 
             // Adiciona o aviso após o envio
             setTimeout(() => {
@@ -414,72 +411,6 @@ function isLightThemeActive() {
     return document.body.classList.contains('isLightTheme');
 }
 
-// Função para criar o ícone com base no tema e estado
-function createIcon(activated) {
-    const iconImg = document.createElement('img');
-    if (activated) {
-        iconImg.src = isLightThemeActive()
-            ? "https://imgur.com/h9UG3Ou.png" // Ícone ativado no tema claro
-            : "https://imgur.com/ctWre6X.png"; // Ícone ativado no tema escuro
-    } else {
-        iconImg.src = isLightThemeActive()
-            ? "https://imgur.com/r5O2N0j.png" // Ícone desativado no tema claro
-            : "https://imgur.com/5PDMsZ2.png"; // Ícone desativado no tema escuro
-    }
-    iconImg.alt = "Ícone";
-    iconImg.style.width = "20px";
-    iconImg.style.height = "20px";
-    iconImg.style.verticalAlign = "middle";
-    iconImg.style.marginRight = "8px";
-    return iconImg;
-}
-
-// Função para reverter o botão após o fechamento dos detalhes do livro
-function resetReportButton() {
-    const reportButton = document.querySelector('.report-button');
-    
-    // Reseta o botão como desativado
-    reportButton.disabled = false;
-    reportButton.setAttribute('data-activated', 'false'); // Adicionando estado desativado
-    reportButton.innerHTML = ''; // Limpa o conteúdo atual do botão
-    reportButton.appendChild(createIcon(false)); // Adiciona ícone desativado
-    reportButton.appendChild(document.createTextNode("Link quebrado?"));
-}
-
-// Função para alternar o estado do botão de "report"
-function toggleReportButton() {
-    const reportButton = document.querySelector('.report-button');
-    const isActivated = reportButton.getAttribute('data-activated') === 'true';
-
-    // Alterna o estado entre ativado e desativado
-    const newState = !isActivated;
-    reportButton.setAttribute('data-activated', newState);
-
-    // Atualiza o conteúdo do botão com base no estado
-    reportButton.innerHTML = ''; // Limpa o conteúdo atual do botão
-    reportButton.appendChild(createIcon(newState)); // Adiciona ícone com base no estado
-    reportButton.appendChild(document.createTextNode(newState ? "Reportado" : "Link quebrado?"));
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    resetReportButton(); // Restaura o estado do botão com base no tema
-
-    // Adiciona o evento de click para o botão de voltar
-    const backButton = document.querySelector('.back-button'); // Atualizado para usar a classe correta
-    if (backButton) { // Verifique se o elemento existe
-        backButton.addEventListener('click', function () {
-            resetReportButton(); // Restaura o botão ao fechar os detalhes
-        });
-    } else {
-        console.error("Elemento '.back-button' não encontrado."); // Mensagem de erro se o elemento não existir
-    }
-
-    // Adiciona o evento de click para o botão de report
-    const reportButton = document.querySelector('.report-button');
-    if (reportButton) {
-        reportButton.addEventListener('click', toggleReportButton); // Adiciona evento para alternar o botão
-    }
-});
 
 // Adiciona um evento de popstate para detectar mudanças de página
 window.addEventListener('popstate', function(event) {
@@ -489,3 +420,47 @@ window.addEventListener('popstate', function(event) {
         hideDetails();
     }
 });
+
+
+
+
+
+
+//PDR
+let svgBefore = document.querySelector(".svgBefore")
+let svgAfter = document.querySelector(".svgAfter")
+
+let fillColorSVG = document.querySelectorAll(".fillColorSVG")
+
+verificarTema()
+function verificarTema(){
+    if (document.body.classList.contains('tema-claro')) {
+        console.log("Tá claro");
+        fillColorSVG[0].style.fill = "black"
+        fillColorSVG[1].style.fill = "black"
+    }else{
+        console.log("Acabou a luz");
+        fillColorSVG[0].style.fill = "white"
+        fillColorSVG[1].style.fill = "white"
+    }
+}
+
+function mudarTema(){
+    if (document.body.classList.contains('tema-claro')) {
+        console.log("Acabou a luz");
+        fillColorSVG[0].style.fill = "white"
+        fillColorSVG[1].style.fill = "white"
+
+    }else{
+        console.log("Tá claro");
+        fillColorSVG[0].style.fill = "black"
+        fillColorSVG[1].style.fill = "black"
+
+    }
+}
+
+function btnLinkQuebrado(){
+    svgBefore.style.display = "none"
+    svgAfter.style.display = "block"
+    
+}

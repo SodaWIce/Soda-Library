@@ -452,3 +452,31 @@ header .icon {
         gap: 0.5em; /* Ajusta o espaçamento entre os itens da lista */
     }
 }
+
+
+/*
+
+
+PDR PROGRAMAÇÕES
+
+
+*/
+
+.report-button {
+    display: flex;
+    align-items: center;
+}
+.report-icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.fillColorSVG{
+    fill: white;
+}
+.svgAfter{
+    display: none;
+}
+#textBtnLinkQuebrado{
+    margin: 0px;
+}

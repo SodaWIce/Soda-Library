@@ -12,7 +12,7 @@
 <body>
     <header>
         <h1>
-    <img src="https://imgur.com/7ZaM26T.png" alt="Ícone" class="icon" id="theme-toggle">
+    <img src="https://imgur.com/7ZaM26T.png" alt="Ícone" class="icon" id="theme-toggle" onclick="mudarTema()">
     <span translate="no">Soda Library (Beta)</span>
 </h1>
     </header>
@@ -45,9 +45,11 @@
     </div>
 
     <div id="details" class="book-details" style="display: none;">
-        <button class="report-button" id="reportButton">
-            <img src="https://imgur.com/r5O2N0j.png" alt="Ícone" class="report-icon">
-            Link quebrado?
+        <button onclick="btnLinkQuebrado()" class="report-button" id="reportButton">
+            <svg class="svgBefore report-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path class="fillColorSVG" d="M143.027 0C64.04 0 0 64.04 0 143.027c0 78.996 64.04 143.027 143.027 143.027 78.996 0 143.027-64.022 143.027-143.027C286.054 64.04 222.022 0 143.027 0zm0 259.236c-64.183 0-116.209-52.026-116.209-116.209S78.844 26.818 143.027 26.818s116.209 52.026 116.209 116.209-52.026 116.209-116.209 116.209zm.009-196.51c-10.244 0-17.995 5.346-17.995 13.981v79.201c0 8.644 7.75 13.972 17.995 13.972 9.994 0 17.995-5.551 17.995-13.972V76.707c-.001-8.43-8.001-13.981-17.995-13.981zm0 124.997c-9.842 0-17.852 8.01-17.852 17.86 0 9.833 8.01 17.843 17.852 17.843s17.843-8.01 17.843-17.843c-.001-9.851-8.001-17.86-17.843-17.86z" style="" fill="#000000" data-original="#e2574c" opacity="1" class=""></path></g></svg>
+            <svg class="svgAfter report-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 511.985 511.985" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path class="fillColorSVG" d="M500.088 83.681c-15.841-15.862-41.564-15.852-57.426 0L184.205 342.148 69.332 227.276c-15.862-15.862-41.574-15.862-57.436 0-15.862 15.862-15.862 41.574 0 57.436l143.585 143.585c7.926 7.926 18.319 11.899 28.713 11.899 10.394 0 20.797-3.963 28.723-11.899l287.171-287.181c15.862-15.851 15.862-41.574 0-57.435z" fill="#000000" opacity="1" data-original="#000000" class=""></path></g></svg>
+            <p id="textBtnLinkQuebrado">Link quebrado?</p>
+            
         </button>
         <button class="back-button" onclick="hideDetails()">
             <img src="https://imgur.com/GlZn3zw.png" alt="Ícone" class="back-icon">
