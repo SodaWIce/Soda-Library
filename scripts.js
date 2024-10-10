@@ -276,6 +276,7 @@ function updateIcons(theme) {
 }
 
 function showDetails(bookId) {
+    resetIconBtnLinkQuebrado()
     window.scrollTo(0, 0);
 
     fetch('books.json')
@@ -403,7 +404,7 @@ function hideDetails() {
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('details').style.display = 'none';
     history.replaceState({page: 'list'}, 'Book List', '?');
-    resetReportButton();  // Reseta o botão quando o usuário clica no botão "Voltar" do site
+    resetIconBtnLinkQuebrado()
 }
 
 // Função para verificar se o tema é claro
@@ -462,5 +463,12 @@ function mudarTema(){
 function btnLinkQuebrado(){
     svgBefore.style.display = "none"
     svgAfter.style.display = "block"
-    
+}
+
+function resetIconBtnLinkQuebrado(){
+    svgBefore.style.display = "block"
+    svgAfter.style.display = "none"
+    reportButton.disabled = false;
+    document.getElementById('textBtnLinkQuebrado').innerText = 'Link quebrado?';
+
 }
