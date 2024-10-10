@@ -439,10 +439,15 @@ function verificarTema(){
         console.log("Tá claro");
         fillColorSVG[0].style.fill = "black"
         fillColorSVG[1].style.fill = "black"
+        fillColorSVG[2].style.fill = "black"
+        fillColorSVG[3].style.fill = "black"
     }else{
         console.log("Acabou a luz");
         fillColorSVG[0].style.fill = "white"
         fillColorSVG[1].style.fill = "white"
+        fillColorSVG[2].style.fill = "white"
+        fillColorSVG[3].style.fill = "white"
+
     }
 }
 
@@ -451,11 +456,15 @@ function mudarTema(){
         console.log("Acabou a luz");
         fillColorSVG[0].style.fill = "white"
         fillColorSVG[1].style.fill = "white"
+        fillColorSVG[2].style.fill = "white"
+        fillColorSVG[3].style.fill = "white"
 
     }else{
         console.log("Tá claro");
         fillColorSVG[0].style.fill = "black"
         fillColorSVG[1].style.fill = "black"
+        fillColorSVG[2].style.fill = "black"
+        fillColorSVG[3].style.fill = "black"
 
     }
 }
