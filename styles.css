@@ -280,7 +280,7 @@ header .icon {
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     /* border-color: transparent;  Cor da borda ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
-    box-shadow: 0 0 10px 2px rgba(60, 179, 113, 0.8); /* Efeito de brilho neon com a cor #3CB371 */
+    box-shadow: 0 0 10px 2px rgba(0, 250, 154, 0.8); /* Efeito de brilho neon com a cor #3CB371 */
 }
 
 .back-button {
