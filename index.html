@@ -62,33 +62,21 @@
         <!-- Container para o Giscus -->
         <div id="giscus-container"></div>
 
-<script>
-  function loadGiscus(theme) {
-    const giscusContainer = document.getElementById('giscus-container');
-    giscusContainer.innerHTML = ''; // Remove o widget anterior
-
-    const script = document.createElement('script');
-    script.src = 'https://giscus.app/client.js';
-    script.setAttribute('data-repo', 'SodaWIce/Soda-Library');
-    script.setAttribute('data-repo-id', 'R_kgDOMleTGg');
-    script.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
-    script.setAttribute('data-mapping', 'specific');
-    script.setAttribute('data-term', 'Livro-Inicial');
-    script.setAttribute('data-strict', '0');
-    script.setAttribute('data-reactions-enabled', '1');
-    script.setAttribute('data-emit-metadata', '0');
-    script.setAttribute('data-input-position', 'top');
-    script.setAttribute('data-theme', theme); // Define o tema aqui
-    script.setAttribute('data-lang', 'pt');
-    script.setAttribute('data-loading', 'lazy');
-    script.setAttribute('crossorigin', 'anonymous');
-    script.async = true;
-
-    giscusContainer.appendChild(script);
-  }
-
-  // Carregar inicialmente com o tema do site
-  loadGiscus(isLightTheme ? 'light' : 'dark'); // Assumindo que `isLightTheme` controla o tema
+<script src="https://giscus.app/client.js"
+    data-repo="SodaWIce/Soda-Library"
+    data-repo-id="R_kgDOMleTGg"
+    data-category-id="DIC_kwDOMleTGs4CiAr4"
+    data-mapping="specific"
+    data-term="Livro-Inicial"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="pt"
+    data-loading="lazy"
+    crossOrigin="anonymous"
+    async>
 </script>
     </div>
 
