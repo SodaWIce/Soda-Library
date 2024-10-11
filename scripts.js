@@ -124,7 +124,7 @@ function animateHeader() {
 }
 
 // Executa a animação quando a página é carregada
-window.addEventListener('load', animateHeader);
+// window.addEventListener('load', animateHeader);
 
 // Executa a animação ao clicar no ícone de troca de tema
 document.getElementById('theme-toggle').addEventListener('click', animateHeader);

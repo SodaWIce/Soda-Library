@@ -171,10 +171,12 @@ header .icon {
 .pagination button:hover {
     transform: scale(1.15);
     background-color: #3CB371;
+    border-color: #3CB371;
 }
 
 .pagination button.active {
     background-color: #3CB371;
+    border-color: #3CB371;
     transform: scale(1.15);
 }
 
