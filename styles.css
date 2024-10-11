@@ -190,6 +190,19 @@ header .icon {
     margin: auto;
 }
 
+/* Estilo base dos livros */
+.book {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-20px); /* Move para cima */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transições suaves */
+}
+
+/* Classe para fazer os livros aparecerem */
+.book.visible {
+    opacity: 1; /* Totalmente visível */
+    transform: translateY(0); /* Volta para a posição original */
+}
+
 .book-item {
     cursor: default;
     background: #111111; /* Fundo escuro para os itens da lista */
@@ -225,6 +238,13 @@ header .icon {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.5s ease; /* Transição suave para a opacidade */
+}
+
+/* Classe para tornar a imagem visível */
+.book-thumbnail.visible {
+    opacity: 1; /* Totalmente visível */
 }
 
 /* Restante do código CSS */
@@ -342,7 +362,7 @@ header .icon {
 }
 
 /* Definindo transições gerais */
-body, header, h1, .book-item, .search-bar input[type="text"], .search-bar select, 
+body, header, h1, .search-bar input[type="text"], .search-bar select, 
 .back-button, .report-button, .book-details {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
