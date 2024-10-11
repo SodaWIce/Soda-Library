@@ -242,14 +242,14 @@ themeToggle.addEventListener('click', () => {
         updateIcons('default'); // Atualiza os ícones para o padrão
         
         // Renderiza o Giscus com o tema escuro
-        reloadGiscus(bookId, false); // Passa false para tema escuro
+        renderGiscus(bookId, false); // Passa false para tema escuro
     } else {
         body.classList.add('tema-claro');
         localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
         updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
         
         // Renderiza o Giscus com o tema claro
-        reloadGiscus(bookId, true); // Passa true para tema claro
+        renderGiscus(bookId, true); // Passa true para tema claro
     }
 });
 
@@ -367,24 +367,6 @@ renderGiscus(bookId, isLightTheme);
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
-}
-
-function reloadGiscus() {
-    const giscusElement = document.querySelector('.giscus'); // Seletor para o elemento do Giscus
-
-    if (giscusElement) {
-        // Define o tema de acordo com o estado atual do tema claro
-        giscusScript.setAttribute('data-theme', isLightTheme ? 'light' : 'dark');
-
-        const parentElement = giscusElement.parentNode; // Obtém o elemento pai
-        const newGiscusElement = giscusElement.cloneNode(true); // Clona o elemento Giscus
-
-        parentElement.removeChild(giscusElement); // Remove o elemento original
-        parentElement.appendChild(newGiscusElement); // Adiciona o clone ao DOM
-
-        // Aqui você pode adicionar lógica se precisar
-        console.log(`Tema agora é: ${isLightTheme ? 'claro' : 'escuro'}`);
-    }
 }
 
 function renderGiscus(bookId, isLightTheme) {
