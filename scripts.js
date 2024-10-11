@@ -215,7 +215,9 @@ const body = document.body;
 
 // Verifica se o tema já foi definido e aplica
 const currentTheme = localStorage.getItem('theme');
-const bookId = 'book'; // Substitua pelo ID do livro
+// Verifica a URL inicial para carregar o livro correto, se necessário
+const urlParams = new URLSearchParams(window.location.search);
+const bookId = urlParams.get('book');
 
 if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
