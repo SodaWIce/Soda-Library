@@ -214,12 +214,8 @@ const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
 // Verifica se o tema já foi definido e aplica
-const currentTheme = localStorage.getItem('theme') || 'light'; // Define 'light' como tema padrão
-document.body.className = currentTheme; // Aplica o tema ao body
-
-// Obtém o ID do livro a partir da URL
-const urlParams = new URLSearchParams(window.location.search);
-const bookId = urlParams.get('book'); // Substitua pelo ID do livro
+const currentTheme = localStorage.getItem('theme');
+const bookId = 'book'; // Substitua pelo ID do livro
 
 if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
