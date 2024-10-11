@@ -109,6 +109,26 @@ document.addEventListener('DOMContentLoaded', () => {
     searchIconContainer.addEventListener('click', clearSearch);
 });
 
+// Função para ativar a animação
+function animateHeader() {
+    const headerText = document.querySelector('header h1 .animate-text'); // Seleciona o <span> com a classe animate-text
+
+    // Remove a classe de animação para poder reaplicá-la
+    headerText.classList.remove('animate-text');
+
+    // Força o reflow para permitir que a animação seja reaplicada
+    void headerText.offsetWidth;
+
+    // Reaplica a classe de animação
+    headerText.classList.add('animate-text');
+}
+
+// Executa a animação quando a página é carregada
+window.addEventListener('load', animateHeader);
+
+// Executa a animação ao clicar no ícone de troca de tema
+document.getElementById('theme-toggle').addEventListener('click', animateHeader);
+
 // Função para renderizar os livros na página atual
 function renderBooks() {
     const bookList = document.getElementById('bookList');
@@ -230,11 +250,6 @@ if (currentTheme === 'tema-claro') {
 
 // Adiciona um evento de clique para o ícone
 themeToggle.addEventListener('click', () => {
-     // Verifica se o bookId foi definido
-    if (!bookId) {
-        console.error("O ID do livro não está definido.");
-        return; // Retorna se o ID do livro não estiver definido
-    }
     // Alterna entre o tema claro e o padrão
     if (body.classList.contains('tema-claro')) {
         body.classList.remove('tema-claro');
@@ -251,6 +266,9 @@ themeToggle.addEventListener('click', () => {
         // Renderiza o Giscus com o tema claro
         renderGiscus(bookId, true); // Passa true para tema claro
     }
+    
+    // Para o efeito de pulsação após o primeiro clique
+    themeToggle.style.animation = 'none'; // Remove a animação
 });
 
 // Função para atualizar os ícones com base no tema

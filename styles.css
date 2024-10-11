@@ -19,12 +19,30 @@ header {
 }
 
 header h1 {
-    display: flex;
+    display: flex; /* Mantenha o ícone e o texto alinhados */
     align-items: center; /* Alinha o ícone e o texto verticalmente */
     font-family: 'Lato', sans-serif;
     color: #ffffff; /* Cor do texto */
-    margin: 12px 0 0 0; /* Margens do titulo */
+    margin: 12px 0 0 0; /* Margens do título */
     font-size: 25px;
+}
+
+header h1 .animate-text {
+    opacity: 0; /* Começa invisível */
+    transform: translateX(-20px); /* Começa deslocado à esquerda */
+    animation: fadeInSlide 1s ease forwards; /* Aplica a nova animação */
+}
+
+/* Nova animação de desvanecimento e movimento lateral */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0; /* Totalmente invisível */
+        transform: translateX(-20px); /* Começa deslocado à esquerda */
+    }
+    100% {
+        opacity: 1; /* Totalmente visível */
+        transform: translateX(0); /* Volta à posição original */
+    }
 }
 
 header .icon {
@@ -32,6 +50,20 @@ header .icon {
     height: 32px; /* Ajuste o tamanho do ícone conforme necessário */
     margin-right: 8px; /* Espaço entre o ícone e o texto */
     vertical-align: middle; /* Alinha o ícone com o texto se necessário */
+    animation: pulse 1.5s infinite;
+    cursor: pointer; /* Indica que é clicável */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .search-bar {
@@ -227,7 +259,7 @@ header .icon {
 
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
-    background: linear-gradient(to right, #20B2AA, #3CB371); /* Gradiente de #8B0000 para #B22222 */
+    background: linear-gradient(to right, #2E8B57, #3CB371); /* Gradiente de #8B0000 para #B22222 */
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     /* border: 2px solid transparent;  Borda padrão do botão */
@@ -242,7 +274,7 @@ header .icon {
 
 .download-link:hover,
 .download-link:focus {
-    background: linear-gradient(to left, #20B2AA, #3CB371); /* Gradiente invertido no hover/focus */
+    background: linear-gradient(to left, #2E8B57, #3CB371); /* Gradiente invertido no hover/focus */
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     /* border-color: transparent;  Cor da borda ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
@@ -305,6 +337,12 @@ header .icon {
     border: none; /* Remove a borda */
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
     pointer-events: none; /* Desativa a interação */
+}
+
+/* Definindo transições gerais */
+body, header, h1, .book-item, .search-bar input[type="text"], .search-bar select, 
+.pagination button, .back-button, .report-button, .book-details {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Tema claro */
