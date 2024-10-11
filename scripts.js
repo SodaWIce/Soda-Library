@@ -215,16 +215,17 @@ const body = document.body;
 
 // Verifica se o tema já foi definido e aplica
 const currentTheme = localStorage.getItem('theme');
+const bookId = 'bookId'; // Substitua pelo ID do livro
 
 if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
     updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
     
     // Renderiza o Giscus com o tema claro
-    renderGiscus('tema-claro');
+    renderGiscus(bookId, 'tema-claro');
 } else {
     // Renderiza o Giscus com o tema escuro (ou padrão)
-    renderGiscus('tema-escuro');
+    renderGiscus(bookId, 'tema-escuro');
 }
 
 // Adiciona um evento de clique para o ícone
@@ -241,14 +242,14 @@ themeToggle.addEventListener('click', () => {
         updateIcons('default'); // Atualiza os ícones para o padrão
         
         // Renderiza o Giscus com o tema escuro
-        renderGiscus(false); // Passa false para tema escuro
+        renderGiscus(bookId, false); // Passa false para tema escuro
     } else {
         body.classList.add('tema-claro');
         localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
         updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
         
         // Renderiza o Giscus com o tema claro
-        renderGiscus(true); // Passa true para tema claro
+        renderGiscus(bookId, true); // Passa true para tema claro
     }
 });
 
@@ -362,7 +363,7 @@ if (reportButton) {
 const isLightTheme = body.classList.contains('tema-claro');
 
 // Chame o renderGiscus com o ID do livro e o estado do tema
-renderGiscus(isLightTheme);
+renderGiscus(bookId, isLightTheme);
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
