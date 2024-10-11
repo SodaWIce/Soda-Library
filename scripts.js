@@ -281,7 +281,7 @@ function updateIcons(theme) {
     if (theme === 'tema-claro') {
         // Atualize os ícones para o tema claro
         backButton.src = 'https://imgur.com/xbvjaVe.png'; // Ícone do botão de voltar no tema claro
-        searchIconX.src = 'https://imgur.com/Pwd8YI7.png'; // Ícone "X" na barra de pesquisa no tema claro
+        searchIconX.src = 'https://imgur.com/H3A9lvC.png'; // Ícone "X" na barra de pesquisa no tema claro
         searchIconLupa.src = 'https://imgur.com/uLSgVhx.png'; // Ícone da lupa na barra de pesquisa no tema claro
         icon.src = 'https://imgur.com/lE4oMBX.png'; // Ícone do tema
     } else {
