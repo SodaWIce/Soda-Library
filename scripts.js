@@ -373,11 +373,17 @@ function reloadGiscus() {
     const giscusElement = document.querySelector('.giscus'); // Seletor para o elemento do Giscus
 
     if (giscusElement) {
+        // Define o tema de acordo com o estado atual do tema claro
+        giscusScript.setAttribute('data-theme', isLightTheme ? 'light' : 'dark');
+
         const parentElement = giscusElement.parentNode; // Obtém o elemento pai
         const newGiscusElement = giscusElement.cloneNode(true); // Clona o elemento Giscus
 
         parentElement.removeChild(giscusElement); // Remove o elemento original
         parentElement.appendChild(newGiscusElement); // Adiciona o clone ao DOM
+
+        // Aqui você pode adicionar lógica se precisar
+        console.log(`Tema agora é: ${isLightTheme ? 'claro' : 'escuro'}`);
     }
 }
 
