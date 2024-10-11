@@ -225,13 +225,6 @@ header .icon {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
-    opacity: 0; /* Começa invisível */
-    transition: opacity 0.5s ease; /* Transição suave para a opacidade */
-}
-
-/* Classe para tornar a imagem visível */
-.book-thumbnail.visible {
-    opacity: 1; /* Totalmente visível */
 }
 
 /* Restante do código CSS */

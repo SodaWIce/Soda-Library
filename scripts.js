@@ -129,19 +129,6 @@ function animateHeader() {
 // Executa a animação ao clicar no ícone de troca de tema
 document.getElementById('theme-toggle').addEventListener('click', animateHeader);
 
-// Função para adicionar a classe de animação quando a imagem for carregada
-function fadeInImages() {
-    const images = document.querySelectorAll('.book-thumbnail');
-
-    images.forEach((img) => {
-        img.onload = () => {
-            img.classList.add('visible'); // Adiciona a classe para tornar a imagem visível
-        };
-    });
-}
-
-// Executa a função quando a página é carregada
-window.addEventListener('load', fadeInImages);
 
 // Função para renderizar os livros na página atual
 function renderBooks() {
@@ -186,9 +173,6 @@ function renderBooks() {
 
     // Renderiza a paginação
     renderPagination();
-    
-    // Executa a função quando a página é carregada
-window.addEventListener('load', fadeInImages);
 }
 
 // Função para renderizar os botões de paginação
