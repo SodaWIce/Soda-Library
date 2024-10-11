@@ -221,11 +221,11 @@ if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
     updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
     
-    // Renderiza o Giscus com o tema claro
-    renderGiscus(bookId, 'tema-claro');
+    // Chame essa função quando quiser recarregar o Giscus
+reloadGiscus();
 } else {
-    // Renderiza o Giscus com o tema escuro (ou padrão)
-    renderGiscus(bookId, 'tema-escuro');
+    // Chame essa função quando quiser recarregar o Giscus
+reloadGiscus();
 }
 
 // Adiciona um evento de clique para o ícone
@@ -241,15 +241,15 @@ themeToggle.addEventListener('click', () => {
         localStorage.removeItem('theme'); // Remove o tema do localStorage
         updateIcons('default'); // Atualiza os ícones para o padrão
         
-        // Renderiza o Giscus com o tema escuro
-        renderGiscus(bookId, false); // Passa false para tema escuro
+        // Chame essa função quando quiser recarregar o Giscus
+reloadGiscus();
     } else {
         body.classList.add('tema-claro');
         localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
         updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
         
-        // Renderiza o Giscus com o tema claro
-        renderGiscus(bookId, true); // Passa true para tema claro
+        // Chame essa função quando quiser recarregar o Giscus
+reloadGiscus();
     }
 });
 
@@ -362,11 +362,23 @@ if (reportButton) {
 // Verifica se o tema claro está ativado
 const isLightTheme = body.classList.contains('tema-claro');
 
-// Chame o renderGiscus com o ID do livro e o estado do tema
-renderGiscus(bookId, isLightTheme);
+// Chame essa função quando quiser recarregar o Giscus
+reloadGiscus();
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
+}
+
+function reloadGiscus() {
+    const giscusElement = document.querySelector('.giscus'); // Seletor para o elemento do Giscus
+
+    if (giscusElement) {
+        const parentElement = giscusElement.parentNode; // Obtém o elemento pai
+        const newGiscusElement = giscusElement.cloneNode(true); // Clona o elemento Giscus
+
+        parentElement.removeChild(giscusElement); // Remove o elemento original
+        parentElement.appendChild(newGiscusElement); // Adiciona o clone ao DOM
+    }
 }
 
 function renderGiscus(bookId, isLightTheme) {
