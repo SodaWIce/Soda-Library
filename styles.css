@@ -190,19 +190,6 @@ header .icon {
     margin: auto;
 }
 
-/* Estilo base dos livros */
-.book {
-    opacity: 0; /* Começa invisível */
-    transform: translateY(-20px); /* Move para cima */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Transições suaves */
-}
-
-/* Classe para fazer os livros aparecerem */
-.book.visible {
-    opacity: 1; /* Totalmente visível */
-    transform: translateY(0); /* Volta para a posição original */
-}
-
 .book-item {
     cursor: default;
     background: #111111; /* Fundo escuro para os itens da lista */

@@ -44,6 +44,10 @@ function updatePagination(filteredBooks) {
     renderPagination(totalPages);
 }
 
+// Chamar a função de filtro sempre que houver entrada na barra de pesquisa ou seleção de gênero
+document.getElementById('searchInput').addEventListener('input', filterBooks);
+document.getElementById('genreFilter').addEventListener('change', filterBooks);
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('books.json')
         .then(response => response.json())
@@ -60,17 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const bookId = urlParams.get('book');
             if (bookId) {
                 showDetails(bookId);
-                history.replaceState({ page: 'details', bookId: bookId }, '', `?book=${bookId}`);
+                history.replaceState({page: 'details', bookId: bookId}, '', `?book=${bookId}`);
             }
         })
-        .catch(error => console.error('Erro ao carregar os livros:', error)); // Adicionando tratamento de erro
+        .catch(error => console.error('Erro ao carregar livros:', error));
 
-    // Chamar a função de filtro sempre que houver entrada na barra de pesquisa ou seleção de gênero
-    document.getElementById('searchInput').addEventListener('input', filterBooks);
-    document.getElementById('genreFilter').addEventListener('change', filterBooks);
-
-    // Gerencia o histórico de navegação
-    window.addEventListener('popstate', function (event) {
+    window.addEventListener('popstate', function(event) {
         if (event.state && event.state.page === 'details') {
             showDetails(event.state.bookId);
         } else {
@@ -79,10 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Adicione o evento dragstart para desabilitar o arrastar e soltar
-    document.addEventListener('dragstart', function (event) {
+    document.addEventListener('dragstart', function(event) {
         event.preventDefault();
     });
-
+    
     const searchInput = document.getElementById('searchInput');
     const searchIconContainer = document.querySelector('.search-icon-container');
 
@@ -93,17 +92,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             searchIconContainer.classList.remove('show-clear'); // Remove a classe para mostrar o ícone de lupa
         }
-
+        
         // Chama a função de filtro
         filterBooks();
     });
 
     // Função para limpar o campo de pesquisa ao clicar no ícone "X"
     const clearSearch = () => {
-        searchInput.value = ''; // Limpa o campo de pesquisa
-        searchInput.focus(); // Foco no campo de pesquisa novamente
-        searchIconContainer.classList.remove('show-clear'); // Volta para o ícone de lupa
-        filterBooks(); // Chama a função de filtro para mostrar todos os itens novamente
+        searchInput.value = '';  // Limpa o campo de pesquisa
+        searchInput.focus();  // Foco no campo de pesquisa novamente
+        searchIconContainer.classList.remove('show-clear');  // Volta para o ícone de lupa
+        filterBooks();  // Chama a função de filtro para mostrar todos os itens novamente
     };
 
     // Adiciona evento de clique no contêiner do ícone para limpar o campo
