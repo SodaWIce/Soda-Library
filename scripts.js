@@ -215,7 +215,7 @@ const body = document.body;
 
 // Verifica se o tema já foi definido e aplica
 const currentTheme = localStorage.getItem('theme');
-const bookId = 'id-do-livro'; // Substitua pelo ID do livro
+const bookId = 'Livro-Inicial'; // Substitua pelo ID do livro
 
 if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
