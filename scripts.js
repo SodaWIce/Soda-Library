@@ -382,7 +382,7 @@ function renderGiscus(bookId, isLightTheme) {
     giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
     giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
     giscusScript.setAttribute('data-mapping', 'specific');
-    giscusScript.setAttribute('data-term', bookId); // Use o ID do livro como termo
+    giscusScript.setAttribute('data-term', 'Livro-Inicial'); // Use o ID do livro como termo
     giscusScript.setAttribute('data-strict', '0');
     giscusScript.setAttribute('data-reactions-enabled', '1');
     giscusScript.setAttribute('data-emit-metadata', '0');
