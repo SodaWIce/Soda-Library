@@ -141,10 +141,7 @@ function fadeInImages() {
 }
 
 // Executa a função quando a página é carregada
-window.addEventListener('load', function() {
-    fadeInImages();
-    renderPagination(); // Chama a função renderPagination
-});
+// window.addEventListener('load', fadeInImages);
 
 // Função para renderizar os livros na página atual
 function renderBooks() {
