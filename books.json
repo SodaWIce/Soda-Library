@@ -1,6 +1,26 @@
 {
     "books": [
          {
+    "id": "livro55",
+    "title": "O Mundo Como Vontade e Representação",
+    "image": "https://imgur.com/0fzn57o.png",
+    "author": "Arthur Schopenhauer",
+    "year": "1818",
+    "synopsis": "Schopenhauer associa a visão platônica das ideias claras e do mundo incerto com a dialética de Kant do nômeno e do fenômeno, para definir suas constantes filosóficas. E da esfera da representação (do que existe apenas para o sujeito), alcança a vontade, como a essência íntima do mundo e, por extensão, dos corpos. Mas o que importa é a dissonância radical entre vontade e representação, prelúdio da filosofia trágica.",
+    "pdf": "https://drive.google.com/file/d/1uskrG5Cyo0m9Kb8FJVYq2hgCBw2Er6kW/view?usp=drivesdk",
+    "genre": "Filosófico"
+         },
+         {
+    "id": "livro54",
+    "title": "Dom Casmurro",
+    "image": "https://imgur.com/cFb2HHW.png",
+    "author": "Machado de Assis",
+    "year": "1899",
+    "synopsis": "Em Dom Casmurro, o narrador Bento Santiago retoma a infância que passou na Rua de Matacavalos e conta a história do amor e das desventuras que viveu com Capitu, uma das personagens mais enigmáticas e intrigantes da literatura brasileira. Nas páginas deste romance, encontra-se a versão de um homem perturbado pelo ciúme, que revela aos poucos sua psicologia complexa e enreda o leitor em sua narrativa ambígua acerca do acontecimento ou não do adultério da mulher com olhos de ressaca, uma das maiores polêmicas da literatura brasileira.",
+    "pdf": "https://drive.google.com/file/d/1uskrG5Cyo0m9Kb8FJVYq2hgCBw2Er6kW/view?usp=drivesdk",
+    "genre": "Romance"
+         },
+         {
     "id": "livro53",
     "title": "O Corcunda de Notre Dame",
     "image": "https://imgur.com/fLoNzUe.png",
