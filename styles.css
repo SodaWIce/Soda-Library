@@ -165,7 +165,7 @@ header .icon {
     border-radius: 100px;
     cursor: pointer;
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .pagination button:hover {
@@ -201,6 +201,7 @@ header .icon {
     outline: none; /* Remove a borda padrão de foco */
     transition: color 0.2s, transform 0.3s ease; /* Adiciona uma transição suave na cor do texto */
     font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
+    transition: background 0.3s ease;
 }
 
 /* Remove a borda de foco azul */
