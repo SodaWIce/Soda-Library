@@ -362,8 +362,7 @@ if (reportButton) {
 // Verifica se o tema claro está ativado
 const isLightTheme = body.classList.contains('tema-claro');
 
-// Chame essa função quando quiser recarregar o Giscus
-reloadGiscus();
+renderGiscus(bookId, theme); // Chama a função para renderizar o Giscus
             }
         })
         .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
