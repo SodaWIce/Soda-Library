@@ -212,208 +212,98 @@ function renderPagination() {
 
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
-
-// Verifica se o tema já foi definido e aplica
-const currentTheme = localStorage.getItem('theme');
+const giscusContainer = document.getElementById('giscus-container');
 const bookId = 'Livro-Inicial'; // Substitua pelo ID do livro
 
+// Verifica se o tema foi salvo no localStorage
+const currentTheme = localStorage.getItem('theme');
 if (currentTheme === 'tema-claro') {
     body.classList.add('tema-claro');
-    updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
-    
-    // Renderiza o Giscus com o tema claro
-    renderGiscus(bookId, 'tema-claro');
+    updateIcons('tema-claro');
+    updateGiscusTheme('light');
 } else {
-    // Renderiza o Giscus com o tema escuro (ou padrão)
-    renderGiscus(bookId, 'tema-escuro');
+    updateGiscusTheme('dark');
 }
 
-// Adiciona um evento de clique para o ícone
+// Alterna o tema ao clicar
 themeToggle.addEventListener('click', () => {
-     // Verifica se o bookId foi definido
-    if (!bookId) {
-        console.error("O ID do livro não está definido.");
-        return; // Retorna se o ID do livro não estiver definido
-    }
-    // Alterna entre o tema claro e o padrão
-    if (body.classList.contains('tema-claro')) {
-        body.classList.remove('tema-claro');
-        localStorage.removeItem('theme'); // Remove o tema do localStorage
-        updateIcons('default'); // Atualiza os ícones para o padrão
-        
-        // Renderiza o Giscus com o tema escuro
-        renderGiscus(bookId, false); // Passa false para tema escuro
+    body.classList.toggle('tema-claro');
+    const isLightTheme = body.classList.contains('tema-claro');
+
+    if (isLightTheme) {
+        localStorage.setItem('theme', 'tema-claro');
+        updateIcons('tema-claro');
+        updateGiscusTheme('light');
     } else {
-        body.classList.add('tema-claro');
-        localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
-        updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
-        
-        // Renderiza o Giscus com o tema claro
-        renderGiscus(bookId, true); // Passa true para tema claro
+        localStorage.removeItem('theme');
+        updateIcons('default');
+        updateGiscusTheme('dark');
     }
 });
 
-// Função para atualizar os ícones com base no tema
+// Atualiza os ícones conforme o tema
 function updateIcons(theme) {
-    const backButton = document.querySelector('.back-button img'); // Acesse a imagem dentro do botão de voltar
-    const searchIconX = document.querySelector('.search-icon-x'); // Ícone de limpar
-    const searchIconLupa = document.querySelector('.search-icon-lupa'); // Ícone de pesquisa
-    const icon = document.querySelector('.icon'); // Seletor para o ícone de tema
+    const icons = {
+        claro: {
+            backButton: 'https://imgur.com/xbvjaVe.png',
+            searchIconX: 'https://imgur.com/Pwd8YI7.png',
+            searchIconLupa: 'https://imgur.com/uLSgVhx.png',
+            themeIcon: 'https://imgur.com/lE4oMBX.png'
+        },
+        escuro: {
+            backButton: 'https://imgur.com/GlZn3zw.png',
+            searchIconX: 'https://imgur.com/zBGC0yw.png',
+            searchIconLupa: 'https://imgur.com/90y8bbS.png',
+            themeIcon: 'https://imgur.com/7ZaM26T.png'
+        }
+    };
+    
+    const selectedIcons = theme === 'tema-claro' ? icons.claro : icons.escuro;
+    document.querySelector('.back-button img').src = selectedIcons.backButton;
+    document.querySelector('.search-icon-x').src = selectedIcons.searchIconX;
+    document.querySelector('.search-icon-lupa').src = selectedIcons.searchIconLupa;
+    document.querySelector('.icon').src = selectedIcons.themeIcon;
+}
 
-    if (theme === 'tema-claro') {
-        // Atualize os ícones para o tema claro
-        backButton.src = 'https://imgur.com/xbvjaVe.png'; // Ícone do botão de voltar no tema claro
-        searchIconX.src = 'https://imgur.com/Pwd8YI7.png'; // Ícone "X" na barra de pesquisa no tema claro
-        searchIconLupa.src = 'https://imgur.com/uLSgVhx.png'; // Ícone da lupa na barra de pesquisa no tema claro
-        icon.src = 'https://imgur.com/lE4oMBX.png'; // Ícone do tema
-    } else {
-        // Retorna os ícones para o padrão quando o tema claro está desligado
-        backButton.src = 'https://imgur.com/GlZn3zw.png'; // Substitua pelo URL do ícone padrão do botão de voltar
-        searchIconX.src = 'https://imgur.com/zBGC0yw.png'; // Substitua pelo URL do ícone padrão "X"
-        searchIconLupa.src = 'https://imgur.com/90y8bbS.png'; // Substitua pelo URL do ícone padrão da lupa
-        icon.src = 'https://imgur.com/7ZaM26T.png'; // Substitua pelo URL do ícone padrão
+// Atualiza o tema do Giscus sem recriar o script
+function updateGiscusTheme(theme) {
+    const giscusIframe = giscusContainer.querySelector('iframe');
+    if (giscusIframe) {
+        giscusIframe.contentWindow.postMessage({
+            giscus: {
+                setConfig: { theme: theme }
+            }
+        }, 'https://giscus.app');
     }
 }
 
-function showDetails(bookId) {
-    resetIconBtnLinkQuebrado()
-    window.scrollTo(0, 0);
-
-    fetch('books.json')
-        .then(response => response.json())
-        .then(data => {
-            const book = data.books.find(b => b.id == bookId); // Use == para comparar string e número
-            if (book) {
-                const mainContent = document.getElementById('mainContent');
-                const details = document.getElementById('details');
-                const detailsContent = document.getElementById('detailsContent');
-
-                mainContent.style.display = 'none';
-                details.style.display = 'block';
-                detailsContent.innerHTML = `
-                    <div class="book-header">
-                        <img src="${book.image}" alt="${book.title}" class="book-full">
-                        <a class="download-link" href="${book.pdf}" target="_blank">
-                            <img src="https://imgur.com/YZ84GTR.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                            Baixar PDF
-                        </a>
-                    </div>
-                    <div class="book-info">
-                        <p><strong>Título:</strong> ${book.title}</p>
-                        <p><strong>Autor:</strong> ${book.author}</p>
-                        <p><strong>Ano de Publicação:</strong> ${book.year}</p>
-                        <p><strong>Sinopse:</strong> ${book.synopsis}</p>
-                    </div>
-                `;
-                
-                // Adicione o event listener do reportButton aqui
-const reportButton = document.getElementById('reportButton');
-if (reportButton) {
-    const handleClick = function() {
-        // Verifica se o botão já está desativado (ou seja, se já está enviando)
-        if (reportButton.classList.contains('enviando')) {
-            return; // Evita múltiplos cliques
-        }
-
-        reportButton.disabled = true; // Desativa o botão imediatamente
-        reportButton.classList.add('enviando'); // Marca o botão como "enviando"
-
-        // Obtém o conteúdo do `detailsContent`
-        const detailsContent = document.getElementById('detailsContent').textContent;
-
-        // Procura a linha que contém o título usando "Título:"
-        const titleMatch = detailsContent.match(/Título:\s*(.+)/);
-        const bookTitle = titleMatch ? titleMatch[1].trim() : 'Título não encontrado';
-
-        // Cria um objeto FormData para enviar os dados
-        const formData = new URLSearchParams();
-        formData.append('entry.1901348521', bookTitle); // Substitua com o ID do campo do título
-
-        // Envia os dados para o Google Formulário
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSftSlghH8SQUnueFUlngEXsD_q73G8y2VfIksgJ8Mq8gRG3Vw/formResponse', {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors' // Isso pode causar problemas com a visibilidade das respostas enviadas. Se possível, use 'cors.'
-        })
-        .then(response => {
-            console.log('Dados enviados com sucesso..');
-            document.getElementById('textBtnLinkQuebrado').innerText = 'Avisado!';
-
-            // Adiciona o aviso após o envio
-            setTimeout(() => {
-                alert('Seu aviso foi enviado com sucesso!');
-                reportButton.removeEventListener('click', handleClick); // Remove o event listener após o primeiro clique
-                reportButton.classList.remove('enviando'); // Remove a classe "enviando" após o sucesso
-            }, 100);  // Delay de 100ms antes de mostrar o alerta
-        })
-        .catch(error => {
-            console.error('Erro ao enviar dados:', error);
-            setTimeout(() => {
-                alert('Houve um erro ao enviar seu aviso. Tente novamente.'); // Aviso de erro com delay
-                reportButton.disabled = false; // Reativa o botão após o erro
-                reportButton.classList.remove('enviando'); // Remove a classe "enviando" após o erro
-            }, 100);  // Delay de 100ms antes de mostrar o alerta de erro
-        });
-    };
-
-    reportButton.addEventListener('click', handleClick); // Adiciona o event listener
+// Função para colorir os SVGs conforme o tema
+function verificarTema() {
+    const isLightTheme = body.classList.contains('tema-claro');
+    fillColorSVG.forEach(svg => {
+        svg.style.fill = isLightTheme ? 'black' : 'white';
+    });
 }
 
-// Verifica se o tema claro está ativado
-const isLightTheme = body.classList.contains('tema-claro');
-
-// Chame o renderGiscus com o ID do livro e o estado do tema
-renderGiscus(bookId, isLightTheme);
-            }
-        })
-        .catch(error => console.error('Erro ao carregar detalhes do livro:', error));
+// Muda a cor dos SVGs ao alternar o tema
+function mudarTema() {
+    verificarTema();
 }
 
-function renderGiscus(bookId, isLightTheme) {
-    const giscusContainer = document.getElementById('giscus-container');
-
-    // Limpa o conteúdo anterior
-    giscusContainer.innerHTML = '';
-
-    // Cria o elemento de script do Giscus
-    const giscusScript = document.createElement('script');
-    giscusScript.src = 'https://giscus.app/client.js';
-    giscusScript.setAttribute('data-repo', 'SodaWIce/Soda-Library');
-    giscusScript.setAttribute('data-repo-id', 'R_kgDOMleTGg');
-    giscusScript.setAttribute('data-category-id', 'DIC_kwDOMleTGs4CiAr4');
-    giscusScript.setAttribute('data-mapping', 'specific');
-    giscusScript.setAttribute('data-term', bookId); // Use o ID do livro como termo
-    giscusScript.setAttribute('data-strict', '0');
-    giscusScript.setAttribute('data-reactions-enabled', '1');
-    giscusScript.setAttribute('data-emit-metadata', '0');
-    giscusScript.setAttribute('data-input-position', 'top');
-    
-    // Define o tema de acordo com o estado do tema claro
-    giscusScript.setAttribute('data-theme', isLightTheme ? 'light' : 'dark');
-    
-    giscusScript.setAttribute('data-lang', 'pt');
-    giscusScript.setAttribute('data-loading', 'lazy');
-    giscusScript.setAttribute('crossOrigin', 'anonymous');
-    giscusScript.setAttribute('async', 'true');
-
-    // Adiciona o script ao contêiner
-    giscusContainer.appendChild(giscusScript);
+// Funções para o botão de link quebrado
+function btnLinkQuebrado() {
+    svgBefore.style.display = 'none';
+    svgAfter.style.display = 'block';
 }
 
-function hideDetails() {
-    document.getElementById('mainContent').style.display = 'block';
-    document.getElementById('details').style.display = 'none';
-    history.replaceState({page: 'list'}, 'Book List', '?');
-    resetIconBtnLinkQuebrado()
+function resetIconBtnLinkQuebrado() {
+    svgBefore.style.display = 'block';
+    svgAfter.style.display = 'none';
+    reportButton.disabled = false;
+    document.getElementById('textBtnLinkQuebrado').innerText = 'Link quebrado?';
 }
 
-// Função para verificar se o tema é claro
-function isLightThemeActive() {
-    return document.body.classList.contains('isLightTheme');
-}
-
-
-// Adiciona um evento de popstate para detectar mudanças de página
+// Eventos para navegação e popstate
 window.addEventListener('popstate', function(event) {
     if (event.state && event.state.page === 'details') {
         showDetails(event.state.bookId);
@@ -421,63 +311,3 @@ window.addEventListener('popstate', function(event) {
         hideDetails();
     }
 });
-
-
-
-
-
-
-//PDR
-let svgBefore = document.querySelector(".svgBefore")
-let svgAfter = document.querySelector(".svgAfter")
-
-let fillColorSVG = document.querySelectorAll(".fillColorSVG")
-
-verificarTema()
-function verificarTema(){
-    if (document.body.classList.contains('tema-claro')) {
-        console.log("Tá claro");
-        fillColorSVG[0].style.fill = "black"
-        fillColorSVG[1].style.fill = "black"
-        fillColorSVG[2].style.fill = "black"
-        fillColorSVG[3].style.fill = "black"
-    }else{
-        console.log("Acabou a luz");
-        fillColorSVG[0].style.fill = "white"
-        fillColorSVG[1].style.fill = "white"
-        fillColorSVG[2].style.fill = "white"
-        fillColorSVG[3].style.fill = "white"
-
-    }
-}
-
-function mudarTema(){
-    if (document.body.classList.contains('tema-claro')) {
-        console.log("Acabou a luz");
-        fillColorSVG[0].style.fill = "white"
-        fillColorSVG[1].style.fill = "white"
-        fillColorSVG[2].style.fill = "white"
-        fillColorSVG[3].style.fill = "white"
-
-    }else{
-        console.log("Tá claro");
-        fillColorSVG[0].style.fill = "black"
-        fillColorSVG[1].style.fill = "black"
-        fillColorSVG[2].style.fill = "black"
-        fillColorSVG[3].style.fill = "black"
-
-    }
-}
-
-function btnLinkQuebrado(){
-    svgBefore.style.display = "none"
-    svgAfter.style.display = "block"
-}
-
-function resetIconBtnLinkQuebrado(){
-    svgBefore.style.display = "block"
-    svgAfter.style.display = "none"
-    reportButton.disabled = false;
-    document.getElementById('textBtnLinkQuebrado').innerText = 'Link quebrado?';
-
-}
