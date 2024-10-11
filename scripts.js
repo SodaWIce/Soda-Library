@@ -141,7 +141,7 @@ function fadeInImages() {
 }
 
 // Executa a função quando a página é carregada
-// window.addEventListener('load', fadeInImages);
+window.addEventListener('load', fadeInImages);
 
 // Função para renderizar os livros na página atual
 function renderBooks() {
@@ -152,6 +152,9 @@ function renderBooks() {
     const start = (currentPage - 1) * booksPerPage;
     const end = start + booksPerPage;
     const paginatedBooks = filteredBooks.slice(start, end);
+    
+    // Executa a função quando a página é carregada
+window.addEventListener('load', fadeInImages);
 
     // Cria os elementos HTML para cada livro
     paginatedBooks.forEach(livro => {
