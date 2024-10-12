@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro59",
+    "title": "O Retrato de Dorian Gray",
+    "image": "https://imgur.com/aYEgGHK.jpg",
+    "author": "Oscar Wilde",
+    "year": "1890",
+    "synopsis": "Dorian é um homem que se encanta com a visão de mundo hedonista do aristocrata Henry Wotton, que considera que a beleza e a satisfação sexual são as únicas coisas que importam na vida./n/Ele deseja então vender sua alma para que apenas um retrato seu pintado a óleo envelheça e desapareça, mantendo sua juventude eternamente./n/Como Fausto, Dorian tem seu desejo atendido e parte para uma vida libertina e amoral.",
+    "pdf": "https://drive.google.com/file/d/1vSp9TlM8j81cp3t9OmMerZgqSRGmqpWI/view?usp=drivesdk",
+    "genre": "Romance Gótico"
+         },
+         {
     "id": "livro58",
     "title": "Romeu e Julieta",
     "image": "https://imgur.com/uuejmB8.png",
