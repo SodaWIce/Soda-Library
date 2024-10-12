@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro61",
+    "title": "Anjos e Demônios: A Realidade do Reino Espiritual",
+    "image": "https://imgur.com/cp7GuGj.png",
+    "author": "Hernane Santos",
+    "year": "2019",
+    "synopsis": "Diante de nossos olhos, raramente entenderemos a realidade paralela que nos cerca de outros mundos, que de fato existem. Devemos entender, que o mundo que vivemos, é visível e natural, mas temos vastas provas da existência de outros mundos, e mesmo sendo invisíveis e inacessíveis, eles são reais. Não escrevo para dispor da curiosidade, e nem para alimentá-la, tão pouco para ser popular. Escrevo, para trazer luz, em meio as trevas do entendimento. Poucos conhecem a realidade paralela dos reinos espirituais, e de conforme afirmo; isso não é bom. O único que sai ganhando com nossa ignorância, é nosso adversário. Se ele vive na escuridão, e não quer se mostrar, ou se mostra por meios escusos ou disfarçado, é porque para ele, digo para ele, essa é a melhor de todas as estratégias. Porém posso lhe afirmar, para nós não é nada bom, vivermos à deriva dessa maliciosa arma, que é a de vivermos nas trevas do não saber. Por isso afirmo, que esse é o maior motivo que eu vos escreva. Ainda que o assunto não é para todos, e digo todos, pois requer idade necessária, e maturidade necessária, para o entendimento de tal escrito. Afirmo, que uma hora ou outra, todos deverão entender a realidade do caminho deste conhecimento. Posso afirmar, que existe um reino, esquisito, poderoso, oblíquo, cheio de injustiça, medo, traições, imoralidades, inimizades, personagens espirituais, e seres humanos dentro deste reino. … um grande perigo entrar por um caminho que reduz a importância ou a influência deste reino. Entenda, neste reino, Satanás, é um rei, ele é mau, ele não é bom, não é um ser injustiçado pelo seu criador. Ele governa esse mundo sombrio com tirania, e diferente de alguns movimentos, que hoje ensinam claramente que Lucifer é apenas o outro lado do bem, mas ainda assim é bom, ele é um anjo caído, não um Deus caído. Não existe uma guerra entre Deus e o diabo, existe uma guerra entre a Igreja e o diabo. O que existe entre Deus e Satanás, é uma espécie de guerra intelectual. E em todas as eras, em todos os tempos, sempre existiu essa batalha intelectual entre Satã e Deus. E posso lhe afirmar, que essa batalha intelectual, existe ainda hoje.",
+    "pdf": "https://drive.google.com/file/d/1vv5B4O_7OvbdxZ-B-eP3Op_W-bzxtia2/view?usp=drivesdk",
+    "genre": "Autoajuda"
+         },
+         {
     "id": "livro60",
     "title": "Memorial do Convento",
     "image": "https://imgur.com/kJZns6B.png",
