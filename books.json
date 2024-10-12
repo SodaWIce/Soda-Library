@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro56",
+    "title": "O Conde de Monte Cristo",
+    "image": "https://imgur.com/0dHy2P7.png",
+    "author": "Alexandre Dumas",
+    "year": "1846",
+    "synopsis": "No romance, o marinheiro Edmond Dantés é preso injustamente, vítima de um complô. Anos depois, consegue escapar da prisão, enriquece e planeja uma vingança mirabolante.",
+    "pdf": "https://drive.google.com/file/d/1v9h4CcXk0qzhPYS6OWp4YQF4FL-V8M_1/view?usp=drivesdk",
+    "genre": "Ficção"
+         },
+         {
     "id": "livro55",
     "title": "O Mundo Como Vontade e Representação",
     "image": "https://imgur.com/0fzn57o.png",
