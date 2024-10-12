@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro58",
+    "title": "Romeu e Julieta",
+    "image": "https://imgur.com/uuejmB8.png",
+    "author": "William Shakespeare",
+    "year": "1597",
+    "synopsis": "Há muito tempo duas famílias banham em sangue as ruas de Verona. Enquanto isso, na penumbra das madrugadas, ardem as brasas de um amor secreto. Romeu, filho dos Montéquio, e Julieta, herdeira dos Capuleto, desafiam a rixa familiar e sonham com um impossível futuro, longe da violência e da loucura.",
+    "pdf": "https://drive.google.com/file/d/1vLUYTaYivFbT8JOBAXJT--q53KeHfRRb/view?usp=drivesdk",
+    "genre": "Drama"
+         },
+         {
     "id": "livro57",
     "title": "O Menino, A Toupeira, A Raposa e O Cavalo",
     "image": "https://imgur.com/5EXTvqX.png",
@@ -153,7 +163,7 @@
          {
     "id": "livro42",
     "title": "Hamlet",
-    "image": "https://imgur.com/XUwCjnY.png",
+    "image": "https://imgur.com/dmZQPQJ.png",
     "author": "William Shakespeare",
     "year": "1623",
     "synopsis": "Tendo como cenário a Dinamarca, mais precisamente o castelo de Elsinor, esta peça traz sua versão do destino do príncipe Hamlet, obrigado a empreender um drástico ato de revanche contra seu tio, para vingar a morte do pai. Adaptada pelo escritor Júlio Emílio Braz, o texto considerado a joia da coroa de uma carreira teatral triunfante, é daqueles para ser lido e relido inúmeras vezes.",
