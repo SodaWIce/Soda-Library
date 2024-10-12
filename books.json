@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro60",
+    "title": "Memorial do Convento",
+    "image": "https://imgur.com/kJZns6B.png",
+    "author": "José Saramago",
+    "year": "1982",
+    "synopsis": "No epicentro desta história está a construção do Palácio Nacional de Mafra, também conhecido como Convento. O monarca absolutista D. João V, cumprindo uma promessa, ordenou que o edifício fosse erguido no início do século XVIII, em pleno processo colonial, à custa de uma imensa quantidade de ouro e diamantes vindos do Brasil, além do sangue de milhares de operários. Dentre eles, havia um certo Baltasar, da estirpe de Sete-Sóis, inválido da mão esquerda depois de uma guerra, apaixonado por Blimunda, uma jovem dotada de poderes extraordinários. Indivíduos habitualmente não observados pela dita história oficial, mas que no entanto constituem seu tecido mais delicado e essencial.",
+    "pdf": "https://drive.google.com/file/d/1vfNZHwaSexc5HMWNu5bI6I8jH2ENJvn2/view?usp=drivesdk",
+    "genre": "Ficção"
+         },
+         {
     "id": "livro59",
     "title": "O Retrato de Dorian Gray",
     "image": "https://imgur.com/aYEgGHK.jpg",
