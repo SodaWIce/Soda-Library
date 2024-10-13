@@ -1,6 +1,16 @@
 {
     "books": [
          {
+    "id": "livro62",
+    "title": "A Coragem de Ser Imperfeito: Como Aceitar A Própria Vulnerabilidade, Vencer A Vergonha e Ousar Ser Quem Você É",
+    "image": "https://imgur.com/IR2MHJ5.png",
+    "author": "Brené Brown",
+    "year": "2012",
+    "synopsis": "Viver é experimentar incertezas, riscos e se expor emocionalmente. Mas isso não precisa ser ruim. Como mostra Brené Brown, a vulnerabilidade não é uma medida de fraqueza, mas a melhor definição de coragem. Quando fugimos de emoções como medo, mágoa e decepção, também nos fechamos para o amor, a aceitação e a criatividade. Por isso, as pessoas que se defendem a todo custo do erro e do fracasso acabam se frustrando e se distanciando das experiências marcantes que dão significado à vida. Por outro lado, as que se expõem e se abrem para coisas novas são mais autênticas e realizadas, ainda que se tornem alvo de críticas e de inveja. É preciso lidar com os dois lados da moeda para se ter uma vida plena. Em sua pesquisa pioneira sobre vulnerabilidade, Brené Brown concluiu que fazemos uso de um verdadeiro arsenal contra a vergonha de nos expor e a sensação de não sermos bons o bastante, e que existem estratégias eficazes para serem usadas nesse “desarmamento”. Neste livro, ela apresenta suas descobertas e estratégias bem-sucedidas, toca em feridas delicadas e provoca grandes insights, desafiando-nos a mudar a maneira como vivemos e nos relacionamos.",
+    "pdf": "https://drive.google.com/file/d/1wUvlnU_EtMdfoyzUp-B4HCzte05IKZMc/view?usp=drivesdk",
+    "genre": "Autoajuda"
+         },
+         {
     "id": "livro61",
     "title": "Anjos e Demônios: A Realidade do Reino Espiritual",
     "image": "https://imgur.com/cp7GuGj.png",
