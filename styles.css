@@ -1,36 +1,86 @@
 /* Importa a fonte Roboto do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* ==========================================================================
+   SISTEMA DE VARIÁVEIS — GLASS DESIGN SYSTEM
+   Modo claro é o padrão (sem classe extra no body).
+   A classe .tema-escuro no body ativa o modo escuro.
+   As cores de destaque (rubi) são as MESMAS nos dois modos — apenas o
+   "vidro" de fundo, bordas e texto mudam.
+   ========================================================================== */
+:root {
+    /* Timing consistente para todas as animações/transições do site */
+    --glass-duration: 0.35s;
+    --glass-duration-fast: 0.2s;
+    --glass-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Cores de destaque — vivas e idênticas em ambos os modos */
+    --accent-solid-a: #8B0000;
+    --accent-solid-b: #B22222;
+    --accent-glass-a: rgba(139, 0, 0, 0.6);
+    --accent-glass-b: rgba(178, 34, 34, 0.6);
+    --accent-glass-a-strong: rgba(139, 0, 0, 0.8);
+    --accent-glass-b-strong: rgba(178, 34, 34, 0.8);
+    --accent-border: rgba(178, 34, 34, 0.65);
+    --accent-glow: rgba(178, 34, 34, 0.55);
+
+    /* Modo claro (padrão) */
+    --bg-color: #f4f4f6;
+    --panel-bg: #ffffff;
+    --text-color: #111111;
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-bg-strong: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(17, 17, 17, 0.1);
+    --glass-shine: rgba(255, 255, 255, 0.6);
+    --glass-shadow: rgba(17, 17, 17, 0.1);
+    --icon-fill: #111111;
+}
+
+body.tema-escuro {
+    --bg-color: #111111;
+    --panel-bg: #111111;
+    --text-color: #ffffff;
+    --glass-bg: rgba(40, 40, 40, 0.55);
+    --glass-bg-strong: rgba(20, 20, 20, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shine: rgba(255, 255, 255, 0.08);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+    --icon-fill: #ffffff;
+}
+
 body {
     font-family: 'Roboto', sans-serif; /* Atualiza a fonte para Roboto */
     margin: 0;
     padding: 0;
-    background: #111111; /* Fundo azul marinho */
-    color: #ffffff; /* Cor do texto para contraste com o fundo escuro */
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color var(--glass-duration) var(--glass-ease), color var(--glass-duration) var(--glass-ease);
 }
 
 header {
     display: flex; /* Usa flexbox no cabeçalho */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Alinha o conteúdo verticalmente, se necessário */
-    background-color: #111111; /* Cor de fundo do cabeçalho */
+    background-color: var(--bg-color); /* Cor de fundo do cabeçalho */
     height: 70px; /* Ajuste conforme necessário */
     padding: 0 1em; /* Ajusta o padding horizontal, se necessário */
+    transition: background-color var(--glass-duration) var(--glass-ease);
 }
 
 header h1 {
     display: flex; /* Mantenha o ícone e o texto alinhados */
     align-items: center; /* Alinha o ícone e o texto verticalmente */
     font-family: 'Lato', sans-serif;
-    color: #ffffff; /* Cor do texto */
+    color: var(--text-color); /* Cor do texto */
     margin: 12px 0 0 0; /* Margens do título */
     font-size: 25px;
+    transition: color var(--glass-duration) var(--glass-ease);
 }
 
 header h1 .animate-text {
     opacity: 0; /* Começa invisível */
     transform: translateX(-20px); /* Começa deslocado à esquerda */
-    animation: fadeInSlide 1s ease forwards; /* Aplica a nova animação */
+    animation: fadeInSlide 1s var(--glass-ease) forwards; /* Aplica a nova animação */
 }
 
 /* Nova animação de desvanecimento e movimento lateral */
@@ -94,9 +144,10 @@ header .icon {
     position: absolute;
     width: 20px;
     height: 20px;
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transição suave */
+    transition: opacity var(--glass-duration) var(--glass-ease), transform var(--glass-duration) var(--glass-ease); /* Transição suave */
     opacity: 0; /* Começa invisível */
     pointer-events: none; /* Desabilita o clique inicialmente */
+    fill: var(--icon-fill);
 }
 
 .search-icon-lupa {
@@ -120,11 +171,15 @@ header .icon {
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 100px;
-    border: 2px solid #1A1A1A;
-    background-color: #1A1A1A; /* Fundo dos campos de entrada */
-    color: #ffffff; /* Cor do texto dentro dos campos */
+    border: 1px solid var(--glass-border);
+    background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-strong));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 2px 8px var(--glass-shadow);
+    color: var(--text-color); /* Cor do texto dentro dos campos */
     flex-grow: 1; /* Permite que a barra de pesquisa ocupe o máximo de espaço disponível */
     max-width: 100%; /* Garante que a barra de pesquisa não ultrapasse as bordas da tela */
+    transition: border-color var(--glass-duration) var(--glass-ease), box-shadow var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease), color var(--glass-duration) var(--glass-ease);
 }
 
 .search-bar select {
@@ -133,20 +188,25 @@ header .icon {
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 100px;
-    border: 2px solid #1A1A1A;
-    background-color: #1A1A1A;
-    color: #ffffff;
+    border: 1px solid var(--glass-border);
+    background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-strong));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 2px 8px var(--glass-shadow);
+    color: var(--text-color);
     text-align-last: center; /* Centraliza o texto da opção selecionada */
     white-space: nowrap;
     min-width: 120px;
     display: flex; /* Utiliza flexbox para alinhar o conteúdo */
     justify-content: center; /* Centraliza o conteúdo */
     align-items: center; /* Centraliza o conteúdo verticalmente */
+    transition: border-color var(--glass-duration) var(--glass-ease), box-shadow var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease), color var(--glass-duration) var(--glass-ease);
 }
 
 .search-bar input[type="text"]:hover, .search-bar select:hover,
 .search-bar input[type="text"]:focus, .search-bar select:focus {
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    border-color: var(--accent-border); /* Substitui #3CB371 por vermelho rubi */
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 10px 1px var(--accent-glow);
     outline: none; /* Remove a borda de foco padrão */
 }
 
@@ -159,28 +219,51 @@ header .icon {
 .pagination button {
     margin: 0 5px;
     padding: 8px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: linear-gradient(135deg, rgba(40, 40, 40, 0.55), rgba(20, 20, 20, 0.35));
+    border: 1px solid var(--glass-border);
+    background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-strong));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 6px rgba(0, 0, 0, 0.25);
-    color: #ffffff; /* Cor do texto do botão */
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 2px 6px var(--glass-shadow);
+    color: var(--text-color); /* Cor do texto do botão */
     border-radius: 100px;
     cursor: pointer;
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    transition: transform var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease), border-color var(--glass-duration) var(--glass-ease), color var(--glass-duration) var(--glass-ease), box-shadow var(--glass-duration) var(--glass-ease), opacity var(--glass-duration) var(--glass-ease);
 }
 
 .pagination button:hover {
     transform: scale(1.15);
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.55), rgba(139, 0, 0, 0.45));
-    border-color: rgba(178, 34, 34, 0.6);
+    background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
+    border-color: var(--accent-border);
+    color: #ffffff;
 }
 
+/* Animação suave: quando o botão ativo muda (ex.: "próximo" clicado e o
+   número anterior assume o destaque), o novo botão ativo "acende" com um
+   leve pop, e o antigo relaxa suavemente de volta ao estado normal graças
+   à transition acima. */
 .pagination button.active {
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.65), rgba(139, 0, 0, 0.55));
-    border-color: rgba(178, 34, 34, 0.7);
+    background: linear-gradient(135deg, var(--accent-glass-a-strong), var(--accent-glass-b-strong));
+    border-color: var(--accent-border);
+    color: #ffffff;
     transform: scale(1.15);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 12px 2px var(--accent-glow);
+    animation: pageActivate var(--glass-duration) var(--glass-ease);
+}
+
+@keyframes pageActivate {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
+    60% {
+        transform: scale(1.22);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
 }
 
 .book-list {
@@ -195,13 +278,13 @@ header .icon {
 
 .book-item {
     cursor: default;
-    background: #111111; /* Fundo escuro para os itens da lista */
+    background: var(--panel-bg); /* Fundo dos itens da lista */
     border-radius: 10px;
     padding: 1em;
     text-align: center;
-    color: #ffffff; /* Cor do texto dos itens */
+    color: var(--text-color); /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
-    transition: color 0.2s, transform 0.3s ease, background 0.3s ease; /* Adiciona uma transição suave na cor do texto */
+    transition: color var(--glass-duration-fast) var(--glass-ease), transform var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease); /* Adiciona uma transição suave na cor do texto */
     font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
 }
 
@@ -213,7 +296,7 @@ header .icon {
 .book-item:hover,
 .book-item:focus {
     cursor: default;
-    color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    color: var(--accent-solid-a); /* Substitui #3CB371 por vermelho rubi */
     transform: scale(1.10);
 }
 
@@ -233,15 +316,15 @@ header .icon {
 
 .book-details {
     opacity: 1; /* Estado inicial de visibilidade */
-    transition: opacity 0.5s ease-in-out; /* Transição suave ao mudar a opacidade */
+    transition: opacity 0.5s var(--glass-ease); /* Transição suave ao mudar a opacidade */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
     margin: 2em;
-    background: #111111; /* Fundo escuro para os detalhes do livro */
+    background: var(--panel-bg); /* Fundo dos detalhes do livro */
     border: none;
     border-radius: 0px;
-    color: #ffffff; /* Cor do texto para contraste */
+    color: var(--text-color); /* Cor do texto para contraste */
     padding: 0;
     position: relative; /* Adicione isto para posicionamento relativo */
 }
@@ -263,11 +346,11 @@ header .icon {
 
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.55), rgba(139, 0, 0, 0.55));
+    background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 10px rgba(139, 0, 0, 0.25);
+    border: 1px solid var(--accent-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 10px var(--accent-glow);
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
@@ -276,26 +359,26 @@ header .icon {
     text-decoration: none; /* Remove o sublinhado do link */
     margin-bottom: 0.5em; /* Espaço abaixo do botão */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease;
+    transition: transform var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease), box-shadow var(--glass-duration) var(--glass-ease);
 }
 
 .download-link:hover,
 .download-link:focus {
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.65), rgba(178, 34, 34, 0.65));
+    background: linear-gradient(135deg, var(--accent-glass-a-strong), var(--accent-glass-b-strong));
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 12px 2px rgba(139, 0, 0, 0.5); /* Ajusta sombra neon com vermelho rubi */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 14px 2px var(--accent-glow); /* Ajusta sombra neon com vermelho rubi */
 }
 
 .back-button {
-    background: linear-gradient(135deg, rgba(40, 40, 40, 0.55), rgba(20, 20, 20, 0.35));
+    background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-strong));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    color: #ffffff; /* Cor do texto do botão */
+    color: var(--text-color); /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 6px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 2px 6px var(--glass-shadow);
     cursor: pointer;
     text-align: center;
     position: relative;
@@ -303,24 +386,25 @@ header .icon {
     left: 0em; /* Distância da borda esquerda da área de detalhes */
     margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    transition: transform var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease), border-color var(--glass-duration) var(--glass-ease), color var(--glass-duration) var(--glass-ease);
 }
 
 .back-button:focus,
 .back-button:hover {
-    border-color: rgba(178, 34, 34, 0.6);
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.4), rgba(139, 0, 0, 0.3));
+    border-color: var(--accent-border);
+    background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
+    color: #ffffff;
 }
 
 .report-button {
-    background: linear-gradient(135deg, rgba(40, 40, 40, 0.55), rgba(20, 20, 20, 0.35));
+    background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-strong));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    color: #ffffff; /* Cor do texto do botão */
+    color: var(--text-color); /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 6px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 2px 6px var(--glass-shadow);
     cursor: pointer;
     text-align: center;
     position: absolute;
@@ -328,130 +412,73 @@ header .icon {
     right: 0; /* Distância da borda direita da área de detalhes */
     margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    transition: transform var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease), border-color var(--glass-duration) var(--glass-ease), color var(--glass-duration) var(--glass-ease);
 }
 
 .report-button:focus,
 .report-button:hover {
-    border-color: rgba(178, 34, 34, 0.6);
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.4), rgba(139, 0, 0, 0.3));
+    border-color: var(--accent-border);
+    background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
+    color: #ffffff;
 }
 
+/* Ícones do botão de voltar e de reportar acompanham o tema automaticamente
+   (escuro no modo claro, branco no modo escuro) através da variável --icon-fill */
 .back-button img,
 .report-button img {
     width: 20px; /* Ajuste o tamanho da imagem conforme necessário */
     height: 20px; /* Ajuste o tamanho da imagem conforme necessário */
     vertical-align: middle; /* Alinha a imagem verticalmente com o texto */
     margin-right: 8px; /* Espaço entre a imagem e o texto */
+    transition: filter var(--glass-duration) var(--glass-ease);
+}
+
+body:not(.tema-escuro) .back-button img,
+body:not(.tema-escuro) .report-button img {
+    filter: invert(0); /* ícones escuros no modo claro */
+}
+
+body.tema-escuro .back-button img,
+body.tema-escuro .report-button img {
+    filter: invert(1) brightness(2); /* ícones brancos no modo escuro */
+}
+
+.back-button:hover img,
+.back-button:focus img,
+.report-button:hover img,
+.report-button:focus img {
+    filter: invert(1) brightness(2); /* ícone sempre branco sobre o glass rubi do hover */
 }
 
 .report-button:disabled {
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.4), rgba(15, 15, 15, 0.3)); /* Glass neutro para estado desabilitado */
-    color: rgba(255, 255, 255, 0.6); /* Cor do texto branco esmaecido */
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-strong)); /* Glass neutro para estado desabilitado */
+    color: var(--text-color);
+    opacity: 0.5;
+    border: 1px solid var(--glass-border);
     box-shadow: none;
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
     pointer-events: none; /* Desativa a interação */
 }
 
-/* Definindo transições gerais */
-body, header, h1, .search-bar input[type="text"], .search-bar select, 
+.report-button:disabled img {
+    filter: none;
+    opacity: 0.6;
+}
+
+/* Ícones vetoriais inline (SVG) acompanham o tema automaticamente */
+.fillColorSVG {
+    fill: var(--icon-fill);
+    transition: fill var(--glass-duration) var(--glass-ease);
+}
+
+.svgAfter {
+    display: none;
+}
+
+/* Definindo transições gerais consistentes com o sistema glass */
+body, header, h1, .search-bar input[type="text"], .search-bar select,
 .back-button, .report-button, .book-details {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Tema claro */
-.tema-claro {
-    background-color: #ffffff; /* Cor de fundo do body clara */
-    color: #000000; /* Cor do texto escuro */
-}
-
-/* Cabeçalho no tema claro */
-.tema-claro header {
-    background-color: #ffffff; /* Cor de fundo do cabeçalho clara */
-    color: #111111; /* Cor do texto do cabeçalho escuro */
-}
-
-.tema-claro header h1 {
-    color: #111111;
-}
-
-/* Book item */
-.tema-claro .book-item {
-    background-color: #ffffff; /* Cor de fundo do book item clara */
-    color: #111111; /* Cor do texto do book item escuro */
-}
-
-.tema-claro .book-item:hover,
-.tema-claro .book-item:focus {
-    color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
-}
-
-/* Search bar */
-.tema-claro .search-bar input[type="text"],
-.tema-claro .search-bar select {
-    border-color: #e9ecef;
-    background-color: #e9ecef; /* Cor de fundo da search bar clara */
-    color: #111111; /* Cor do texto da search bar escura */
-}
-
-/* Hover e Focus para Search Bar */
-.tema-claro .search-bar input[type="text"]:hover,
-.tema-claro .search-bar select:hover,
-.tema-claro .search-bar input[type="text"]:focus,
-.tema-claro .search-bar select:focus {
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
-}
-
-/* Pagination button */
-.tema-claro .pagination button {
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(233, 236, 239, 0.55));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08);
-    color: #111111; /* Cor do texto do botão de paginação */
-}
-
-/* Hover e Focus para Pagination Button */
-.tema-claro .pagination button:hover,
-.tema-claro .pagination button:focus {
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.55), rgba(139, 0, 0, 0.45));
-    color: #ffffff;
-    border-color: rgba(178, 34, 34, 0.6);
-}
-
-.tema-claro .pagination button.active {
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.65), rgba(139, 0, 0, 0.55));
-    color: #ffffff;
-    border-color: rgba(178, 34, 34, 0.7);
-    transform: scale(1.15);
-}
-
-/* Back button e Report button */
-.tema-claro .back-button,
-.tema-claro .report-button {
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(233, 236, 239, 0.55));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08);
-    color: #111111; /* Cor do texto dos botões */
-}
-
-.tema-claro .back-button:hover,
-.tema-claro .report-button:hover,
-.tema-claro .back-button:focus,
-.tema-claro .report-button:focus {
-    border-color: rgba(178, 34, 34, 0.6);
-    background: linear-gradient(135deg, rgba(178, 34, 34, 0.35), rgba(139, 0, 0, 0.25));
-    color: #ffffff;
-}
-
-/* Book details */
-.tema-claro .book-details {
-    background-color: #ffffff; /* Cor de fundo do book details clara */
-    color: #111111; /* Cor do texto do book details escuro */
+    transition: background-color var(--glass-duration) var(--glass-ease), color var(--glass-duration) var(--glass-ease), border-color var(--glass-duration) var(--glass-ease);
 }
 
 /* Estilos específicos para landscape */
@@ -459,14 +486,14 @@ body, header, h1, .search-bar input[type="text"], .search-bar select,
     .book-item {
         font-size: 0.6em; /* Aumenta o tamanho do texto quando em landscape */
     }
-    
+
     .book-list {
         row-gap: 1em;
         column-gap: 0.5em;
         display: grid; /* Define grid para o layout */
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta o mínimo de largura para cada item */
     }
-    
+
     .book-full {
         max-width: 20%;
     }
@@ -487,7 +514,7 @@ body, header, h1, .search-bar input[type="text"], .search-bar select,
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Exibe colunas automaticamente com largura mínima de 220px */
         gap: 1em; /* Ajusta o espaçamento entre os itens da lista */
     }
-    
+
     .book-full {
         max-width: 20%; /* Reduz o tamanho das imagens do book full no PC */
     }
@@ -524,14 +551,6 @@ body, header, h1, .search-bar input[type="text"], .search-bar select,
     width: 20px;
     height: 20px;
     margin-right: 10px;
-}
-
-.fillColorSVG {
-    fill: white;
-}
-
-.svgAfter {
-    display: none;
 }
 
 #textBtnLinkQuebrado {
