@@ -30,7 +30,7 @@ function filterBooks() {
 
     // Recalcula a página atual, sempre reiniciando para a primeira página após o filtro
     currentPage = 1;
-    
+
     // Atualiza a exibição dos livros automaticamente
     renderBooks(); // Chama a função para renderizar os livros filtrados
 }
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('dragstart', function(event) {
         event.preventDefault();
     });
-    
+
     const searchInput = document.getElementById('searchInput');
     const searchIconContainer = document.querySelector('.search-icon-container');
 
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             searchIconContainer.classList.remove('show-clear'); // Remove a classe para mostrar o ícone de lupa
         }
-        
+
         // Chama a função de filtro
         filterBooks();
     });
@@ -206,6 +206,9 @@ function renderPagination() {
     }
 
     // Botões de página
+    // O toggle da classe "active" acontece na criação de cada botão logo abaixo;
+    // como o CSS anima .pagination button.active ao ser aplicada, a troca de
+    // destaque entre "anterior" e "próximo" já fica suave automaticamente.
     for (let i = startPage; i <= endPage; i++) {
         const btn = document.createElement('button');
         btn.innerText = i;
@@ -234,40 +237,45 @@ function renderPagination() {
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Verifica se o tema já foi definido e aplica
+// ==========================================================================
+// TEMA — o modo claro agora é o padrão (nenhuma classe extra no body).
+// A classe "tema-escuro" no body ativa o modo escuro, e é ela quem
+// controla o toggle e é salva no localStorage.
+// ==========================================================================
 const currentTheme = localStorage.getItem('theme');
 const bookId = 'bookId'; // Substitua pelo ID do livro
 
-if (currentTheme === 'tema-claro') {
-    body.classList.add('tema-claro');
-    updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
-    
-    // Renderiza o Giscus com o tema claro
-    renderGiscus(bookId, 'tema-claro');
+if (currentTheme === 'tema-escuro') {
+    body.classList.add('tema-escuro');
+    updateIcons('tema-escuro'); // Atualiza os ícones para o tema escuro
+
+    // Renderiza o Giscus com o tema escuro
+    renderGiscus(bookId, false);
 } else {
-    // Renderiza o Giscus com o tema escuro (ou padrão)
-    renderGiscus(bookId, 'tema-escuro');
+    // Padrão: tema claro
+    updateIcons('tema-claro');
+    renderGiscus(bookId, true);
 }
 
 // Adiciona um evento de clique para o ícone
 themeToggle.addEventListener('click', () => {
-    // Alterna entre o tema claro e o padrão
-    if (body.classList.contains('tema-claro')) {
-        body.classList.remove('tema-claro');
-        localStorage.removeItem('theme'); // Remove o tema do localStorage
-        updateIcons('default'); // Atualiza os ícones para o padrão
-        
-        // Renderiza o Giscus com o tema escuro
-        renderGiscus(bookId, false); // Passa false para tema escuro
-    } else {
-        body.classList.add('tema-claro');
-        localStorage.setItem('theme', 'tema-claro'); // Salva o tema claro no localStorage
+    // Alterna entre o tema escuro e o padrão (claro)
+    if (body.classList.contains('tema-escuro')) {
+        body.classList.remove('tema-escuro');
+        localStorage.removeItem('theme'); // Remove o tema do localStorage (volta ao padrão claro)
         updateIcons('tema-claro'); // Atualiza os ícones para o tema claro
-        
+
         // Renderiza o Giscus com o tema claro
-        renderGiscus(bookId, true); // Passa true para tema claro
+        renderGiscus(bookId, true);
+    } else {
+        body.classList.add('tema-escuro');
+        localStorage.setItem('theme', 'tema-escuro'); // Salva o tema escuro no localStorage
+        updateIcons('tema-escuro'); // Atualiza os ícones para o tema escuro
+
+        // Renderiza o Giscus com o tema escuro
+        renderGiscus(bookId, false);
     }
-    
+
     // Para o efeito de pulsação após o primeiro clique
     themeToggle.style.animation = 'none'; // Remove a animação
 });
@@ -279,18 +287,18 @@ function updateIcons(theme) {
     const searchIconLupa = document.querySelector('.search-icon-lupa'); // Ícone de pesquisa
     const icon = document.querySelector('.icon'); // Seletor para o ícone de tema
 
-    if (theme === 'tema-claro') {
-        // Atualize os ícones para o tema claro
-        backButton.src = 'https://imgur.com/xbvjaVe.png'; // Ícone do botão de voltar no tema claro
-        searchIconX.src = 'https://imgur.com/H3A9lvC.png'; // Ícone "X" na barra de pesquisa no tema claro
-        searchIconLupa.src = 'https://imgur.com/uLSgVhx.png'; // Ícone da lupa na barra de pesquisa no tema claro
-        icon.src = 'https://imgur.com/lE4oMBX.png'; // Ícone do tema
+    if (theme === 'tema-escuro') {
+        // Ícones para o tema escuro
+        backButton.src = 'https://imgur.com/GlZn3zw.png';
+        searchIconX.src = 'https://imgur.com/zBGC0yw.png';
+        searchIconLupa.src = 'https://imgur.com/90y8bbS.png';
+        icon.src = 'https://imgur.com/7ZaM26T.png';
     } else {
-        // Retorna os ícones para o padrão quando o tema claro está desligado
-        backButton.src = 'https://imgur.com/GlZn3zw.png'; // Substitua pelo URL do ícone padrão do botão de voltar
-        searchIconX.src = 'https://imgur.com/zBGC0yw.png'; // Substitua pelo URL do ícone padrão "X"
-        searchIconLupa.src = 'https://imgur.com/90y8bbS.png'; // Substitua pelo URL do ícone padrão da lupa
-        icon.src = 'https://imgur.com/7ZaM26T.png'; // Substitua pelo URL do ícone padrão
+        // Ícones para o tema claro (padrão)
+        backButton.src = 'https://imgur.com/xbvjaVe.png';
+        searchIconX.src = 'https://imgur.com/H3A9lvC.png';
+        searchIconLupa.src = 'https://imgur.com/uLSgVhx.png';
+        icon.src = 'https://imgur.com/lE4oMBX.png';
     }
 }
 
@@ -324,7 +332,7 @@ function showDetails(bookId) {
                         <p><strong>Sinopse:</strong> ${book.synopsis}</p>
                     </div>
                 `;
-                
+
                 // Adicione o event listener do reportButton aqui
 const reportButton = document.getElementById('reportButton');
 if (reportButton) {
@@ -378,8 +386,8 @@ if (reportButton) {
     reportButton.addEventListener('click', handleClick); // Adiciona o event listener
 }
 
-// Verifica se o tema claro está ativado
-const isLightTheme = body.classList.contains('tema-claro');
+// Verifica se o tema escuro está ativado (padrão agora é claro)
+const isLightTheme = !body.classList.contains('tema-escuro');
 
 // Chame o renderGiscus com o ID do livro e o estado do tema
 renderGiscus(bookId, isLightTheme);
@@ -406,10 +414,10 @@ function renderGiscus(bookId, isLightTheme) {
     giscusScript.setAttribute('data-reactions-enabled', '1');
     giscusScript.setAttribute('data-emit-metadata', '0');
     giscusScript.setAttribute('data-input-position', 'top');
-    
+
     // Define o tema de acordo com o estado do tema claro
     giscusScript.setAttribute('data-theme', isLightTheme ? 'light' : 'dark');
-    
+
     giscusScript.setAttribute('data-lang', 'pt');
     giscusScript.setAttribute('data-loading', 'lazy');
     giscusScript.setAttribute('crossOrigin', 'anonymous');
@@ -426,9 +434,9 @@ function hideDetails() {
     resetIconBtnLinkQuebrado()
 }
 
-// Função para verificar se o tema é claro
+// Função para verificar se o tema é claro (padrão = claro, sem classe extra)
 function isLightThemeActive() {
-    return document.body.classList.contains('isLightTheme');
+    return !document.body.classList.contains('tema-escuro');
 }
 
 
@@ -454,37 +462,35 @@ let fillColorSVG = document.querySelectorAll(".fillColorSVG")
 
 verificarTema()
 function verificarTema(){
-    if (document.body.classList.contains('tema-claro')) {
-        console.log("Tá claro");
-        fillColorSVG[0].style.fill = "black"
-        fillColorSVG[1].style.fill = "black"
-        fillColorSVG[2].style.fill = "black"
-        fillColorSVG[3].style.fill = "black"
-    }else{
+    // Padrão agora é o tema claro (sem classe "tema-escuro" no body)
+    if (document.body.classList.contains('tema-escuro')) {
         console.log("Acabou a luz");
         fillColorSVG[0].style.fill = "white"
         fillColorSVG[1].style.fill = "white"
         fillColorSVG[2].style.fill = "white"
         fillColorSVG[3].style.fill = "white"
-
+    }else{
+        console.log("Tá claro");
+        fillColorSVG[0].style.fill = "black"
+        fillColorSVG[1].style.fill = "black"
+        fillColorSVG[2].style.fill = "black"
+        fillColorSVG[3].style.fill = "black"
     }
 }
 
 function mudarTema(){
-    if (document.body.classList.contains('tema-claro')) {
-        console.log("Acabou a luz");
-        fillColorSVG[0].style.fill = "white"
-        fillColorSVG[1].style.fill = "white"
-        fillColorSVG[2].style.fill = "white"
-        fillColorSVG[3].style.fill = "white"
-
-    }else{
+    if (document.body.classList.contains('tema-escuro')) {
         console.log("Tá claro");
         fillColorSVG[0].style.fill = "black"
         fillColorSVG[1].style.fill = "black"
         fillColorSVG[2].style.fill = "black"
         fillColorSVG[3].style.fill = "black"
-
+    }else{
+        console.log("Acabou a luz");
+        fillColorSVG[0].style.fill = "white"
+        fillColorSVG[1].style.fill = "white"
+        fillColorSVG[2].style.fill = "white"
+        fillColorSVG[3].style.fill = "white"
     }
 }
 
