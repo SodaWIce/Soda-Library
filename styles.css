@@ -295,12 +295,17 @@ body:not(.tema-escuro) header .icon {
 .book-item {
     cursor: default;
     background: var(--panel-bg); /* Fundo dos itens da lista */
+    border: 1px solid transparent; /* Evita "salto" de tamanho quando a borda aparece no hover */
     border-radius: 10px;
     padding: 1em;
     text-align: center;
     color: var(--text-color); /* Cor do texto dos itens */
     outline: none; /* Remove a borda padrão de foco */
-    transition: color var(--glass-duration-fast) var(--glass-ease), transform var(--glass-duration) var(--glass-ease), background var(--glass-duration) var(--glass-ease); /* Adiciona uma transição suave na cor do texto */
+    transition: color var(--glass-duration-fast) var(--glass-ease),
+        transform var(--glass-duration) var(--glass-ease),
+        background var(--glass-duration) var(--glass-ease),
+        border-color var(--glass-duration) var(--glass-ease),
+        box-shadow var(--glass-duration) var(--glass-ease); /* Adiciona uma transição suave na cor do texto */
     font-size: 0.6em; /* Define o tamanho da fonte do texto dos itens */
 }
 
@@ -309,10 +314,18 @@ body:not(.tema-escuro) header .icon {
     outline: none;
 }
 
+/* Hover/click dos itens da lista: fundo em efeito glass na cor de destaque
+   (mesmo padrão dos botões) e texto branco, igual ao tema escuro. */
 .book-item:hover,
-.book-item:focus {
+.book-item:focus,
+.book-item:active {
     cursor: default;
-    color: var(--accent-solid-a); /* Ciano de destaque */
+    background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-color: var(--accent-border);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 4px 0px var(--accent-glow);
+    color: #ffffff; /* Ciano de destaque */
     transform: scale(1.10);
 }
 
@@ -440,10 +453,13 @@ body:not(.tema-escuro) header .icon {
     box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 4px 0px var(--accent-glow);
 }
 
-/* Ícones do botão de voltar e de reportar: forçados para preto (modo claro)
-   ou branco (modo escuro / hover) independente da cor original do arquivo,
-   usando brightness(0) para "zerar" a imagem e depois invert(1) quando
-   precisa ficar branca. Assim eles sempre acompanham --icon-fill. */
+/* Ícones do botão de voltar e de reportar: cor no tom do texto do site
+   (--text-color) no estado normal, e sempre BRANCOS quando o botão está
+   em hover/focus (sobre o fundo glass ciano) — independente do tema.
+   Antes, o filtro do :hover tinha a MESMA especificidade da regra base,
+   então a ordem no arquivo é que decidia (e por isso não funcionava de
+   forma confiável). Aqui a regra de hover é escrita depois e com o mesmo
+   nível de especificidade da base para cada tema, garantindo a prioridade. */
 .back-button img,
 .report-button img {
     width: 20px; /* Ajuste o tamanho da imagem conforme necessário */
@@ -455,18 +471,22 @@ body:not(.tema-escuro) header .icon {
 
 body:not(.tema-escuro) .back-button img,
 body:not(.tema-escuro) .report-button img {
-    filter: brightness(0) saturate(100%); /* ícones pretos sólidos no modo claro */
+    filter: invert(100%) brightness(0.25); /* aproxima o tom de --text-color (#33383d) no modo claro */
 }
 
 body.tema-escuro .back-button img,
 body.tema-escuro .report-button img {
-    filter: brightness(0) saturate(100%) invert(1); /* ícones brancos sólidos no modo escuro */
+    filter: brightness(0) saturate(100%) invert(1); /* branco, já bate com --text-color no modo escuro */
 }
 
-.back-button:hover img,
-.back-button:focus img,
-.report-button:hover img,
-.report-button:focus img {
+body:not(.tema-escuro) .back-button:hover img,
+body:not(.tema-escuro) .back-button:focus img,
+body:not(.tema-escuro) .report-button:hover img,
+body:not(.tema-escuro) .report-button:focus img,
+body.tema-escuro .back-button:hover img,
+body.tema-escuro .back-button:focus img,
+body.tema-escuro .report-button:hover img,
+body.tema-escuro .report-button:focus img {
     filter: brightness(0) saturate(100%) invert(1); /* ícone sempre branco sobre o glass ciano do hover */
 }
 
@@ -481,7 +501,7 @@ body.tema-escuro .report-button img {
 }
 
 body:not(.tema-escuro) .report-button:disabled img {
-    filter: brightness(0) saturate(100%);
+    filter: invert(100%) brightness(0.25);
     opacity: 0.6;
 }
 
