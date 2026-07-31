@@ -38,7 +38,7 @@
 
 body.tema-escuro {
     --bg-color: #111111;
-    --panel-bg: #111111;
+    --panel-bg: #1c1c1c;
     --text-color: #ffffff;
     --glass-bg: rgba(40, 40, 40, 0.55);
     --glass-bg-strong: rgba(20, 20, 20, 0.55);
@@ -221,7 +221,7 @@ body:not(.tema-escuro) header .icon {
 .search-bar input[type="text"]:hover, .search-bar select:hover,
 .search-bar input[type="text"]:focus, .search-bar select:focus {
     border-color: var(--accent-border); /* Ciano de destaque */
-    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 10px 1px var(--accent-glow);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 4px 0px var(--accent-glow);
     outline: none; /* Remove a borda de foco padrão */
 }
 
@@ -251,6 +251,7 @@ body:not(.tema-escuro) header .icon {
     background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
     border-color: var(--accent-border);
     color: #ffffff;
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 4px 0px var(--accent-glow);
 }
 
 /* Animação suave: quando o botão ativo muda (ex.: "próximo" clicado e o
@@ -262,7 +263,7 @@ body:not(.tema-escuro) header .icon {
     border-color: var(--accent-border);
     color: #ffffff;
     transform: scale(1.15);
-    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 12px 2px var(--accent-glow);
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 5px 0px var(--accent-glow);
     animation: pageActivate var(--glass-duration) var(--glass-ease);
 }
 
@@ -382,7 +383,7 @@ body:not(.tema-escuro) header .icon {
     background: linear-gradient(135deg, var(--accent-glass-a-strong), var(--accent-glass-b-strong));
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 14px 2px var(--accent-glow); /* Ajusta sombra neon com ciano */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 5px 0px var(--accent-glow); /* Ajusta sombra neon com ciano */
 }
 
 .back-button {
@@ -409,6 +410,7 @@ body:not(.tema-escuro) header .icon {
     border-color: var(--accent-border);
     background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
     color: #ffffff;
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 4px 0px var(--accent-glow);
 }
 
 .report-button {
@@ -435,10 +437,13 @@ body:not(.tema-escuro) header .icon {
     border-color: var(--accent-border);
     background: linear-gradient(135deg, var(--accent-glass-a), var(--accent-glass-b));
     color: #ffffff;
+    box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 4px 0px var(--accent-glow);
 }
 
-/* Ícones do botão de voltar e de reportar acompanham o tema automaticamente
-   (escuro no modo claro, branco no modo escuro) através da variável --icon-fill */
+/* Ícones do botão de voltar e de reportar: forçados para preto (modo claro)
+   ou branco (modo escuro / hover) independente da cor original do arquivo,
+   usando brightness(0) para "zerar" a imagem e depois invert(1) quando
+   precisa ficar branca. Assim eles sempre acompanham --icon-fill. */
 .back-button img,
 .report-button img {
     width: 20px; /* Ajuste o tamanho da imagem conforme necessário */
@@ -450,19 +455,19 @@ body:not(.tema-escuro) header .icon {
 
 body:not(.tema-escuro) .back-button img,
 body:not(.tema-escuro) .report-button img {
-    filter: invert(0); /* ícones escuros no modo claro */
+    filter: brightness(0) saturate(100%); /* ícones pretos sólidos no modo claro */
 }
 
 body.tema-escuro .back-button img,
 body.tema-escuro .report-button img {
-    filter: invert(1) brightness(2); /* ícones brancos no modo escuro */
+    filter: brightness(0) saturate(100%) invert(1); /* ícones brancos sólidos no modo escuro */
 }
 
 .back-button:hover img,
 .back-button:focus img,
 .report-button:hover img,
 .report-button:focus img {
-    filter: invert(1) brightness(2); /* ícone sempre branco sobre o glass ciano do hover */
+    filter: brightness(0) saturate(100%) invert(1); /* ícone sempre branco sobre o glass ciano do hover */
 }
 
 .report-button:disabled {
@@ -475,8 +480,13 @@ body.tema-escuro .report-button img {
     pointer-events: none; /* Desativa a interação */
 }
 
-.report-button:disabled img {
-    filter: none;
+body:not(.tema-escuro) .report-button:disabled img {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.6;
+}
+
+body.tema-escuro .report-button:disabled img {
+    filter: brightness(0) saturate(100%) invert(1);
     opacity: 0.6;
 }
 
