@@ -159,7 +159,7 @@ body:not(.tema-escuro) header .icon {
     position: absolute;
     width: 14px; /* Ícones menores e mais discretos */
     height: 14px;
-    transition: opacity var(--glass-duration) var(--glass-ease), transform var(--glass-duration) var(--glass-ease); /* Transição suave */
+    transition: opacity var(--glass-duration) var(--glass-ease), transform var(--glass-duration) var(--glass-ease), filter var(--glass-duration) var(--glass-ease);
     opacity: 0; /* Começa invisível */
     pointer-events: none; /* Desabilita o clique inicialmente */
     fill: var(--icon-fill);
@@ -329,6 +329,14 @@ body:not(.tema-escuro) header .icon {
     transform: scale(1.10);
 }
 
+/* Bordinha branca ao redor da capa no hover/focus/active */
+.book-item:hover .book-thumbnail,
+.book-item:focus .book-thumbnail,
+.book-item:active .book-thumbnail {
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
 .book-title {
     cursor: pointer;
 }
@@ -339,6 +347,8 @@ body:not(.tema-escuro) header .icon {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     border-radius: 8px;
+    border: 2px solid transparent; /* evita salto de layout ao aparecer a borda branca */
+    transition: border-color var(--glass-duration) var(--glass-ease), box-shadow var(--glass-duration) var(--glass-ease);
 }
 
 /* Restante do código CSS */
@@ -453,15 +463,17 @@ body:not(.tema-escuro) header .icon {
     box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 4px 0px var(--accent-glow);
 }
 
-/* Ícones do botão de voltar e de reportar: cor no tom do texto do site
-   (--text-color) no estado normal, e sempre BRANCOS quando o botão está
-   em hover/focus (sobre o fundo glass ciano) — independente do tema.
+/* Ícones do botão de voltar, de reportar e da barra de pesquisa:
+   cor no tom do texto do site (--text-color) no estado normal, e sempre BRANCOS
+   quando o botão está em hover/focus (sobre o fundo glass ciano) — independente do tema.
    Antes, o filtro do :hover tinha a MESMA especificidade da regra base,
    então a ordem no arquivo é que decidia (e por isso não funcionava de
    forma confiável). Aqui a regra de hover é escrita depois e com o mesmo
    nível de especificidade da base para cada tema, garantindo a prioridade. */
 .back-button img,
-.report-button img {
+.report-button img,
+.report-icon,
+.search-icon {
     width: 20px; /* Ajuste o tamanho da imagem conforme necessário */
     height: 20px; /* Ajuste o tamanho da imagem conforme necessário */
     vertical-align: middle; /* Alinha a imagem verticalmente com o texto */
@@ -469,13 +481,24 @@ body:not(.tema-escuro) header .icon {
     transition: filter var(--glass-duration) var(--glass-ease);
 }
 
+/* Ícones da barra de pesquisa são menores */
+.search-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 0;
+}
+
 body:not(.tema-escuro) .back-button img,
-body:not(.tema-escuro) .report-button img {
+body:not(.tema-escuro) .report-button img,
+body:not(.tema-escuro) .report-icon,
+body:not(.tema-escuro) .search-icon {
     filter: invert(100%) brightness(0.25); /* aproxima o tom de --text-color (#33383d) no modo claro */
 }
 
 body.tema-escuro .back-button img,
-body.tema-escuro .report-button img {
+body.tema-escuro .report-button img,
+body.tema-escuro .report-icon,
+body.tema-escuro .search-icon {
     filter: brightness(0) saturate(100%) invert(1); /* branco, já bate com --text-color no modo escuro */
 }
 
@@ -483,10 +506,14 @@ body:not(.tema-escuro) .back-button:hover img,
 body:not(.tema-escuro) .back-button:focus img,
 body:not(.tema-escuro) .report-button:hover img,
 body:not(.tema-escuro) .report-button:focus img,
+body:not(.tema-escuro) .report-button:hover .report-icon,
+body:not(.tema-escuro) .report-button:focus .report-icon,
 body.tema-escuro .back-button:hover img,
 body.tema-escuro .back-button:focus img,
 body.tema-escuro .report-button:hover img,
-body.tema-escuro .report-button:focus img {
+body.tema-escuro .report-button:focus img,
+body.tema-escuro .report-button:hover .report-icon,
+body.tema-escuro .report-button:focus .report-icon {
     filter: brightness(0) saturate(100%) invert(1); /* ícone sempre branco sobre o glass ciano do hover */
 }
 
@@ -500,12 +527,14 @@ body.tema-escuro .report-button:focus img {
     pointer-events: none; /* Desativa a interação */
 }
 
-body:not(.tema-escuro) .report-button:disabled img {
+body:not(.tema-escuro) .report-button:disabled img,
+body:not(.tema-escuro) .report-button:disabled .report-icon {
     filter: invert(100%) brightness(0.25);
     opacity: 0.6;
 }
 
-body.tema-escuro .report-button:disabled img {
+body.tema-escuro .report-button:disabled img,
+body.tema-escuro .report-button:disabled .report-icon {
     filter: brightness(0) saturate(100%) invert(1);
     opacity: 0.6;
 }
