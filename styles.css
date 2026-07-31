@@ -159,24 +159,27 @@ header .icon {
 .pagination button {
     margin: 0 5px;
     padding: 8px 12px;
-    border: 2px solid #1A1A1A;
-    background-color: #1A1A1A; /* Fundo para o botão */
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.55), rgba(20, 20, 20, 0.35));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 6px rgba(0, 0, 0, 0.25);
     color: #ffffff; /* Cor do texto do botão */
     border-radius: 100px;
     cursor: pointer;
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .pagination button:hover {
     transform: scale(1.15);
-    background-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.55), rgba(139, 0, 0, 0.45));
+    border-color: rgba(178, 34, 34, 0.6);
 }
 
 .pagination button.active {
-    background-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.65), rgba(139, 0, 0, 0.55));
+    border-color: rgba(178, 34, 34, 0.7);
     transform: scale(1.15);
 }
 
@@ -260,7 +263,11 @@ header .icon {
 
 .download-link {
     display: inline-block; /* Faz o link se comportar como um botão */
-    background: linear-gradient(to right, #8B0000, #B22222); /* Substitui gradiente verde por vermelho rubi e vermelho rubi claro */
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.55), rgba(139, 0, 0, 0.55));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 10px rgba(139, 0, 0, 0.25);
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
@@ -269,23 +276,26 @@ header .icon {
     text-decoration: none; /* Remove o sublinhado do link */
     margin-bottom: 0.5em; /* Espaço abaixo do botão */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease, background 1s ease; /* Transição suave do gradiente e tamanho */
+    transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease;
 }
 
 .download-link:hover,
 .download-link:focus {
-    background: linear-gradient(to left, #8B0000, #B22222); /* Substitui gradiente verde por vermelho rubi e vermelho rubi claro */
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.65), rgba(178, 34, 34, 0.65));
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
-    box-shadow: 0 0 10px 2px rgba(139, 0, 0, 0.8); /* Ajusta sombra neon com vermelho rubi */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 12px 2px rgba(139, 0, 0, 0.5); /* Ajusta sombra neon com vermelho rubi */
 }
 
 .back-button {
-    background-color: #1A1A1A; /* Fundo para o botão */
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.55), rgba(20, 20, 20, 0.35));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
-    border: 2px solid #1A1A1A;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 6px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     text-align: center;
     position: relative;
@@ -293,20 +303,24 @@ header .icon {
     left: 0em; /* Distância da borda esquerda da área de detalhes */
     margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .back-button:focus,
 .back-button:hover {
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    border-color: rgba(178, 34, 34, 0.6);
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.4), rgba(139, 0, 0, 0.3));
 }
 
 .report-button {
-    background-color: #1A1A1A; /* Fundo preto para o botão */
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.55), rgba(20, 20, 20, 0.35));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #ffffff; /* Cor do texto do botão */
     padding: 0.8em;
     border-radius: 100px;
-    border: 2px solid #1A1A1A;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 6px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     text-align: center;
     position: absolute;
@@ -314,12 +328,13 @@ header .icon {
     right: 0; /* Distância da borda direita da área de detalhes */
     margin-bottom: 1em; /* Espaço abaixo do botão para ajustar a posição */
     outline: none; /* Remove a borda de foco padrão do navegador */
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .report-button:focus,
 .report-button:hover {
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    border-color: rgba(178, 34, 34, 0.6);
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.4), rgba(139, 0, 0, 0.3));
 }
 
 .back-button img,
@@ -331,9 +346,10 @@ header .icon {
 }
 
 .report-button:disabled {
-    background-color: #1A1A1A; /* Cor de fundo cinza escuro */
-    color: #ffffff; /* Cor do texto branco */
-    border: none; /* Remove a borda */
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.4), rgba(15, 15, 15, 0.3)); /* Glass neutro para estado desabilitado */
+    color: rgba(255, 255, 255, 0.6); /* Cor do texto branco esmaecido */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none;
     cursor: not-allowed; /* Indicador de que o botão não está clicável */
     pointer-events: none; /* Desativa a interação */
 }
@@ -389,31 +405,37 @@ body, header, h1, .search-bar input[type="text"], .search-bar select,
 
 /* Pagination button */
 .tema-claro .pagination button {
-    border-color: #e9ecef;
-    background-color: #e9ecef; /* Cor de fundo do botão de paginação */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(233, 236, 239, 0.55));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08);
     color: #111111; /* Cor do texto do botão de paginação */
 }
 
 /* Hover e Focus para Pagination Button */
 .tema-claro .pagination button:hover,
 .tema-claro .pagination button:focus {
-    background-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.55), rgba(139, 0, 0, 0.45));
     color: #ffffff;
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    border-color: rgba(178, 34, 34, 0.6);
 }
 
 .tema-claro .pagination button.active {
-    background-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.65), rgba(139, 0, 0, 0.55));
     color: #ffffff;
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    border-color: rgba(178, 34, 34, 0.7);
     transform: scale(1.15);
 }
 
 /* Back button e Report button */
 .tema-claro .back-button,
 .tema-claro .report-button {
-    border-color: #e9ecef;
-    background-color: #e9ecef; /* Cor de fundo dos botões */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(233, 236, 239, 0.55));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08);
     color: #111111; /* Cor do texto dos botões */
 }
 
@@ -421,7 +443,9 @@ body, header, h1, .search-bar input[type="text"], .search-bar select,
 .tema-claro .report-button:hover,
 .tema-claro .back-button:focus,
 .tema-claro .report-button:focus {
-    border-color: #8B0000; /* Substitui #3CB371 por vermelho rubi */
+    border-color: rgba(178, 34, 34, 0.6);
+    background: linear-gradient(135deg, rgba(178, 34, 34, 0.35), rgba(139, 0, 0, 0.25));
+    color: #ffffff;
 }
 
 /* Book details */
