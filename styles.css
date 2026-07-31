@@ -5,7 +5,7 @@
    SISTEMA DE VARIÁVEIS — GLASS DESIGN SYSTEM
    Modo claro é o padrão (sem classe extra no body).
    A classe .tema-escuro no body ativa o modo escuro.
-   As cores de destaque (rubi) são as MESMAS nos dois modos — apenas o
+   As cores de destaque (ciano) são as MESMAS nos dois modos — apenas o
    "vidro" de fundo, bordas e texto mudam.
    ========================================================================== */
 :root {
@@ -14,26 +14,26 @@
     --glass-duration-fast: 0.2s;
     --glass-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Cores de destaque — vivas e idênticas em ambos os modos */
-    --accent-solid-a: #8B0000;
-    --accent-solid-b: #B22222;
-    --accent-glass-a: rgba(139, 0, 0, 0.6);
-    --accent-glass-b: rgba(178, 34, 34, 0.6);
-    --accent-glass-a-strong: rgba(139, 0, 0, 0.8);
-    --accent-glass-b-strong: rgba(178, 34, 34, 0.8);
-    --accent-border: rgba(178, 34, 34, 0.65);
-    --accent-glow: rgba(178, 34, 34, 0.55);
+    /* Cores de destaque — azul ciano refrescante e refinado, idênticas em ambos os modos */
+    --accent-solid-a: #0E7490;
+    --accent-solid-b: #22D3EE;
+    --accent-glass-a: rgba(14, 116, 144, 0.6);
+    --accent-glass-b: rgba(34, 211, 238, 0.6);
+    --accent-glass-a-strong: rgba(14, 116, 144, 0.8);
+    --accent-glass-b-strong: rgba(34, 211, 238, 0.8);
+    --accent-border: rgba(34, 211, 238, 0.65);
+    --accent-glow: rgba(34, 211, 238, 0.55);
 
     /* Modo claro (padrão) */
     --bg-color: #f4f4f6;
     --panel-bg: #ffffff;
-    --text-color: #111111;
+    --text-color: #33383d;
     --glass-bg: rgba(255, 255, 255, 0.55);
     --glass-bg-strong: rgba(255, 255, 255, 0.75);
-    --glass-border: rgba(17, 17, 17, 0.1);
+    --glass-border: rgba(51, 56, 61, 0.1);
     --glass-shine: rgba(255, 255, 255, 0.6);
-    --glass-shadow: rgba(17, 17, 17, 0.1);
-    --icon-fill: #111111;
+    --glass-shadow: rgba(51, 56, 61, 0.1);
+    --icon-fill: #33383d;
 }
 
 body.tema-escuro {
@@ -77,6 +77,37 @@ header h1 {
     transition: color var(--glass-duration) var(--glass-ease);
 }
 
+/* Efeito contínuo: um brilho ciano percorre o título do cabeçalho,
+   sempre, apenas no modo claro. Usa um gradiente "recortado" no texto
+   que se move da esquerda para a direita em loop infinito. */
+body:not(.tema-escuro) header h1 {
+    background: linear-gradient(
+        100deg,
+        var(--text-color) 0%,
+        var(--text-color) 35%,
+        var(--accent-solid-b) 48%,
+        var(--accent-solid-a) 52%,
+        var(--text-color) 65%,
+        var(--text-color) 100%
+    );
+    background-size: 250% 100%;
+    background-position: 200% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: headerShine 5s linear infinite;
+}
+
+@keyframes headerShine {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
 header h1 .animate-text {
     opacity: 0; /* Começa invisível */
     transform: translateX(-20px); /* Começa deslocado à esquerda */
@@ -102,6 +133,16 @@ header .icon {
     vertical-align: middle; /* Alinha o ícone com o texto se necessário */
     animation: pulse 1.5s infinite;
     cursor: pointer; /* Indica que é clicável */
+    fill: var(--icon-fill); /* Caso o ícone seja um SVG inline com fill herdado */
+}
+
+/* Ícone do título em azul ciano no modo claro.
+   - Se o ícone for um <svg> inline (com fill/currentColor), a linha "fill" acima já resolve.
+   - Se for uma <img> (png/svg como arquivo), o filtro abaixo aproxima a mesma cor ciano
+     (#0E7490). Ajuste o hue-rotate/saturate se a tonalidade não ficar exata. */
+body:not(.tema-escuro) header .icon {
+    fill: var(--accent-solid-a);
+    filter: invert(29%) sepia(54%) saturate(1531%) hue-rotate(163deg) brightness(93%) contrast(94%);
 }
 
 @keyframes pulse {
@@ -132,8 +173,8 @@ header .icon {
     right: 168px; /* Ajuste conforme necessário para alinhar com o campo de entrada */
     top: 50%;
     transform: translateY(-50%);
-    width: 20px; /* Igual ao tamanho dos ícones */
-    height: 20px; /* Igual ao tamanho dos ícones */
+    width: 14px; /* Ícones menores e mais discretos */
+    height: 14px;
     cursor: pointer;
     display: flex; /* Permite empilhar os ícones um sobre o outro */
     justify-content: center;
@@ -142,8 +183,8 @@ header .icon {
 
 .search-icon {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 14px; /* Ícones menores e mais discretos */
+    height: 14px;
     transition: opacity var(--glass-duration) var(--glass-ease), transform var(--glass-duration) var(--glass-ease); /* Transição suave */
     opacity: 0; /* Começa invisível */
     pointer-events: none; /* Desabilita o clique inicialmente */
@@ -205,7 +246,7 @@ header .icon {
 
 .search-bar input[type="text"]:hover, .search-bar select:hover,
 .search-bar input[type="text"]:focus, .search-bar select:focus {
-    border-color: var(--accent-border); /* Substitui #3CB371 por vermelho rubi */
+    border-color: var(--accent-border); /* Ciano de destaque */
     box-shadow: inset 0 1px 0 var(--glass-shine), 0 0 10px 1px var(--accent-glow);
     outline: none; /* Remove a borda de foco padrão */
 }
@@ -296,7 +337,7 @@ header .icon {
 .book-item:hover,
 .book-item:focus {
     cursor: default;
-    color: var(--accent-solid-a); /* Substitui #3CB371 por vermelho rubi */
+    color: var(--accent-solid-a); /* Ciano de destaque */
     transform: scale(1.10);
 }
 
@@ -325,7 +366,11 @@ header .icon {
     border: none;
     border-radius: 0px;
     color: var(--text-color); /* Cor do texto para contraste */
-    padding: 0;
+    /* Padding aumentado (especialmente no topo) para que a área clara do
+       painel acomode o back-button e o report-button, que são posicionados
+       com "top: -1.2em" e antes ficavam parcialmente fora do fundo claro. */
+    padding: 3.5em 1.5em 2.5em;
+    box-sizing: border-box;
     position: relative; /* Adicione isto para posicionamento relativo */
 }
 
@@ -367,7 +412,7 @@ header .icon {
     background: linear-gradient(135deg, var(--accent-glass-a-strong), var(--accent-glass-b-strong));
     color: #ffffff; /* Cor do texto ao passar o mouse ou focar */
     transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 14px 2px var(--accent-glow); /* Ajusta sombra neon com vermelho rubi */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 14px 2px var(--accent-glow); /* Ajusta sombra neon com ciano */
 }
 
 .back-button {
@@ -447,7 +492,7 @@ body.tema-escuro .report-button img {
 .back-button:focus img,
 .report-button:hover img,
 .report-button:focus img {
-    filter: invert(1) brightness(2); /* ícone sempre branco sobre o glass rubi do hover */
+    filter: invert(1) brightness(2); /* ícone sempre branco sobre o glass ciano do hover */
 }
 
 .report-button:disabled {
