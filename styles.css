@@ -77,35 +77,9 @@ header h1 {
     transition: color var(--glass-duration) var(--glass-ease);
 }
 
-/* Efeito contínuo: um brilho ciano percorre o título do cabeçalho,
-   sempre, apenas no modo claro. Usa um gradiente "recortado" no texto
-   que se move da esquerda para a direita em loop infinito. */
+/* Título do cabeçalho na cor de destaque ciano, sólido, sem efeitos, apenas no modo claro. */
 body:not(.tema-escuro) header h1 {
-    background: linear-gradient(
-        100deg,
-        var(--text-color) 0%,
-        var(--text-color) 35%,
-        var(--accent-solid-b) 48%,
-        var(--accent-solid-a) 52%,
-        var(--text-color) 65%,
-        var(--text-color) 100%
-    );
-    background-size: 250% 100%;
-    background-position: 200% 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: headerShine 5s linear infinite;
-}
-
-@keyframes headerShine {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
+    color: var(--accent-solid-a);
 }
 
 header h1 .animate-text {
@@ -362,15 +336,11 @@ body:not(.tema-escuro) header .icon {
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente os itens */
     margin: 2em;
-    background: var(--panel-bg); /* Fundo dos detalhes do livro */
+    background: transparent; /* Fundo transparente ao invés do painel claro */
     border: none;
     border-radius: 0px;
     color: var(--text-color); /* Cor do texto para contraste */
-    /* Padding aumentado (especialmente no topo) para que a área clara do
-       painel acomode o back-button e o report-button, que são posicionados
-       com "top: -1.2em" e antes ficavam parcialmente fora do fundo claro. */
-    padding: 3.5em 1.5em 2.5em;
-    box-sizing: border-box;
+    padding: 0;
     position: relative; /* Adicione isto para posicionamento relativo */
 }
 
